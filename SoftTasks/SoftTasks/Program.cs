@@ -10,8 +10,26 @@ namespace SoftTasks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+
+            while (true)
+            {
+                string index = Console.ReadLine();
+                switch (index)
+                {
+                    case "0":
+                        break;
+                    case "1":
+                        Console.WriteLine("Enter fib number");
+                        Console.WriteLine(Methods.Fibonachi(int.Parse(Console.ReadLine().ToString())));
+                        break;
+                    case "2":
+                        Console.WriteLine("Enter fib number");
+                        Console.WriteLine(Methods.Fibonachi2(int.Parse(Console.ReadLine().ToString())));
+                        break;
+                }
+
+            }
+
         }
     }
 }
