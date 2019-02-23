@@ -9,7 +9,7 @@ namespace SoftTasks
     static class Methods
     {
         static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps" , "0.Exit" };    // Add method name befor "0.Exit"
+            "3.WayToCoverIn3Steps", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
 
 
         static public int Mod_Fibbonachi(int n)                  //2
@@ -49,6 +49,27 @@ namespace SoftTasks
             }
             return WayToCoverIn3Steps(n - 1) + WayToCoverIn3Steps(n - 2) + WayToCoverIn3Steps(n - 3);
 
+        }
+        static public int myPairs(int n)
+        {
+            int[] myArr = new int[n + 1];
+            myArr[0] = myArr[1] = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                myArr[i] = 0;
+                for (int j = 0; j < i; j++)
+                    myArr[i] += myArr[j] * myArr[i - j - 1];
+            }
+            return myArr[n];
+        }
+        static public int countAllWays(int n)
+        {
+            if (n <= 1)
+            {
+                Console.WriteLine("Invalid");
+                return 0;
+            }
+            return myPairs(n / 2);
         }
 
     }
