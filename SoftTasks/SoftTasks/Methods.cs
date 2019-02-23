@@ -8,13 +8,11 @@ namespace SoftTasks
 {
     static class Methods
     {
-        static public void PrintMethList()  // Add method name here
-        {
-            Console.WriteLine("1.Fibbonachi");
-            Console.WriteLine("2.Mod_Fibbonachi");
-            Console.WriteLine("0.Exit");
-        }
-        static public int Mod_Fibbonachi(int n)
+        static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
+            "3.WayToCoverIn3Steps" , "0.Exit" };    // Add method name befor "0.Exit"
+
+
+        static public int Mod_Fibbonachi(int n)                  //2
         {
 
             if (n <= 3)
@@ -23,7 +21,7 @@ namespace SoftTasks
             }
             return Mod_Fibbonachi(n - 1) + Mod_Fibbonachi(n - 3);
         }
-        static public int Fibbonachi(int n)
+        static public int Fibbonachi(int n)                   // 1
         {
             int f1 = 1;
             int f2 = 2;
@@ -39,6 +37,19 @@ namespace SoftTasks
             return fsum;
         }
 
+        static public int WayToCoverIn3Steps(int n)           // 3
+        {
+            if (n == 0 || n == 1)
+            {
+                return 1;
+            }
+            if (n == 2)
+            {
+                return 2;
+            }
+            return WayToCoverIn3Steps(n - 1) + WayToCoverIn3Steps(n - 2) + WayToCoverIn3Steps(n - 3);
+
+        }
 
     }
 }

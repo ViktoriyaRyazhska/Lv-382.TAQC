@@ -16,13 +16,14 @@ namespace SoftTasks
             while (true)
             {
                 Console.WriteLine("Enter task number");
-                Methods.PrintMethList();               // List of methods
+                foreach (string str in Methods.MethodsList)
+                    Console.WriteLine(str);                 // List of methods
                 string index = Console.ReadLine();
                 if(index == "0")         // Exit
                 {
                     break;
                 }
-                switch (index)  // Invoke method depents on number. Add your methods here.
+                switch (index)  // Invoke method depents on number. Add your methods here as a case.
                 {
                     case "1":
                         a = Methods.Fibbonachi;          // Delegate that contain your Method. Add according to template or write custome. 
@@ -30,6 +31,10 @@ namespace SoftTasks
                         break;
                     case "2":
                         a = Methods.Mod_Fibbonachi;
+                        Print(a);
+                        break;
+                    case "3":
+                        a = Methods.WayToCoverIn3Steps;
                         Print(a);
                         break;
                 }
@@ -40,8 +45,18 @@ namespace SoftTasks
         }
         public static void Print(InvokeMeth a)
         {
+            int n;
             Console.WriteLine("Enter number");
-            int n = int.Parse(Console.ReadLine().ToString());
+            try
+            {
+                n = int.Parse(Console.ReadLine().ToString());
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+            
             Console.WriteLine(a.Invoke(n));
             Console.ReadKey();
         }
