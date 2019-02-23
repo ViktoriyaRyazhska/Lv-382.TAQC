@@ -53,7 +53,8 @@ namespace SoftTasks
             }
             catch (Exception)
             {
-
+                Console.WriteLine("Invalid input");
+                Console.ReadKey();
                 return;
             }
             
