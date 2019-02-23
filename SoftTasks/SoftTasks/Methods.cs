@@ -12,6 +12,7 @@ namespace SoftTasks
         {
             Console.WriteLine("1.Fibbonachi");
             Console.WriteLine("2.Mod_Fibbonachi");
+            Console.WriteLine("3.Ways to sum array elements with repetition");
             Console.WriteLine("0.Exit");
         }
         static public int Mod_Fibbonachi(int n)
@@ -39,6 +40,37 @@ namespace SoftTasks
             return fsum;
         }
 
+        /// <summary>
+        /// Khrystyna Fedun
+        /// </summary>
+        public static int CountWays(int N)
+        {
+            Console.WriteLine("Input array, e.g(1,4,3,7):");
 
+            string[] values = Console.ReadLine().Split(',');
+            int[] arr = new int[values.Length];
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                arr[i] = int.Parse(values[i]);
+            }
+            int[] count = new int[N + 1];
+            count[0] = 1;
+
+            for (int i = 1; i <= N; i++)
+            {
+                for (int j = 0; j < arr.Length; j++)
+                {
+
+                    if (i >= arr[j])
+                    {
+                        count[i] += count[i - arr[j]];
+                    }
+                }
+            }
+
+            Console.Write("Count ways:");
+            return count[N];
+        }
     }
 }

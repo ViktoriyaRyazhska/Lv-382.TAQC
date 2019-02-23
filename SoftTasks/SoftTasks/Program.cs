@@ -32,6 +32,10 @@ namespace SoftTasks
                         a = Methods.Mod_Fibbonachi;
                         Print(a);
                         break;
+                    case "3":
+                        a = Methods.CountWays;
+                        Print(a);
+                        break;
                 }
                 Console.Clear();
 
