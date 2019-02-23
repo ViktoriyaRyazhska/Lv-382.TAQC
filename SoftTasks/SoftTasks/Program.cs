@@ -24,9 +24,10 @@ namespace SoftTasks
                         break;
                     case "2":
                         Console.WriteLine("Enter fib number");
-                        Console.WriteLine(Methods.Fibonachi2(int.Parse(Console.ReadLine().ToString())));
+                        Console.WriteLine(Methods.Fibonachiv2(int.Parse(Console.ReadLine().ToString())));
                         break;
                 }
+                Console.Clear();
 
             }
 

@@ -12,7 +12,7 @@ namespace SoftTasks
         {
             if (n == 0)
             {
-                return 1;
+                return 0;
             }
             if (n == 1)
             {
@@ -20,22 +20,20 @@ namespace SoftTasks
             }
             return Fibonachi(n - 1) + Fibonachi(n - 2);
         }
-        static public int Fibonachi2(int n)
+        static public int Fibonachiv2(int n)
         {
-            int s = 0;
-            for(int i = 1; i<=n; i++)
+            int f1 = 1;
+            int f2 = 2;
+            int fsum = 0;
+            if (n == 1) fsum = f1;
+            else if (n == 2) fsum = f2;
+            for (int i = 2; i < n; i++)
             {
-                if (i == 1)
-                {
-                    s = 1;
-                }
-                if (i == 2)
-                {
-                    s = 2;
-                }
-                s += (s - 2) + (s - 1);
+                fsum = f1 + f2;
+                f1 = f2;
+                f2 = fsum;
             }
-            return s;
+            return fsum;
         }
     }
 }
