@@ -13,13 +13,14 @@ namespace SoftTasks
 
             while (true)
             {
+                Console.WriteLine("Enter task number");
                 string index = Console.ReadLine();
                 switch (index)
                 {
                     case "0":
                         break;
                     case "1":
-                        Console.WriteLine("Enter fib number");
+                        Console.WriteLine("Enter fib 1 number");
                         Console.WriteLine(Methods.Fibonachi(int.Parse(Console.ReadLine().ToString())));
                         break;
                     case "2":
