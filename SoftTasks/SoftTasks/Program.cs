@@ -42,7 +42,10 @@ namespace SoftTasks
                         a = Methods.FriendPairs;
                         Print(a);
                         break;
-
+                    case "8":
+                        a = Methods.countAllWays;
+                        Print(a);
+                        break;
                 }
                 Console.Clear();
 
