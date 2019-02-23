@@ -16,13 +16,15 @@ namespace SoftTasks
             while (true)
             {
                 Console.WriteLine("Enter task number");
-                Methods.PrintMethList();               // List of methods
+                foreach (string str in Methods.MethodsList)
+                    Console.WriteLine(str);                 // List of methods
                 string index = Console.ReadLine();
-                if(index == "0")         // Exit
+                if (index == "0")         // Exit
                 {
                     break;
                 }
-                switch (index)  // Invoke method depents on number. Add your methods here.
+
+                switch (index)  // Invoke method depents on number. Add your methods here as a case.
                 {
                     case "1":
                         a = Methods.Fibbonachi;          // Delegate that contain your Method. Add according to template or write custome. 
@@ -34,6 +36,15 @@ namespace SoftTasks
                         break;
                     case "3":
                         a = Methods.CountWays;
+                        a = Methods.WayToCoverIn3Steps;
+                        Print(a);
+                        break;
+                    case "4":
+                        a = Methods.FriendPairs;
+                        Print(a);
+                        break;
+                    case "8":
+                        a = Methods.countAllWays;
                         Print(a);
                         break;
                 }
@@ -42,11 +53,23 @@ namespace SoftTasks
             }
 
         }
+
         public static void Print(InvokeMeth a)
         {
+            int n;
             Console.WriteLine("Enter number");
-            int n = int.Parse(Console.ReadLine().ToString());
-            Console.WriteLine(a.Invoke(n));
+            try
+            {
+                n = int.Parse(Console.ReadLine().ToString());             
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("Output:" + "\n" + a.Invoke(n));
             Console.ReadKey();
         }
     }
