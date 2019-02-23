@@ -12,6 +12,7 @@ namespace SoftTasks
         {
             Console.WriteLine("1.Fibbonachi");
             Console.WriteLine("2.Mod_Fibbonachi");
+            Console.WriteLine("3.FriendPairs");
             Console.WriteLine("0.Exit");
         }
         static public int Mod_Fibbonachi(int n)
@@ -39,6 +40,20 @@ namespace SoftTasks
             return fsum;
         }
 
+        static public int FriendPairs(int n)
+        {
+            int[] arr = new int[n + 1];
+ 
+            for (int i = 0; i <= n; i++)
+            {
+                if (i <= 2)
+                    arr[i] = i;
+                else
+                    arr[i] = arr[i - 1] + (i - 1)
+                                    * arr[i - 2];
+            }
+            return arr[n];
+        }
 
     }
 }

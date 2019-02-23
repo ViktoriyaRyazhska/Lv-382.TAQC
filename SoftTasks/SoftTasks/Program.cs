@@ -32,6 +32,10 @@ namespace SoftTasks
                         a = Methods.Mod_Fibbonachi;
                         Print(a);
                         break;
+                    case "3":
+                        a = Methods.FriendPairs;
+                        Print(a);
+                        break;
                 }
                 Console.Clear();
 
@@ -42,7 +46,7 @@ namespace SoftTasks
         {
             Console.WriteLine("Enter number");
             int n = int.Parse(Console.ReadLine().ToString());
-            Console.WriteLine(a.Invoke(n));
+            Console.WriteLine("Output:" + "\n" + a.Invoke(n));
             Console.ReadKey();
         }
     }
