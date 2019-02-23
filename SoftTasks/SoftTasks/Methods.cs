@@ -8,19 +8,22 @@ namespace SoftTasks
 {
     static class Methods
     {
-        static public int Fibonachi(int n)
+        static public void PrintMethList()  // Add method name here
         {
-            if (n == 0)
-            {
-                return 0;
-            }
-            if (n == 1)
+            Console.WriteLine("1.Fibbonachi");
+            Console.WriteLine("2.Mod_Fibbonachi");
+            Console.WriteLine("0.Exit");
+        }
+        static public int Mod_Fibbonachi(int n)
+        {
+
+            if (n <= 3)
             {
                 return 1;
             }
-            return Fibonachi(n - 1) + Fibonachi(n - 2);
+            return Mod_Fibbonachi(n - 1) + Mod_Fibbonachi(n - 3);
         }
-        static public int Fibonachiv2(int n)
+        static public int Fibbonachi(int n)
         {
             int f1 = 1;
             int f2 = 2;

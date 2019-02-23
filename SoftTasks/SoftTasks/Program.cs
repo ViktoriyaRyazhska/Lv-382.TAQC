@@ -8,24 +8,29 @@ namespace SoftTasks
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-
             while (true)
             {
                 Console.WriteLine("Enter task number");
+                Methods.PrintMethList();               // List of methods
                 string index = Console.ReadLine();
-                switch (index)
+                if(index == "0")         // Exit
                 {
-                    case "0":
-                        break;
+                    break;
+                }
+                switch (index)  // Depends on number invoke method. Add your method here.
+                {
                     case "1":
-                        Console.WriteLine("Enter fib 1 number");
-                        Console.WriteLine(Methods.Fibonachi(int.Parse(Console.ReadLine().ToString())));
+                        Console.WriteLine("Enter number");    
+                        Console.WriteLine(Methods.Fibbonachi(int.Parse(Console.ReadLine().ToString())));
+                        Console.ReadKey();
                         break;
                     case "2":
-                        Console.WriteLine("Enter fib number");
-                        Console.WriteLine(Methods.Fibonachiv2(int.Parse(Console.ReadLine().ToString())));
+                        Console.WriteLine("Enter number");
+                        Console.WriteLine(Methods.Mod_Fibbonachi(int.Parse(Console.ReadLine().ToString())));
+                        Console.ReadKey();
                         break;
                 }
                 Console.Clear();
