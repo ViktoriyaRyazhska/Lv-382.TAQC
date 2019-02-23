@@ -4,3 +4,4 @@ Hrystya - Ways to write n using array elements
 Oleg - longest subsequence with difference 1
 Nika - interesting rows
 Serhii - Paths without crossing
+Sasha - Friend pairs
