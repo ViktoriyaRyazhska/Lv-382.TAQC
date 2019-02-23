@@ -35,12 +35,15 @@ namespace SoftTasks
                         Print(a);
                         break;
                     case "3":
-                        a = Methods.CountWays;
                         a = Methods.WayToCoverIn3Steps;
                         Print(a);
                         break;
                     case "4":
                         a = Methods.FriendPairs;
+                        Print(a);
+                        break;
+                    case "5":
+                        a = Methods.CountWays;
                         Print(a);
                         break;
                     case "8":

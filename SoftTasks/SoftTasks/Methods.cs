@@ -8,20 +8,8 @@ namespace SoftTasks
 {
     static class Methods
     {
-        static public void PrintMethList()  // Add method name here
-        {
-            Console.WriteLine("1.Fibbonachi");
-            Console.WriteLine("2.Mod_Fibbonachi");
-            Console.WriteLine("3.Ways to sum array elements with repetition");
-            Console.WriteLine("0.Exit");
-        }
-        static public int Mod_Fibbonachi(int n)
-
-    
         static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps", "4.FriendPairs", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
-
-
+            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
         {
@@ -53,7 +41,7 @@ namespace SoftTasks
         /// <summary>
         /// Khrystyna Fedun
         /// </summary>
-        public static int CountWays(int N)
+        public static int CountWays(int N)      //5
         {
             Console.WriteLine("Input array, e.g(1,4,3,7):");
 
@@ -80,7 +68,6 @@ namespace SoftTasks
                 }
             }
 
-            Console.Write("Count ways:");
             return count[N];
         }
 
