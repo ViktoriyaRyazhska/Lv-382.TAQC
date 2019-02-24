@@ -1,0 +1,8 @@
+Valik - Ways to cover in 3 steps
+Natalya - Ways to write n as sum of more positive.....
+Hrystya - Ways to write n using array elements
+Oleg - longest subsequence with difference 1
+Nika - interesting rows
+Serhii - Paths without crossing
+Sasha - Friend pairs
+Roman - Work to be with High-effort or with Low-effort
