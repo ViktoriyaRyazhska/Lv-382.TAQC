@@ -24,7 +24,7 @@ namespace SoftTasks.CodeWars.Level8
     }
 
     [TestFixture]
-    public class Tests
+    public class TestsPositiveSum
     {
         [Test]
         [TestCase(new int[] { 1, 2, 3, 4, 5 }, ExpectedResult = 15)]

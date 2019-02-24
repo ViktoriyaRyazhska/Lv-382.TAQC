@@ -1,3 +1,4 @@
+using SoftTasks.CodeWars.Level8;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,13 @@ namespace SoftTasks
     {
         static void Main(string[] args)
         {
-          
+            //int[] input = { 1, -2, 5 };
+            //int expected = 6;
+
+            //if (PositiveSum.GetPositiveSum(input) == 6)
+            //{
+            //    Console.WriteLine("Test passed: input {}, ex");
+            //}
 
 
         }

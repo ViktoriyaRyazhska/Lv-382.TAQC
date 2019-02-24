@@ -50,7 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeWars\Level8\ASCII.cs" />
+    <Compile Include="CodeWars\Level8\Bool.cs" />
+    <Compile Include="CodeWars\Level8\Calculator.cs" />
+    <Compile Include="CodeWars\Level8\ChampionshipScore.cs" />
+    <Compile Include="CodeWars\Level8\CompareString.cs" />
+    <Compile Include="CodeWars\Level8\CountingSheep.cs" />
+    <Compile Include="CodeWars\Level8\CountNegPos.cs" />
+    <Compile Include="CodeWars\Level8\EvenOdd.cs" />
+    <Compile Include="CodeWars\Level8\MakeNegative.cs" />
+    <Compile Include="CodeWars\Level8\MinNumber.cs" />
+    <Compile Include="CodeWars\Level8\OppositeNumber.cs" />
     <Compile Include="CodeWars\Level8\PositiveSum.cs" />
+    <Compile Include="CodeWars\Level8\Questions.cs" />
+    <Compile Include="CodeWars\Level8\RemoveFirstLast.cs" />
+    <Compile Include="CodeWars\Level8\RemoveSpaces.cs" />
+    <Compile Include="CodeWars\Level8\Rent.cs" />
+    <Compile Include="CodeWars\Level8\Reverse.cs" />
+    <Compile Include="CodeWars\Level8\Summation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,7 +75,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
