@@ -9,7 +9,7 @@ namespace SoftTasks
     static class Methods
     {
         static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
+            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "6.Longest subsequence with difference one.", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
         {
@@ -123,6 +123,43 @@ namespace SoftTasks
             return myPairs(n / 2);
         }
 
+        // Oleh Hnachuk
+        public static int LongestSequenceWithDiff1(int n)      //6
+        {
+            Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+
+            string[] splitInput = Console.ReadLine().Split(',');
+            int[] valuesArr = new int[splitInput.Length];
+
+            for (int k = 0; k < splitInput.Length; k++)
+            {
+                valuesArr[k] = int.Parse(splitInput[k]);
+            }
+
+            int l = valuesArr.Length;
+            int i = 0, maxlen = 0;
+            while (i < l)
+            {
+                int j = i;
+                while (i + 1 < l
+                       && (Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 1
+                           || Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 0))
+                {
+                    i++;
+                }
+                int currLen = i - j + 1;
+
+                if (maxlen < currLen)
+                    maxlen = currLen;
+
+                if (j == i)
+                    i++;
+            }
+
+            maxlen = (maxlen == 1) ? 0 : maxlen;
+
+            return maxlen;
+        }
 
     }
 }

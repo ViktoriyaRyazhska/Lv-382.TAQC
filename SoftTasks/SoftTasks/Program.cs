@@ -46,6 +46,10 @@ namespace SoftTasks
                         a = Methods.CountWays;
                         Print(a);
                         break;
+                    case "6":
+                        a = Methods.LongestSequenceWithDiff1;
+                        Print(a);
+                        break;
                     case "8":
                         a = Methods.countAllWays;
                         Print(a);
