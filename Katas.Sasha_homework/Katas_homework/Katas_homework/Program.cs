@@ -34,5 +34,65 @@ namespace Katas_homework
             return sum;
         }
 
+
+        public static bool IsOpposite(string s1, string s2)    //Are they opposite?
+        {
+            string stemp = "";
+
+            foreach (char ch in s1)
+            {
+                if (System.Char.IsLower(ch))
+                {
+                    stemp += System.Char.ToUpper(ch);
+                }
+                else stemp += System.Char.ToLower(ch);
+            }
+
+            if (string.IsNullOrEmpty(stemp) && string.IsNullOrEmpty(s2))
+                return false;
+            else return string.Equals(stemp, s2);
+        }
+
+
+        public static int Opposite(int number)    //Opposite number
+        {
+            return number * -1;
+        }
+
+
+        public static int summation(int num)    //Grasshopper - Summation
+        {
+            int sum = 0;
+            for (int i = 1; i <= num; i++)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+
+
+        public static string AreYouPlayingBanjo(string name)    //Are You Playing Banjo?
+        {
+            if (name[0].Equals('R') || name[0].Equals('r'))
+                return name + " plays banjo";
+            else return name + " does not play banjo";
+        }
+
+
+        public static string NoSpace(string input)    //Remove String Spaces
+        {
+            return input.Replace(" ", "");
+        }
+
+
+
+
+
+
+        static void Main(string[] args)
+        {
+            string s1 = "ab", s2 = "AB";
+            System.Console.WriteLine(IsOpposite(s1, s2));
+        }
     }
 }
