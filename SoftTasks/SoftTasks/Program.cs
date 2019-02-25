@@ -68,7 +68,7 @@ namespace SoftTasks
         public static void Print(InvokeMeth a)
         {
             int n;
-            Console.WriteLine("Enter numbers");
+            Console.WriteLine("Enter number");
             try
             {
                 n = int.Parse(Console.ReadLine().ToString());             
