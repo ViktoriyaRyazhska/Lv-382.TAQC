@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
 
 
 namespace Katas_homework
 {
-    class Program
+    public static class Program
     {
 
         public static char GetChar(int charcode)   //get character from ASCII Value
@@ -214,7 +215,7 @@ namespace Katas_homework
         }
 
 
-        public int GetSum(int a, int b)    //Beginner Series #3 Sum of Numbers
+        public static int GetSum(int a, int b)    //Beginner Series #3 Sum of Numbers
         {
             int sum = 0;
             if (a < b)
@@ -332,6 +333,103 @@ namespace Katas_homework
         }
 
 
+        public static String Accum(string s)    //Mumbling
+        {
+            List<string> list = new List<string>();
+
+            for (int i = 0; i < s.Length; i++)
+                list.Add(s[i].ToString().ToLower());
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                string temp = list[i];
+                list[i] = list[i].ToUpper();
+                
+                for (int j = 0; j < i; j++)
+                {
+                    list[i] += temp;
+                }
+            }
+            return String.Join("-", list);
+        }
+
+
+        public static string[][] Partlist(string[] arr)    //Parts of a list
+        {
+            string[][] res = new string[arr.Length - 1][];
+            for (int i = 1; i < arr.Length; ++i)
+            {
+                var first = string.Join(" ", arr.Take(i));
+                var other = string.Join(" ", arr.Skip(i));
+                res[i - 1] = new string[] { first, other };
+            }
+            return res;
+        }
+
+
+        public static string VertMirror(string strng)    //Moves in squared strings (I)
+        {
+            return string.Join("\n", strng.Split('\n').Select(i => string.Concat(i.Reverse())));
+        }
+        public static string HorMirror(string strng)     //Moves in squared strings (I)
+        {
+            return string.Join("\n", strng.Split('\n').Reverse());
+        }   
+        public static string Oper(Func<string, string> fct, string s)    //Moves in squared strings (I)
+        {
+            return fct(s);
+        }
+
+
+        public static double[] Tribonacci(double[] signature, int n)   //Tribonacci Sequence
+        {
+            if (n == 0) return new double[] { };
+
+            double[] result = new double[n];
+
+
+            if (n < signature.Length)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    result[i] = signature[i];
+                }
+
+                return result;
+            }
+
+            for (int i = 0; i < signature.Length; i++)
+                result[i] = signature[i];
+
+            for (int i = signature.Length; i < n; i++)
+            {
+                result[i] = result[i - 1] + result[i - 2] + result[i - 3];
+            }
+            return result;
+        }
+
+
+        public static string CamelCase(this string str)      //CamelCase Method
+        {
+            str = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str);
+            return str.Replace(" ", "");
+        }
+
+
+        public static long findNb(long m)    //Build a pile of Cubes
+        {
+            decimal sum = 0;
+            int n = 0;
+
+            while (sum < m)
+            {
+                n++;
+                sum += Convert.ToDecimal(Math.Pow(n, 3));
+            }
+
+            if (sum == m) return n;
+            else return (-1);
+        }
 
 
 
@@ -341,28 +439,7 @@ namespace Katas_homework
 
         static void Main(string[] args)
         {
-            List<int> dinosaurs = new List<int>();
-
-            dinosaurs.Add(4);
-            dinosaurs.Add(5);
-            dinosaurs.Add(3);
-            dinosaurs.Add(12);
-            dinosaurs.Add(5);
-            dinosaurs.Add(111);
-
-            Console.WriteLine();
-            foreach (int dinosaur in dinosaurs)
-            {
-                Console.WriteLine(dinosaur);
-            }
-
-            List<int> dinosaurs1 = new List<int>();
-            dinosaurs1 = ReverseList(dinosaurs);
-            foreach (int dinosaur in dinosaurs1)
-            {
-                Console.WriteLine(dinosaur);
-            }
-
+            
         }
     }
 }
