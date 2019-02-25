@@ -432,6 +432,90 @@ namespace Katas_homework
         }
 
 
+        public static int TrailingZeros(int n)    //Number of trailing zeros of N!
+        {
+            int count = 0;
+
+
+            for (int i = 5; n / i >= 1; i *= 5)
+                count += n / i;
+
+            return count;
+        }
+
+
+        public static string WhoIsNext(string[] names, long n)    //Double Cola
+        {
+            var result = Enumerable.Range(1, names.Length)
+              .Select((m, i) => new { m, i })
+              .ToDictionary(x => x.i, x => (long)1);
+            long k = 0;
+            while (n > 0)
+                result = result.Select(i =>
+                {
+                    if (n > 0)
+                    {
+                        n -= i.Value;
+                        if (n > 0)
+                            k = i.Key + 1 > names.Length - 1 ? 0 : i.Key + 1;
+                    }
+                    return i.Value * 2;
+                })
+                 .Select((m, i) => new { m, i })
+                 .ToDictionary(x => x.i, x => x.m);
+
+            return names[k];
+        }
+
+
+        //public static string[] dirReduc(string[] arr)
+        //{
+
+        //    List<string> list = new List<string>(arr);
+
+        //    int counter = list.Count;
+        //    while (counter > 0)
+        //    {
+        //        for (int i = 0; i < list.Count - 1; i++)
+        //        {
+        //            switch (list[i])
+        //            {
+        //                case "NORTH":
+        //                    if (list[i + 1] == "SOUTH")
+        //                    {
+        //                        list.RemoveAt(i);
+        //                        list.RemoveAt(i++);
+        //                    }
+        //                    break;
+        //                case "SOUTH":
+        //                    if (list[i + 1] == "NORTH")
+        //                    {
+        //                        list.RemoveAt(i);
+        //                        list.RemoveAt(i++);
+        //                    }
+        //                    break;
+        //                case "EAST":
+        //                    if (list[i + 1] == "WEST")
+        //                    {
+        //                        list.RemoveAt(i);
+        //                        list.RemoveAt(i++);
+        //                    }
+        //                    break;
+        //                case "WEST":
+        //                    if (list[i + 1] == "EAST")
+        //                    {
+        //                        list.RemoveAt(i);
+        //                        list.RemoveAt(i++);
+        //                    }
+        //                    break;
+        //            }
+        //        }
+        //        counter--;
+        //    }
+        //    return list.ToArray();
+        //}
+
+
 
 
 
