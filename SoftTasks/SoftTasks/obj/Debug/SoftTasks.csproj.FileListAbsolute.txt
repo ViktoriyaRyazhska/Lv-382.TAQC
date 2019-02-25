@@ -1,0 +1,7 @@
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.exe.config
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.exe
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.pdb
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.csprojAssemblyReference.cache
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.csproj.CoreCompileInputs.cache
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.exe
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.pdb
