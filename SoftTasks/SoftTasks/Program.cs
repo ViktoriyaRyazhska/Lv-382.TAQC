@@ -1,3 +1,4 @@
+using SoftTasks.CodeWars.Level7;
 using SoftTasks.CodeWars.Level8;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace SoftTasks
             //    Console.WriteLine("Test passed: input {}, ex");
             //}
 
-
+            MinAndMax.HighAndLow("1 2 3 4 -5");
         }
     }
 }

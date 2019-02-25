@@ -50,6 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeWars\Level5\BestTravel.cs" />
+    <Compile Include="CodeWars\Level5\DirectionsReduction.cs" />
+    <Compile Include="CodeWars\Level5\DoubleCola.cs" />
+    <Compile Include="CodeWars\Level5\NumberOfTrailingZeros.cs" />
+    <Compile Include="CodeWars\Level5\WeightForweight.cs" />
+    <Compile Include="CodeWars\Level7\CountPopulation.cs" />
+    <Compile Include="CodeWars\Level7\CountVowels.cs" />
+    <Compile Include="CodeWars\Level7\MaxLenghtDiff.cs" />
+    <Compile Include="CodeWars\Level7\MinAndMax.cs" />
+    <Compile Include="CodeWars\Level7\Mumbling.cs" />
+    <Compile Include="CodeWars\Level7\ShortestWord.cs" />
+    <Compile Include="CodeWars\Level7\Square.cs" />
+    <Compile Include="CodeWars\Level7\SumBetweenAandB.cs" />
     <Compile Include="CodeWars\Level8\ASCII.cs" />
     <Compile Include="CodeWars\Level8\Bool.cs" />
     <Compile Include="CodeWars\Level8\Calculator.cs" />
