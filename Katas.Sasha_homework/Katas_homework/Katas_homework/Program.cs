@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 
 namespace Katas_homework
@@ -466,6 +467,65 @@ namespace Katas_homework
 
             return names[k];
         }
+
+
+        public static string Longest(string s1, string s2)   //Two to One
+        {
+            return new string((s1 + s2).Distinct().OrderBy(x => x).ToArray());
+        }
+
+
+        public static string PrinterError(String s)    //Printer Errors
+        {
+            string goodAlphabet = "abcdefghijklm";
+            int errorCount = 0;
+            foreach (char x in s)
+                if (!(goodAlphabet.Contains(x)))
+                    errorCount += 1;
+            return errorCount + "/" + s.Length;
+        }
+
+
+        public static int SequenceSum(int start, int end, int step)    //Sum of a sequence
+        {
+            if (start > end)
+                return 0;
+            int sum = 0;
+            for (int i = start; i <= end; i += step)
+                sum += i;
+            return sum;
+        }
+
+
+        public static bool is_valid_IP(string ipAddres)    //IP Validation
+        {
+            if (ipAddres == null || ipAddres.Length == 0)
+            {
+                return false;
+            }
+
+            if (Regex.Match(ipAddres, @"^(([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])(\.(?!$)|$)){4}$").Success)
+                return true;
+            else return false;
+        }
+
+
+        //public static bool comp(int[] a, int[] b)    //Are they the "same"?
+        //{
+        //    if ((a != null || a.Length != 0) && (b != null || b.Length != 0) && a.Length == b.Length)
+        //    {
+        //        Array.Sort(a);
+        //        Array.Sort(b);
+        //        int c = 0;
+        //        for (int i = 0; i < a.Length; i++)
+        //        {
+        //            if (a[i] * a[i] != b[i])
+        //                c++;
+        //        }
+        //        return (c == 0);
+        //    }
+        //    else return false;
+        //}
 
 
         //public static string[] dirReduc(string[] arr)
