@@ -9,7 +9,7 @@ namespace SoftTasks
     static class Methods
     {
         static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "6.Longest subsequence with difference one.", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
+            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "6.Longest subsequence with difference one.", "7.Ways to write n as sum of two or more positive integers" , "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
         {
@@ -161,5 +161,23 @@ namespace SoftTasks
             return maxlen;
         }
 
+        static public int WaysToWriteNAsSum(int n)     // 7
+        {
+
+            int[] table = new int[n + 1];
+
+            for (int i = 0; i < table.Length; i++)
+                table[i] = 0;
+
+            table[0] = 1;
+
+            for (int i = 1; i < n; i++)
+                for (int j = i; j <= n; j++)
+                {
+                    table[j] += table[j - i];
+                }
+
+            return table[n];
+        }
     }
 }
