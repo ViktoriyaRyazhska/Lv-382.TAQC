@@ -15,7 +15,7 @@ namespace SoftTasks
             InvokeMeth a;
             while (true)
             {
-                Console.WriteLine("Enter task number ");
+                Console.WriteLine("Enter task number");
                 foreach (string str in Methods.MethodsList)
                     Console.WriteLine(str);                 // List of methods
                 string index = Console.ReadLine();
@@ -75,7 +75,7 @@ namespace SoftTasks
             }
             catch (Exception)
             {
-                Console.WriteLine("Invalid input ");
+                Console.WriteLine("Invalid input");
                 Console.ReadKey();
                 return;
             }
