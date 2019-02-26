@@ -89,5 +89,24 @@ namespace SoftTasks.Tests
             int actual = Methods.WayToCoverIn3Steps(input2);
             Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input2}");
         }
+
+
+        [Test]
+        [TestCase(2, 1)]
+        [TestCase(10, 41)]
+        public void KhrystynaFedun_WaisToWriteNAsSum_Test_Positive(int N, int expected)
+        {
+            Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
+        }
+
+        [Test]
+        [TestCase(-1)]
+        [TestCase(0)]
+        [TestCase(1)]
+        public void KhrystynaFedun_WaisToWriteNAsSum_Test_Negative(int N)
+        {
+            int expected = 0;
+            Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
+        }
     }
 }

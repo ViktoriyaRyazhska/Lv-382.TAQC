@@ -19,7 +19,7 @@ namespace SoftTasks
             "8.Paths without crossing",
             "9.Interesting rows",
             "10.Work to be with High-effort or with Low-effort",
-            "0.Exit" 
+            "0.Exit"
             };    // Add method name before "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
@@ -54,13 +54,40 @@ namespace SoftTasks
         /// </summary>
         public static int CountWays(int N)      //5
         {
+            int invalidInputResult = -1;
+            string invalidInputmessage = "invalid input, please try again, example: 1,4,3,7";
+            if (N < 1)
+            {
+                Console.WriteLine("N can not be les then zero");
+                return invalidInputResult;
+            }
             Console.WriteLine("Input array, e.g(1,4,3,7):");
 
-            string[] values = Console.ReadLine().Split(',');
+            string numsInput = Console.ReadLine();
+            if (numsInput == null || numsInput.Length == 0)
+            {
+                Console.WriteLine(invalidInputmessage);
+                return invalidInputResult;
+            }
+            string[] values = numsInput.Split(',');
+            if (values.Length == 0)
+            {
+                Console.WriteLine(invalidInputmessage);
+                return invalidInputResult;
+            }
+
             int[] arr = new int[values.Length];
 
             for (int i = 0; i < values.Length; i++)
             {
+                foreach (var ch in values[i])
+                {
+                    if (ch < '0' || ch > '9')
+                    {
+                        Console.WriteLine(invalidInputmessage);
+                        return invalidInputResult;
+                    }
+                }
                 arr[i] = int.Parse(values[i]);
             }
             int[] count = new int[N + 1];
@@ -103,12 +130,12 @@ namespace SoftTasks
             for (int i = 0; i <= n; i++)
             {
                 if (i <= 2)
-                   arr[i] = i;
-                   else
-                   arr[i] = arr[i - 1] + (i - 1)
-                                        * arr[i - 2];
+                    arr[i] = i;
+                else
+                    arr[i] = arr[i - 1] + (i - 1)
+                                         * arr[i - 2];
             }
-                return arr[n];
+            return arr[n];
         }
 
 
@@ -183,17 +210,17 @@ namespace SoftTasks
 
         static public int Interesting_Rows(int n)           // 9
         {
-            if ((n == 1) || (n == 2)) 
+            if ((n == 1) || (n == 2))
             {
                 return 1;
             }
-            if (n > 2) 
+            if (n > 2)
             {
-                if ((n % 2) == 0) 
+                if ((n % 2) == 0)
                 {
-                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));   
+                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));
                 }
-                if ((n % 2) != 0) 
+                if ((n % 2) != 0)
                 {
                     return (2 * Interesting_Rows(n - 1)) + 1;
                 }
