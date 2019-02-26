@@ -510,70 +510,83 @@ namespace Katas_homework
         }
 
 
-        //public static bool comp(int[] a, int[] b)    //Are they the "same"?
-        //{
-        //    if ((a != null || a.Length != 0) && (b != null || b.Length != 0) && a.Length == b.Length)
-        //    {
-        //        Array.Sort(a);
-        //        Array.Sort(b);
-        //        int c = 0;
-        //        for (int i = 0; i < a.Length; i++)
-        //        {
-        //            if (a[i] * a[i] != b[i])
-        //                c++;
-        //        }
-        //        return (c == 0);
-        //    }
-        //    else return false;
-        //}
+        public static long MaxRot(long n)     //Rotate for a Max
+        {
+            long max = n;
+            string number = n.ToString();
+            for (int i = 0; i < number.Length - 1; i++)
+            {
+                number = number.Substring(0, i) + number.Substring(i + 1) + number[i];
+                n = long.Parse(number);
+                if (n > max) max = n;
+            }
+            return max;
+        }
 
 
-        //public static string[] dirReduc(string[] arr)
-        //{
+        public static int NbDig(int n, int d)     //Count the Digit
+        {
 
-        //    List<string> list = new List<string>(arr);
+            int count = 0;
 
-        //    int counter = list.Count;
-        //    while (counter > 0)
-        //    {
-        //        for (int i = 0; i < list.Count - 1; i++)
-        //        {
-        //            switch (list[i])
-        //            {
-        //                case "NORTH":
-        //                    if (list[i + 1] == "SOUTH")
-        //                    {
-        //                        list.RemoveAt(i);
-        //                        list.RemoveAt(i++);
-        //                    }
-        //                    break;
-        //                case "SOUTH":
-        //                    if (list[i + 1] == "NORTH")
-        //                    {
-        //                        list.RemoveAt(i);
-        //                        list.RemoveAt(i++);
-        //                    }
-        //                    break;
-        //                case "EAST":
-        //                    if (list[i + 1] == "WEST")
-        //                    {
-        //                        list.RemoveAt(i);
-        //                        list.RemoveAt(i++);
-        //                    }
-        //                    break;
-        //                case "WEST":
-        //                    if (list[i + 1] == "EAST")
-        //                    {
-        //                        list.RemoveAt(i);
-        //                        list.RemoveAt(i++);
-        //                    }
-        //                    break;
-        //            }
-        //        }
-        //        counter--;
-        //    }
-        //    return list.ToArray();
-        //}
+            for (int k = 0; k <= n; k++)
+            {
+                string k2 = (k * k).ToString();
+
+                for (int i = 0; i < k2.Length; i++)
+                {
+                    if (k2[i] == d.ToString()[0])
+                        count++;
+
+                }
+            }
+            return count;
+        }
+
+
+        public static string stockSummary(String[] lstOfArt, String[] lstOf1stLetter)     //Help the bookseller !
+        {
+            if (lstOfArt.Length == 0 || lstOf1stLetter.Length == 0)
+                return string.Empty;
+
+            List<string> values = new List<string>();
+
+            foreach (string s in lstOf1stLetter)
+            {
+                int sum = lstOfArt.Where(a => a.StartsWith(s)).Select(a => int.Parse(a.Split(' ')[1])).Sum();
+                values.Add(string.Format("({0} : {1})", s, sum));
+            }
+
+            return string.Join(" - ", values.ToArray());
+        }
+
+
+        public static long digPow(int n, int p)     //Playing with digits
+        {
+            int countOfDigitsMinusOne = (int)Math.Log10(n);
+            p = p + countOfDigitsMinusOne;
+            int nk = 0;
+            int N = n;
+            while (N != 0)
+            {
+                int digit = N % 10;
+                nk += (int)Math.Pow(digit, p);
+                N /= 10;
+                p--;
+            }
+            if (nk % n == 0)
+                return nk / n;
+            return -1;
+        }
+
+
+        public static string orderWeight(string s)      //Weight for weight
+        {
+            return string.Join(" ", s.Split(' ')
+                .OrderBy(n => n.ToCharArray()
+                .Select(c => (int)char.GetNumericValue(c)).Sum())
+                .ThenBy(n => n));
+        }
 
 
 
