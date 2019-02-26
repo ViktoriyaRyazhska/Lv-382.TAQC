@@ -134,7 +134,7 @@ namespace SoftTasks
         }
 
         // Oleh Hnachuk
-        public static int LongestSequenceWithDiff1(int n)      //6
+        public static int LongestSequenceWithDiff1(int[] input)      //6
         {
             Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
 
