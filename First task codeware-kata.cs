@@ -228,7 +228,8 @@ namespace ConsoleApp3
         {
             string[] ss = s.Split(new char[] { ' ' });
             int c1 = s.Length;
-            for (int i = 0; i < ss.Length; i++){
+            for (int i = 0; i < ss.Length; i++)
+            {
                 if (ss[i].Length < c1) { c1 = ss[i].Length; }
             }
             return c1;
@@ -237,10 +238,10 @@ namespace ConsoleApp3
         {
             char[] a = s.ToUpper().ToCharArray();
             string rez = a[0].ToString();
-            for(int i = 1; i<a.Length; i++)
+            for (int i = 1; i < a.Length; i++)
             {
                 rez += "-" + a[i];
-                for(int j=1; j<=i; j++)
+                for (int j = 1; j <= i; j++)
                 {
                     rez += a[i].ToString().ToLower();
                 }
@@ -251,7 +252,7 @@ namespace ConsoleApp3
         {
             int maxL1 = a1[0].Length;
             int minL1 = a1[0].Length;
-            for (int i = 0; i<a1.Length; i++)
+            for (int i = 0; i < a1.Length; i++)
             {
                 if (maxL1 < a1[i].Length) { maxL1 = a1[i].Length; }
                 if (minL1 > a1[i].Length) { minL1 = a1[i].Length; }
@@ -303,19 +304,45 @@ namespace ConsoleApp3
         }
         public static long MaxRot(long n)
         {
-            // your code
+            var str = n.ToString();
+            var max = n;
+            for (int i = 0; i < str.Length - 1; ++i)
+            {
+                str = str.Substring(0, i) + str.Substring(i + 1) + str[i];
+                max = (long.Parse(str) > max) ? long.Parse(str) : max;
+            }
+            return max;
         }    //30
         public static int NbDig(int n, int d)
         {
-            // your code
+            var result = d == 0 ? 1 : 0;
+            for (var k = 1; k <= n; ++k)
+            {
+                for (var x = k * k; x != 0; x /= 10)
+                {
+                    if (x % 10 == d)
+                    {
+                        ++result;
+                    }
+                }
+            }
+            return result;
         }  //31
         public static string Longest(string s1, string s2)
         {
-            // your code
+            return string.Concat((s1 + s2).Distinct().OrderBy(x => x));
         }   //32
         public static string PrinterError(String s)
         {
-            // your code
+            int num = s.Select(c => IsValid(c)).Sum();
+            return String.Format("{0}/{1}", num, s.Length);
+        }
+        public static int IsValid(char c)
+        {
+            if ('a' <= c && 'm' >= c)
+                return 0;
+            else
+                return 1;
         }  //33
         public static int SequenceSum(int start, int end, int step)
         {
