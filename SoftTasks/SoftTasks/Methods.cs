@@ -14,7 +14,9 @@ namespace SoftTasks
             "3.WayToCoverIn3Steps", 
             "4.FriendPairs", 
             "5.Ways to sum array elements with repetition", 
-            "8.Paths without crossing" , 
+            "6.Longest subsequence with difference one", 
+            "7.Ways to write n as sum of two or more positive integers" , 
+            "8.Paths without crossing",
             "9.Interesting rows", 
             "0.Exit" 
             };    // Add method name before "0.Exit"
@@ -129,6 +131,63 @@ namespace SoftTasks
                 return 0;
             }
             return myPairs(n / 2);
+        }
+
+        // Oleh Hnachuk
+        public static int LongestSequenceWithDiff1(int n)      //6
+        {
+            Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+
+            string[] splitInput = Console.ReadLine().Split(',');
+            int[] valuesArr = new int[splitInput.Length];
+
+            for (int k = 0; k < splitInput.Length; k++)
+            {
+                valuesArr[k] = int.Parse(splitInput[k]);
+            }
+
+            int l = valuesArr.Length;
+            int i = 0, maxlen = 0;
+            while (i < l)
+            {
+                int j = i;
+                while (i + 1 < l
+                       && (Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 1
+                           || Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 0))
+                {
+                    i++;
+                }
+                int currLen = i - j + 1;
+
+                if (maxlen < currLen)
+                    maxlen = currLen;
+
+                if (j == i)
+                    i++;
+            }
+
+            maxlen = (maxlen == 1) ? 0 : maxlen;
+
+            return maxlen;
+        }
+
+        static public int WaysToWriteNAsSum(int n)     // 7
+        {
+
+            int[] table = new int[n + 1];
+
+            for (int i = 0; i < table.Length; i++)
+                table[i] = 0;
+
+            table[0] = 1;
+
+            for (int i = 1; i < n; i++)
+                for (int j = i; j <= n; j++)
+                {
+                    table[j] += table[j - i];
+                }
+
+            return table[n];
         }
 
         static public int Interesting_Rows(int n)           // 9
