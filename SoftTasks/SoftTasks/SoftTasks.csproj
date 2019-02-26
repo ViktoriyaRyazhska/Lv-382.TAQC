@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeExamples\AbstractClasses.cs" />
+    <Compile Include="CodeExamples\Inheritance.cs" />
+    <Compile Include="CodeExamples\Polymorphysm.cs" />
     <Compile Include="CodeWars\Level5\BestTravel.cs" />
     <Compile Include="CodeWars\Level5\DirectionsReduction.cs" />
     <Compile Include="CodeWars\Level5\DoubleCola.cs" />
