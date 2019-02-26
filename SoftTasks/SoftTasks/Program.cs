@@ -62,6 +62,16 @@ namespace SoftTasks
                         a = Methods.Interesting_Rows;
                         Print(a);
                         break;
+                    case "10":
+                        Console.WriteLine("Enter number");
+                        int n = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Enter high");
+                        int[] higt = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Enter low");
+                        int[] low = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Output:" + "\n" + Methods.maxTasks(higt, low, n).ToString());
+                        Console.ReadKey();
+                        break;
                 }
                 Console.Clear();
 
@@ -75,7 +85,7 @@ namespace SoftTasks
             Console.WriteLine("Enter number");
             try
             {
-                n = int.Parse(Console.ReadLine().ToString());             
+                n = int.Parse(Console.ReadLine().ToString());
             }
             catch (Exception)
             {
