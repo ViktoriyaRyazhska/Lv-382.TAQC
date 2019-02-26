@@ -13,7 +13,6 @@ namespace SoftTasks.Tests
         [Test]
         public void MyTestMethod()
         {
-            /////lalalalal
         }
     }
 }
