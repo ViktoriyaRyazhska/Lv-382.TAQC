@@ -1,28 +1,13 @@
-using SoftTasks.CodeWars.Level7;
-using SoftTasks.CodeWars.Level8;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoftTasks
+namespace SoftTasks.CodeExamples
 {
-    class Program
+    class Polymorphysm
     {
-        static void Main(string[] args)
-        {
-            //int[] input = { 1, -2, 5 };
-            //int expected = 6;
-
-            //if (PositiveSum.GetPositiveSum(input) == 6)
-            //{
-            //    Console.WriteLine("Test passed: input {}, ex");
-            //}
-
-            MinAndMax.HighAndLow("1 2 3 4 -5");
-        }
     }
 
     public class Methodoveloading
@@ -48,6 +33,7 @@ namespace SoftTasks
         }
     }
 
+    //Overriding
     public interface CanFly
     {
         void Fly();
@@ -76,24 +62,5 @@ namespace SoftTasks
         {
         }
     }
-
-
-
-    public abstract class Vehicle
-    {
-        public string Name { get; private set; }
-        public abstract void Move();
-        public virtual void PrintName() { }
-        public Vehicle(string Name)
-        {
-            this.Name = Name;
-        }
-    }
-
-    public class Bicycle : Vehicle
-    {
-        public Bicycle(string Name) : base(Name) { }
-
-        public override void Move(){}
-    }
+    
 }
