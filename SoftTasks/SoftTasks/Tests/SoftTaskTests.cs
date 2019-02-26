@@ -16,10 +16,18 @@ namespace SoftTasks.Tests
             
         }
         [Test]
-        public void TestCountAllWays()
+        public void CountAllWaysTest1()
         {
             Assert.AreEqual(2, Methods.countAllWays(4)); // Positive
+        }
+        [Test]
+        public void TestCountAllWaysTest2()
+        {
             Assert.AreEqual(0, Methods.countAllWays(5)); //  Negative
+        }
+        [Test]
+        public void TestCountAllWaysTest3()
+        {
             Assert.AreEqual(0, Methods.countAllWays(1)); // Negative
         }
         [Test]
