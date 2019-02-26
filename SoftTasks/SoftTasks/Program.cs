@@ -47,8 +47,11 @@ namespace SoftTasks
                         Print(a);
                         break;
                     case "6":
-                        a = Methods.LongestSequenceWithDiff1;
-                        Print(a);
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] readInput = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        int res = Methods.LongestSequenceWithDiff1(readInput);
+                        Console.WriteLine("Longest sequence is "+ res);
+                        Console.ReadKey();
                         break;
                     case "7":
                         a = Methods.WaysToWriteNAsSum;

@@ -137,24 +137,14 @@ namespace SoftTasks
         // Oleh Hnachuk
         public static int LongestSequenceWithDiff1(int[] input)      //6
         {
-            Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
-
-            string[] splitInput = Console.ReadLine().Split(',');
-            int[] valuesArr = new int[splitInput.Length];
-
-            for (int k = 0; k < splitInput.Length; k++)
-            {
-                valuesArr[k] = int.Parse(splitInput[k]);
-            }
-
-            int l = valuesArr.Length;
+            int l = input.Length;
             int i = 0, maxlen = 0;
             while (i < l)
             {
                 int j = i;
                 while (i + 1 < l
-                       && (Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 1
-                           || Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 0))
+                       && (Math.Abs(input[i] - input[i + 1]) == 1
+                           || Math.Abs(input[i] - input[i + 1]) == 0))
                 {
                     i++;
                 }
