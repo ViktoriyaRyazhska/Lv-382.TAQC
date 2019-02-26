@@ -39,5 +39,5 @@ namespace SoftTasks.CodeWars.Level5
             Assert.AreEqual("Sheldon", DoubleCola.WhoIsNext(names, n));
         }
     }
-}
+
 }
