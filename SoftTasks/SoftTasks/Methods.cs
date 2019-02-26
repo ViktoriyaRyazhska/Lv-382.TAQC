@@ -8,8 +8,16 @@ namespace SoftTasks
 {
     static class Methods
     {
-        static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps", "4.FriendPairs", "5.Ways to sum array elements with repetition", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
+        static public List<String> MethodsList = new List<string>() { 
+            "1.Fibbonachi", 
+            "2.Mod_Fibbonachi", 
+            "3.WayToCoverIn3Steps", 
+            "4.FriendPairs", 
+            "5.Ways to sum array elements with repetition", 
+            "8.Paths without crossing" , 
+            "9.Interesting rows", 
+            "0.Exit" 
+            };    // Add method name before "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
         {
@@ -123,6 +131,24 @@ namespace SoftTasks
             return myPairs(n / 2);
         }
 
-
+        static public int Interesting_Rows(int n)           // 9
+        {
+            if ((n == 1) || (n == 2)) 
+            {
+                return 1;
+            }
+            if (n > 2) 
+            {
+                if ((n % 2) == 0) 
+                {
+                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));   
+                }
+                if ((n % 2) != 0) 
+                {
+                    return (2 * Interesting_Rows(n - 1)) + 1;
+                }
+            }
+            return 0;
+        }
     }
 }

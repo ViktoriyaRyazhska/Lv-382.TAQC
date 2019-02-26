@@ -50,6 +50,10 @@ namespace SoftTasks
                         a = Methods.countAllWays;
                         Print(a);
                         break;
+                    case "9":
+                        a = Methods.Interesting_Rows;
+                        Print(a);
+                        break;
                 }
                 Console.Clear();
 
