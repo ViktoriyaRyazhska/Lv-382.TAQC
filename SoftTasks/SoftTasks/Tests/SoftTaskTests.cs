@@ -64,12 +64,12 @@ namespace SoftTasks.Tests
             Assert.AreEqual(2, Methods.countAllWays(4)); // Positive
         }
         [Test]
-        public void TestCountAllWaysTest2()
+        public void CountAllWaysTest2()
         {
             Assert.AreEqual(0, Methods.countAllWays(5)); //  Negative
         }
         [Test]
-        public void TestCountAllWaysTest3()
+        public void CountAllWaysTest3()
         {
             Assert.AreEqual(0, Methods.countAllWays(1)); // Negative
         }
@@ -88,6 +88,21 @@ namespace SoftTasks.Tests
             int expected = 24;
             int actual = Methods.WayToCoverIn3Steps(input2);
             Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input2}");
+        }
+        [Test]
+        public void FriendsPairsTest1()
+        {
+            Assert.AreEqual(4, Methods.FriendPairs(3)); 
+        }
+        [Test]
+        public void FriendsPairsTest2()
+        {
+            Assert.AreEqual(2, Methods.FriendPairs(2));
+        }
+        [Test]
+        public void FriendsPairsTest3()
+        {
+            Assert.AreEqual(0, Methods.FriendPairs(0));
         }
     }
 }
