@@ -13,7 +13,13 @@ namespace SoftTasks.Tests
         [Test]
         public void MyTestMethod()
         {
-            /////lalalalal
+            
+        }
+        [Test]
+        public void TestCountAllWays()
+        {
+            Assert.AreEqual(2, Methods.countAllWays(4));
+            Assert.AreEqual(0, Methods.countAllWays(1));
         }
     }
 }
