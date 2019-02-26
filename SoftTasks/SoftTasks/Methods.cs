@@ -8,16 +8,17 @@ namespace SoftTasks
 {
     static class Methods
     {
-        static public List<String> MethodsList = new List<string>() { 
-            "1.Fibbonachi", 
-            "2.Mod_Fibbonachi", 
-            "3.WayToCoverIn3Steps", 
-            "4.FriendPairs", 
-            "5.Ways to sum array elements with repetition", 
-            "6.Longest subsequence with difference one", 
-            "7.Ways to write n as sum of two or more positive integers" , 
+        static public List<String> MethodsList = new List<string>() {
+            "1.Fibbonachi",
+            "2.Mod_Fibbonachi",
+            "3.WayToCoverIn3Steps",
+            "4.FriendPairs",
+            "5.Ways to sum array elements with repetition",
+            "6.Longest subsequence with difference one",
+            "7.Ways to write n as sum of two or more positive integers" ,
             "8.Paths without crossing",
-            "9.Interesting rows", 
+            "9.Interesting rows",
+            "10.Work to be with High-effort or with Low-effort",
             "0.Exit" 
             };    // Add method name before "0.Exit"
 
@@ -134,26 +135,16 @@ namespace SoftTasks
         }
 
         // Oleh Hnachuk
-        public static int LongestSequenceWithDiff1(int n)      //6
+        public static int LongestSequenceWithDiff1(int[] input)      //6
         {
-            Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
-
-            string[] splitInput = Console.ReadLine().Split(',');
-            int[] valuesArr = new int[splitInput.Length];
-
-            for (int k = 0; k < splitInput.Length; k++)
-            {
-                valuesArr[k] = int.Parse(splitInput[k]);
-            }
-
-            int l = valuesArr.Length;
+            int l = input.Length;
             int i = 0, maxlen = 0;
             while (i < l)
             {
                 int j = i;
                 while (i + 1 < l
-                       && (Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 1
-                           || Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 0))
+                       && (Math.Abs(input[i] - input[i + 1]) == 1
+                           || Math.Abs(input[i] - input[i + 1]) == 0))
                 {
                     i++;
                 }
@@ -208,6 +199,22 @@ namespace SoftTasks
                 }
             }
             return 0;
+        }
+
+        static public int maxTasks(int[] high,
+                        int[] low, int n)
+        {
+
+            // If n is less than equal to 0, 
+            // then no solution exists 
+            if (n <= 0)
+                return 0;
+
+            /* Determines which task to choose on day n, 
+                then returns the maximum till that day */
+            return Math.Max(high[n - 1] +
+                maxTasks(high, low, (n - 2)), low[n - 1] +
+                maxTasks(high, low, (n - 1)));
         }
     }
 }

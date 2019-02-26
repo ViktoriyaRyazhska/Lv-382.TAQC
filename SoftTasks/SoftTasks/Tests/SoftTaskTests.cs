@@ -56,7 +56,38 @@ namespace SoftTasks.Tests
             int inputNumb = -9;
             int expected = 0;
             int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
+            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");            
+        }
+        [Test]
+        public void CountAllWaysTest1()
+        {
+            Assert.AreEqual(2, Methods.countAllWays(4)); // Positive
+        }
+        [Test]
+        public void TestCountAllWaysTest2()
+        {
+            Assert.AreEqual(0, Methods.countAllWays(5)); //  Negative
+        }
+        [Test]
+        public void TestCountAllWaysTest3()
+        {
+            Assert.AreEqual(0, Methods.countAllWays(1)); // Negative
+        }
+        [Test]
+        public void WayToCoverIn3Steps_ValidInput_Test1()
+        {
+            int input1 = 3;
+            int expected = 4;
+            int actual = Methods.WayToCoverIn3Steps(input1);
+            Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input1}");
+        }
+        [Test]
+        public void WayToCoverIn3Steps_ValidInput_Test2()
+        {
+            int input2 = 6;
+            int expected = 24;
+            int actual = Methods.WayToCoverIn3Steps(input2);
+            Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input2}");
         }
     }
 }
