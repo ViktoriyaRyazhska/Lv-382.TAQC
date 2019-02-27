@@ -110,24 +110,67 @@ namespace SoftTasks.Tests
             new object[] {6,24}
 
         };
-        //Kh
+        #region KhrystynaFedun
+
+        static object[] PathsWithoutCrossing_Positive =
+        {
+            new object[] {2,1},
+            new object[] {10,41},
+        };
+
         [Test]
         [TestCase(2, 1)]
         [TestCase(10, 41)]
+        [TestCaseSource("PathsWithoutCrossing_Positive")]
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Positive(int N, int expected)
         {
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
         }
 
+        static object[] PathsWithoutCrossing_Negative =
+        {
+            new object[] {-1},
+            new object[] {0},
+            new object[] {1 },
+        };
+
         [Test]
         [TestCase(-1)]
         [TestCase(0)]
         [TestCase(1)]
+        [TestCaseSource("PathsWithoutCrossing_Negative")]
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Negative(int N)
         {
             int expected = 0;
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
         }
+
+        [Test]
+        public void KhrystynaFedun_WaisToWriteNAsSum_AllTests()
+        {
+            List<int[]> data_positive = new List<int[]>();
+            data_positive.Add(new int[] {2,1 });
+            data_positive.Add(new int[] { 10, 41 });
+
+            for (int i = 0; i < data_positive.Count; i++)
+            {
+                Assert.AreEqual(data_positive[i][0], Methods.WaysToWriteNAsSum(data_positive[i][1]), $"Ways to write n as sum failed");
+            }
+
+
+            List<int> data_negative = new List<int>();
+            data_negative.Add(-1);
+            data_negative.Add(0);
+            data_negative.Add(1);
+
+            for (int i = 0; i < data_positive.Count; i++)
+            {
+                Assert.AreEqual(data_negative[i], Methods.WaysToWriteNAsSum(0), $"Ways to write n as sum failed");
+            }
+        }
+
+        #endregion KhrystynaFedun
+
         // Valik
         [Test]
         public void FriendsPairsTest0()
