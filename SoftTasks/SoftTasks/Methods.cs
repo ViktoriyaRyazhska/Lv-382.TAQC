@@ -8,11 +8,19 @@ namespace SoftTasks
 {
     static class Methods
     {
-    
-        static public List<String> MethodsList = new List<string>() { "1.Fibbonachi", "2.Mod_Fibbonachi",
-            "3.WayToCoverIn3Steps", "4.FriendPairs", "8.Paths without crossing" , "0.Exit" };    // Add method name befor "0.Exit"
-
-
+        static public List<String> MethodsList = new List<string>() {
+            "1.Fibbonachi",
+            "2.Mod_Fibbonachi",
+            "3.WayToCoverIn3Steps",
+            "4.FriendPairs",
+            "5.Ways to sum array elements with repetition",
+            "6.Longest subsequence with difference one",
+            "7.Ways to write n as sum of two or more positive integers" ,
+            "8.Paths without crossing",
+            "9.Interesting rows",
+            "10.Work to be with High-effort or with Low-effort",
+            "0.Exit"
+            };    // Add method name before "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
         {
@@ -41,6 +49,36 @@ namespace SoftTasks
             return fsum;
         }
 
+        /// <summary>
+        /// Khrystyna Fedun
+        /// </summary>
+        public static int CountWays(int N, int[] arr)      //5
+        {
+            int invalidInputResult = -1;
+            
+            if (N < 1)
+            {
+                Console.WriteLine("N can not be less than 1");
+                return invalidInputResult;
+            }
+                                   
+            int[] count = new int[N + 1];
+            count[0] = 1;
+            
+            for (int i = 1; i <= N; i++)
+            {
+                for (int j = 0; j < arr.Length; j++)
+                {
+
+                    if (i >= arr[j])
+                    {
+                        count[i] += count[i - arr[j]];
+                    }
+                }
+            }
+
+            return count[N];
+        }
 
         static public int WayToCoverIn3Steps(int n)           // 3
         {
@@ -63,12 +101,12 @@ namespace SoftTasks
             for (int i = 0; i <= n; i++)
             {
                 if (i <= 2)
-                   arr[i] = i;
-                   else
-                   arr[i] = arr[i - 1] + (i - 1)
-                                        * arr[i - 2];
+                    arr[i] = i;
+                else
+                    arr[i] = arr[i - 1] + (i - 1)
+                                         * arr[i - 2];
             }
-                return arr[n];
+            return arr[n];
         }
 
 
@@ -94,5 +132,87 @@ namespace SoftTasks
             return myPairs(n / 2);
         }
 
+        // Oleh Hnachuk
+        public static int LongestSequenceWithDiff1(int[] input)      //6
+        {
+            int l = input.Length;
+            int i = 0, maxlen = 0;
+            while (i < l)
+            {
+                int j = i;
+                while (i + 1 < l
+                       && (Math.Abs(input[i] - input[i + 1]) == 1
+                           || Math.Abs(input[i] - input[i + 1]) == 0))
+                {
+                    i++;
+                }
+                int currLen = i - j + 1;
+
+                if (maxlen < currLen)
+                    maxlen = currLen;
+
+                if (j == i)
+                    i++;
+            }
+
+            maxlen = (maxlen == 1) ? 0 : maxlen;
+
+            return maxlen;
+        }
+
+        static public int WaysToWriteNAsSum(int n)     // 7
+        {
+
+            int[] table = new int[n + 1];
+
+            for (int i = 0; i < table.Length; i++)
+                table[i] = 0;
+
+            table[0] = 1;
+
+            for (int i = 1; i < n; i++)
+                for (int j = i; j <= n; j++)
+                {
+                    table[j] += table[j - i];
+                }
+
+            return table[n];
+        }
+
+        static public int Interesting_Rows(int n)           // 9
+        {
+            if ((n == 1) || (n == 2))
+            {
+                return 1;
+            }
+            if (n > 2)
+            {
+                if ((n % 2) == 0)
+                {
+                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));
+                }
+                if ((n % 2) != 0)
+                {
+                    return (2 * Interesting_Rows(n - 1)) + 1;
+                }
+            }
+            return 0;
+        }
+
+        static public int maxTasks(int[] high,
+                        int[] low, int n)
+        {
+
+            // If n is less than equal to 0, 
+            // then no solution exists 
+            if (n <= 0)
+                return 0;
+
+            /* Determines which task to choose on day n, 
+                then returns the maximum till that day */
+            return Math.Max(high[n - 1] +
+                maxTasks(high, low, (n - 2)), low[n - 1] +
+                maxTasks(high, low, (n - 1)));
+        }
     }
 }

@@ -42,9 +42,42 @@ namespace SoftTasks
                         a = Methods.FriendPairs;
                         Print(a);
                         break;
+                    case "5":
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] array = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Input N");
+                        int N = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Amount of ways: " + Methods.CountWays(N, array));
+                        Console.ReadKey(); 
+                        break;
+                    case "6":
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] readInput = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        int res = Methods.LongestSequenceWithDiff1(readInput);
+                        Console.WriteLine("Longest sequence is "+ res);
+                        Console.ReadKey();
+                        break;
+                    case "7":
+                        a = Methods.WaysToWriteNAsSum;
+                        Print(a);
+                        break;
                     case "8":
                         a = Methods.countAllWays;
                         Print(a);
+                        break;
+                    case "9":
+                        a = Methods.Interesting_Rows;
+                        Print(a);
+                        break;
+                    case "10":
+                        Console.WriteLine("Enter number");
+                        int n = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Enter high");
+                        int[] higt = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Enter low");
+                        int[] low = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Output:" + "\n" + Methods.maxTasks(higt, low, n).ToString());
+                        Console.ReadKey();
                         break;
                 }
                 Console.Clear();
@@ -59,7 +92,7 @@ namespace SoftTasks
             Console.WriteLine("Enter number");
             try
             {
-                n = int.Parse(Console.ReadLine().ToString());             
+                n = int.Parse(Console.ReadLine().ToString());
             }
             catch (Exception)
             {
