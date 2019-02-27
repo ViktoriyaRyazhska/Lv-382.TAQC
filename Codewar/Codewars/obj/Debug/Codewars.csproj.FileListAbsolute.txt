@@ -1,0 +1,7 @@
+C:\Users\Lutik\source\repos\Codewars\Codewars\bin\Debug\Codewars.exe.config
+C:\Users\Lutik\source\repos\Codewars\Codewars\bin\Debug\Codewars.exe
+C:\Users\Lutik\source\repos\Codewars\Codewars\bin\Debug\Codewars.pdb
+C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.csprojAssemblyReference.cache
+C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.csproj.CoreCompileInputs.cache
+C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.exe
+C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.pdb
