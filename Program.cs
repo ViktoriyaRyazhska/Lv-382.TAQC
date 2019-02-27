@@ -31,6 +31,23 @@ namespace CodeWars
                 return points;
             }
             //2
+
+            public static int PositiveSum(int[] arr)
+            {
+                int z = 0;
+                int l = arr.Length;
+                for (int i = 0; i < l; i++)
+                {
+                    if (arr[i] > 0)
+                    {
+                        z += arr[i];
+                    }
+
+                }
+                return z;
+            }
+            //3
+
         }   
     }
 }
