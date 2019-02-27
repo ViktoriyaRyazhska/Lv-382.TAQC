@@ -19,7 +19,7 @@ namespace SoftTasks
             "8.Paths without crossing",
             "9.Interesting rows",
             "10.Work to be with High-effort or with Low-effort",
-            "0.Exit" 
+            "0.Exit"
             };    // Add method name before "0.Exit"
 
         static public int Mod_Fibbonachi(int n)                  //2
@@ -52,21 +52,19 @@ namespace SoftTasks
         /// <summary>
         /// Khrystyna Fedun
         /// </summary>
-        public static int CountWays(int N)      //5
+        public static int CountWays(int N, int[] arr)      //5
         {
-            Console.WriteLine("Input array, e.g(1,4,3,7):");
-
-            string[] values = Console.ReadLine().Split(',');
-            int[] arr = new int[values.Length];
-
-            for (int i = 0; i < values.Length; i++)
+            int invalidInputResult = -1;
+            
+            if (N < 1)
             {
-                arr[i] = int.Parse(values[i]);
+                Console.WriteLine("N can not be less than 1");
+                return invalidInputResult;
             }
+                                   
             int[] count = new int[N + 1];
             count[0] = 1;
-
-
+            
             for (int i = 1; i <= N; i++)
             {
                 for (int j = 0; j < arr.Length; j++)
@@ -103,12 +101,12 @@ namespace SoftTasks
             for (int i = 0; i <= n; i++)
             {
                 if (i <= 2)
-                   arr[i] = i;
-                   else
-                   arr[i] = arr[i - 1] + (i - 1)
-                                        * arr[i - 2];
+                    arr[i] = i;
+                else
+                    arr[i] = arr[i - 1] + (i - 1)
+                                         * arr[i - 2];
             }
-                return arr[n];
+            return arr[n];
         }
 
         //Serhii Zakharchuk
@@ -135,26 +133,16 @@ namespace SoftTasks
         }
 
         // Oleh Hnachuk
-        public static int LongestSequenceWithDiff1(int n)      //6
+        public static int LongestSequenceWithDiff1(int[] input)      //6
         {
-            Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
-
-            string[] splitInput = Console.ReadLine().Split(',');
-            int[] valuesArr = new int[splitInput.Length];
-
-            for (int k = 0; k < splitInput.Length; k++)
-            {
-                valuesArr[k] = int.Parse(splitInput[k]);
-            }
-
-            int l = valuesArr.Length;
+            int l = input.Length;
             int i = 0, maxlen = 0;
             while (i < l)
             {
                 int j = i;
                 while (i + 1 < l
-                       && (Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 1
-                           || Math.Abs(valuesArr[i] - valuesArr[i + 1]) == 0))
+                       && (Math.Abs(input[i] - input[i + 1]) == 1
+                           || Math.Abs(input[i] - input[i + 1]) == 0))
                 {
                     i++;
                 }
@@ -193,17 +181,17 @@ namespace SoftTasks
 
         static public int Interesting_Rows(int n)           // 9
         {
-            if ((n == 1) || (n == 2)) 
+            if ((n == 1) || (n == 2))
             {
                 return 1;
             }
-            if (n > 2) 
+            if (n > 2)
             {
-                if ((n % 2) == 0) 
+                if ((n % 2) == 0)
                 {
-                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));   
+                    return Interesting_Rows(n - 1) + (2 * Interesting_Rows(n - 2));
                 }
-                if ((n % 2) != 0) 
+                if ((n % 2) != 0)
                 {
                     return (2 * Interesting_Rows(n - 1)) + 1;
                 }

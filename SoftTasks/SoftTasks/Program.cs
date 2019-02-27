@@ -43,12 +43,19 @@ namespace SoftTasks
                         Print(a);
                         break;
                     case "5":
-                        a = Methods.CountWays;
-                        Print(a);
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] array = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Input N");
+                        int N = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Amount of ways: " + Methods.CountWays(N, array));
+                        Console.ReadKey(); 
                         break;
                     case "6":
-                        a = Methods.LongestSequenceWithDiff1;
-                        Print(a);
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] readInput = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        int res = Methods.LongestSequenceWithDiff1(readInput);
+                        Console.WriteLine("Longest sequence is "+ res);
+                        Console.ReadKey();
                         break;
                     case "7":
                         a = Methods.WaysToWriteNAsSum;
