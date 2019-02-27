@@ -110,7 +110,7 @@ namespace SoftTasks
         }
 
         //Serhii Zakharchuk
-        static public int countAllWays(int n)   
+        static public int countAllWays(int n)   //8
         {
             if (n <= 1)
             {
@@ -119,7 +119,7 @@ namespace SoftTasks
             }
             return myPairs(n / 2);
         }
-        static public int myPairs(int n)  //8
+        static public int myPairs(int n)  
         {
             int[] myArr = new int[n + 1];
             myArr[0] = myArr[1] = 1;
