@@ -10,6 +10,7 @@ namespace SoftTasks.Tests
     [TestFixture]
     public class SoftTaskTests
     {
+        //Natalia
         [Test]
         public void InterestingRows_1_1returned()
         {
@@ -18,46 +19,29 @@ namespace SoftTasks.Tests
             int actual = Methods.Interesting_Rows(inputNumb);
             Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
         }
-        [Test]
-        public void InterestingRows_2_1returned()
+
+        [Test, TestCaseSource("InterestingRows_Cases")]
+        public void InterestingRowsTest(int inputNumb, int expected)
         {
-            int inputNumb = 2;
-            int expected = 1;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
+            Assert.AreEqual(expected, Methods.Interesting_Rows(inputNumb), 0.001, "Expected result and actual result are different");
         }
+        static object[] InterestingRows_Cases =
+       {
+            new object [] {2, 1},
+            new object [] {5, 11},
+            new object [] {-9, 0},
+            new object [] {0, 0}
+        };
+
         [Test]
-        public void InterestingRows_5_11returned()
+        [TestCase(40, 1431655765)]
+        public void InterestingRows_40_1431655765returned(int inputNumb, int expected)
         {
-            int inputNumb = 5;
-            int expected = 11;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
+            Assert.AreEqual(expected, Methods.Interesting_Rows(inputNumb), 0.001, "Expected result and actual result are different");
         }
-        [Test]
-        public void InterestingRows_40_1431655765returned()
-        {
-            int inputNumb = 40;
-            int expected = 1431655765;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
-        [Test]
-        public void InterestingRows_0_0returned()
-        {
-            int inputNumb = 0;
-            int expected = 0;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
-        [Test]
-        public void InterestingRows_0returned()
-        {
-            int inputNumb = -9;
-            int expected = 0;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
+       
+        //Natalia_end
+
         [Test]
         public void CountAllWaysTest1()
         {
