@@ -81,6 +81,101 @@ namespace CodeWars
             }
             //6
 
+            public static string AreYouPlayingBanjo(string name)
+            {
+                if (name.Substring(0, 1) == "R" || name.Substring(0, 1) == "r") return name + " plays banjo";
+
+                else return name + " does not play banjo";
+            }
+            //7
+
+            public static string NoSpace(string input)
+            {
+                return input.Replace(" ", "");
+            }
+            //8
+
+            public static List<int> ReverseList(List<int> list)
+            {
+                list.Reverse();
+                return list;
+            }
+            //9
+
+            public static int[] CountPositivesSumNegatives(int[] input)
+            {
+                int[] arr2 = new int[0];
+                if (input == null || input.Length == 0) return arr2;
+                else
+                {
+                    int[] arr = new int[2];
+                    int count = 0, sum = 0;
+                    foreach (int element in input)
+                    {
+                        if (element > 0) count++;
+                        else if (element < 0) sum += element;
+                    }
+
+                    arr[0] = count;
+                    arr[1] = sum;
+                    return arr;
+
+                }
+            }
+            //10
+
+            public static int FindSmallestInt(int[] args)
+            {
+                int temp = args[0];
+                foreach (int a in args)
+                {
+                    if (temp > a) temp = a;
+                }
+                return temp;
+            }
+            //11
+
+            public static int CountSheeps(bool[] sheeps)
+            {
+                int temp = 0;
+                foreach (bool a in sheeps)
+                {
+                    if (a == true) temp++;
+                }
+                return temp;
+            }
+            //12
+
+            public static string Remove_char(string s)
+            {
+                int l = s.Length;
+                string s2 = s.Substring(1, l - 2);
+                return s2;
+            }
+            //13
+
+            public static string EvenOrOdd(int number)
+            {
+                if (number % 2 == 0) return "Even";
+
+                else return "Odd";
+            }
+            //14
+
+            public static int RentalCarCost(int d)
+            {
+                if (d >= 7) return d * 40 - 50;
+                else if (d >= 3) return d * 40 - 20;
+                else return d * 40;
+            }
+            //15
+
+            public static int MakeNegative(int number)
+            {
+                if (number <= 0) return number;
+                else return -1 * number;
+            }
+            //16
         }
     }
 }
