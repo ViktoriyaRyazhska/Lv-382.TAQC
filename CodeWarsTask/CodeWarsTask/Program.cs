@@ -10,7 +10,9 @@ namespace CodeWarsTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(NbDig(10,1));
+            string a = "nigga";
+            string b = a;
+            Console.WriteLine(a.Equals(b));
         }
 
         public static char GetChar(int charcode)
@@ -463,5 +465,43 @@ namespace CodeWarsTask
             }
             return counter;
         }
+
+        public static string Longest(string s1, string s2)
+        {
+            StringBuilder builder = new StringBuilder();
+            for (char i = 'a'; i < '{'; i++)
+            {
+                if (s1.Contains(i) || s2.Contains(i))
+                {
+                    builder.Append(i);
+                }
+            }
+            return builder.ToString();
+        }
+
+        public static string PrinterError(String s)
+        {
+            int counter = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] > 109)
+                {
+                    counter++;
+                }
+            }
+            return String.Format("{0}/{1}",counter,s.Length);
+        }
+
+        public static int SequenceSum(int start, int end, int step)
+        {
+            int sum = 0;
+            for (int i = start; i < end + 1; i += step)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+
+
     }
 }
