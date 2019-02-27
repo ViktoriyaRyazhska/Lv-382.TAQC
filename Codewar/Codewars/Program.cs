@@ -9,8 +9,8 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            string s = "abcd\nefgh\nijkl\nmnop";
-            Console.WriteLine(Tribonacci(new double[] { 1, 1, 1 }, 10));
+            WeaterForecast weater = new WeaterForecast(new WeatherForDay(2, 755, "l", "1"), new WeatherForDay(-8,743,"p","2"));
+            weater.PrintAll();
 
             Console.ReadKey();
         }
@@ -297,6 +297,14 @@ namespace Codewars
             }
             return -1;
         }
+        public static int GetSum(int a, int b)
+        {
+            return Enumerable.Range(Math.Min(a, b), Math.Abs(b - a) + 1).Sum();
+        }
+        public static string HighAndLow(string numbers)
+        {
+            return string.Join(" ",numbers.Split(' ').Select(x => int.Parse(x)).Max().ToString(), numbers.Split(' ').Select(x => int.Parse(x)).Min().ToString());
+        }
         public static long digPow(int n, int p) // Not done
         {
             int res = 0, res2 = 0;
@@ -313,13 +321,13 @@ namespace Codewars
             }
             return res == n * res2 ? res2 : -1;
         }
-        public static bool is_valid_IP(string ipAddres)
-        {
-            string[] s = ipAddres.Split(new char[] { '.' });
-            if (s.Length != 4 &&
-                return false;
-            return
-        } // not ddone 
+        //public static bool is_valid_IP(string ipAddres)
+        //{
+        //    string[] s = ipAddres.Split(new char[] { '.' });
+        //    if (s.Length != 4 &&
+        //        return false;
+        //    return
+        //} // not ddone 
         public static int TrailingZeros(int n)
         {
             int[] r = new int[n];
@@ -345,26 +353,50 @@ namespace Codewars
         {
             return Array.Equals(a.Select(x => Math.Pow(x, 2)), b);
         }
+        public static int NbYear(int p0, double percent, int aug, int p)
+        {
+            double per = percent;
+            if(per >= 1.00d)
+            {
+                if (per % 1 != 0)
+                {
+                    per = per / 10;
+                }
+                else
+                {
+                    per = per / 100;
+                }
+                
+            }
+            Console.WriteLine(per);
+
+            double res = p0 + p0 * per + aug;
+            int ii = 1;
+            for (int i = 0; res <= p; i++)
+            {
+                res = res + res * per + aug;
+                ii++;
+            }
+            return ii;
+            Console.ReadKey();
+        }
     }
 
 
-    //public class Opstrings
-    //{
-    //    public static string VertMirror(string strng)
-    //    {
-    //        return string.Concat(string.Join("\n", strng.Split(new char[] { '\n' }).Select(x => { char[] a = Enumerable.Reverse(x.ToCharArray()).ToArray(); return new string(a); })));
-    //    }
-    //    public static string HorMirror(string strng)
-    //    {
-    //        return string.Concat(string.Join("\n", strng.Split(new char[] { '\n' }).Reverse()));
-    //    }
-    //    public delegate string a(string s);
-    //    public static string Oper(a fct, string s)
-    //    {
-    //        return fct(s);
-    //    }
-    //}
+    public class Opstrings
+    {
+        public static string VertMirror(string strng)
+        {
+            return string.Concat(string.Join("\n", strng.Split(new char[] { '\n' }).Select(x => { char[] a = Enumerable.Reverse(x.ToCharArray()).ToArray(); return new string(a); })));
+        }
+        public static string HorMirror(string strng)
+        {
+            return string.Concat(string.Join("\n", strng.Split(new char[] { '\n' }).Reverse()));
+        }
+        public delegate string a(string s);
+        public static string Oper(a fct, string s)
+        {
+            return fct(s);
+        }
+    }
 }
-
-
-
