@@ -99,7 +99,18 @@ namespace SoftTasks.Tests
             
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input3), $"WayToCoverIn3Steps failed with valid data {input3}");
         }
+        [Test, TestCaseSource("WayToCoverIn3StepsDivideCases")]
+        public void WayToCoverIn3Steps_ValidInput_Test4(int input4, int expected)
+        {
+            Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input4));
+        }
+        static object[] WayToCoverIn3StepsDivideCases =
+        {
+            new object[] {3,4},
+            new object[] {6,24}
 
+        };
+        //Kh
         [Test]
         [TestCase(2, 1)]
         [TestCase(10, 41)]
@@ -132,16 +143,16 @@ namespace SoftTasks.Tests
             Assert.AreEqual(expected,Methods.FriendPairs(data));
         }
         [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void FriendsPairsTest2(int data,int expectet)
+        public void FriendsPairsTest2(int data,int expected)
         {
-            Assert.AreEqual(expectet, Methods.FriendPairs(data));
+            Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
         static object[] FriendsPairsDivideCases =
         {
             new object[] {3,4},
             new object[] {0,0},
             new object[] {1,1},
-            new object[] {-3,0},
+            new object[] {-3,0}
         };
         //Valik
         [Test]
@@ -179,5 +190,34 @@ namespace SoftTasks.Tests
             int expected = 0;
             Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
         }
+
+        [Test]
+        public void PathsWithoutCrossing_ValidInput_Test1()
+        {
+            int input1 = 4;
+            int expected = 2;
+            int actual = Methods.countAllWays(input1);
+            Assert.AreEqual(expected, actual, $"PathsWithoutCrossing {input1}");
+        }
+
+        [Test]
+        [TestCase(4, 2)]
+        [TestCase(1, 0)]
+        public void PathsWithoutCrossing_Test2(int input2, int expected2)
+        {
+            Assert.AreEqual(expected2, Methods.countAllWays(input2));
+        }
+
+        [Test, TestCaseSource("PathsWithoutCrossing")]
+        public void PathsWithoutCrossing_Test3(int input3, int expected3)
+        {
+            Assert.AreEqual(expected3, Methods.countAllWays(input3));
+        }
+        static object[] PathsWithoutCrossing =
+        {
+            new object[] {4,2},
+            new object[] {1,0},
+            new object[] {4,3}
+        };
     }
 }
