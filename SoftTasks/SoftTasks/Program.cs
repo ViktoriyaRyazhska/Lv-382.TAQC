@@ -43,8 +43,12 @@ namespace SoftTasks
                         Print(a);
                         break;
                     case "5":
-                        a = Methods.CountWays;
-                        Print(a);
+                        Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");
+                        int[] array = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
+                        Console.WriteLine("Input N");
+                        int N = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Amount of ways: " + Methods.CountWays(N, array));
+                        Console.ReadKey(); 
                         break;
                     case "6":
                         Console.WriteLine("Input an array, e.g(4,5,2,7,8,1):");

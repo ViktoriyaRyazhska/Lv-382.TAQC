@@ -52,48 +52,19 @@ namespace SoftTasks
         /// <summary>
         /// Khrystyna Fedun
         /// </summary>
-        public static int CountWays(int N)      //5
+        public static int CountWays(int N, int[] arr)      //5
         {
             int invalidInputResult = -1;
-            string invalidInputmessage = "invalid input, please try again, example: 1,4,3,7";
+            
             if (N < 1)
             {
-                Console.WriteLine("N can not be les then zero");
+                Console.WriteLine("N can not be less than 1");
                 return invalidInputResult;
             }
-            Console.WriteLine("Input array, e.g(1,4,3,7):");
-
-            string numsInput = Console.ReadLine();
-            if (numsInput == null || numsInput.Length == 0)
-            {
-                Console.WriteLine(invalidInputmessage);
-                return invalidInputResult;
-            }
-            string[] values = numsInput.Split(',');
-            if (values.Length == 0)
-            {
-                Console.WriteLine(invalidInputmessage);
-                return invalidInputResult;
-            }
-
-            int[] arr = new int[values.Length];
-
-            for (int i = 0; i < values.Length; i++)
-            {
-                foreach (var ch in values[i])
-                {
-                    if (ch < '0' || ch > '9')
-                    {
-                        Console.WriteLine(invalidInputmessage);
-                        return invalidInputResult;
-                    }
-                }
-                arr[i] = int.Parse(values[i]);
-            }
+                                   
             int[] count = new int[N + 1];
             count[0] = 1;
-
-
+            
             for (int i = 1; i <= N; i++)
             {
                 for (int j = 0; j < arr.Length; j++)

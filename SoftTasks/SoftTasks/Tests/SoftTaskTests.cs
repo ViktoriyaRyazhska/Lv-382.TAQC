@@ -10,7 +10,7 @@ namespace SoftTasks.Tests
     [TestFixture]
     public class SoftTaskTests
     {
-        [Test]      
+        [Test]
         public void InterestingRows_1_1returned()
         {
             int inputNumb = 1;
@@ -56,7 +56,7 @@ namespace SoftTasks.Tests
             int inputNumb = -9;
             int expected = 0;
             int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");            
+            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
         }
         [Test]
         public void CountAllWaysTest1()
@@ -111,7 +111,7 @@ namespace SoftTasks.Tests
 
         public void FriendsPairsTest1()
         {
-            Assert.AreEqual(4, Methods.FriendPairs(3)); 
+            Assert.AreEqual(4, Methods.FriendPairs(3));
         }
         [Test]
         public void FriendsPairsTest2()
@@ -122,6 +122,42 @@ namespace SoftTasks.Tests
         public void FriendsPairsTest3()
         {
             Assert.AreEqual(0, Methods.FriendPairs(0));
+        }
+        
+        [Test]
+        public void CountWaysTest_NLessThan1()
+        {
+            int N = -4;
+            int[] arr = { 1, 1 };
+            int expected = -1;
+            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+        }
+
+        [Test]
+        public void CountWaysTest_RightValues()
+        {
+            int N = 7;
+            int[] arr = { 1, 5, 6 };
+            int expected = 6;
+            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+        }
+
+        [Test]
+        public void CountWaysTest_ArrayWith0()
+        {
+            int N = 7;
+            int[] arr = { 0 };
+            int expected = 0;
+            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+        }
+
+        [Test]
+        public void CountWaysTest_NIs1()
+        {
+            int N = 1;
+            int[] arr = { 6, 8, 9 };
+            int expected = 0;
+            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
         }
     }
 }
