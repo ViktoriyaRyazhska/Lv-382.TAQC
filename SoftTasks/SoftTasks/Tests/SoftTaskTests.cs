@@ -73,6 +73,7 @@ namespace SoftTasks.Tests
         {
             Assert.AreEqual(0, Methods.countAllWays(1)); // Negative
         }
+        //Serhii
         [Test]
         public void WayToCoverIn3Steps_ValidInput_Test1()
         {
@@ -89,7 +90,27 @@ namespace SoftTasks.Tests
             int actual = Methods.WayToCoverIn3Steps(input2);
             Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input2}");
         }
+        [Test]
+        [TestCase(3, 4)]
+        [TestCase(6, 24)]
+        public void WayToCoverIn3Steps_ValidInput_Test3(int input3, int expected)
+        {
+            
+            
+            Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input3), $"WayToCoverIn3Steps failed with valid data {input3}");
+        }
+        [Test, TestCaseSource("WayToCoverIn3StepsDivideCases")]
+        public void WayToCoverIn3Steps_ValidInput_Test4(int input4, int expected)
+        {
+            Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input4));
+        }
+        static object[] WayToCoverIn3StepsDivideCases =
+        {
+            new object[] {3,4},
+            new object[] {6,24}
 
+        };
+        //Kh
         [Test]
         [TestCase(2, 1)]
         [TestCase(10, 41)]
@@ -122,16 +143,16 @@ namespace SoftTasks.Tests
             Assert.AreEqual(expected,Methods.FriendPairs(data));
         }
         [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void FriendsPairsTest2(int data,int expectet)
+        public void FriendsPairsTest2(int data,int expected)
         {
-            Assert.AreEqual(expectet, Methods.FriendPairs(data));
+            Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
         static object[] FriendsPairsDivideCases =
         {
             new object[] {3,4},
             new object[] {0,0},
             new object[] {1,1},
-            new object[] {-3,0},
+            new object[] {-3,0}
         };
         //Valik
         [Test]
