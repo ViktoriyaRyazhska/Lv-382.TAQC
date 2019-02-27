@@ -145,13 +145,117 @@ namespace Task1.Array
             return y;
         }
 
+        public static int AmountOfDotsinCircle(int n, double r, double[]a)
+        {
+            int count = 0;
+            if(n < 2)
+            {
+                return -1;
+            }
+            else
+            {
+                for(int i = 0; i < n; i++)
+                {
+                    if(Math.Sqrt(a[i] * a[i] + a[n-i] * a[n-i])  <= r)
+                    {
+                        count++;
+                    }
+                }
+            }
 
+            return count;       
+        }
 
+        public static int CustomerWaitedTheLongest(int n, int[] t)
+        {
+            int[] c = new int[n];
+            c[0] = 0;
+            for(int i = 0; i < n; i++)
+            {
+                c[i] += t[i];
+            }
+            int min = c[0];
+            int number = 0;
+            for(int i = 0; i < n; i++)
+            {
+                if(c[i] < min)
+                {
+                    min = c[i];
+                    number = i;
+                }
+            }
+            return number + 1;
+        }
+
+        public static int GradeForSportsman(int n, int [] a)
+        {
+            int sum = 0;
+            if (n < 3)
+            {
+                return -1;
+            }
+            else
+            {
+                System.Array.Sort(a);
+                for(int i = 1; i < n-1; i++)
+                {
+                    sum += a[i];
+                }
+            }
+            return Convert.ToInt32(sum / (n - 2));
+        }
+
+        public static int NumberFromDigitsSquare(int n)
+        {
+            int[] digits = System.Array.ConvertAll(n.ToString().ToArray(), x => (int)x - 48);
+            string res = "";
+            foreach (int d in digits)
+            {
+                res += (d * d).ToString();
+            }
+            return Convert.ToInt32(res);
+        }
+
+        public static int AmountOfUnique(string str)
+        {
+            return str.Distinct().Count()
+;       }
+
+        public static long SumOfTwoSmallest(long [] array)
+        {
+            System.Array.Sort(array);
+            return array[0] + array[1];
+        }
+
+        public static int IndexThatSplitsInEqualSums(int [] arr)
+        {
+            int leftSum = arr[0];
+            int rightSum = arr[arr.Length-1];
+            int i = 1;
+            int j = arr.Length-2;
+            while(i != j)
+            {
+                if (leftSum <= rightSum)
+                {
+                    leftSum += arr[i++];
+                }
+                else if (rightSum < leftSum)
+                {
+                    rightSum += arr[j--];
+                }              
+            }
+            if (rightSum == leftSum)
+            {
+                return i;
+            }
+            else return -1;
+        }
 
 
         static void Main(string[] args)
         {
-            Console.WriteLine(DigitOnKPlace(3));
+
+            
         }
     }
 }
