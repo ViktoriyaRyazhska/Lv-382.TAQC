@@ -19,19 +19,17 @@ namespace Extra_tasks
                 if ((y % 1) > 0.00d)
                 {
                     z = (int)(y + 1);
-                    Console.WriteLine(z);
+                    Console.WriteLine("Century: " + z);
                     return z;
                 }
                 else
                 {
-                    Console.WriteLine(y);
+                    Console.WriteLine("Century: " + y);
                     return (int)y;
                 }
             }
-            
             Console.WriteLine("Enter year > 0");
             return 0;
-            
         }
     }
 }
