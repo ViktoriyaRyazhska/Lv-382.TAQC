@@ -48,6 +48,39 @@ namespace CodeWars
             }
             //3
 
-        }   
+            public static bool IsOpposite(string s1, string s2)
+            {
+                if (s1.Length != s2.Length || s2.Length <= 0) return false;
+                else if (s1 != s2)
+                {
+                    int c = 0;
+                    for (int i = 0; i < s2.Length; i++)
+                    {
+                        if (!s1.Substring(i, 1).Equals(s2.Substring(i, 1))) { c += 0; }
+                        else { c += 1; }
+                    }
+                    if (c == 0) return true;
+                    else return false;
+                }
+                else return true;
+            }
+            //4
+
+            public static int Opposite(int number)
+            {
+                return -number;
+            }
+            //5
+
+            public static int summation(int num)
+            {
+                int sum = 0;
+                for (int i = 1; i <= num; i++)
+                    sum += i;
+                return sum;
+            }
+            //6
+
+        }
     }
 }
