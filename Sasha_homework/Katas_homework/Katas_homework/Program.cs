@@ -345,7 +345,7 @@ namespace Katas_homework
             {
                 string temp = list[i];
                 list[i] = list[i].ToUpper();
-                
+
                 for (int j = 0; j < i; j++)
                 {
                     list[i] += temp;
@@ -375,7 +375,7 @@ namespace Katas_homework
         public static string HorMirror(string strng)     //Moves in squared strings (I)
         {
             return string.Join("\n", strng.Split('\n').Reverse());
-        }   
+        }
         public static string Oper(Func<string, string> fct, string s)    //Moves in squared strings (I)
         {
             return fct(s);
@@ -590,13 +590,113 @@ namespace Katas_homework
 
 
 
+        public static double[] gett(string t, string s)   //Rainfall
+        {
+            return s.Split('\n').First(x => x.Contains(t)).Split(',').Select(x => double.Parse(x.Split()[1])).ToArray();
+        }
+        public static double Mean(string t, string s)   //Rainfall
+        {
+            return s.Contains(t + ":") ? gett(t, s).Average() : -1;
+        }
+        public static double Variance(string t, string s)   //Rainfall
+        {
+            var p = Mean(t, s);
+            return s.Contains(t + ":") ? gett(t, s).Select(x => (x - p) * (x - p)).Average() : -1;
+        }
+
+
+        public static string RevRot(string str, int size)    //Reverse or rotate?
+        {
+            if (str == "" || size <= 0 || size > str.Length) return "";
+            string ans = "";
+            while (str.Length >= size)
+            {
+                var chunk = str.Substring(0, size);
+                str = str.Substring(size);
+                long sum = chunk.Select(c => long.Parse(c.ToString()))
+                  .Sum();
+                if (sum % 2 == 0)
+                {
+                    ans += String.Join("", chunk.Reverse());
+                }
+                else
+                {
+                    ans += chunk.Substring(1) + chunk.Substring(0, 1);
+                }
+            }
+            return ans;
+        }
+
+
+        public static bool comp(int[] a, int[] b)     //Are they the "same"?
+        {
+            if ((a == null) || (b == null))
+            {
+                return false;
+            }
+
+            int[] copy = a.Select(x => x * x).ToArray();
+            Array.Sort(copy);
+            Array.Sort(b);
+
+            return copy.SequenceEqual(b);
+        }
+
+
+        public static int? chooseBestSum(int t, int k, List<int> ls)     //Best travel
+        {
+            if (k > ls.Count() || (t == 0 && k > 0)) return null;
+            if (k == 0) return 0;
+
+            var first = ls.First();
+            var rest = ls.Skip(1).ToList();
+
+            return first > t ? chooseBestSum(t, k, rest)
+                             : (new List<int?> { chooseBestSum(t, k, rest), first + chooseBestSum(t - first, k - 1, rest) }).Max();
+        }
+
+
+
+        static Dictionary<string, string> Oposite = new Dictionary<string, string>()   //Directions Reduction
+        {
+            { "SOUTH","NORTH" },
+            { "NORTH","SOUTH" },
+            { "EAST","WEST" },
+            { "WEST","EAST" }
+        };
+
+        public static string[] dirReduc(String[] arr)    //Directions Reduction
+        {
+            List<string> dirs = new List<string>();
+
+            int current = 0;
+            dirs.Add(arr[0]);
+            for (int i = 1; i < arr.Length; i++)
+            {
+                dirs.Add(arr[i]);
+                if (Oposite[dirs[current++]] == dirs[current])
+                {
+                    dirs.RemoveAt(current--);
+                    dirs.RemoveAt(current--);
+                    if (dirs.Count == 0)
+                    {
+                        current = 0;
+                        dirs.Add(arr[++i]);
+                    }
+                }
+            }
+            return dirs.ToArray();
+        }
+
+
+
 
 
 
 
         static void Main(string[] args)
         {
-            
+
         }
     }
 }
