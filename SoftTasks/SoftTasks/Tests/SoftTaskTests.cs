@@ -107,23 +107,33 @@ namespace SoftTasks.Tests
             int expected = 0;
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
         }
+        // Valik
         [Test]
-
-        public void FriendsPairsTest1()
+        public void FriendsPairsTest0()
         {
             Assert.AreEqual(4, Methods.FriendPairs(3));
         }
         [Test]
-        public void FriendsPairsTest2()
+        [TestCase(3, 4)]
+        [TestCase(0, 0)]
+        [TestCase(-3,0)]
+        public void FriendsPairsTest1(int data, int expected)
         {
-            Assert.AreEqual(2, Methods.FriendPairs(2));
+            Assert.AreEqual(expected,Methods.FriendPairs(data));
         }
-        [Test]
-        public void FriendsPairsTest3()
+        [Test, TestCaseSource("FriendsPairsDivideCases")]
+        public void FriendsPairsTest2(int data,int expectet)
         {
-            Assert.AreEqual(0, Methods.FriendPairs(0));
+            Assert.AreEqual(expectet, Methods.FriendPairs(data));
         }
-        
+        static object[] FriendsPairsDivideCases =
+        {
+            new object[] {3,4},
+            new object[] {0,0},
+            new object[] {1,1},
+            new object[] {-3,0},
+        };
+        //Valik
         [Test]
         public void CountWaysTest_NLessThan1()
         {
