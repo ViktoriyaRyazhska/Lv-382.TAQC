@@ -13,7 +13,13 @@ namespace Extra_tasks
             //Array1.Century();
             //Console.ReadKey();
 
-            Array2.Row(20);
+            //Array2.Row(20);
+            //Console.ReadKey();
+
+            //Array3.Sum30(11);
+            //Console.ReadKey();
+
+            Array4.Row2();
             Console.ReadKey();
 
             //Weather weater = new Weather(new WeatherForDay(-2, 751, "p", "2"), new WeatherForDay(3, 743, "l", "2")); //1
