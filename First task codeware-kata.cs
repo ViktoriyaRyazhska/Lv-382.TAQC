@@ -359,7 +359,7 @@ namespace ConsoleApp3
         }   //34
         public double[] Tribonacci(double[] signature, int n)
         {
-            // hackonacci me
+            // 
         }   //35
         public static string CamelCase(this string str)
         {
