@@ -1,0 +1,7 @@
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\bin\Debug\Extra tasks.exe.config
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\bin\Debug\Extra tasks.exe
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\bin\Debug\Extra tasks.pdb
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\obj\Debug\Extra tasks.csprojAssemblyReference.cache
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\obj\Debug\Extra tasks.csproj.CoreCompileInputs.cache
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\obj\Debug\Extra tasks.exe
+C:\Users\Serhii\Desktop\Demo 2\1project\Lv-382.TAQC\Tasks for Core\Extra tasks\Extra tasks\obj\Debug\Extra tasks.pdb
