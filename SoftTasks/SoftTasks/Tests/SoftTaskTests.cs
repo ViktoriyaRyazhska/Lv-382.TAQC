@@ -219,5 +219,33 @@ namespace SoftTasks.Tests
             new object[] {1,0},
             new object[] {4,3}
         };
+        //Ihor
+        [Test]
+        public void Fibbonachi_FirstPosTest_5_8returned()
+        {
+            byte expected = 8,
+                input_data = 5;
+            Assert.AreEqual(expected, Methods.Fibbonachi(input_data));
+        }
+
+        [Test]
+        [TestCase(11, 144)]
+        [TestCase(6, 13)]
+        public void Fibbonachi_SecoundPosTest(byte input_data, byte expected)
+        {
+            Assert.AreEqual(expected, Methods.Fibbonachi(input_data));
+        }
+
+        [Test, TestCaseSource("FibbonachiTestCases")]
+        public void Fibbonachi_ThirdPosTest(byte input_data, byte expected)
+        {
+            Assert.AreNotEqual(expected, Methods.FriendPairs(input_data));
+        }
+        static object[] FibbonachiTestCases =
+        {
+            new object[] {15,987},
+            new object[] {1,1},
+            new object[] {7,21}
+        };
     }
 }
