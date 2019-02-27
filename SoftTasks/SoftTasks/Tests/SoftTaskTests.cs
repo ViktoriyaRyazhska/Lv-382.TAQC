@@ -133,7 +133,7 @@ namespace SoftTasks.Tests
             new object[] {1,1},
             new object[] {-3,0},
         };
-        //Valik
+        // Valik
         [Test]
         public void CountWaysTest_NLessThan1()
         {
