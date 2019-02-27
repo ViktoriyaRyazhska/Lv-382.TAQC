@@ -95,8 +95,8 @@ namespace SoftTasks.Tests
         [TestCase(6, 24)]
         public void WayToCoverIn3Steps_ValidInput_Test3(int input3, int expected)
         {
-            
-            
+
+
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input3), $"WayToCoverIn3Steps failed with valid data {input3}");
         }
         [Test, TestCaseSource("WayToCoverIn3StepsDivideCases")]
@@ -137,13 +137,13 @@ namespace SoftTasks.Tests
         [Test]
         [TestCase(3, 4)]
         [TestCase(0, 0)]
-        [TestCase(-3,0)]
+        [TestCase(-3, 0)]
         public void FriendsPairsTest1(int data, int expected)
         {
-            Assert.AreEqual(expected,Methods.FriendPairs(data));
+            Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
         [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void FriendsPairsTest2(int data,int expected)
+        public void FriendsPairsTest2(int data, int expected)
         {
             Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
@@ -218,6 +218,50 @@ namespace SoftTasks.Tests
             new object[] {4,2},
             new object[] {1,0},
             new object[] {4,3}
+        };
+
+        //Oleh Hnachuk
+        [Test]
+        public void WorkToBeHighLowEffort_ValidInput()
+        {
+            int inputDays = 5;
+            int[] inputLow = { 1, 5, 4, 5, 3 };
+            int[] inputHigh = { 3, 6, 8, 7, 6 };
+            int expected = 20;
+            int actual = Methods.maxTasks(inputHigh, inputLow, inputDays);
+            Assert.AreEqual(expected, actual, "WorkToBe with high and low effort failed with valid data");
+        }
+
+        [Test]
+        public void WorkToBeHighLowEffort_InvalidInput()
+        {
+            int inputDays = 0;
+            int[] inputLow = { 1, 5, 4, 5, 3 };
+            int[] inputHigh = { 3, 6, 8, 7, 6 };
+            int expected = 0;
+            int actual = Methods.maxTasks(inputHigh, inputLow, inputDays);
+            Assert.AreEqual(expected, actual, "WorkToBe with high and low effort failed with invalid data");
+        }
+
+        [Test]
+        [TestCase(new int[] { 5, 6, 4, 3, 7, 6 }, new int[] { 1, 3, 2, 2, 4, 1 }, 6, 18)]
+        [TestCase(new int[] { 3 }, new int[] { 2 }, 1, 3)]
+        [TestCase(new int[] { 5 }, new int[] { 4 }, -1, 0)]
+        public void WorkToBeHighLowEffort_TestCaseInput(int[] inputHigh,int[] inputLow, int inputDays,int expected)
+        {
+            Assert.AreEqual(expected, Methods.maxTasks(inputHigh,inputLow,inputDays));
+        }
+
+        [Test, TestCaseSource("WorkToBeHighLowEffort")]
+        public void WorkToBeHighLowEffort_SourceInput(int[] inputHigh, int[] inputLow, int inputDays, int expected)
+        {
+            Assert.AreEqual(expected, Methods.maxTasks(inputHigh, inputLow, inputDays));
+        }
+        static object[] WorkToBeHighLowEffort =
+        {
+            new object[] {new int[] { 8, 9, 3, 6, 9, 2 }, new int[] { 3, 6, 4, 5, 6, 3 }, 6, 32},
+            new object[] {new int[] { 3 }, new int[] { 5 }, 1, 5},
+            new object[] {new int[] { 5,4,3,4 }, new int[] { 2,3,4,1 }, -4, 0}
         };
     }
 }
