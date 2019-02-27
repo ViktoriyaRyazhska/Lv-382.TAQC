@@ -111,8 +111,17 @@ namespace SoftTasks
                 return arr[n];
         }
 
-
-        static public int myPairs(int n)
+        //Serhii Zakharchuk
+        static public int countAllWays(int n)   
+        {
+            if (n <= 1)
+            {
+                Console.WriteLine("Invalid");
+                return 0;
+            }
+            return myPairs(n / 2);
+        }
+        static public int myPairs(int n)  //8
         {
             int[] myArr = new int[n + 1];
             myArr[0] = myArr[1] = 1;
@@ -123,15 +132,6 @@ namespace SoftTasks
                     myArr[i] += myArr[j] * myArr[i - j - 1];
             }
             return myArr[n];
-        }
-        static public int countAllWays(int n)
-        {
-            if (n <= 1)
-            {
-                Console.WriteLine("Invalid");
-                return 0;
-            }
-            return myPairs(n / 2);
         }
 
         // Oleh Hnachuk
