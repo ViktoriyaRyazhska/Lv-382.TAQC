@@ -9,8 +9,12 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            WeaterForecast weater = new WeaterForecast(new WeatherForDay(2, 755, "l", "1"), new WeatherForDay(-8,743,"p","2"));
-            weater.PrintAll();
+            WeaterForecast weater = new WeaterForecast(new WeatherForDay(-20, 755, "l", "1"), new WeatherForDay(8,743,"p","2"), new WeatherForDay(15, 743, "p", "2"));
+            weater.Input(Console.ReadLine());
+            weater.PrintAllByTemperature();
+            weater.PrintMidleTemperature();
+            weater.PrintRainStat();
+            weater.PrintPreasureDays(int.Parse(Console.ReadLine()));
 
             Console.ReadKey();
         }

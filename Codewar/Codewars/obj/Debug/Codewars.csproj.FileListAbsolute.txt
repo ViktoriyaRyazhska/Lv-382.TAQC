@@ -5,3 +5,10 @@ C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.csprojAssemblyR
 C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.csproj.CoreCompileInputs.cache
 C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.exe
 C:\Users\Lutik\source\repos\Codewars\Codewars\obj\Debug\Codewars.pdb
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\bin\Debug\Codewars.exe.config
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\bin\Debug\Codewars.exe
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\bin\Debug\Codewars.pdb
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\obj\Debug\Codewars.csprojAssemblyReference.cache
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\obj\Debug\Codewars.csproj.CoreCompileInputs.cache
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\obj\Debug\Codewars.exe
+C:\Users\Lutik\Desktop\GIT\Lv-382.TAQC\Codewar\Codewars\obj\Debug\Codewars.pdb

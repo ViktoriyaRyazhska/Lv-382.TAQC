@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Codewars
 {
     class WeaterForecast
     {
-        List<WeatherForDay> WeatherForecasts = new List<WeatherForDay>();
+        public List<WeatherForDay> WeatherForecasts = new List<WeatherForDay>();
         public WeaterForecast()
         {
 
@@ -22,17 +23,53 @@ namespace Codewars
             Console.WriteLine("\tтемпература" + "\tатм.тиск" + "\tсила вiтру" + "\tопади");
             foreach (var n in WeatherForecasts)
             {
+                Console.WriteLine(n.Output());
+            }
+        }
+        public void PrintAllByTemperature()
+        {
+            Console.WriteLine("\tтемпература" + "\tатм.тиск" + "\tсила вiтру" + "\tопади");
+            foreach (var n in WeatherForecasts.OrderByDescending(x => x.Temperature))
+            {
                 Console.WriteLine(n.ToString());
             }
+        }
+        public void PrintMidleTemperature()
+        {
+            Console.Write("\nСередня температура: ");
+            List<WeatherForDay> lst = WeatherForecasts.Where(x => x.Winter.Equals("t")).ToList();
+            Console.Write(lst.Count != 0 ? lst.Average(x => x.Temperature).ToString() : 0.ToString());
+        }
+        public void Input(string str)
+        {
+            WeatherForDay temp = new WeatherForDay();
+            temp.Input(str);
+            WeatherForecasts.Add(temp);
+        }
+        public void PrintRainStat()
+        {
+            Console.WriteLine("Статистика опадoiв: ");
+            Console.WriteLine("Днiв без опадiв: " + WeatherForecasts.Where(x => x.RainForDay.key == "0").Count());
+            Console.WriteLine("Днiв з опадами: "+ WeatherForecasts.Where(x => x.RainForDay.key == "1").Count());
+            Console.WriteLine("Днiв з снiгом: "+ WeatherForecasts.Where(x => x.RainForDay.key == "2").Count());
+        }
+        public void PrintPreasureDays(int compareValue)
+        {
+            Console.WriteLine("\tтемпература" + "\tатм.тиск" + "\tсила вiтру" + "\tопади");
+            foreach (var n in WeatherForecasts.Where(x => x.Atmosphere < compareValue))
+            {
+                Console.WriteLine(n.ToString());
+            }
+
         }
     }
 
     class WeatherForDay
     {
-        private int Temperature { get; set; }
-        private int Atmosphere { get; set; }
-        private WinterPower Winter { get; set; }
-        private Rain RainForDay { get; set; }
+        public int Temperature { get; private set; }
+        public int Atmosphere { get; private set; }
+        public WinterPower Winter { get; private set; }
+        public Rain RainForDay { get; private set; }
         public WeatherForDay() { }
         public WeatherForDay(int Temperature, int Atmosphere, string Winter, string RainForDay)
         {
@@ -88,6 +125,10 @@ namespace Codewars
                     Console.WriteLine("Invalid value");
                     break;
             }
+        }
+        public override bool Equals(object obj)
+        {
+            return this.key.Equals(obj);
         }
         public override string ToString()
         {
