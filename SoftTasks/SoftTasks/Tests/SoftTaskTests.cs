@@ -169,5 +169,34 @@ namespace SoftTasks.Tests
             int expected = 0;
             Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
         }
+
+        [Test]
+        public void PathsWithoutCrossing_ValidInput_Test1()
+        {
+            int input1 = 4;
+            int expected = 2;
+            int actual = Methods.countAllWays(input1);
+            Assert.AreEqual(expected, actual, $"PathsWithoutCrossing {input1}");
+        }
+
+        [Test]
+        [TestCase(4, 2)]
+        [TestCase(1, 0)]
+        public void PathsWithoutCrossing_Test2(int input2, int expected2)
+        {
+            Assert.AreEqual(expected2, Methods.countAllWays(input2));
+        }
+
+        [Test, TestCaseSource("PathsWithoutCrossing")]
+        public void PathsWithoutCrossing_Test3(int input3, int expected3)
+        {
+            Assert.AreEqual(expected3, Methods.countAllWays(input3));
+        }
+        static object[] PathsWithoutCrossing =
+        {
+            new object[] {4,2},
+            new object[] {1,0},
+            new object[] {4,3}
+        };
     }
 }
