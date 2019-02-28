@@ -94,6 +94,18 @@ namespace Codewars
         {
             return "\t" + Temperature + "C" + "\t\t" + Atmosphere + "\t\t" + Winter.value + "\t" + RainForDay.value;
         }
+        public override bool Equals(object obj)
+        {
+            if (obj is WeatherForDay && obj != null)
+            {
+                WeatherForDay a = (WeatherForDay)obj;
+                return (this.Temperature == a.Temperature && this.Atmosphere == a.Atmosphere && this.Winter.key == a.Winter.key && this.RainForDay.key == a.RainForDay.key);
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
     class WinterPower
