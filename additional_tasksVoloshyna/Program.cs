@@ -14,6 +14,7 @@ namespace additional_tasksVoloshyna
             //FourthTask(new int[] { 1, 3, 1});
             //SecondTask();
             //KPlace(5);
+            CreateNumberFromDigitsSquare(123);
             Console.ReadKey();
         }
         static int CenturyOfYear(int year)
@@ -120,6 +121,60 @@ namespace additional_tasksVoloshyna
             }
             return y;
         }
+
+        static int GueueOfCustomers(int n, int [] t)
+        {           
+            int[] c = new int[] { };
+            int numb = 0;
+            for (int i = 0;  i < n;  i++)
+            {
+                c[i] += t[i];
+            }
+            int min = c[0];
+            for (int i = 0; i < n; i++)
+            {
+                if (c[i] < min)
+                {
+                    numb = i;
+                }
+            }
+            return numb + 1;
+        }
+        static int RatingForSportsman(int [] mark)
+        {
+            return 0;
+        }
+
+        static int CreateNumberFromDigitsSquare (int n)
+        {
+            string str = n.ToString();
+            string res = "";
+            int[] nums = new int[str.Length];
+            for (int i = 0; i < str.Length; i++)
+            {
+               nums[i] = int.Parse(str[i].ToString());
+            }
+            foreach(int m in nums)
+            {
+                res = (m * m).ToString();
+            }
+            
+            return Convert.ToInt32(res);
+        }
+
+        static int NumberOfUniqueCharacters(string str)
+        {
+            int number = str.Distinct().Count();
+            return number;
+        }
+
+        static int SumOfTheSmallestItems(int [] numbs)
+        {
+            System.Array.Sort(numbs);
+            int sum = numbs[0] + numbs[1];
+            return sum;
+        }
+
     }
 
 
