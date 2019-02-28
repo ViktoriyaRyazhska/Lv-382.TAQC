@@ -168,15 +168,15 @@ namespace SoftTasks.Tests
         {
             Assert.AreEqual(expected, Methods.FriendPairs(data),mess);
         }
-        [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void TestFriendsPairsInvalid(int data, int expected)
+        [Test, TestCaseSource("FriendsPairsInvalidCases")]
+        public void TestFriendsPairsInvalid(int data, int expected,string mess)
         {
             Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
         static object[] FriendsPairsDivideCases =
         {
-            new object[] {-15,0},
-            new object[] {-3,0}
+            new object[] {-15,0,"Error outputwhen shoud be 0"},
+            new object[] {-3,0, "Error outputwhen shoud be 0" }
         };
         // Valik end
         [Test]
