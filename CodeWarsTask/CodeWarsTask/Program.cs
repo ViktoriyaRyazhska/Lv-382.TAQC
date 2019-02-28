@@ -10,9 +10,6 @@ namespace CodeWarsTask
     {
         static void Main(string[] args)
         {
-            string a = "nigga";
-            string b = a;
-            Console.WriteLine(a.Equals(b));
         }
 
         public static char GetChar(int charcode)
