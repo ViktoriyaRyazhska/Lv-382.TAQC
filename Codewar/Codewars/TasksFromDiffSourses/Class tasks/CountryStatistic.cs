@@ -1,20 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Codewars
 {
+    class CountryStatisticDashboard
+    {
+        List<CountryStatistic> CountryStatistics = new List<CountryStatistic>();
+        public CountryStatisticDashboard()
+        {
+
+        }
+        public CountryStatisticDashboard(params CountryStatistic[] New)
+        {
+            foreach (var n in New)
+            {
+                CountryStatistics.Add(n);
+            }
+        }
+        public void OutputAll()
+        {
+            Console.WriteLine("\tкраiна" + "\tплоща" + "\tкiльк.нас." + "\tматерик");
+            foreach (var n in CountryStatistics)
+            {
+                Console.WriteLine(n.ToString());
+            }
+        }
+    }
+
+
+
     class CountryStatistic
     {
-        public int id {get; private set;}
-        public int arrea{ get; private set; }
+        public int id { get; private set; }
+        public int arrea { get; private set; }
 
         public int peopleCount { get; private set; }
 
         public string continent { get; private set; }
-        public CountryStatistic() 
+        public CountryStatistic()
         {
 
         }
@@ -38,7 +61,7 @@ namespace Codewars
         }
         public override string ToString()
         {
-            return "\t" + id + "C" + "\t\t" + arrea + "\t\t" + peopleCount + "\t" + continent;
+            return "\t" + id + "\t" + arrea + "\t" + peopleCount + "\t\t" + continent;
         }
         public override bool Equals(object obj)
         {
@@ -54,5 +77,5 @@ namespace Codewars
         }
     }
 
-    }
 }
+

@@ -10,15 +10,13 @@ namespace Codewars
         static void Main(string[] args)
         {
             WeaterForecast weater = new WeaterForecast(new WeatherForDay(-20, 755, "l", "1"), new WeatherForDay(8,743,"p","2"), new WeatherForDay(15, 743, "p", "2"));
-            weater.Input(Console.ReadLine());
-            weater.PrintAllByTemperature();
-            weater.PrintMidleTemperature();
-            weater.PrintRainStat();
-            weater.PrintPreasureDays(int.Parse(Console.ReadLine()));
-
+            CountryStatisticDashboard Dashboard = new CountryStatisticDashboard(new CountryStatistic(1,75500,500000,"Европа"), new CountryStatistic(6, 121240, 121142, "Азия"), new CountryStatistic(14, 12314, 214100, "Америка"));
+            Dashboard.OutputAll();
             Console.ReadKey();
         }
-        public static char GetChar(int charcode) // 1
+
+        // Kats start
+        public static char GetChar(int charcode) 
         {
             return (char)charcode;
         }
@@ -403,4 +401,5 @@ namespace Codewars
             return fct(s);
         }
     }
+    // Kats end
 }
