@@ -46,6 +46,9 @@
     <Compile Include="Array1.cs" />
     <Compile Include="Array10.cs" />
     <Compile Include="Array11.cs" />
+    <Compile Include="Array12.cs" />
+    <Compile Include="Array13.cs" />
+    <Compile Include="Array14.cs" />
     <Compile Include="Array2.cs" />
     <Compile Include="Array3.cs" />
     <Compile Include="Array4.cs" />

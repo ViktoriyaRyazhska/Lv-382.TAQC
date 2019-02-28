@@ -14,7 +14,7 @@ namespace Extra_tasks
 
             for (int i = x; i > 1; i--)
             {
-                sum += Math.Cos((i-1)-sum);
+                sum += Math.Cos((i - 1) - sum);
             }
             Console.WriteLine(sum);
         }

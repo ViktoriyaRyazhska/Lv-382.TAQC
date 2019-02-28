@@ -6,32 +6,27 @@ using System.Threading.Tasks;
 
 namespace Extra_tasks
 {
-    class Array11
+    class Array12
     {
-        public static void TMax()
+        public static void AverageMark()
         {
-            Console.WriteLine("Enter n: ");
+            Console.WriteLine("Enter n judgies: ");
             int n = int.Parse(Console.ReadLine());
             double[] arr = new double[n];
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Enter t[" + (i + 1) + "]: ");
+                Console.WriteLine("Enter mark j[" + (i + 1) + "]: ");
                 arr[i] = double.Parse(Console.ReadLine());
             }
-            double sum = 0;
-            double ci = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] > ci)
-                {
-                    ci = arr[i];
+            Array.Sort(arr);
 
-                }
+            double sum = 0;
+            for (int i = 1; i < arr.Length-1; i++)
+            {
                 sum += arr[i];
-                Console.WriteLine("t ci " + sum);
             }
-            Console.WriteLine("");
-            Console.WriteLine("t Max= " + ci);
+            sum /= (arr.Length - 2);
+            Console.WriteLine("Average mark is: " + sum);
         }
     }
 }
