@@ -155,33 +155,30 @@ namespace SoftTasks.Tests
 
         #endregion KhrystynaFedun
 
-        // Valik
+        // Valik start
         [Test]
-        public void FriendsPairsTest0()
+        public void TestFriendsPairsZero()
         {
-            Assert.AreEqual(4, Methods.FriendPairs(3));
+            Assert.AreEqual(0, Methods.FriendPairs(0));
         }
         [Test]
-        [TestCase(3, 4)]
-        [TestCase(0, 0)]
-        [TestCase(-3, 0)]
-        public void FriendsPairsTest1(int data, int expected)
+        [TestCase(3, 4, "Error outputwhen shoud be 4")]
+        [TestCase(0, 0, "Error output when shoud be 0")]
+        public void TestFriendsPairsValid(int data, int expected,string mess)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data));
+            Assert.AreEqual(expected, Methods.FriendPairs(data),mess);
         }
         [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void FriendsPairsTest2(int data, int expected)
+        public void TestFriendsPairsInvalid(int data, int expected)
         {
             Assert.AreEqual(expected, Methods.FriendPairs(data));
         }
         static object[] FriendsPairsDivideCases =
         {
-            new object[] {3,4},
-            new object[] {0,0},
-            new object[] {1,1},
+            new object[] {-15,0},
             new object[] {-3,0}
         };
-        // Valik
+        // Valik end
         [Test]
         public void CountWaysTest_NLessThan1()
         {
