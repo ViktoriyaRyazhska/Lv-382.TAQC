@@ -9,17 +9,17 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            List<int> a = new List<int>() { 3, 2, 35, 22, 1, 4, 63 };
-            CollectionsTasks.Task1(ref a, 5, 3, 13, 53);
-            foreach (var i in a)
+            List<int> a = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
+            List<int> b = new List<int>() { 2, 4, 6, 7, 8, 11, 43 };
+            foreach (var n in CollectionsTasks.Task2(a,b))
             {
-                Console.Write(i + " ");
+                Console.WriteLine(n+" ");
             }
             Console.ReadKey();
         }
 
         // Kats start
-        public static char GetChar(int charcode) 
+        public static char GetChar(int charcode)
         {
             return (char)charcode;
         }
@@ -308,7 +308,7 @@ namespace Codewars
         }
         public static string HighAndLow(string numbers)
         {
-            return string.Join(" ",numbers.Split(' ').Select(x => int.Parse(x)).Max().ToString(), numbers.Split(' ').Select(x => int.Parse(x)).Min().ToString());
+            return string.Join(" ", numbers.Split(' ').Select(x => int.Parse(x)).Max().ToString(), numbers.Split(' ').Select(x => int.Parse(x)).Min().ToString());
         }
         public static long digPow(int n, int p) // Not done
         {
@@ -361,7 +361,7 @@ namespace Codewars
         public static int NbYear(int p0, double percent, int aug, int p)
         {
             double per = percent;
-            if(per >= 1.00d)
+            if (per >= 1.00d)
             {
                 if (per % 1 != 0)
                 {
@@ -371,7 +371,7 @@ namespace Codewars
                 {
                     per = per / 100;
                 }
-                
+
             }
             Console.WriteLine(per);
 
