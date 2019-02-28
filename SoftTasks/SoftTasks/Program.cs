@@ -79,6 +79,14 @@ namespace SoftTasks
                         Console.WriteLine("Output:" + "\n" + Methods.maxTasks(higt, low, n).ToString());
                         Console.ReadKey();
                         break;
+                    case "11":
+                        Console.WriteLine("Enter size N");
+                        int n_param = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("Enter size M");
+                        int m_param = int.Parse(Console.ReadLine().ToString());
+                        Console.WriteLine("The number of ways to tile the given floor: {0}", Methods.TileFloorWays(n_param, m_param).ToString());
+                        Console.ReadKey();
+                        break;
                 }
                 Console.Clear();
 

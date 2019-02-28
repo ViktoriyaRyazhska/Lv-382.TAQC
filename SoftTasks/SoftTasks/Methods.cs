@@ -19,6 +19,7 @@ namespace SoftTasks
             "8.Paths without crossing",
             "9.Interesting rows",
             "10.Work to be with High-effort or with Low-effort",
+            "11.Ways to tile the floor",
             "0.Exit"
             };    // Add method name before "0.Exit"
 
@@ -213,6 +214,29 @@ namespace SoftTasks
             return Math.Max(high[n - 1] +
                 maxTasks(high, low, (n - 2)), low[n - 1] +
                 maxTasks(high, low, (n - 1)));
+        }
+
+        static public int TileFloorWays(int n, int m) //11
+        {
+            int[] ways = new int[n + 1];
+            for (int i = 1; i <= n; i++)
+            {
+
+                if (i < m) // Condition: n < m
+                {
+                    ways[i] = 1;
+                }
+                else if (i == m) // Condition: n = m
+                {
+                    ways[i] = 2;
+                }
+                else // Condition: n > m
+                {
+                    ways[i] = ways[i - 1] + ways[i - m];
+                }
+            }
+
+            return ways[n];
         }
     }
 }
