@@ -28,12 +28,14 @@ namespace Extra_tasks
             //Array6.NotEqualNumber();
             //Console.ReadKey();
 
-            Array7.NumberK(8);
+            //Array7.NumberK(8);
+            //Console.ReadKey();
+
+            Array8.TopSameD(2600,1300);
             Console.ReadKey();
 
             //Weather weater = new Weather(new WeatherForDay(-2, 751, "p", "2"), new WeatherForDay(3, 743, "l", "2")); //1
             //weater.PrintAll();
-
             //Console.ReadKey();
         }
     }

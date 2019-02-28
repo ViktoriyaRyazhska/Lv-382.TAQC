@@ -10,37 +10,42 @@ namespace Extra_tasks
     {
         public static void TopSameD(int a, int b)
         {
-            int rez;
-            List<int> la = new List<int>();
-            List<int> lb = new List<int>();
+            int rez = 1_000_000;
+            int[] la = new int[a];
+            int[] lb = new int[b];
+           
+            la[0] = 1;
+            lb[0] = 1;
             for (int i = 0; i < a; i++)
             {
-                if (a % i == 0)
+                if (a % (i+1) == 0)
                 {
-                    la.Add(i);
+                    la[i]=i+1;
+                    //Console.WriteLine(la[i]);
                 }
             }
             for (int i = 0; i < b; i++)
             {
-                if (b % i == 0)
+                if (b % (i+1) == 0)
                 {
-                    la.Add(i);
+                    lb[i] = i+1;
+                    //Console.WriteLine(lb[i]);
                 }
             }
-            for (int i = 0; i < la.Count; i++)
+            for (int i = 0; i < la.Length; i++)
             {
-                for (int j = 0; j < lb.Count; j++)
+                for (int j = 0; j < lb.Length; j++)
                 {
-                    if (la[i] == lb[i])
+                    if (la[i] == lb[j]&& la[i] !=0&& lb[j]!=0)
                     {
+                         
                         rez = la[i];
-                    }
-                    else
-                    {
-                        rez = 1;
+                        
+
                     }
                 }
             }
+            Console.WriteLine("");
             Console.WriteLine(rez);
         }
     }
