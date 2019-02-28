@@ -48,13 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\CountryStatistic.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\WeatherProg.cs" />
+    <Compile Include="TasksFromDiffSourses\Interface Tasks\IClonableTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TasksFromDiffSourses\Array Tasks\" />
-    <Folder Include="TasksFromDiffSourses\Interface Tasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

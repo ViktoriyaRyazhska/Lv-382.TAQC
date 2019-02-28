@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Codewars
@@ -24,6 +25,11 @@ namespace Codewars
             {
                 Console.WriteLine(n.ToString());
             }
+        }
+        public void ArreaSumByContinent()
+        {
+            Console.WriteLine(String.Join(" ", CountryStatistics.GroupBy(x => x.continent).Select(group => group.Sum(f=>f.arrea))));
+
         }
     }
 
