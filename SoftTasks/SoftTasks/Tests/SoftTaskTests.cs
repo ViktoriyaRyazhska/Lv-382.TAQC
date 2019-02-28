@@ -162,21 +162,21 @@ namespace SoftTasks.Tests
             Assert.AreEqual(0, Methods.FriendPairs(0));
         }
         [Test]
-        [TestCase(3, 4, "Error outputwhen shoud be 4")]
-        [TestCase(0, 0, "Error output when shoud be 0")]
-        public void TestFriendsPairsValid(int data, int expected,string mess)
+        [TestCase(3, 4)]
+        [TestCase(0, 0)]
+        public void TestFriendsPairsValid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data),mess);
+            Assert.AreEqual(expected, Methods.FriendPairs(data),$"Error output {Methods.FriendPairs(data)} when shoud be {expected}");
         }
         [Test, TestCaseSource("FriendsPairsInvalidCases")]
-        public void TestFriendsPairsInvalid(int data, int expected,string mess)
+        public void TestFriendsPairsInvalid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data));
+            Assert.AreEqual(expected, Methods.FriendPairs(data), $"Error output {Methods.FriendPairs(data)} when shoud be {expected}");
         }
         static object[] FriendsPairsDivideCases =
         {
-            new object[] {-15,0,"Error outputwhen shoud be 0"},
-            new object[] {-3,0, "Error outputwhen shoud be 0" }
+            new object[] {-15,0},
+            new object[] {-3,0 }
         };
         // Valik end
         [Test]
