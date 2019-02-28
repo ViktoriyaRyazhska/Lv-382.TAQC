@@ -31,20 +31,29 @@ namespace AdditionalTasks
             //GenericsTaskMethods.InsertIntoSortedList();
             //Console.WriteLine("_______________Task(Generics2)_____________");
             //GenericsTaskMethods.Add2SortedLists();
-            //Console.WriteLine("_______________Task(Generics3)_____________");
-            ////Failed  //GenericsTaskMethods.ManuallySort();
             //Console.WriteLine("_______________Task(Generics4)_____________");
             //GenericsTaskMethods.CountDistinctSymbols();
             //Console.WriteLine("_______________Task(Generics6)_____________");
             //GenericsTaskMethods.SymbolsBetweenColons();
             //Console.WriteLine("_______________Task(Generics7)_____________");
             //GenericsTaskMethods.IsItSorted();
+            Console.WriteLine("_______________Task Weather Forecast_____________");
+            SingleForecast[] forecasts = new SingleForecast[5]
+            { 
+                new SingleForecast() { Temperature = 12, Pressure = 750, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.Mild },
+                new SingleForecast() { Temperature = 14, Pressure = 760, FalloutType = SingleForecast.Fallout.Rain, Windiness = SingleForecast.Wind.NoWind },
+                new SingleForecast() { Temperature = -24, Pressure = 723, FalloutType = SingleForecast.Fallout.Snow, Windiness = SingleForecast.Wind.Strong },
+                new SingleForecast() { Temperature = 40, Pressure = 770, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.NoWind },
+                new SingleForecast() { Temperature = 27, Pressure = 746, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.Light }
+            };
             WeatherForecast WForecast = new WeatherForecast();
-            for (int i = 0; i < 3; i++)
+            WForecast.AddMultipleForecasts(forecasts);
+            for (int i = 0; i < 1; i++)
             {
                 WForecast.AddForecastFromConsole();
             }
             Console.WriteLine(WForecast.ToString());
+            WForecast.ForecastsSortedByTemperatureDesc();
             
         }
     }

@@ -56,6 +56,10 @@ namespace AdditionalTasks
         {
             forecasts.Add(new SingleForecast(temp, press, wind, fallout));
         }
+        public void AddMultipleForecasts(SingleForecast[] arrayForecast)
+        {
+            forecasts.AddRange(arrayForecast);
+        }
 
         public void AddForecastFromConsole()
         {
@@ -69,6 +73,53 @@ namespace AdditionalTasks
             SingleForecast.Wind wind = (SingleForecast.Wind)int.Parse(Console.ReadLine());
             AddNewForecast(temp, pres, wind, fallout);
         }
+
+        public void ForecastsSortedByTemperatureDesc()
+        {
+            var Sorting = from cast in forecasts
+                          orderby cast.Temperature descending
+                          select cast;
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"Weather forecast for the next {forecasts.Count} days sorted by temperature.\n");
+            builder.Append("Temp(C)     Pressure      Wind      Fallout\n");
+            foreach (SingleForecast forc in Sorting)
+            {
+                builder.Append($"{forc.Temperature}         {forc.Pressure}        {forc.Windiness}       {forc.FalloutType}\n");
+            }
+            builder.Append("________________________________________________________________");
+            Console.WriteLine(builder.ToString());
+        }
+        public double AvgTemperatureWhenNoWind()
+        {
+            var Sorting = from cast in forecasts
+                          where cast.Windiness==SingleForecast.Wind.NoWind
+                          select cast;
+            return Sorting.Average(x => x.Temperature);
+        }
+        public int[] CountDaysWithDiffFallout()
+        {
+            int[] res = new int[2];
+            res[0] = forecasts.Select(x => x.FalloutType == SingleForecast.Fallout.NoFallout).Count();
+            res[1] = forecasts.Select(x => x.FalloutType == SingleForecast.Fallout.Rain|| x.FalloutType == SingleForecast.Fallout.Snow).Count();
+            return res;
+        }
+        public void DaysWhenPressureLowerThan(short pressure)
+        {
+            var Sorting = from cast in forecasts
+                          where cast.Pressure < pressure
+                          select cast;
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"Weather forecast for the next {forecasts.Count} days when pressure is lower than {pressure}.\n");
+            builder.Append("Temp(C)     Pressure      Wind      Fallout\n");
+            foreach (SingleForecast forc in Sorting)
+            {
+                builder.Append($"{forc.Temperature}         {forc.Pressure}        {forc.Windiness}       {forc.FalloutType}\n");
+            }
+            builder.Append("________________________________________________________________");
+            Console.WriteLine(builder.ToString());
+        }
+
+
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
@@ -80,6 +131,29 @@ namespace AdditionalTasks
             }
             builder.Append("________________________________________________________________");
             return builder.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            bool equal = true;
+            if (obj is WeatherForecast)
+            {
+                WeatherForecast temp = (WeatherForecast)obj;
+                for (int i = 0; i < this.forecasts.Count; i++)
+                {
+                    if (this.forecasts[i].FalloutType != temp.forecasts[i].FalloutType ||
+                        this.forecasts[i].Windiness != temp.forecasts[i].Windiness ||
+                            this.forecasts[i].Pressure != temp.forecasts[i].Pressure ||
+                        this.forecasts[i].Temperature != temp.forecasts[i].Temperature)
+                    {
+                        equal = false;
+                    }
+                }
+                return equal;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
