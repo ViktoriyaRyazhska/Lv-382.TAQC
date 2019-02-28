@@ -25,13 +25,13 @@ namespace Extra_tasks
             {
                 Console.WriteLine("Triangle type: " + 3);
             }
-            else if (a==b||b==c||a==c)
+            else if (a == b || b == c || a == c)
             {
                 Console.WriteLine("Triangle type: " + 2);
             }
             else
             {
-                Console.WriteLine("Triangle type: "+1);
+                Console.WriteLine("Triangle type: " + 1);
             }
         }
     }

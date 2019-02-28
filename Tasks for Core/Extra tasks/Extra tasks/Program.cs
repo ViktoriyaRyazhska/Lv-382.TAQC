@@ -22,7 +22,10 @@ namespace Extra_tasks
             //Array4.Row2();
             //Console.ReadKey();
 
-            Array5.TriangleType();
+            //Array5.TriangleType();
+            //Console.ReadKey();
+
+            Array6.NotEqualNumber();
             Console.ReadKey();
 
             //Weather weater = new Weather(new WeatherForDay(-2, 751, "p", "2"), new WeatherForDay(3, 743, "l", "2")); //1
