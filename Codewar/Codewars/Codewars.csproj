@@ -48,7 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\CountryStatistic.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\WeatherProg.cs" />
-    <Compile Include="TasksFromDiffSourses\Interface Tasks\IClonableTask.cs" />
+    <Compile Include="TasksFromDiffSourses\Interface Tasks\ClonablePerson.cs" />
+    <Compile Include="TasksFromDiffSourses\Interface Tasks\CollectionsTasks.cs" />
+    <Compile Include="TasksFromDiffSourses\Interface Tasks\InputOutputManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

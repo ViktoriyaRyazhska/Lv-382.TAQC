@@ -9,14 +9,12 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            WeaterForecast weater = new WeaterForecast(new WeatherForDay(-20, 755, "l", "1"), new WeatherForDay(8,743,"p","2"), new WeatherForDay(15, 743, "p", "2"));
-            CountryStatisticDashboard Dashboard = new CountryStatisticDashboard(new CountryStatistic(1,75500,500000,"Европа"), new CountryStatistic(6, 121240, 121142, "Азия"), new CountryStatistic(14, 12314, 214100, "Америка"), new CountryStatistic(42, 53533, 214100, "Америка"));
-            ClonablePerson p = ClonablePerson.getInstance("Vasya",16);
-            ClonablePerson p1 = (ClonablePerson)p.Clone();
-            ClonablePerson p2 = (ClonablePerson)p.Clone();
-            Console.WriteLine(p1.Name+" "+p.Name);
-            Dashboard.OutputAll();
-            Dashboard.ArreaSumByContinent();
+            List<int> a = new List<int>() { 3, 2, 35, 22, 1, 4, 63 };
+            CollectionsTasks.Task1(ref a, 5, 3, 13, 53);
+            foreach (var i in a)
+            {
+                Console.Write(i + " ");
+            }
             Console.ReadKey();
         }
 
