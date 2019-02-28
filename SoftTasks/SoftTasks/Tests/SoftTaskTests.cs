@@ -121,7 +121,7 @@ namespace SoftTasks.Tests
         [Test]
         [TestCase(2, 1)]
         [TestCase(10, 41)]
-        [TestCaseSource("PathsWithoutCrossing_Positive")]
+        [TestCaseSource("PathsWithoutCrossing_Positive")] //too much, remove
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Positive(int N, int expected)
         {
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
@@ -138,7 +138,7 @@ namespace SoftTasks.Tests
         [TestCase(-1)]
         [TestCase(0)]
         [TestCase(1)]
-        [TestCaseSource("PathsWithoutCrossing_Negative")]
+        [TestCaseSource("PathsWithoutCrossing_Negative")] // too much, remove
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Negative(int N)
         {
             int expected = 0;
@@ -166,7 +166,7 @@ namespace SoftTasks.Tests
             for (int i = 0; i < data_positive.Count; i++)
             {
                 Assert.AreEqual(data_negative[i], Methods.WaysToWriteNAsSum(0), $"Ways to write n as sum failed");
-            }
+            }   //assert in for - bad
         }
 
         #endregion KhrystynaFedun
