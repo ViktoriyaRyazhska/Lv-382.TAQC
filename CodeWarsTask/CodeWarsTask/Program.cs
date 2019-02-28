@@ -10,6 +10,9 @@ namespace CodeWarsTask
     {
         static void Main(string[] args)
         {
+            double[] res = Tribonacci(new double[] { 1, 1, 1 }, 10);
+            foreach (double d in res)
+                Console.Write(d + " ");
         }
 
         public static char GetChar(int charcode)
@@ -499,6 +502,28 @@ namespace CodeWarsTask
             return sum;
         }
 
-
+        public static double[] Tribonacci(double[] signature, int n)
+        {
+            double[] res = new double[n];
+            if (n != 0)
+            {
+                for (int i = 0; i < signature.Length; i++)
+                {
+                    res[i] = signature[i];
+                }
+                for (int i = signature.Length; i < n; i++)
+                {
+                    for (int j = 0; j <= signature.Length; j++)
+                    {
+                        res[i] += res[i - j];
+                    }
+                }
+                return res;
+            }
+            else
+            {
+                return Array.Empty<double>();
+            }
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace AdditionalTasks
             short pres = short.Parse(Console.ReadLine());
             Console.WriteLine("Please enter fallout type(0 - no fallout, 1 - rain, 2 - snow)");
             SingleForecast.Fallout fallout = (SingleForecast.Fallout)int.Parse(Console.ReadLine());
-            Console.WriteLine("Please enter wind strength(4- strong, 3 - mild, 2 - light, 1 - no wind)");
+            Console.WriteLine("Please enter wind strength(4 - strong, 3 - mild, 2 - light, 1 - no wind)");
             SingleForecast.Wind wind = (SingleForecast.Wind)int.Parse(Console.ReadLine());
             AddNewForecast(temp, pres, wind, fallout);
         }
@@ -84,7 +84,7 @@ namespace AdditionalTasks
             builder.Append("Temp(C)     Pressure      Wind      Fallout\n");
             foreach (SingleForecast forc in Sorting)
             {
-                builder.Append($"{forc.Temperature}         {forc.Pressure}        {forc.Windiness}       {forc.FalloutType}\n");
+                builder.Append($"{forc.Temperature.ToString().PadRight(12)}{forc.Pressure.ToString().PadRight(12)}{forc.Windiness.ToString().PadRight(12)}{forc.FalloutType.ToString().PadRight(12)}\n");
             }
             builder.Append("________________________________________________________________");
             Console.WriteLine(builder.ToString());
@@ -113,7 +113,7 @@ namespace AdditionalTasks
             builder.Append("Temp(C)     Pressure      Wind      Fallout\n");
             foreach (SingleForecast forc in Sorting)
             {
-                builder.Append($"{forc.Temperature}         {forc.Pressure}        {forc.Windiness}       {forc.FalloutType}\n");
+                builder.Append($"{forc.Temperature.ToString().PadRight(12)}{forc.Pressure.ToString().PadRight(12)}{forc.Windiness.ToString().PadRight(12)}{forc.FalloutType.ToString().PadRight(12)}\n");
             }
             builder.Append("________________________________________________________________");
             Console.WriteLine(builder.ToString());
@@ -127,7 +127,7 @@ namespace AdditionalTasks
             builder.Append("Temp(C)     Pressure      Wind      Fallout\n");
             foreach (SingleForecast forc in forecasts)
             {
-                builder.Append($"{forc.Temperature}         {forc.Pressure}        {forc.Windiness}       {forc.FalloutType}\n");
+                builder.Append($"{forc.Temperature.ToString().PadRight(12)}{forc.Pressure.ToString().PadRight(12)}{forc.Windiness.ToString().PadRight(12)}{forc.FalloutType.ToString().PadRight(12)}\n");
             }
             builder.Append("________________________________________________________________");
             return builder.ToString();

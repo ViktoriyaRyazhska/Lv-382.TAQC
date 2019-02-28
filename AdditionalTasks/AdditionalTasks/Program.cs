@@ -54,7 +54,13 @@ namespace AdditionalTasks
             }
             Console.WriteLine(WForecast.ToString());
             WForecast.ForecastsSortedByTemperatureDesc();
-            
+            Console.WriteLine("________________________________________________________________");
+            Console.WriteLine("Avg temperature when the is no wind will be " + WForecast.AvgTemperatureWhenNoWind());
+            Console.WriteLine("________________________________________________________________");
+            int[] days = WForecast.CountDaysWithDiffFallout();
+            Console.WriteLine($"Num of days with no fallout = {days[0]}, num of days with snow or rain = {days[1]}");
+            Console.WriteLine("________________________________________________________________");
+            WForecast.DaysWhenPressureLowerThan(750);
         }
     }
 }
