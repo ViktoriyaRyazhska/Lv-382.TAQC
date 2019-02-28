@@ -159,19 +159,22 @@ namespace SoftTasks.Tests
         [Test]
         public void TestFriendsPairsZero()
         {
-            Assert.AreEqual(0, Methods.FriendPairs(0));
+            int resullt = Methods.FriendPairs(data);
+            Assert.AreEqual(0, resullt, $"Error output {resullt} when shoud be {expected}");
         }
         [Test]
         [TestCase(3, 4)]
         [TestCase(0, 0)]
         public void TestFriendsPairsValid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data),$"Error output {Methods.FriendPairs(data)} when shoud be {expected}");
+            int resullt = Methods.FriendPairs(data);
+            Assert.AreEqual(expected,resullt,$"Error output {resullt} when shoud be {expected}");
         }
         [Test, TestCaseSource("FriendsPairsInvalidCases")]
         public void TestFriendsPairsInvalid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data), $"Error output {Methods.FriendPairs(data)} when shoud be {expected}");
+            int resullt = Methods.FriendPairs(data);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
         static object[] FriendsPairsDivideCases =
         {
