@@ -48,11 +48,11 @@ namespace SoftTasks.CodeWars.Level6
         public static void test1()
         {
             Console.WriteLine("Testing ReverseOrRotate");
-            testing(ReverseOrRotate.GetReverseOrRotate("1234", 0), "");
-            testing(ReverseOrRotate.GetReverseOrRotate("", 0), "");
-            testing(ReverseOrRotate.GetReverseOrRotate("1234", 5), "");
+            testing(ReverseOrRotate.RevRot("1234", 0), "");
+            testing(ReverseOrRotate.RevRot("", 0), "");
+            testing(ReverseOrRotate.RevRot("1234", 5), "");
             String s = "733049910872815764";
-            testing(ReverseOrRotate.GetReverseOrRotate(s, 5), "330479108928157");
+            testing(ReverseOrRotate.RevRot(s, 5), "330479108928157");
 
         }
     }
