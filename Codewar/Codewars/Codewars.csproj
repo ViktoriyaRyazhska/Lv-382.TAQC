@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TasksFromDiffSourses\Array Tasks\Arrays.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\CountryStatistic.cs" />
     <Compile Include="TasksFromDiffSourses\Class tasks\WeatherProg.cs" />
     <Compile Include="TasksFromDiffSourses\Interface Tasks\ClonablePerson.cs" />
@@ -55,8 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TasksFromDiffSourses\Array Tasks\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

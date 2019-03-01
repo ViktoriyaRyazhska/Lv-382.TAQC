@@ -59,6 +59,10 @@ namespace Codewars
             }
             Console.WriteLine("Count of Distinct characters: "+a.Distinct().Count());
         }
+        public static void Task5()
+        {
+
+        }
     }
 
 }

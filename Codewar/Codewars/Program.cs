@@ -9,8 +9,8 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            List<char> a = new List<char>() { 'a', 'a', '!', 'b', 'r', 'r', '!', '!' };
-            CollectionsTasks.Task4(a);
+            int[] a = { -1,-1,-1,-1,-1 };
+            Console.WriteLine(Arrays.Task16(a));
             Console.ReadKey();
         }
 
