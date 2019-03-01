@@ -9,12 +9,8 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            List<int> a = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
-            List<int> b = new List<int>() { 2, 4, 6, 7, 8, 11, 43 };
-            foreach (var n in CollectionsTasks.Task2(a,b))
-            {
-                Console.WriteLine(n+" ");
-            }
+            List<char> a = new List<char>() { 'a', 'a', '!', 'b', 'r', 'r', '!', '!' };
+            CollectionsTasks.Task4(a);
             Console.ReadKey();
         }
 
