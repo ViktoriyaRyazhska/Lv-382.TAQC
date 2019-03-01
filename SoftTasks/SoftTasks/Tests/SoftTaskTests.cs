@@ -39,7 +39,7 @@ namespace SoftTasks.Tests
         {
             Assert.AreEqual(expected, Methods.Interesting_Rows(inputNumb), 0.001, "Expected result and actual result are different");
         }
-       
+
         //Natalia_end
 
         [Test]
@@ -133,7 +133,7 @@ namespace SoftTasks.Tests
         public void KhrystynaFedun_WaisToWriteNAsSum_AllTests()
         {
             List<int[]> data_positive = new List<int[]>();
-            data_positive.Add(new int[] {2,1 });
+            data_positive.Add(new int[] { 2, 1 });
             data_positive.Add(new int[] { 10, 41 });
 
             for (int i = 0; i < data_positive.Count; i++)
@@ -159,6 +159,8 @@ namespace SoftTasks.Tests
         [Test]
         public void TestFriendsPairsZero()
         {
+            int data = 0;
+            int expected = 0;
             int resullt = Methods.FriendPairs(data);
             Assert.AreEqual(0, resullt, $"Error output {resullt} when shoud be {expected}");
         }
@@ -168,12 +170,12 @@ namespace SoftTasks.Tests
         public void TestFriendsPairsValid(int data, int expected)
         {
             int resullt = Methods.FriendPairs(data);
-            Assert.AreEqual(expected,resullt,$"Error output {resullt} when shoud be {expected}");
+            Assert.AreEqual(expected, resullt, $"Error output {resullt} when shoud be {expected}");
         }
         [Test, TestCaseSource("FriendsPairsInvalidCases")]
         public void TestFriendsPairsInvalid(int data, int expected)
         {
-            int resullt = Methods.FriendPairs(data);
+            int result = Methods.FriendPairs(data);
             Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
         static object[] FriendsPairsDivideCases =
@@ -182,41 +184,55 @@ namespace SoftTasks.Tests
             new object[] {-3,0 }
         };
         // Valik end
+
+
+        #region OleksandraYarmoliuk
         [Test]
-        public void CountWaysTest_NLessThan1()
+        [TestCase(-4, new int[] { 1, 1 }, -1)]
+        public void CountWaysTestWithNegativeN(int N, int[] array, int expected)
         {
-            int N = -4;
-            int[] arr = { 1, 1 };
-            int expected = -1;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
 
-        [Test]
-        public void CountWaysTest_RightValues()
+        [Test, TestCaseSource("CountWaysWithPositiveValues")]
+        public void CountWaysTestWithPositiveValues(int N, int[] array, int expected)
         {
-            int N = 7;
-            int[] arr = { 1, 5, 6 };
-            int expected = 6;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");   
         }
+        static readonly object[] CountWaysWithPositiveValues =
+        {
+            new object[] {6, new int[] { 1, 2, 3, 4, 1, 3 }, 7},
+            new object[] {7, new int[] { 1, 1, 1, 1, 1, 1, 1 }, 6},
+        };
 
-        [Test]
-        public void CountWaysTest_ArrayWith0()
+        [Test, TestCaseSource("CountWaysWithValuesZero")]
+        public void CountWaysTestWithValuesZero(int N, int[] array, int expected)
         {
-            int N = 7;
-            int[] arr = { 0 };
-            int expected = 0;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
+        static readonly object[] CountWaysWithValuesZero =
+        {
+            new object[] {0, new int[] { 0, 0, 0, 0 }, -1},
+            new object[] {5, new int[] { 0, 0, 0 }, -1},
+            new object[] {0, new int[] { 1, 6, 5, 3 }, -1},
+        };
 
-        [Test]
-        public void CountWaysTest_NIs1()
+        [Test, TestCaseSource("CountWaysWithNegativeValues")]
+        public void CountWaysTestWithNegativeValues(int N, int[] array, int expected)
         {
-            int N = 1;
-            int[] arr = { 6, 8, 9 };
-            int expected = 0;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
+        static readonly object[] CountWaysWithNegativeValues =
+        {
+            new object[] {-4, new int[] { -3, 0, -9, -1 }, -1},
+            new object[] {0, new int[] { -2, 1, 2 }, -1},
+        };
+
+        #endregion OleksandraYarmoliuk
 
         [Test]
         public void PathsWithoutCrossing_ValidInput_Test1()
@@ -303,9 +319,9 @@ namespace SoftTasks.Tests
         [TestCase(new int[] { 5, 6, 4, 3, 7, 6 }, new int[] { 1, 3, 2, 2, 4, 1 }, 6, 18)]
         [TestCase(new int[] { 3 }, new int[] { 2 }, 1, 3)]
         [TestCase(new int[] { 5 }, new int[] { 4 }, -1, 0)]
-        public void WorkToBeHighLowEffort_TestCaseInput(int[] inputHigh,int[] inputLow, int inputDays,int expected)
+        public void WorkToBeHighLowEffort_TestCaseInput(int[] inputHigh, int[] inputLow, int inputDays, int expected)
         {
-            Assert.AreEqual(expected, Methods.maxTasks(inputHigh,inputLow,inputDays));
+            Assert.AreEqual(expected, Methods.maxTasks(inputHigh, inputLow, inputDays));
         }
 
         [Test, TestCaseSource("WorkToBeHighLowEffort")]
