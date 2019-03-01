@@ -19,6 +19,7 @@ namespace SoftTasks
             "8.Paths without crossing",
             "9.Interesting rows",
             "10.Work to be with High-effort or with Low-effort",
+            "11.Ways to tile the floor",
             "0.Exit"
             };    // Add method name before "0.Exit"
 
@@ -55,16 +56,25 @@ namespace SoftTasks
         public static int CountWays(int N, int[] arr)      //5
         {
             int invalidInputResult = -1;
-            
+
             if (N < 1)
             {
-                Console.WriteLine("N can not be less than 1");
+                Console.WriteLine("N can not be less than 1!");
                 return invalidInputResult;
             }
-                                   
+
+            for (int i = 0; i < N; i++)
+            {
+                if (arr[i] <= 0)
+                {
+                    Console.WriteLine("Array elements can not be less than 1!");
+                    return invalidInputResult;
+                }
+            }
+
             int[] count = new int[N + 1];
             count[0] = 1;
-            
+
             for (int i = 1; i <= N; i++)
             {
                 for (int j = 0; j < arr.Length; j++)
@@ -94,6 +104,7 @@ namespace SoftTasks
         }
 
 
+        //Oleksandra Yarmoliuk
         static public int FriendPairs(int n)                  //4
         {
             int[] arr = new int[n + 1];
@@ -109,7 +120,16 @@ namespace SoftTasks
             return arr[n];
         }
 
-
+        //Serhii Zakharchuk
+        static public int countAllWays(int n)   //8
+        {
+            if (n <= 1)
+            {
+                Console.WriteLine("Invalid");
+                return 0;
+            }
+            return myPairs(n / 2);
+        }
         static public int myPairs(int n)
         {
             int[] myArr = new int[n + 1];
@@ -121,15 +141,6 @@ namespace SoftTasks
                     myArr[i] += myArr[j] * myArr[i - j - 1];
             }
             return myArr[n];
-        }
-        static public int countAllWays(int n)
-        {
-            if (n <= 1)
-            {
-                Console.WriteLine("Invalid");
-                return 0;
-            }
-            return myPairs(n / 2);
         }
 
         // Oleh Hnachuk
@@ -213,6 +224,29 @@ namespace SoftTasks
             return Math.Max(high[n - 1] +
                 maxTasks(high, low, (n - 2)), low[n - 1] +
                 maxTasks(high, low, (n - 1)));
+        }
+
+        static public int TileFloorWays(int n, int m) //11
+        {
+            int[] ways = new int[n + 1];
+            for (int i = 1; i <= n; i++)
+            {
+
+                if (i < m) // Condition: n < m
+                {
+                    ways[i] = 1;
+                }
+                else if (i == m) // Condition: n = m
+                {
+                    ways[i] = 2;
+                }
+                else // Condition: n > m
+                {
+                    ways[i] = ways[i - 1] + ways[i - m];
+                }
+            }
+
+            return ways[n];
         }
     }
 }
