@@ -50,10 +50,10 @@ namespace Codewars
             list[a] = list[b];
             list[b] = temp;
         }
-        public static void Task4(List<char> a)
+        public static void Task4(List<char> a) // Done
         {
-            a.Where(x => x == '!').Select(x => x = '.');
-            foreach (var i in a)
+            List<char> b = a.Select(x => x == '!' ? '.' : x).ToList();
+            foreach (var i in b)
             {
                 Console.WriteLine(i+" ");
             }
