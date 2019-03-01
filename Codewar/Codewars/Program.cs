@@ -39,7 +39,7 @@ namespace Codewars
 
         public static int PositiveSum(int[] arr)
         {
-            return arr.Select(x => { var value = x > 0 ? x : 0; return value; }).Sum(x => x);
+            return arr.Select(x => { var value = x > 0 ? x : 0; return value; }).Sum();
         }
         public static bool IsOpposite(string s1, string s2)
         {

@@ -1,0 +1,5 @@
+Rozetka selectors
+$("input[name='search']") - пошук
+$("a[href='https://rozetka.com.ua/news-articles-promotions/promotions/']") - всі акції
+$("button[xpath='1']") - Слайд меню
+$x("/html/body/header/div/div/div[2]/div[2]/div[2]/a") - Дропдовн міста 
