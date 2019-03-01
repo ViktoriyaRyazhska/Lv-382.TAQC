@@ -6,27 +6,23 @@ using System.Threading.Tasks;
 
 namespace Extra_tasks
 {
-    class Array12
+    class Array15
     {
-        public static void AverageMark()
+        public static void Sum2LovestElements()
         {
-            Console.WriteLine("Enter n judgies: ");
+            Console.WriteLine("Enter array length >= 4: ");
             int n = int.Parse(Console.ReadLine());
             double[] arr = new double[n];
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Enter mark j[" + (i + 1) + "]: ");
+                Console.WriteLine("Enter element[" + (i + 1) + "]: ");
                 arr[i] = double.Parse(Console.ReadLine());
             }
             Array.Sort(arr);
 
-            double sum = 0;
-            for (int i = 1; i < arr.Length - 1; i++)
-            {
-                sum += arr[i];
-            }
-            sum /= (arr.Length - 2);
-            Console.WriteLine("Average mark is: " + sum);
+            double sum = arr[0]+ arr[1];
+            
+            Console.WriteLine("Sum 2 Lovest Elements is: " + sum);
         }
     }
 }
