@@ -77,7 +77,7 @@ namespace SoftTasks.Tests
         [Test]
         [TestCase(3, 4)]
         [TestCase(6, 24)]
-        public void WayToCoverIn3Steps_ValidInput_Test3(int input3, int expected)
+        public void WayToCoverIn3StepsValidInputTest3(int input3, int expected)
         {
 
 
