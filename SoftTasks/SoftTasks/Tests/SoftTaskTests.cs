@@ -59,7 +59,7 @@ namespace SoftTasks.Tests
         }
         //Serhii
         [Test]
-        public void WayToCoverIn3Steps_ValidInput_Test1()
+        public void WayToCoverIn3StepsValidInputTest1()
         {
             int input1 = 3;
             int expected = 4;
