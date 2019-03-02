@@ -94,8 +94,9 @@ namespace SoftTasks.Tests
             new object[] {6,24}
 
         };
-        #region KhrystynaFedun
+        //Serhii end
 
+        #region KhrystynaFedun
         static object[] PathsWithoutCrossing_Positive =
         {
             new object[] {2,1},
