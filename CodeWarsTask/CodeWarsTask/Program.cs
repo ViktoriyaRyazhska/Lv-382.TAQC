@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,7 @@ namespace CodeWarsTask
     {
         static void Main(string[] args)
         {
-            double[] res = Tribonacci(new double[] { 1, 1, 1 }, 10);
-            foreach (double d in res)
-                Console.Write(d + " ");
+            Console.WriteLine(orderWeight("103 123 4444 99 2000"));
         }
 
         public static char GetChar(int charcode)
@@ -507,15 +506,25 @@ namespace CodeWarsTask
             double[] res = new double[n];
             if (n != 0)
             {
-                for (int i = 0; i < signature.Length; i++)
+                if (n >= 3)
                 {
-                    res[i] = signature[i];
-                }
-                for (int i = signature.Length; i < n; i++)
-                {
-                    for (int j = 0; j <= signature.Length; j++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        res[i] += res[i - j];
+                        res[i] = signature[i];
+                    }
+                    for (int i = 3; i < n; i++)
+                    {
+                        for (int j = 0; j <= signature.Length; j++)
+                        {
+                            res[i] += res[i - j];
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        res[i] = signature[i];
                     }
                 }
                 return res;
@@ -524,6 +533,272 @@ namespace CodeWarsTask
             {
                 return Array.Empty<double>();
             }
+        }
+
+        public static long findNb(long m)
+        {
+            long temp = 0;
+            int counter=0;
+            while (temp < m)
+            {
+                counter++;
+                temp += (long)Math.Pow(counter,3);
+            }
+            if (temp == m)
+            {
+                return counter;
+            }
+            return -1;
+        }
+
+        public static string stockSummary(String[] lstOfArt, String[] lstOf1stLetter)
+        {
+            StringBuilder builder = new StringBuilder();
+            bool found1 = false;
+            foreach (string cat in lstOf1stLetter)
+            {
+                int sum = 0;
+                foreach (string art in lstOfArt)
+                {
+                    if (art[0].ToString() == cat)
+                    {
+                        sum += int.Parse(art.Split(' ')[1]);
+                    }
+                }
+                if (sum > 0)
+
+                {
+                    found1 = true;
+                }
+                builder.Append($"({cat} : {sum}) - ");
+            }
+            if (found1)
+            {
+                builder.Remove(builder.Length - 3, 3);
+                return builder.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public static long digPow(int n, int p)
+        {
+            string num = n.ToString();
+            int sum = 0;
+            for (int i = p; i < p+num.Length; i++)
+            {
+                sum += (int)Math.Pow(num[i - p]-48,i);
+            }
+            if (sum % n == 0)
+            {
+                return (long)(sum / n);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static bool is_valid_IP(string ipAddres)
+        {
+            string[] arr = ipAddres.Split('.');
+            if (arr.Length == 4)
+            {
+                foreach (string str in arr)
+                {
+                    if (str.Length > 3 || str.Length == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        if (str[0] == '0' && str.Length > 1)
+                        {
+                            return false;
+                        }
+                        for (int i = 0; i < str.Length; i++)
+                        {
+                            if (str[i] > 57 || str[i] < 48)
+                            {
+                                return false;
+                            }
+                        }
+                        if (int.Parse(str) > 255 || int.Parse(str) < 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static double Mean(string t, string s)
+        {
+            return s.Contains(t + ":") ? gett(t, s).Average() : -1;
+        }
+        public static double Variance(string t, string s) 
+        {
+            var p = Mean(t, s);
+            return s.Contains(t + ":") ? gett(t, s).Select(x => (x - p) * (x - p)).Average() : -1;
+        }
+        public static double[] gett(string t, string s) 
+        {
+            return s.Split('\n').First(x => x.Contains(t)).Split(',').Select(x => double.Parse(x.Split()[1])).ToArray();
+        }
+
+        public static string RevRot(string str, int size)
+        {
+            if (str == "" || size <= 0 || size > str.Length) return "";
+            string ans = "";
+            while (str.Length >= size)
+            {
+                var chunk = str.Substring(0, size);
+                str = str.Substring(size);
+                long sum = chunk.Select(c => long.Parse(c.ToString()))
+                  .Sum();
+                if (sum % 2 == 0)
+                {
+                    ans += String.Join("", chunk.Reverse());
+                }
+                else
+                {
+                    ans += chunk.Substring(1) + chunk.Substring(0, 1);
+                }
+            }
+            return ans;
+        }
+
+        public static bool comp(int[] a, int[] b)
+        {
+            if (a == null || b == null)
+            {
+                return false;
+            }
+
+            var counter = new Dictionary<int, int>();
+            for (var i = 0; i < a.Length; i++)
+            {
+                var square = a[i] * a[i];
+                if (counter.ContainsKey(square))
+                {
+                    counter[square]++;
+                }
+                else
+                {
+                    counter.Add(square, 1);
+                }
+            }
+
+            for (var i = 0; i < b.Length; i++)
+            {
+                if (counter.ContainsKey(b[i]))
+                {
+                    counter[b[i]]--;
+                    if (counter[b[i]] == 0)
+                    {
+                        counter.Remove(b[i]);
+                    }
+                    continue;
+                }
+                return false;
+            }
+            return true;
+        }
+
+        static int findTrailingZeros(int n)
+        { 
+            int count = 0;
+            for (int i = 5; n / i >= 1; i *= 5)
+                count += n / i;
+            return count;
+        }
+        public static int? chooseBestSum(int t, int k, List<int> ls)
+        {
+            return Best(t, k, ls, 0, 0);
+        }
+
+        public static int? Best(int t, int k, List<int> ls, int Start, int Sum)
+        {
+            if (k == 0)
+                return (Sum <= t) ? (int?)Sum : null;
+
+            if (Start >= ls.Count)
+                return null;
+
+            int? S1 = Best(t, k - 1, ls, Start + 1, Sum + ls[Start]);
+            int? S2 = Best(t, k, ls, Start + 1, Sum + 0);
+
+            if (S1 == null && S2 == null)
+                return null;
+            if (S1 == null)
+                return S2;
+            if (S2 == null)
+                return S1;
+            return (int?)Math.Max(S1.Value, S2.Value);
+        }
+
+        public static string WhoIsNext(string[] names, long n)
+        {
+            var result = Enumerable.Range(1, names.Length)
+              .Select((m, i) => new { m, i })
+              .ToDictionary(x => x.i, x => (long)1);
+            long k = 0;
+            while (n > 0)
+                result = result.Select(i =>
+                {
+                    if (n > 0)
+                    {
+                        n -= i.Value;
+                        if (n > 0)
+                            k = i.Key + 1 > names.Length - 1 ? 0 : i.Key + 1;
+                    }
+                    return i.Value * 2;
+                })
+                 .Select((m, i) => new { m, i })
+                 .ToDictionary(x => x.i, x => x.m);
+
+            return names[k];
+        }
+        public static String[] dirReduc(String[] arr)
+        {
+            Stack<String> stack = new Stack<String>();
+
+            foreach (String direction in arr)
+            {
+                String lastElement = stack.Count > 0 ? stack.Peek().ToString() : null;
+
+                switch (direction)
+                {
+                    case "NORTH": if ("SOUTH".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "SOUTH": if ("NORTH".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "EAST": if ("WEST".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "WEST": if ("EAST".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                }
+            }
+            String[] result = stack.ToArray();
+            Array.Reverse(result);
+            return result;
+        }
+
+        public static string orderWeight(string strng)
+        {
+            var values = strng.Split(' ');
+            return string.Join(" ", values.OrderBy(s => s.Sum(c => c - 48)).ThenBy(s => s));
+        }
+    }
+    public static class Problem
+    {
+        public static string CamelCase(this string str)
+        {
+            str = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str);
+            return str.Replace(" ", "");
         }
     }
 }
