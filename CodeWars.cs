@@ -390,6 +390,120 @@ namespace CodeWars
                 return result;
             }
             //31
+
+            public static string Longest(string s1, string s2)
+            {
+                return new string((s1 + s2).Distinct().OrderBy(x => x).ToArray());
+            }
+            //32
+
+            public static string PrinterError(String s)
+            {
+                string goodAlphabet = "abcdefghijklm";
+                int errorCount = 0;
+                foreach (char x in s)
+                    if (!(goodAlphabet.Contains(x)))
+                        errorCount += 1;
+                return errorCount + "/" + s.Length;
+            }
+            //33
+
+            public static int SequenceSum(int start, int end, int step)
+            {
+                int sum = 0;
+                if (start > end) return 0;
+                else
+                {
+                    for (int i = start; i <= end; i += step)
+
+                    {
+                        sum += i;
+                    }
+                    return sum;
+                }
+            }
+            //34
+
+            public double[] Tribonacci(double[] signature, int n)
+            {
+                if (n == 0) return new double[] { };
+                double[] result = new double[n];
+                if (n < signature.Length)
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        result[i] = signature[i];
+                    }
+                    return result;
+                }
+                for (int i = 0; i < signature.Length; i++)
+                    result[i] = signature[i];
+                for (int i = signature.Length; i < n; i++)
+                {
+                    result[i] = result[i - 1] + result[i - 2] + result[i - 3];
+                }
+                return result;
+            }
+            //35
+
+            public static string CamelCase(this string str)
+            {
+                TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+                str = cultInfo.ToTitleCase(str);
+                str = str.Replace(" ", "");
+                return str;
+            }
+            //36
+
+            public static long findNb(long m)
+            {
+                decimal sum = 0;
+                int n = 0;
+                while (sum < m)
+                {
+                    n++;
+                    sum += Convert.ToDecimal(Math.Pow(n, 3));
+                }
+                if (sum == m) return n;
+                else return (-1);
+            }
+            //37
+
+            public static string stockSummary(String[] lstOfArt, String[] lstOf1stLetter)
+            {
+                if (lstOfArt.Length == 0 || lstOf1stLetter.Length == 0)
+                    return string.Empty;
+
+                List<string> values = new List<string>();
+
+                foreach (string s in lstOf1stLetter)
+                {
+                    int sum = lstOfArt.Where(a => a.StartsWith(s)).Select(a => int.Parse(a.Split(' ')[1])).Sum();
+                    values.Add(string.Format("({0} : {1})", s, sum));
+                }
+
+                return string.Join(" - ", values.ToArray());
+            }
+            //38
+
+            public static long digPow(int n, int p)
+            {
+                var sum = Convert.ToInt64(n.ToString().Select(s => Math.Pow(int.Parse(s.ToString()), p++)).Sum());
+                return sum % n == 0 ? sum / n : -1;
+            }
+            //39
+
+            public static bool is_valid_IP(string ipAddres)
+            {
+                if (ipAddres == null || ipAddres.Length == 0)
+                {
+                    return false;
+                }
+                if (Regex.Match(ipAddres, @"^(([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])(\.(?!$)|$)){4}$").Success)
+                    return true;
+                else return false;
+            }
+            //40
         }
     }
 }
