@@ -67,7 +67,7 @@ namespace SoftTasks.Tests
             Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input1}");
         }
         [Test]
-        public void WayToCoverIn3Steps_ValidInput_Test2()
+        public void WayToCoverIn3StepsValidInputTest2()
         {
             int input2 = 6;
             int expected = 24;
