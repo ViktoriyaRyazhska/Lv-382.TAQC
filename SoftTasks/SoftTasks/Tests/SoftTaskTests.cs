@@ -84,7 +84,7 @@ namespace SoftTasks.Tests
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input3), $"WayToCoverIn3Steps failed with valid data {input3}");
         }
         [Test, TestCaseSource("WayToCoverIn3StepsDivideCases")]
-        public void WayToCoverIn3Steps_ValidInput_Test4(int input4, int expected)
+        public void WayToCoverIn3StepsValidInputTest4(int input4, int expected)
         {
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input4));
         }
