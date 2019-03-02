@@ -504,6 +504,121 @@ namespace CodeWars
                 else return false;
             }
             //40
+
+            public static double[] gett(string t, string s)
+            {
+                return s.Split('\n').First(x => x.Contains(t)).Split(',').Select(x => double.Parse(x.Split()[1])).ToArray();
+            }
+            public static double Mean(string t, string s)
+            {
+                return s.Contains(t + ":") ? gett(t, s).Average() : -1;
+            }
+
+            public static double Variance(string t, string s)
+            {
+                var p = Mean(t, s);
+                return s.Contains(t + ":") ? gett(t, s).Select(x => (x - p) * (x - p)).Average() : -1;
+            }
+            //41
+
+            public static string RevRot(string strng, int sz)
+            {
+                if (String.IsNullOrEmpty(strng) || sz <= 0 || sz > strng.Length)
+                    return String.Empty;
+
+                return
+                    new String(
+                        Enumerable.Range(0, strng.Length / sz)
+                            .Select(i => strng.Substring(i * sz, sz))
+                            .Select(
+                                chunk =>
+                                    chunk.Sum(digit => (int)Math.Pow(int.Parse(digit.ToString()), 3)) % 2 == 0
+                                        ? chunk.Reverse()
+                                        : chunk.Skip(1).Concat(chunk.Take(1)))
+                            .SelectMany(x => x)
+                            .ToArray());
+            }
+            //42
+
+            public static bool comp(int[] a, int[] b)
+            {
+                if ((a == null) || (b == null))
+                {
+                    return false;
+                }
+
+                int[] copy = a.Select(x => x * x).ToArray();
+                Array.Sort(copy);
+                Array.Sort(b);
+
+                return copy.SequenceEqual(b);
+            }
+            //43
+
+            public static int TrailingZeros(int n)
+            {
+                int count = 0;
+                for (int i = 5; n / i >= 1; i *= 5)
+                    count += n / i;
+                return count;
+            }
+            //44
+
+            public static int? chooseBestSum(int t, int k, List<int> ls)     //Best travel
+
+            {
+
+                if (k > ls.Count() || (t == 0 && k > 0)) return null;
+                if (k == 0) return 0;
+                var first = ls.First();
+                var rest = ls.Skip(1).ToList();
+                return first > t ? chooseBestSum(t, k, rest)
+                                 : (new List<int?> { chooseBestSum(t, k, rest), first + chooseBestSum(t - first, k - 1, rest) }).Max();
+
+            }
+            //45
+
+            public static string WhoIsNext(string[] names, long n)
+            {
+                var l = names.Length;
+                return n <= l ? names[n - 1] : WhoIsNext(names, (n - l + 1) / 2);
+            }
+            //46
+
+            public static string[] dirReduc(String[] arr)
+            {
+                Dictionary<string, string> oppositeOf = new Dictionary<string, string>()
+        {
+            {"NORTH", "SOUTH"},
+            {"SOUTH", "NORTH"},
+            {"EAST", "WEST"},
+            {"WEST", "EAST"}
+        };
+
+                List<string> betterDirections = new List<string>();
+                foreach (var direction in arr)
+                {
+                    if (betterDirections.LastOrDefault() == oppositeOf[direction])
+                    {
+                        betterDirections.RemoveAt(betterDirections.Count - 1);
+                    }
+                    else
+                    {
+                        betterDirections.Add(direction);
+                    }
+                }
+                return betterDirections.ToArray();
+            }
+            //47
+
+            public static string orderWeight(string strng)
+            {
+                return string.Join(" ", s.Split(' ')
+                            .OrderBy(n => n.ToCharArray()
+                            .Select(c => (int)char.GetNumericValue(c)).Sum())
+                            .ThenBy(n => n));
+            }
+            //48
         }
     }
 }
