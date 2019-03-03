@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArraysTask.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="ConsoleManager.cs" />
     <Compile Include="Country.cs" />

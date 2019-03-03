@@ -37,6 +37,7 @@ namespace AdditionalTasks
             //GenericsTaskMethods.SymbolsBetweenColons();
             //Console.WriteLine("_______________Task(Generics7)_____________");
             //GenericsTaskMethods.IsItSorted();
+            ArraysTask.NumInPos(6);
         }
     }
 }
