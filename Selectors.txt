@@ -1,0 +1,6 @@
+https://www.reddit.com/
+$("a[class='_3Wg53T10KuuPmyWOMWsY2F s1f6o7cs-5 bbrPKk']") - login button
+$("a[href='https://www.reddit.com/register?dest=https%3A%2F%2Fwww.reddit.com%2F']") - sign up button
+$("input[type='search']") - search bar
+$("button[id='USER_DROPDOWN_ID']").click();$("button[role='switch']") - switch in dropdown
+$("div[class='s1168hkq-2 kddyLv']>div:nth-child(3)") - div with plain text
