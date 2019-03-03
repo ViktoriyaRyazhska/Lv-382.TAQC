@@ -1,0 +1,14 @@
+
+Locators for page : http://automationpractice.com/index.php
+
+
+1	$("#layered_price_slider") or  $x("//div[@id='layered_price_slider']")
+2	$(".logo")
+3	$("#special_block_right a.btn.btn")
+4	$("[name='layered_id_feature_21']")
+5	$("a.bx-next")
+6	$(".search_query")
+7	$(".lost_password.form-group + .submit button")
+8	$("a[href^='mailto']")
+9	$(".block_content.list-block a[href*='4&controller=cms'")
+10	$(".bottom-footer div")
