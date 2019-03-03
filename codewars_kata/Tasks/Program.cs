@@ -37,6 +37,28 @@ namespace Tasks
             }
             return sum;
         }
+
+        public static String[] dirReduc(String[] arr)
+        {
+            Stack<String> stack = new Stack<String>();
+
+            foreach (String direction in arr)
+            {
+                String lastElement = stack.Count > 0 ? stack.Peek().ToString() : null;
+
+                switch (direction)
+                {
+                    case "NORTH": if ("SOUTH".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "SOUTH": if ("NORTH".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "EAST": if ("WEST".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                    case "WEST": if ("EAST".Equals(lastElement)) { stack.Pop(); } else { stack.Push(direction); } break;
+                }
+            }
+            String[] result = stack.ToArray();
+            Array.Reverse(result);
+            return result;
+        }
+
         public static int Opposite(int number)
         {
             return number * (-1);
@@ -194,6 +216,47 @@ namespace Tasks
             return "";
         }
 
+        public static int TrailingZeros(int n)
+        {
+            {
+                int count = 0;
+                for (int i = 5; n / i >= 1; i *= 5)
+                    count += n / i;
+                return count;
+
+            }
+        }
+        public static double Mean(string t, string s)
+        {
+            return s.Contains(t + ":") ? gett(t, s).Average() : -1;
+        }
+        public static double Variance(string t, string s)
+        {
+            var p = Mean(t, s);
+            return s.Contains(t + ":") ? gett(t, s).Select(x => (x - p) * (x - p)).Average() : -1;
+        }
+        public static double[] gett(string t, string s)
+        {
+            return s.Split('\n').First(x => x.Contains(t)).Split(',').Select(x => double.Parse(x.Split()[1])).ToArray();
+        }
+
+        public static long digPow(int n, int p)
+        {
+            string num = n.ToString();
+            int sum = 0;
+            for (int i = p; i < p + num.Length; i++)
+            {
+                sum += (int)Math.Pow(num[i - p] - 48, i);
+            }
+            if (sum % n == 0)
+            {
+                return (long)(sum / n);
+            }
+            else
+            {
+                return -1;
+            }
+        }
         public static double basicOp(char operation, double value1, double value2)
         {
             switch (operation)
@@ -288,8 +351,44 @@ namespace Tasks
             return min;
         }
 
+        public static bool ipValidation(string addres)
+        {
+            string[] arr = addres.Split('.');
+            if (arr.Length == 4)
+            {
+                foreach (string str in arr)
+                {
+                    if (str.Length > 3 || str.Length == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        if (str[0] == '0' && str.Length > 1)
+                        {
+                            return false;
+                        }
+                        for (int i = 0; i < str.Length; i++)
+                        {
+                            if (str[i] > 57 || str[i] < 48)
+                            {
+                                return false;
+                            }
+                        }
+                        if (int.Parse(str) > 255 || int.Parse(str) < 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-
+        }
     }
 }
 
