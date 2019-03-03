@@ -37,30 +37,6 @@ namespace AdditionalTasks
             //GenericsTaskMethods.SymbolsBetweenColons();
             //Console.WriteLine("_______________Task(Generics7)_____________");
             //GenericsTaskMethods.IsItSorted();
-            Console.WriteLine("_______________Task Weather Forecast_____________");
-            SingleForecast[] forecasts = new SingleForecast[5]
-            { 
-                new SingleForecast() { Temperature = 12, Pressure = 750, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.Mild },
-                new SingleForecast() { Temperature = 14, Pressure = 760, FalloutType = SingleForecast.Fallout.Rain, Windiness = SingleForecast.Wind.NoWind },
-                new SingleForecast() { Temperature = -24, Pressure = 723, FalloutType = SingleForecast.Fallout.Snow, Windiness = SingleForecast.Wind.Strong },
-                new SingleForecast() { Temperature = 40, Pressure = 770, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.NoWind },
-                new SingleForecast() { Temperature = 27, Pressure = 746, FalloutType = SingleForecast.Fallout.NoFallout, Windiness = SingleForecast.Wind.Light }
-            };
-            WeatherForecast WForecast = new WeatherForecast();
-            WForecast.AddMultipleForecasts(forecasts);
-            for (int i = 0; i < 1; i++)
-            {
-                WForecast.AddForecastFromConsole();
-            }
-            Console.WriteLine(WForecast.ToString());
-            WForecast.ForecastsSortedByTemperatureDesc();
-            Console.WriteLine("________________________________________________________________");
-            Console.WriteLine("Avg temperature when the is no wind will be " + WForecast.AvgTemperatureWhenNoWind());
-            Console.WriteLine("________________________________________________________________");
-            int[] days = WForecast.CountDaysWithDiffFallout();
-            Console.WriteLine($"Num of days with no fallout = {days[0]}, num of days with snow or rain = {days[1]}");
-            Console.WriteLine("________________________________________________________________");
-            WForecast.DaysWhenPressureLowerThan(750);
         }
     }
 }

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="ConsoleManager.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="GenericsTaskMethods.cs" />
     <Compile Include="IInputOutputManager.cs" />
