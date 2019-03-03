@@ -1,14 +1,25 @@
 https://comfy.ua
 
-1. $x("//a[@id='currentCityName']") - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+1. $x("//a[@id='currentCityName']")
 2. $x("//li/span[@data-city-id='2050']")
- - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+
 3. $x("//div[@id='menuContainer']/a[@id='menuLink']")
 
- - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+
 4. $x("//div[@data-id='94853']/div[1]")
 
- - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+
 5. $x("//div[@class='header']//span[text()='Замовлення']/parent::a")
 
- - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+
+6. $x("//*[@id='footer']//a[text()=' IT-сервис ']")
+
+
+7. $x("//input[@id='newsletterEmail']")
+
+8. $x("//div[@class='logobrands']//img[@class='image whirlp']/parent::a")
+9. $x("//*[@id='searchTop']")
+
+
+10. $x("//*[@id='cartHeaderQty']/span[text()='Кошик']")
+
