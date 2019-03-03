@@ -1,0 +1,14 @@
+https://comfy.ua
+
+1. $x("//a[@id='currentCityName']") - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+2. $x("//li/span[@data-city-id='2050']")
+ - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+3. $x("//div[@id='menuContainer']/a[@id='menuLink']")
+
+ - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+4. $x("//div[@data-id='94853']/div[1]")
+
+ - https://comfy.ua/ua/lvov/smartfon/brand__apple/
+5. $x("//div[@class='header']//span[text()='Замовлення']/parent::a")
+
+ - https://comfy.ua/ua/lvov/smartfon/brand__apple/
