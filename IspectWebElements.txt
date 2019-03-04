@@ -3,3 +3,11 @@ $("input[name='search']") - пошук
 $("a[href='https://rozetka.com.ua/news-articles-promotions/promotions/']") - всі акції
 $("button[xpath='1']") - Слайд меню
 $x("/html/body/header/div/div/div[2]/div[2]/div[2]/a") - Дропдовн міста 
+$("button[class='main-goods__show-more button_type_link']") - показати ще
+$("a[href='https://rozetka.com.ua/ua/estel_professional_4606453037318/p72782337/']") - Пудра
+/html/body/app-root/div/div[1]/div[3]/div/main/main-page-content/goods-sections/youtube-videos/section/ul/li[2]/p - Ютуб реклама
+$("a[class='main-videos__subscribe']") - підписатися ютуб розетка
+$("a[class='header-actions__button header-actions__button_type_basket']") - корзина
+$("a[class='main-slider__link']") - слайдер
+$("a[class='header-actions__button header-actions__button_type_wish']") - побажання
+
