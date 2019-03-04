@@ -1,0 +1,20 @@
+1
+$("a[href='/laptop-dell/dell_inspiron_15_5570_i515f78s2ddl_8bk/']")
+2
+$("input[id='search-site']")
+3
+$("input[placeholder='Пошук']")
+4
+$("input[name='q']")
+5
+$("a[data-path='/cart/anketa/']")
+6
+$("a[class='cart-link']")
+7
+$("input[value='noutbuk']")      
+8
+$("svg[class='icon icon-list']")
+9
+$("a[class='filter_list_item']")
+10
+$("a[id='list']")
