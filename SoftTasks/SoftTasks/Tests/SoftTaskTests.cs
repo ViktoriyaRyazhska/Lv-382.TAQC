@@ -110,7 +110,7 @@ namespace SoftTasks.Tests
             new object[] {6,24}
 
         };
-        #region KhrystynaFedun
+        #region KhrystynaFednu
 
         static object[] PathsWithoutCrossing_Positive =
         {
@@ -119,13 +119,21 @@ namespace SoftTasks.Tests
         };
 
         [Test]
-        [TestCase(2, 1)]
-        [TestCase(10, 41)]
-        [TestCaseSource("PathsWithoutCrossing_Positive")] //too much, remove
+        [TestCaseSource("PathsWithoutCrossing_Positive")] 
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Positive(int N, int expected)
         {
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
         }
+
+        [Test]
+        [TestCase(2, 1)]
+        [TestCase(10, 41)]
+        public void KhrystynaFedun_WaisToWriteNAsSum_Test_Positive2(int N, int expected)
+        {
+            Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
+        }
+
+
 
         static object[] PathsWithoutCrossing_Negative =
         {
@@ -135,15 +143,23 @@ namespace SoftTasks.Tests
         };
 
         [Test]
-        [TestCase(-1)]
-        [TestCase(0)]
-        [TestCase(1)]
-        [TestCaseSource("PathsWithoutCrossing_Negative")] // too much, remove
+        [TestCaseSource("PathsWithoutCrossing_Negative")] 
         public void KhrystynaFedun_WaisToWriteNAsSum_Test_Negative(int N)
         {
             int expected = 0;
             Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
         }
+
+        [Test]
+        [TestCase(-1)]
+        [TestCase(0)]
+        [TestCase(1)]
+        public void KhrystynaFedun_WaisToWriteNAsSum_Test_Negative2(int N)
+        {
+            int expected = 0;
+            Assert.AreEqual(expected, Methods.WaysToWriteNAsSum(N), $"Ways to write n as sum failed");
+        }
+
 
         [Test]
         public void KhrystynaFedun_WaisToWriteNAsSum_AllTests()
@@ -152,21 +168,31 @@ namespace SoftTasks.Tests
             data_positive.Add(new int[] {2,1 });
             data_positive.Add(new int[] { 10, 41 });
 
-            for (int i = 0; i < data_positive.Count; i++)
-            {
-                Assert.AreEqual(data_positive[i][0], Methods.WaysToWriteNAsSum(data_positive[i][1]), $"Ways to write n as sum failed");
-            }
+            Assert.AreEqual(data_positive[0][0], Methods.WaysToWriteNAsSum(data_positive[0][1]), $"Ways to write n as sum failed");
+            Assert.AreEqual(data_positive[1][0], Methods.WaysToWriteNAsSum(data_positive[1][1]), $"Ways to write n as sum failed");
+
+
+            //for (int i = 0; i < data_positive.Count; i++)
+            //{
+            //    Assert.AreEqual(data_positive[i][0], Methods.WaysToWriteNAsSum(data_positive[i][1]), $"Ways to write n as sum failed");
+            //}
 
 
             List<int> data_negative = new List<int>();
             data_negative.Add(-1);
             data_negative.Add(0);
             data_negative.Add(1);
+            int expected = 0;
 
-            for (int i = 0; i < data_positive.Count; i++)
-            {
-                Assert.AreEqual(data_negative[i], Methods.WaysToWriteNAsSum(0), $"Ways to write n as sum failed");
-            }   //assert in for - bad
+            Assert.AreEqual(data_negative[0], Methods.WaysToWriteNAsSum(expected), $"Ways to write n as sum failed");
+            Assert.AreEqual(data_negative[1], Methods.WaysToWriteNAsSum(expected), $"Ways to write n as sum failed");
+            Assert.AreEqual(data_negative[2], Methods.WaysToWriteNAsSum(expected), $"Ways to write n as sum failed");
+
+
+            //for (int i = 0; i < data_positive.Count; i++)
+            //{
+            //    Assert.AreEqual(data_negative[i], Methods.WaysToWriteNAsSum(0), $"Ways to write n as sum failed");
+            //}   
         }
 
         #endregion KhrystynaFedun

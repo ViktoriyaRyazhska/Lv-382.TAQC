@@ -23,3 +23,22 @@ Global
 		SolutionGuid = {D4FD12C0-E320-41C9-B532-59F21EC7C200}
 	EndGlobalSection
 EndGlobal
+
+
+
+
+1	$("#layered_price_slider") css id   $x("//div[@id='layered_price_slider']")
+2	$(".logo")
+3	$("#special_block_right a.btn.btn")
+4	$("[name='layered_id_feature_21']")
+5	$("a.bx-next")
+6	$(".search_query")
+7	$(".lost_password.form-group + .submit button")
+8	$("a[href^='mailto']")
+9	$(".block_content.list-block a[href*='4&controller=cms'")
+10	$(".bottom-footer div")
+
+
+
+
+
