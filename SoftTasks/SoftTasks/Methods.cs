@@ -56,16 +56,25 @@ namespace SoftTasks
         public static int CountWays(int N, int[] arr)      //5
         {
             int invalidInputResult = -1;
-            
+
             if (N < 1)
             {
-                Console.WriteLine("N can not be less than 1");
+                Console.WriteLine("N can not be less than 1!");
                 return invalidInputResult;
             }
-                                   
+
+            for (int i = 0; i < N; i++)
+            {
+                if (arr[i] <= 0)
+                {
+                    Console.WriteLine("Array elements can not be less than 1!");
+                    return invalidInputResult;
+                }
+            }
+
             int[] count = new int[N + 1];
             count[0] = 1;
-            
+
             for (int i = 1; i <= N; i++)
             {
                 for (int j = 0; j < arr.Length; j++)
@@ -95,6 +104,7 @@ namespace SoftTasks
         }
 
 
+        //Oleksandra Yarmoliuk
         static public int FriendPairs(int n)                  //4
         {
             int[] arr = new int[n + 1];
@@ -120,7 +130,7 @@ namespace SoftTasks
             }
             return myPairs(n / 2);
         }
-        static public int myPairs(int n)  
+        static public int myPairs(int n)
         {
             int[] myArr = new int[n + 1];
             myArr[0] = myArr[1] = 1;

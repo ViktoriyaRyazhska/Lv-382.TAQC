@@ -10,6 +10,7 @@ namespace SoftTasks.Tests
     [TestFixture]
     public class SoftTaskTests
     {
+        //Natalia
         [Test]
         public void InterestingRows_1_1returned()
         {
@@ -18,46 +19,29 @@ namespace SoftTasks.Tests
             int actual = Methods.Interesting_Rows(inputNumb);
             Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
         }
-        [Test]
-        public void InterestingRows_2_1returned()
+
+        [Test, TestCaseSource("InterestingRows_Cases")]
+        public void InterestingRowsTest(int inputNumb, int expected)
         {
-            int inputNumb = 2;
-            int expected = 1;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
+            Assert.AreEqual(expected, Methods.Interesting_Rows(inputNumb), 0.001, "Expected result and actual result are different");
         }
+        static object[] InterestingRows_Cases =
+       {
+            new object [] {2, 1},
+            new object [] {5, 11},
+            new object [] {-9, 0},
+            new object [] {0, 0}
+        };
+
         [Test]
-        public void InterestingRows_5_11returned()
+        [TestCase(40, 1431655765)]
+        public void InterestingRows_40_1431655765returned(int inputNumb, int expected)
         {
-            int inputNumb = 5;
-            int expected = 11;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
+            Assert.AreEqual(expected, Methods.Interesting_Rows(inputNumb), 0.001, "Expected result and actual result are different");
         }
-        [Test]
-        public void InterestingRows_40_1431655765returned()
-        {
-            int inputNumb = 40;
-            int expected = 1431655765;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
-        [Test]
-        public void InterestingRows_0_0returned()
-        {
-            int inputNumb = 0;
-            int expected = 0;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
-        [Test]
-        public void InterestingRows_0returned()
-        {
-            int inputNumb = -9;
-            int expected = 0;
-            int actual = Methods.Interesting_Rows(inputNumb);
-            Assert.AreEqual(expected, actual, 0.001, "Expected result and actual result are different");
-        }
+
+        //Natalia_end
+
         [Test]
         public void CountAllWaysTest1()
         {
@@ -75,7 +59,7 @@ namespace SoftTasks.Tests
         }
         //Serhii
         [Test]
-        public void WayToCoverIn3Steps_ValidInput_Test1()
+        public void WayToCoverIn3StepsValidInputTest1()
         {
             int input1 = 3;
             int expected = 4;
@@ -83,7 +67,7 @@ namespace SoftTasks.Tests
             Assert.AreEqual(expected, actual, $"WayToCoverIn3Steps failed with valid data {input1}");
         }
         [Test]
-        public void WayToCoverIn3Steps_ValidInput_Test2()
+        public void WayToCoverIn3StepsValidInputTest2()
         {
             int input2 = 6;
             int expected = 24;
@@ -93,14 +77,14 @@ namespace SoftTasks.Tests
         [Test]
         [TestCase(3, 4)]
         [TestCase(6, 24)]
-        public void WayToCoverIn3Steps_ValidInput_Test3(int input3, int expected)
+        public void WayToCoverIn3StepsValidInputTest3(int input3, int expected)
         {
 
 
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input3), $"WayToCoverIn3Steps failed with valid data {input3}");
         }
         [Test, TestCaseSource("WayToCoverIn3StepsDivideCases")]
-        public void WayToCoverIn3Steps_ValidInput_Test4(int input4, int expected)
+        public void WayToCoverIn3StepsValidInputTest4(int input4, int expected)
         {
             Assert.AreEqual(expected, Methods.WayToCoverIn3Steps(input4));
         }
@@ -110,8 +94,12 @@ namespace SoftTasks.Tests
             new object[] {6,24}
 
         };
-        #region KhrystynaFednu
 
+        //Serhii end
+
+      
+
+        #region KhrystyaFedun
         static object[] PathsWithoutCrossing_Positive =
         {
             new object[] {2,1},
@@ -165,7 +153,7 @@ namespace SoftTasks.Tests
         public void KhrystynaFedun_WaisToWriteNAsSum_AllTests()
         {
             List<int[]> data_positive = new List<int[]>();
-            data_positive.Add(new int[] {2,1 });
+            data_positive.Add(new int[] { 2, 1 });
             data_positive.Add(new int[] { 10, 41 });
 
             Assert.AreEqual(data_positive[0][0], Methods.WaysToWriteNAsSum(data_positive[0][1]), $"Ways to write n as sum failed");
@@ -195,70 +183,86 @@ namespace SoftTasks.Tests
             //}   
         }
 
-        #endregion KhrystynaFedun
+        #endregion KhrystyaFedun
 
-        // Valik
+        // Valik start
         [Test]
-        public void FriendsPairsTest0()
+        public void TestFriendsPairsZero()
         {
-            Assert.AreEqual(4, Methods.FriendPairs(3));
+            int data = 0;
+            int expected = 0;
+            int resullt = Methods.FriendPairs(data);
+            Assert.AreEqual(0, resullt, $"Error output {resullt} when shoud be {expected}");
         }
         [Test]
         [TestCase(3, 4)]
         [TestCase(0, 0)]
-        [TestCase(-3, 0)]
-        public void FriendsPairsTest1(int data, int expected)
+        public void TestFriendsPairsValid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data));
+            int resullt = Methods.FriendPairs(data);
+            Assert.AreEqual(expected, resullt, $"Error output {resullt} when shoud be {expected}");
         }
-        [Test, TestCaseSource("FriendsPairsDivideCases")]
-        public void FriendsPairsTest2(int data, int expected)
+        [Test, TestCaseSource("FriendsPairsInvalidCases")]
+        public void TestFriendsPairsInvalid(int data, int expected)
         {
-            Assert.AreEqual(expected, Methods.FriendPairs(data));
+            int result = Methods.FriendPairs(data);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
         static object[] FriendsPairsDivideCases =
         {
-            new object[] {3,4},
-            new object[] {0,0},
-            new object[] {1,1},
-            new object[] {-3,0}
+            new object[] {-15,0},
+            new object[] {-3,0 }
         };
-        //Valik
+        // Valik end
+
+
+        #region OleksandraYarmoliuk
         [Test]
-        public void CountWaysTest_NLessThan1()
+        [TestCase(-4, new int[] { 1, 1 }, -1)]
+        public void CountWaysTestWithNegativeN(int N, int[] array, int expected)
         {
-            int N = -4;
-            int[] arr = { 1, 1 };
-            int expected = -1;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
 
-        [Test]
-        public void CountWaysTest_RightValues()
+        [Test, TestCaseSource("CountWaysWithPositiveValues")]
+        public void CountWaysTestWithPositiveValues(int N, int[] array, int expected)
         {
-            int N = 7;
-            int[] arr = { 1, 5, 6 };
-            int expected = 6;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");   
         }
+        static readonly object[] CountWaysWithPositiveValues =
+        {
+            new object[] {6, new int[] { 1, 2, 3, 4, 1, 3 }, 7},
+            new object[] {7, new int[] { 1, 1, 1, 1, 1, 1, 1 }, 6},
+        };
 
-        [Test]
-        public void CountWaysTest_ArrayWith0()
+        [Test, TestCaseSource("CountWaysWithValuesZero")]
+        public void CountWaysTestWithValuesZero(int N, int[] array, int expected)
         {
-            int N = 7;
-            int[] arr = { 0 };
-            int expected = 0;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
+        static readonly object[] CountWaysWithValuesZero =
+        {
+            new object[] {0, new int[] { 0, 0, 0, 0 }, -1},
+            new object[] {5, new int[] { 0, 0, 0 }, -1},
+            new object[] {0, new int[] { 1, 6, 5, 3 }, -1},
+        };
 
-        [Test]
-        public void CountWaysTest_NIs1()
+        [Test, TestCaseSource("CountWaysWithNegativeValues")]
+        public void CountWaysTestWithNegativeValues(int N, int[] array, int expected)
         {
-            int N = 1;
-            int[] arr = { 6, 8, 9 };
-            int expected = 0;
-            Assert.AreEqual(expected, Methods.CountWays(N, arr));   //Positive
+            int result = Methods.CountWays(N, array);
+            Assert.AreEqual(expected, result, $"Error output {result} when shoud be {expected}");
         }
+        static readonly object[] CountWaysWithNegativeValues =
+        {
+            new object[] {-4, new int[] { -3, 0, -9, -1 }, -1},
+            new object[] {0, new int[] { -2, 1, 2 }, -1},
+        };
+
+        #endregion OleksandraYarmoliuk
 
         [Test]
         public void PathsWithoutCrossing_ValidInput_Test1()
@@ -289,6 +293,35 @@ namespace SoftTasks.Tests
             new object[] {4,3}
         };
 
+        //Ihor
+        [Test]
+        public void Fibbonachi_FirstPosTest_5_8returned()
+        {
+            byte expected = 8,
+                input_data = 5;
+            Assert.AreEqual(expected, Methods.Fibbonachi(input_data));
+        }
+
+        [Test]
+        [TestCase(11, 144)]
+        [TestCase(6, 13)]
+        public void Fibbonachi_SecoundPosTest(byte input_data, byte expected)
+        {
+            Assert.AreEqual(expected, Methods.Fibbonachi(input_data));
+        }
+
+        [Test, TestCaseSource("FibbonachiTestCases")]
+        public void Fibbonachi_ThirdPosTest(int input_data, int expected)
+        {
+            Assert.AreEqual(expected, Methods.Fibbonachi(input_data));
+        }
+        static object[] FibbonachiTestCases =
+        {
+            new object[] {15,987},
+            new object[] {1,1},
+            new object[] {7,21}
+        };
+
         //Oleh Hnachuk
         [Test]
         public void WorkToBeHighLowEffort_ValidInput()
@@ -316,9 +349,9 @@ namespace SoftTasks.Tests
         [TestCase(new int[] { 5, 6, 4, 3, 7, 6 }, new int[] { 1, 3, 2, 2, 4, 1 }, 6, 18)]
         [TestCase(new int[] { 3 }, new int[] { 2 }, 1, 3)]
         [TestCase(new int[] { 5 }, new int[] { 4 }, -1, 0)]
-        public void WorkToBeHighLowEffort_TestCaseInput(int[] inputHigh,int[] inputLow, int inputDays,int expected)
+        public void WorkToBeHighLowEffort_TestCaseInput(int[] inputHigh, int[] inputLow, int inputDays, int expected)
         {
-            Assert.AreEqual(expected, Methods.maxTasks(inputHigh,inputLow,inputDays));
+            Assert.AreEqual(expected, Methods.maxTasks(inputHigh, inputLow, inputDays));
         }
 
         [Test, TestCaseSource("WorkToBeHighLowEffort")]
