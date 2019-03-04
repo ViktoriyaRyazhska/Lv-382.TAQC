@@ -5,6 +5,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 
 namespace UnitTestProjectLv382a
 {
@@ -55,7 +56,8 @@ namespace UnitTestProjectLv382a
         public void CheckSeleniumIDE()
         {
             // Precondition
-            IWebDriver driver = new ChromeDriver();
+            //IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new FirefoxDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Navigate().GoToUrl("https://www.google.com.ua/");
             Thread.Sleep(2000);  // Not Use. Only for Presentation.
