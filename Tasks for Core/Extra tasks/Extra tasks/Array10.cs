@@ -8,6 +8,5 @@ namespace Extra_tasks
 {
     class Array10
     {
-
     }
 }
