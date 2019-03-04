@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 
 namespace Codewars
 {
@@ -9,8 +10,9 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            int[] a = { -1,-1,-1,-1,-1 };
-            Console.WriteLine(Arrays.Task16(a));
+            int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
+            int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
+            Console.WriteLine(TrailingZeros(531));
             Console.ReadKey();
         }
 
@@ -144,15 +146,7 @@ namespace Codewars
             }
             return 0;
         }
-        //public int GetSum(int a, int b)
-        //{
-        //    //if (a == b)
-        //    //    return a;
-        //    //if(a > b)
-        //    //    Enumerable.Range(b,)
-        //    //    return 
-        //    //return 0;
-        //}
+
         public static int FindShort(string s)
         {
             string[] a = s.Split(new char[] { ' ' });
@@ -244,7 +238,7 @@ namespace Codewars
 
             }
             return 0;
-        }  // Not done
+        }
         public static int NbDig(int n, int d)
         {
             int res = 0;
@@ -306,45 +300,32 @@ namespace Codewars
         {
             return string.Join(" ", numbers.Split(' ').Select(x => int.Parse(x)).Max().ToString(), numbers.Split(' ').Select(x => int.Parse(x)).Min().ToString());
         }
-        public static long digPow(int n, int p) // Not done
+        public static long digPow(int n, int p)
         {
-            int res = 0, res2 = 0;
-            char[] gg = n.ToString().ToArray();
-            for (int i = 0; i < gg.Length; i++)
+            int k = p;
+            long temp = (long)n.ToString().ToCharArray().Select(x => Math.Pow(int.Parse(x.ToString()), k++)).Sum();
+            if (temp % n == 0)
             {
-                res += (int)gg[i] * p + i;
+                return temp / n;
             }
-            for (int d = 1; res2 * n < res; d++)
+            else
             {
-                res2 = res * d;
-                if (res2 * n == d)
-                    return d;
+                return -1;
             }
-            return res == n * res2 ? res2 : -1;
+
         }
-        //public static bool is_valid_IP(string ipAddres)
-        //{
-        //    string[] s = ipAddres.Split(new char[] { '.' });
-        //    if (s.Length != 4 &&
-        //        return false;
-        //    return
-        //} // not ddone 
+
         public static int TrailingZeros(int n)
         {
-            int[] r = new int[n];
-            r[0] = 1;
-            int res = 0;
-            for (int i = 1; i < n; i++)
+            var count = 0;
+
+            for (int i = 5; n / i >= 1; i *= 5)
             {
-                r[i] *= i + 1;
+                count += (int)(n / i);
             }
-            for (int i = 10; i < r[n]; i *= 10)
-            {
-                if (r[n - 1] % i == 0)
-                    res++;
-            }
-            return res;
-        }  // not done 
+
+            return count;
+        }
         public static int GetVowelCount(string str)
         {
 
@@ -381,9 +362,94 @@ namespace Codewars
             return ii;
             Console.ReadKey();
         }
+        public static string stockSummary(String[] lstOfArt, String[] lstOf1stLetter)
+        {
+            if (lstOfArt.Length == 0)
+            {
+                return "";
+            }
+            string result = "";
+            foreach (string m in lstOf1stLetter)
+            {
+                int tot = 0;
+                foreach (string l in lstOfArt)
+                {
+                    if (l[0] == m[0])
+                    {
+                        tot += int.Parse(l.Split(' ')[1]);
+                    }
+                }
+                if (!String.IsNullOrEmpty(result))
+                {
+                    result += " - ";
+                }
+                result += "(" + m + " : " + tot + ")";
+            }
+            return result;
+
+        }
+        public static bool is_valid_IP(string ipAddres)
+        {
+            IPAddress ip;
+            bool validIp = IPAddress.TryParse(ipAddres, out ip);
+            return validIp && ip.ToString() == ipAddres;
+        }
+        public static double[] gett(string t, string s)
+        {
+            return s.Split('\n').First(x => x.Contains(t)).Split(',').Select(x => double.Parse(x.Split()[1])).ToArray();
+        }
+        public static double Mean(string t, string s)
+        {
+            return s.Contains(t + ":") ? gett(t, s).Average() : -1;
+        }
+
+        public static double Variance(string t, string s)
+        {
+            var p = Mean(t, s);
+            return s.Contains(t + ":") ? gett(t, s).Select(x => (x - p) * (x - p)).Average() : -1;
+        }
+        public static string RevRot(string strng, int sz)
+        {
+            if (sz <= 0 || sz > strng.Length) return "";
+            string[] arr = Enumerable.Range(0, (int)(strng.Length / sz))
+                .Select(i => strng.Substring(i * sz, sz)).ToArray();
+            for (int i = 0; i < arr.Length; ++i)
+            {
+                if (arr[i].ToCharArray().Select(x => Math.Pow(Char.GetNumericValue(x), 3)).Sum() % 2 == 0)
+                    arr[i] = new string(arr[i].Reverse().ToArray());
+                else arr[i] = arr[i].Substring(1, sz - 1) + arr[i].Substring(0, 1);
+            }
+            return String.Concat(arr);
+        }
+        public static bool comp1(int[] a, int[] b)
+        {
+            if (a == null || b == null || a.Length != b.Length)
+                return false;
+            for (int i = 0; i < a.Length; i++)
+            {
+                bool temp = false;
+                for (int j = 0; j < b.Length; j++)
+                {
+                    Console.Write(a[i] * a[i] + " : " + b[j] + "|");
+                    if (a[i] * a[i] == b[j])
+                    {
+                        temp = true;
+                        a[i] = 0;
+                        b[j] = 0;
+                        break;
+                    }
+                }
+                if (temp != true)
+                    return false;
+            }
+            foreach (int n in a)
+            {
+                Console.Write(n + " ");
+            }
+            return true;
+        }
+
     }
-
-
     public class Opstrings
     {
         public static string VertMirror(string strng)
@@ -400,5 +466,7 @@ namespace Codewars
             return fct(s);
         }
     }
-    // Kats end
 }
+
+// Kats end
+

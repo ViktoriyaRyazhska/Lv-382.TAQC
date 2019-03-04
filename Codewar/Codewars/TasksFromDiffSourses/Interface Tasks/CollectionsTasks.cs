@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System;
 namespace Codewars
 {
     static class CollectionsTasks
@@ -55,13 +55,69 @@ namespace Codewars
             List<char> b = a.Select(x => x == '!' ? '.' : x).ToList();
             foreach (var i in b)
             {
-                Console.WriteLine(i+" ");
+                Console.WriteLine(i + " ");
             }
-            Console.WriteLine("Count of Distinct characters: "+a.Distinct().Count());
+            Console.WriteLine("Count of Distinct characters: " + a.Distinct().Count());
         }
-        public static void Task5()
+        public static void Task5(List<char> a)  //Check the speed
         {
-
+            int res = 0;
+            for (int i = 0; i < a.Count; i++)
+            {
+                int temp = 0;
+                for (int j = i; j < a.Count; j++)
+                {
+                    if(a[j]==' ')
+                    {
+                        temp++;
+                        if (res < temp)
+                        {
+                            res++;
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        i = j;
+                        break;
+                    }
+                    
+                }
+            }
+            a.Distinct();
+            Console.WriteLine(res);
+        }
+        public static List<char> Task6(List<char> a)
+        {
+            List<char> b = new List<char>();
+            for (int i = 0; i < a.Count; i++)
+            {
+                if (a[i] == ':')
+                {
+                    for (int j = i+1; j < a.Count; j++)
+                    {
+                        if (a[j]==':')
+                        {
+                            i = j+1;
+                            break;
+                        }
+                        b.Add(a[j]);
+                    }
+                }
+            }
+            return b;
+        }
+        public static string Task7(List<int> a)
+        {
+            return a.Equals(a.OrderByDescending(x => x)) ? "Sorted in Ascending order" : "Sorted in Descending order";
+        }
+        public static void Task8(List<int> a)
+        {
+            int mid = a.Count / 2;
+            for (int i = 0; i < a.Count; i++)
+            {
+               
+            }
         }
     }
 
