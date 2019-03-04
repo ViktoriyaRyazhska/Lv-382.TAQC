@@ -10,9 +10,8 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
-            int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
-            Console.WriteLine(TrailingZeros(531));
+            string[] names = new string[] { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" };
+            Console.WriteLine(WhoIsNext(names, 7230702951));
             Console.ReadKey();
         }
 
@@ -447,6 +446,49 @@ namespace Codewars
                 Console.Write(n + " ");
             }
             return true;
+        }
+        public static int? chooseBestSum(int t, int k, List<int> ls)
+        {
+            int max = 0;
+            if (k == 1)
+            {
+                for (int i = 0; i < ls.Count; i++)
+                    if (ls[i] > max && ls[i] <= t) max = ls[i];
+            }
+            else
+                for (int i = 0; i < ls.Count; i++)
+                {
+                    var val = chooseBestSum(t - ls[i], k - 1, ls.Skip(i + 1).ToList());
+                    if (val.HasValue && val.Value + ls[i] > max && val.Value + ls[i] <= t)
+                        max = val.Value + ls[i];
+                }
+            return max > 0 ? max : new int?();
+        }
+        public static string WhoIsNext(string[] names, long n)
+        {
+            string temp = "";
+            Queue<string> queue = new Queue<string>(names.ToList());
+            for (long i = 1; i <= n; i++)
+            {
+                temp = queue.Dequeue();
+                if (i == n)
+                {
+                    break;
+                }
+                queue.Enqueue(temp);
+                queue.Enqueue(temp);
+            }
+            return temp;
+        }
+        public static string[] dirReduc(String[] arr)  // Rebuild
+        {
+            string s = new string(arr.Select(x => x[0]).ToArray());
+            while (Regex.Match(s, "NS|EW|SN|WE").Success) s = Regex.Replace(s, "NS|EW|SN|WE", "");
+            return s.Select(x => x == 'N' ? "NORTH" : x == 'S' ? "SOUTH" : x == 'E' ? "EAST" : "WEST").ToArray();
+        }
+        public static string orderWeight(string strng)
+        {
+            return String.Join(" ", strng.Split(' ').OrderBy(x=>x).OrderBy(x => x.ToCharArray().Select(y => int.Parse(y.ToString())).Sum()).ToArray());
         }
 
     }
