@@ -72,7 +72,7 @@ namespace Interfaces_and_Generic_Collections
             int amountsOfSpacesCounter = 0;
 
             for (int i = 0; i < list.Count(); i++)
-            {                
+            {
                 if (list[i] == ' ')
                 {
                     amountsOfSpaces[amountsOfSpacesCounter] += 1;
@@ -97,8 +97,81 @@ namespace Interfaces_and_Generic_Collections
         }
 
 
+        public static IList<string> CharectersBetweenDoubleDots(List<char> s)
+        {
+            string str = string.Concat(s);
+
+            str = str.Substring(str.IndexOf(":") + 1);
+
+            IList<string> result = str.Split(new string[] { ":", " " },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            return result;
+        }
 
 
+        public static void CheckIfListIsSorted(List<int> list)
+        {
+            var orderedByAsc = list.OrderBy(d => d);
+            if (list.SequenceEqual(orderedByAsc))
+            {
+                Console.WriteLine("Input list is sorted by ascending order");
+                return;
+            }
+
+            var orderedByDsc = list.OrderByDescending(d => d);
+            if (list.SequenceEqual(orderedByDsc))
+            {
+                Console.WriteLine("Input list is sorted by descending order");
+                return;
+            }
+
+            Console.WriteLine("Input list is not sorted");
+        }
+
+
+        public static List<int> MovingElementsAroundMiddle(List<int> list)
+        {
+            int indexOfMiddle = list.Count / 2 ;
+            Console.WriteLine(indexOfMiddle);
+            List<int> result = new List<int>();
+
+            for (int i = 0; i < indexOfMiddle; i++)
+            {
+                if (list[i] <= list[indexOfMiddle])
+                {
+                    result.Add(list[i]);
+                }
+            }
+
+            for (int i = indexOfMiddle + 1; i < list.Count; i++)
+            {
+                if (list[i] <= list[indexOfMiddle])
+                {
+                    result.Add(list[i]);
+                }
+            }
+
+            result.Add(list[indexOfMiddle]);
+
+            for (int i = 0; i < indexOfMiddle; i++)
+            {
+                if (list[i] > list[indexOfMiddle])
+                {
+                    result.Add(list[i]);
+                }
+            }
+
+            for (int i = indexOfMiddle + 1; i < list.Count; i++)
+            {
+                if (list[i] > list[indexOfMiddle])
+                {
+                    result.Add(list[i]);
+                }
+            }
+
+            return result;
+        }
 
 
 
@@ -114,8 +187,24 @@ namespace Interfaces_and_Generic_Collections
 
             List<char> l2Char = new List<char> { ' ', '4', ' ', ' ', ' ', '.', ' ', ' ', '-', ' ', ' ', };
 
+            List<char> listWithDoubleDots = new List<char> { '1', '4', ':', '5', '7', ':', '6', '2', ':' };
 
-           //DeleteAllExtraSpaces(l2Char).ForEach(Console.Write);
+            List<int> sortedListAsc = new List<int> { 1, 3, 5, 6 };
+
+            List<int> sortedListDesc = new List<int> { 9, 9, 8, 2, 1 };
+
+            //MovingElementsAroundMiddle(sortedListDesc).ForEach(Console.Write);
+
+            //CheckIfListIsSorted(l1);
+            //CheckIfListIsSorted(sortedListAsc);
+            //CheckIfListIsSorted(sortedListDesc);
+
+            //foreach(string s in CharectersBetweenDoubleDots(listWithDoubleDots))
+            //{
+            //    Console.WriteLine(s + "\n");
+            //}
+
+            //DeleteAllExtraSpaces(l2Char).ForEach(Console.Write);
 
             //ChangeExclamationMarkToDot(l1Char).ForEach(Console.WriteLine);
 

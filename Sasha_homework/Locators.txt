@@ -1,0 +1,13 @@
+Locators for page : https://www.amazon.com/ref=navm_hdr_logo
+
+1. //*[@class="btn-link btn-link-blue auth-b-btn"]
+2. //*[@class="svg-icon cart-icon svg-white"]
+3. //*[@href="tel:0445370222"]
+4. //*[@src="https://i2.rozetka.ua/goods/11056662/copy_lenovo_tab_m10_za490005ua_5c6e9a40d050f_images_11056662249._R250x250.jpg" ]
+5. //*[@href="/catalog/103303/"]
+6. //*[@src="https://i2.rozetka.ua/big_promo/1021/1021935.jpg"]
+7.
+8.
+9.
+10.
+

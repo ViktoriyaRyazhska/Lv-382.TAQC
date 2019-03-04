@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleManager.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="FileManager.cs" />
     <Compile Include="Forecast.cs" />
+    <Compile Include="IInputOutputManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringValue.cs" />

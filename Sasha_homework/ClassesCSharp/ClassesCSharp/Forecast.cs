@@ -24,13 +24,13 @@ namespace ClassesCSharp
         [Description("snow")] Snow
     }
 
-    public class Forecast
+    public class Forecast : ICloneable
     {
-        private int Temperature { get; set; }
-        private int AtmosphPressure { get; set; }
-        private WindStrength WindStrength { get; set; }
-        private Precipitation Precipitation { get; set; }
         public object Enums { get; private set; }
+        public int Temperature { get; set; }
+        public int AtmosphPressure { get; set; }
+        public WindStrength WindStrength { get; set; }
+        public Precipitation Precipitation { get; set; }
 
         public Forecast() { }
         public Forecast(int Temperature, int AtmosphPressure, WindStrength WindStrength, Precipitation Precipitation)
@@ -43,8 +43,8 @@ namespace ClassesCSharp
 
         public override string ToString()
         {
-            return Temperature + "'C" + "\t" + AtmosphPressure + "\t" +
-                WindStrength + "\t" + Precipitation;
+            return string.Format("{0, -16}{1, -14}{2, -16}{3, -19}", Temperature + "'C", AtmosphPressure,
+                WindStrength.DescriptionAttr(), Precipitation.DescriptionAttr());
         }
 
         public override bool Equals(Object obj)
@@ -63,8 +63,7 @@ namespace ClassesCSharp
 
         public void Print()
         {
-            Console.WriteLine(Temperature + "'C" + "\t" + AtmosphPressure + "\t" +
-                WindStrength + "\t" + Precipitation);
+            Console.WriteLine(ToString());
         }
 
         public void Write()
@@ -92,18 +91,11 @@ namespace ClassesCSharp
             Precipitation = (Precipitation)(Int32.Parse(Console.ReadLine()));
         }
 
-
-        public static string DescriptionAttr<T>(this T source)
+        public object Clone()
         {
-            FieldInfo fi = source.GetType().GetField(source.ToString());
-
-            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(
-                typeof(DescriptionAttribute), false);
-
-            if (attributes != null && attributes.Length > 0) return attributes[0].Description;
-            else return source.ToString();
+            return new Forecast(Temperature, AtmosphPressure,WindStrength,Precipitation);
         }
-
+               
     }
 
 
