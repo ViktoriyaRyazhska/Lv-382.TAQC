@@ -70,7 +70,7 @@ namespace Extra_tasks
             //Array9.SumCos(40); //need fixing
             //Console.ReadKey();
 
-            //Array10.S(40); //need fixing
+            //Array10.Rad(40); //need fixing
             //Console.ReadKey();
 
             //Array11.TMax(); 
