@@ -8,13 +8,14 @@ namespace Extra_tasks.Interfaces
 {
     public class ConsoleManager : IInputOutputManager
     {
-        string IInputOutputManager.Input()
+        public string inp;
+        public string Input()
         {
-            string n = Console.ReadLine();
-            return n;
+            inp = Console.ReadLine();
+            return inp;
         }
 
-        void IInputOutputManager.Output(object o)
+        public void Output(object o)
         {
             Console.WriteLine(o.ToString());
         }

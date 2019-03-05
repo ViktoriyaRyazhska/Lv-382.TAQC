@@ -37,6 +37,5 @@ namespace Extra_tasks.Interfaces
             return new Doctor { Name = this.Name, Age = this.Age };
         }
         
-        
     }
 }

@@ -10,6 +10,5 @@ namespace Extra_tasks.Interfaces
     {
         string Input();
         void Output(object o);
-
     }
 }

@@ -8,17 +8,15 @@ namespace Extra_tasks.Interfaces
 {
     public class FileManager:IInputOutputManager
     {
-        string filename = "f.txt";
 
+        string filename = "";
         public string Input()
         {
-            string n = Console.ReadLine();
-            return n;
+            
         }
-
         public void Output(object o)
         {
-            Console.WriteLine(o.ToString());
+            
         }
     }
 }

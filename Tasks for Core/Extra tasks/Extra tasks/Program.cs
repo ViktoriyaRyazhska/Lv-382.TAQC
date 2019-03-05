@@ -14,8 +14,8 @@ namespace Extra_tasks
 
 
             //Doctor d1 = new Doctor();
-            //d1.Age = 33;
-            //d1.Name = "Bob";
+            ////d1.Age = 33;
+            ////d1.Name = "Bob";
             //Doctor d2 = (Doctor)d1.Clone();
             //Doctor d3 = (Doctor)d1.Clone();
             //Doctor d4 = (Doctor)d1.Clone();
@@ -25,8 +25,14 @@ namespace Extra_tasks
             //Doctor d8 = (Doctor)d1.Clone();
             //Doctor d9 = (Doctor)d1.Clone();
             //Doctor d10 = (Doctor)d1.Clone();
-            //d2.Age = 35;
-            //d2.Name = "Joe";
+            ////d2.Age = 35;
+            ////d2.Name = "Joe";
+
+            ConsoleManager cm = new ConsoleManager();
+            cm.Input();
+            cm.Output("gmdg"+cm.inp);
+            FileManager fm = new FileManager();
+
             //FileManager f1 = new FileManager();
             //f1.Output(d1.Age);
             //f1.Output(d1.Name);
@@ -34,7 +40,8 @@ namespace Extra_tasks
             //f1.Output(d2.Name);
             //f1.Output(d10.Age);
             //f1.Output(d10.Name);
-            //Console.ReadKey();
+            Console.ReadKey();
+
 
             //Array1.Century();
             //Console.ReadKey();
@@ -81,8 +88,9 @@ namespace Extra_tasks
             //Array15.Sum2LovestElements();
             //Console.ReadKey();
 
-            Array16.Index();
-            Console.ReadKey();
+            //Array16.Index();
+            //Console.ReadKey();
+
 
             //Weather weater = new Weather(new WeatherForDay(-2, 751, "p", "2"), new WeatherForDay(3, 743, "l", "2")); //1
             //weater.PrintAll();

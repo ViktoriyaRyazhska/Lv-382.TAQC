@@ -43,29 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array1.cs" />
-    <Compile Include="Array10.cs" />
-    <Compile Include="Array11.cs" />
-    <Compile Include="Array12.cs" />
-    <Compile Include="Array13.cs" />
-    <Compile Include="Array14.cs" />
-    <Compile Include="Array15.cs" />
-    <Compile Include="Array16.cs" />
-    <Compile Include="Array2.cs" />
-    <Compile Include="Array3.cs" />
-    <Compile Include="Array4.cs" />
-    <Compile Include="Array5.cs" />
-    <Compile Include="Array6.cs" />
-    <Compile Include="Array7.cs" />
-    <Compile Include="Array8.cs" />
-    <Compile Include="Array9.cs" />
+    <Compile Include="Arrays\Array1.cs" />
+    <Compile Include="Arrays\Array10.cs" />
+    <Compile Include="Arrays\Array11.cs" />
+    <Compile Include="Arrays\Array12.cs" />
+    <Compile Include="Arrays\Array13.cs" />
+    <Compile Include="Arrays\Array14.cs" />
+    <Compile Include="Arrays\Array15.cs" />
+    <Compile Include="Arrays\Array16.cs" />
+    <Compile Include="Arrays\Array2.cs" />
+    <Compile Include="Arrays\Array3.cs" />
+    <Compile Include="Arrays\Array4.cs" />
+    <Compile Include="Arrays\Array5.cs" />
+    <Compile Include="Arrays\Array6.cs" />
+    <Compile Include="Arrays\Array7.cs" />
+    <Compile Include="Arrays\Array8.cs" />
+    <Compile Include="Arrays\Array9.cs" />
     <Compile Include="Interfaces\ConsoleManager.cs" />
     <Compile Include="Interfaces\Doctor.cs" />
     <Compile Include="Interfaces\FileManager.cs" />
     <Compile Include="Interfaces\IInputOutputManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weather.cs" />
+    <Compile Include="Classes\Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
