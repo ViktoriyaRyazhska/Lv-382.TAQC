@@ -109,7 +109,7 @@ namespace Codewars
         }
         public static string Task7(List<int> a)
         {
-            return a.Equals(a.OrderByDescending(x => x)) ? "Sorted in Ascending order" : "Sorted in Descending order";
+            List<int> b = a.OrderBy(x=>x);
         }
         public static void Task8(List<int> a)
         {
