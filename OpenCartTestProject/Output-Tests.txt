@@ -1,0 +1,62 @@
+﻿[3/12/2019 6:53:00 PM Informational] ------ Run test started ------
+[3/12/2019 6:53:13 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 6:53:13 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 6:53:14 PM Informational]    NUnit3TestExecutor converted 7 of 7 NUnit test cases
+[3/12/2019 6:54:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 6:54:03 PM Informational] ========== Run test finished: 2 run (0:01:03.6176432) ==========
+[3/12/2019 6:56:07 PM Informational] ------ Run test started ------
+[3/12/2019 6:56:08 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 6:56:08 PM Informational] Running selected tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 6:56:09 PM Informational]    NUnit3TestExecutor converted 7 of 7 NUnit test cases
+[3/12/2019 6:56:46 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 6:56:46 PM Informational] ========== Run test finished: 2 run (0:00:39.5971024) ==========
+[3/12/2019 7:12:21 PM Informational] ------ Discover test started ------
+[3/12/2019 7:12:22 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/12/2019 7:12:23 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/12/2019 7:12:23 PM Informational] ========== Discover test finished: 9 found (0:00:02.053768) ==========
+[3/12/2019 7:12:23 PM Informational] ------ Run test started ------
+[3/12/2019 7:12:24 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 7:12:24 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 7:12:25 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/12/2019 7:13:37 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 7:13:37 PM Informational] ========== Run test finished: 9 run (0:01:13.6139691) ==========
+[3/12/2019 7:22:25 PM Informational] ------ Discover test started ------
+[3/12/2019 7:22:26 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/12/2019 7:22:27 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/12/2019 7:22:27 PM Informational] ========== Discover test finished: 9 found (0:00:02.0545418) ==========
+[3/12/2019 7:22:27 PM Informational] ------ Run test started ------
+[3/12/2019 7:22:28 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 7:22:28 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 7:22:29 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/12/2019 7:23:42 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 7:23:42 PM Informational] ========== Run test finished: 9 run (0:01:14.4210558) ==========
+[3/12/2019 7:39:36 PM Informational] ------ Discover test started ------
+[3/12/2019 7:39:38 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/12/2019 7:39:40 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/12/2019 7:39:40 PM Informational] ========== Discover test finished: 9 found (0:00:03.4956944) ==========
+[3/12/2019 7:39:40 PM Informational] ------ Run test started ------
+[3/12/2019 7:39:41 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 7:39:41 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 7:39:41 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/12/2019 7:42:20 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 7:42:20 PM Informational] ========== Run test finished: 9 run (0:02:40.2835951) ==========
+[3/12/2019 7:58:34 PM Informational] ------ Discover test started ------
+[3/12/2019 7:58:36 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/12/2019 7:58:36 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/12/2019 7:58:37 PM Informational] ========== Discover test finished: 9 found (0:00:02.02199) ==========
+[3/12/2019 7:58:37 PM Informational] ------ Run test started ------
+[3/12/2019 7:58:37 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 7:58:37 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+[3/12/2019 7:58:38 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/12/2019 7:59:25 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 7:59:25 PM Informational] ========== Run test finished: 9 run (0:00:48.323293) ==========
+[3/12/2019 8:16:53 PM Informational] ------ Discover test started ------
+[3/12/2019 8:16:55 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/12/2019 8:16:56 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/12/2019 8:16:56 PM Informational] ========== Discover test finished: 9 found (0:00:02.8958836) ==========
+[3/12/2019 8:16:56 PM Informational] ------ Run test started ------
+[3/12/2019 8:16:57 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/12/2019 8:16:57 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/12/2019 8:16:57 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/12/2019 8:17:48 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/12/2019 8:17:48 PM Informational] ========== Run test finished: 9 run (0:00:52.6573893) ==========
