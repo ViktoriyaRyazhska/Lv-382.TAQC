@@ -10,8 +10,8 @@ namespace OpencartTesting
 {
     abstract public class TestRunner
     {
-        protected string adminPageUrl = "http://192.168.204.128/opencart/upload/admin";
-        protected string homePageUrl = "http://192.168.204.128/opencart/upload";
+        protected const string adminPageUrl = "http://192.168.204.128/opencart/upload/admin";
+        protected const string homePageUrl = "http://192.168.204.128/opencart/upload";
 
         protected IWebDriver driver;
 
@@ -41,11 +41,11 @@ namespace OpencartTesting
 
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
+                string failTime = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff");
                 File.AppendAllText(AppDomain.CurrentDomain.BaseDirectory+ "../../ErrorLogs/Log.txt",
-                    "TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace + "\n");
-                string screenshot = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff");
-                TakesScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + screenshot+".png");
-                TakesSources("");
+                    failTime + "\nTestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace + "\n");
+                TakesScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + failTime +".png");
+                TakesSources(failTime);
             }
 
             driver.Manage().Cookies.DeleteAllCookies();
@@ -60,7 +60,22 @@ namespace OpencartTesting
 
         protected void TakesSources(string filePath)
         {
-            // Save Sources
+            File.Copy(AppDomain.CurrentDomain.BaseDirectory + "../../OpencartTest.cs",
+                AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Source/"+filePath+".cs");
+        }
+
+        protected bool hasClass(IWebElement element, string searchedClass)
+        {
+            string[] classes = element.GetAttribute("class").Split(' ');
+            foreach (string str in classes)
+            {
+                if (str.Equals(searchedClass))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

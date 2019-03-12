@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace OpencartTesting
 {
     [TestFixture]
-    public class OpencartTesting : TestRunner
+    public class OpencartTest : TestRunner
     {
 
         private static readonly object[] SearchData_Positive =
@@ -25,18 +25,18 @@ namespace OpencartTesting
         {
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + OpenQA.Selenium.Keys.Enter);
-            int actual = int.Parse(driver.FindElement(By.CssSelector("#content > div:nth-child(9) > div.col-sm-6.text-right")).Text.Split(' ')[5]);
-            List<string> searchResults = driver.FindElements(By.CssSelector("#content > div:nth-child(8) > div:nth-child(1) > div > div:nth-child(2) > div.caption > h4 > a")).ToList<IWebElement>().Select(x=>x.Text).ToList<string>();
+            int actual = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
+            List<string> searchResults = driver.FindElements(By.CssSelector(".caption a")).ToList<IWebElement>().Select(x=>x.Text).ToList<string>();
 
             driver.Navigate().GoToUrl(adminPageUrl);
             driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("MY_ADMLOGIN"));
             driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("MY_ADMPASSWORD"));
-            driver.FindElement(By.CssSelector("#content > div > div > div > div > div.panel-body > form > div.text-right > button")).Click();
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             driver.FindElement(By.Id("input-name")).SendKeys("%" + searchText);
             driver.FindElement(By.Id("button-filter")).Click();
-            int expected = int.Parse(driver.FindElement(By.CssSelector("#content > div.container-fluid > div > div.panel-body > div.row > div.col-sm-6.text-right")).Text.Split(' ')[5]);
+            int expected = int.Parse(driver.FindElement(By.CssSelector("div.col-sm-6.text-right")).Text.Split(' ')[5]);
 
             Assert.AreEqual(expected, actual);
             
@@ -51,7 +51,7 @@ namespace OpencartTesting
         {
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(OpenQA.Selenium.Keys.Enter);
-            Assert.AreEqual(true, driver.FindElements(By.CssSelector("#content > p:nth-child(7)")).Count > 0);
+            Assert.AreEqual("There is no product that matches the search criteria.",driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
         }
 
         private static string[] SearchData_Negative =
@@ -65,7 +65,7 @@ namespace OpencartTesting
         {
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + OpenQA.Selenium.Keys.Enter);
-            Assert.AreEqual(true,driver.FindElements(By.CssSelector("#content > p:nth-child(7)")).Count > 0);
+            Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
         }
 
         private static string[] SearchData_InvalidLength =
@@ -97,7 +97,7 @@ namespace OpencartTesting
         {
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + OpenQA.Selenium.Keys.Enter);
-            Assert.AreEqual(true, driver.FindElements(By.CssSelector("#content > p:nth-child(7)")).Count > 0);
+            Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
         }
 
         private static readonly object[] SearchData_Case_DefaultView =
@@ -112,12 +112,12 @@ namespace OpencartTesting
         {
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText.ToLower() + OpenQA.Selenium.Keys.Enter);
-            int lowerResult = int.Parse(driver.FindElement(By.CssSelector("#content > div:nth-child(9) > div.col-sm-6.text-right")).Text.Split(' ')[5]);
+            int lowerResult = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
 
             driver.Navigate().GoToUrl(homePageUrl);
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText.ToUpper() + OpenQA.Selenium.Keys.Enter);
-            int upperResult = int.Parse(driver.FindElement(By.CssSelector("#content > div:nth-child(9) > div.col-sm-6.text-right")).Text.Split(' ')[5]);
+            int upperResult = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
  
             Assert.AreEqual(lowerResult,upperResult);
         }
@@ -152,20 +152,6 @@ namespace OpencartTesting
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + OpenQA.Selenium.Keys.Enter);
             Assert.AreEqual(!wasGrid, hasClass(driver.FindElement(By.Id("grid-view")), "active"));
-        }
-
-        private bool hasClass(IWebElement element,string searchedClass)
-        {
-            string[] classes = element.GetAttribute("class").Split(' ');
-            foreach(string str in classes)
-            { 
-                if (str.Equals(searchedClass))
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
     }
 }
