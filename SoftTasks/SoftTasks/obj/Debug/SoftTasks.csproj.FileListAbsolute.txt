@@ -1,0 +1,11 @@
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.exe.config
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.exe
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\SoftTasks.pdb
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\nunit.framework.dll
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\nunit.framework.pdb
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\bin\Debug\nunit.framework.xml
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.csprojAssemblyReference.cache
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.csproj.CoreCompileInputs.cache
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.csproj.CopyComplete
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.exe
+E:\softserve courses\Soft Repo\Lv-382.TAQC\SoftTasks\SoftTasks\obj\Debug\SoftTasks.pdb
