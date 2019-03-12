@@ -14,7 +14,7 @@ namespace OpenCartTestProject
     public class SimpleTest
     {
         //[TestMethod]
-        //[Test]
+        [Test]
         public void CheckLogin()
         {
             // Precondition
@@ -69,7 +69,10 @@ namespace OpenCartTestProject
             //
             driver.FindElement(By.Id("password")).Click();
             driver.FindElement(By.Id("password")).Clear();
-            driver.FindElement(By.Id("password")).SendKeys("qwerty");
+            //driver.FindElement(By.Id("password")).SendKeys("qwerty");
+            string myPassword = Environment.GetEnvironmentVariable("MY_PASSWORD");
+            Console.WriteLine("myPassword is: " + myPassword);
+            driver.FindElement(By.Id("password")).SendKeys(myPassword);
             Thread.Sleep(2000); // For Presentation ONLY
             //
             driver.Quit();

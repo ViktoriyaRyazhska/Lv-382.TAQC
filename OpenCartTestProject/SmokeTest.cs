@@ -14,7 +14,7 @@ namespace OpenCartTestProject
     {
         // DataProvider
 
-        [Test]
+        //[Test]
         public void CheckSearch()
         {
             driver.FindElement(By.Name("search")).Click();
@@ -23,7 +23,7 @@ namespace OpenCartTestProject
             //
             driver.FindElement(By.CssSelector("button.btn.btn-default.btn-lg")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.Name("search1"));
+            //driver.FindElement(By.Name("search1"));
         }
     }
 }
