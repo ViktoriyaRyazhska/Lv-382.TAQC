@@ -54,6 +54,7 @@ namespace OpencartTesting
 
         private static readonly string[] SearchData_Negative =
         {
+            "",
            "nonexistent",
            "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe"
         };
