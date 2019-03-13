@@ -1,0 +1,5 @@
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at OpenCartTesting.OpenCartTesting.SearchCase_AllCategories_Test() in E:\Softserve\TESTING\OpenCartTesting\OpenCartTesting\OpenCart.cs:line 96

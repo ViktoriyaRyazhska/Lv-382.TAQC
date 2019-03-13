@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -10,7 +9,7 @@ using Assert = NUnit.Framework.Assert;
 
 namespace OpenCartTesting
 {
-    //[TestClass]
+   
     [TestFixture]
     //[Parallelizable(ParallelScope.All)]
     public class OpenCartTesting : TestRunner
@@ -31,22 +30,22 @@ namespace OpenCartTesting
 
             string ExpectedResult = "There is no product that matches the search criteria.";
             string ActualResult = driver.FindElement(By.XPath("//*[@id='content']/p[2]")).Text;                  
-            int searchCount = int.MinValue;
+            int ActualNumber = int.MinValue;
             if (ActualResult == ExpectedResult)
-                searchCount = 0;
+                ActualNumber = 0;
           
             driver.Navigate().GoToUrl(adminPageUrl);
             driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
             driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
-            driver.FindElement(By.CssSelector("#content div.text-right button")).Click();
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.Id("input-name")).SendKeys("%" + searchText);
             driver.FindElement(By.Id("button-filter")).Click();
             int ExpectedNumber = int.Parse(driver.FindElement(By.CssSelector("#content div.col-sm-6.text-right")).Text.Split(' ')[5]);
 
-            Assert.AreEqual(searchCount, ExpectedNumber);          
+            Assert.AreEqual(ActualNumber, ExpectedNumber);          
         }
 
         private static readonly object[] SearchData_WithСlickingDescription =
@@ -64,21 +63,19 @@ namespace OpenCartTesting
             driver.FindElement(By.Id("input-search")).Clear();
             driver.FindElement(By.Id("input-search")).SendKeys(searchText[0] + Keys.Enter);
             
-            driver.Navigate().GoToUrl(adminPageUrl);
-            //driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
-            //driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
-            driver.FindElement(By.Id("input-username")).SendKeys("admin");
-            driver.FindElement(By.Id("input-password")).SendKeys("Lv382_Taqc");
-            driver.FindElement(By.CssSelector("#content div.text-right button")).Click();
+            driver.Navigate().GoToUrl(adminPageUrl);         
+            driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
+            driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.Id("input-name")).SendKeys(searchText[1]);
             driver.FindElement(By.Id("button-filter")).Click();
-            driver.FindElement(By.CssSelector("#form-product > div > table > tbody > tr > td:nth-child(8) > a")).Click();
+            driver.FindElement(By.XPath("//table[@class='table table-bordered table-hover']/tbody/tr/td[8]/a")).Click();
 
-            string descr = driver.FindElement(By.CssSelector("#language1 div.note-editable.panel-body > p:nth-child(1)")).Text;
-            Assert.AreEqual(true, descr.ToLower().Contains(searchText[0].ToLower()));
+            string description = driver.FindElement(By.XPath("//div[@class='note-editable panel-body']/p[1]")).Text;
+            Assert.AreEqual(true, description.ToLower().Contains(searchText[0].ToLower()));
                         
         }
 
@@ -93,12 +90,10 @@ namespace OpenCartTesting
             int ActualNumber = int.Parse(driver.FindElement(By.CssSelector("#content div.col-sm-6.text-right")).Text.Split(' ')[5]);                      
             driver.Navigate().GoToUrl(adminPageUrl);
             driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
-            driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
-            //driver.FindElement(By.Id("input-username")).SendKeys("admin");
-            //driver.FindElement(By.Id("input-password")).SendKeys("Lv382_Taqc");
-            driver.FindElement(By.CssSelector("#content div.text-right button")).Click();
+            driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));  
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.Id("input-name")).SendKeys("%" + "mac");
             driver.FindElement(By.Id("button-filter")).Click();
@@ -108,26 +103,27 @@ namespace OpenCartTesting
         }
 
         [Test]
-        public void SearchCase_LaptopCategories_Test()
+        public void SearchCase_Category_Test()
         {           
             driver.FindElement(By.Name("category_id")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']//select[@name='category_id']/option[5]")).Click();
+            driver.FindElement(By.XPath("//select[@class='form-control']/option[5]")).Click();
             driver.FindElement(By.Id("input-search")).Click();
             driver.FindElement(By.Id("input-search")).Clear();
             driver.FindElement(By.Id("input-search")).SendKeys("lenovo" + Keys.Enter);
 
-            string ActualCategory = driver.FindElement(By.XPath("//*[@id='content']//select[@name='category_id']/option[5]")).Text;
+            string ActualCategory = driver.FindElement(By.XPath("//select[@class='form-control']/option[5]")).Text;
 
             driver.Navigate().GoToUrl(adminPageUrl);
-            driver.FindElement(By.Id("input-username")).SendKeys("admin");
-            driver.FindElement(By.Id("input-password")).SendKeys("Lv382_Taqc");
-            driver.FindElement(By.CssSelector("#content > div > div > div > div > div.panel-body > form > div.text-right > button")).Click();
+            driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
+            driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
+            Thread.Sleep(2000); // only for presenatation
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             driver.FindElement(By.Id("input-name")).SendKeys("lenovo");
             driver.FindElement(By.Id("button-filter")).Click();
-            driver.FindElement(By.CssSelector("#form-product > div > table > tbody > tr > td:nth-child(8) > a")).Click();
-            driver.FindElement(By.CssSelector("#form-product > ul > li:nth-child(3) > a")).Click();
+            driver.FindElement(By.XPath("//table[@class='table table-bordered table-hover']/tbody/tr/td[8]/a")).Click();
+            driver.FindElement(By.XPath("//*[@id='form-product']/ul/li[3]/a")).Click();
 
             string ExpectedCategory = driver.FindElement(By.CssSelector("#product-category18")).Text;
 
@@ -135,30 +131,30 @@ namespace OpenCartTesting
         }
        
         [Test]
-        public void SearchCase_CaregoryWithSubcategory_Test()
+        public void SearchCase_WithSubcategory_Test()
         {            
             driver.FindElement(By.Name("category_id")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']/div/div[2]/select/option[2]")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']/div/div[3]/label/input")).Click();
+            driver.FindElement(By.XPath("//select[@class='form-control']/option[2]")).Click();
+            driver.FindElement(By.XPath("//input[@name='sub_category']")).Click();
             driver.FindElement(By.Id("input-search")).Click();
             driver.FindElement(By.Id("input-search")).Clear();
             driver.FindElement(By.Id("input-search")).SendKeys("mac" + Keys.Enter);
             driver.FindElement(By.Name("category_id")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']/div[1]/div[2]/select/option[4]")).Click();
+            driver.FindElement(By.XPath("//select[@class='form-control']/option[4]")).Click();
             driver.FindElement(By.Id("button-search")).Click();
 
-            string ActualCategory = driver.FindElement(By.XPath("//*[@id='content']/div[1]/div[2]/select/option[4]")).Text.Split(' ')[6];
+            string ActualCategory = driver.FindElement(By.XPath("//select[@class='form-control']/option[4]")).Text.Split(' ')[6];
 
             driver.Navigate().GoToUrl(adminPageUrl);
-            driver.FindElement(By.Id("input-username")).SendKeys("admin");
-            driver.FindElement(By.Id("input-password")).SendKeys("Lv382_Taqc");
-            driver.FindElement(By.CssSelector("#content > div > div > div > div > div.panel-body > form > div.text-right > button")).Click();
+            driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("Admin_Login"));
+            driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("Admin_Password"));
+            driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
             driver.FindElement(By.Id("input-name")).SendKeys("%mac");
             driver.FindElement(By.Id("button-filter")).Click();
-            driver.FindElement(By.CssSelector("#form-product > div > table > tbody > tr:nth-child(1) > td:nth-child(8) > a")).Click();
-            driver.FindElement(By.CssSelector("#form-product > ul > li:nth-child(3) > a")).Click();
+            driver.FindElement(By.XPath("//table[@class='table table-bordered table-hover']/tbody/tr/td[8]/a")).Click();
+            driver.FindElement(By.XPath("//ul[@class='nav nav-tabs']/li[3]/a")).Click();
 
             string ExpectedCategory = driver.FindElement(By.CssSelector("#product-category27")).Text.Split(' ')[2];
 
