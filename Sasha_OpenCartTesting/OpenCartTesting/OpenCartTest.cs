@@ -89,17 +89,18 @@ namespace OpenCartTesting
 
 
 
-        public static List<string[]> CountryWithNoRegion()
+        public static string [] Country()
         {
-            List<string[]> countryWithNoRegion = new List<string[]>
+            string [] country = new  string []
             {
-                new string[] { "Ukraine", ""}
+                "Ukraine",
+                "United States"
             };
 
-            return countryWithNoRegion;
+            return country;
         }
-        [Test, TestCaseSource("CountryWithNoRegion")]
-        public void CheckAddressBookEditFunctionalityWithCountryAndNoRegion(string[] values)
+        [Test, TestCaseSource("Country")]
+        public void CheckAddressBookEditFunctionalityWithCountryAndNoRegion(string country)
         {
             LoginUser();
             GoToAddressBook();
@@ -109,7 +110,7 @@ namespace OpenCartTesting
             Thread.Sleep(2000); //For presentation ONLY
 
             SelectElement countryDropdown = new SelectElement(driver.FindElement(By.Id("input-country")));
-            countryDropdown.SelectByText(values[0]);
+            countryDropdown.SelectByText(country);
 
             driver.FindElement(By.ClassName("btn-primary")).Click();
             Thread.Sleep(2000); //For presentation ONLY
