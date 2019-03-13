@@ -1,0 +1,123 @@
+1)/2) First Name/Last Name:
+
+- symbols
+	
+	EP:		[a-z]	[A-Z]	[0-9]	[~!@#$%^&*()-_=+[]\{}|;':",./<>?`]
+	
+	Test Data:	  c	  D	  4			#,%,*
+			
+	Result:		 Pos	 Pos	 Neg			Neg
+
+
+	Desicion Table: 
+			[a-z]		Y/N 	Y/N 	Y/N 	Y	N	Y
+			[A-Z]		Y/N 	Y/N 	Y/N 	N	Y	Y
+			[0-9]		Y 	Y 	N 	N	N	N
+			[@#...]		Y 	N 	Y 	N	N	N
+
+			Result:		Neg 	Neg	Neg	Pos	Pos	Pos
+
+
+- count
+
+	EP:			[1-32]		[33-255]	[256-65535]	[65536-...]
+
+	Test Data(char):	  5  		  200		  10000		  80000
+
+	BV:
+
+	Test Data(char):	1, 32	  	33,  255	 256,  65535	   65535
+
+	Result:	  		 Pos		  Neg		   Neg		   Neg
+
+
+
+3) Address 1:
+
+- symbols
+	
+	EP:		[a-z]	[A-Z]	[0-9]	[~!@#$%^&*()-_=+[]\{}|;':",./<>?`]
+	
+	Test Data:	  c	  D	  4			#,%,*
+			
+	Result:		 Pos	 Pos	 Pos			Neg
+
+
+	Desicion Table: 
+			[a-z]		Y/N 	Y 	Y 	N	Y	N	N	Y
+			[A-Z]		Y/N 	Y 	N 	Y	N	Y	N	Y
+			[0-9]		Y/N 	N 	Y 	Y	N	N	Y	Y					
+			[@#...]		Y 	N 	N 	N	N	N	N	N
+
+			Result:		Neg 	Pos	Pos	Pos	Pos	Pos	Pos	Pos
+
+
+- count
+
+	EP:			[1-128]		[129-255]	[256-65535]	[65536-...]	
+
+	Test Data(char):	  5	  	  200		  10000		  80000
+
+	BV:
+
+	Test Data(char):	1, 128	  	129,  255	 256,  65535	   65535
+
+	Result:	  		 Pos		  Neg		   Neg		   Neg
+
+
+
+
+4) City:
+
+- symbols
+	
+	EP:		[a-z]	[A-Z]	[0-9]	[~!@#$%^&*()-_=+[]\{}|;':",./<>?`]
+	
+	Test Data:	  c	  D	  4			#,%,*
+			
+	Result:		 Pos	 Pos	 Neg			Neg
+
+
+	Desicion Table: 
+			[a-z]		Y/N 	Y/N 	Y/N 	Y	N	Y
+			[A-Z]		Y/N 	Y/N 	Y/N 	N	Y	Y
+			[0-9]		Y 	Y 	N 	N	N	N
+			[@#...]		Y 	N 	Y 	N	N	N
+
+			Result:		Neg 	Neg	Neg	Pos	Pos	Pos
+
+
+- count
+
+	EP:			[1]	[2-128]		[129-255]	[256-65535]	[65536-...]	
+
+	Test Data(char):	 1	   5	  	  200		  10000		  80000
+
+	BV:
+
+	Test Data(char):	 1	2, 128	  	129,  255	 256,  65535	   65535
+
+	Result:	  		Neg	 Pos		  Neg		   Neg		   Neg
+
+
+
+
+
+Buisiness Logic:
+
+
+	Desicion Table: 
+			Valid First Name	Y 	...	...
+			Valid Last Name		Y 	...	...
+			Valid Address 1		Y 	...	...
+			Valid City		Y 	...	...
+			Valid Post Code		Y 	...	...
+			Valid Country		Y 	...	...
+			Valid Region/State	Y 	...	...
+			Valid First Name	Y 	...	...
+
+			Result:			Pos	    Neg
+
+
+	Check with empty field(Length = 0)
+

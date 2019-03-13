@@ -13,7 +13,7 @@ using OpenQA.Selenium.Support.UI;
 namespace OpenCartTesting
 {
     [TestFixture]
-    public partial class OpenCartTest : TestRunner
+    public partial class OpenCartAddressBookTest : TestRunner
     {
         [Test]
         public void VerifyCorectnessOfAddressList()
@@ -126,7 +126,7 @@ namespace OpenCartTesting
 
         private static List<string[]> ValidAddressData()
         {
-            string path = @"C:\Users\sasha\source\repos\OpenCartTesting\OpenCartTesting\ValidAddressData.txt";
+            string path = @"C:\Users\sasha\Desktop\Lv-382.TAQC\Sasha_OpenCartTesting\OpenCartTesting\ValidAddressData.txt";
             return FileReaderToListArray(path);
         }
         [Test, TestCaseSource("ValidAddressData")]
@@ -154,7 +154,7 @@ namespace OpenCartTesting
 
         private static List<string[]> InvalidAddressData()
         {
-            string path = @"C:\Users\sasha\source\repos\OpenCartTesting\OpenCartTesting\InvalidAddressData.txt";
+            string path = @"C:\Users\sasha\Desktop\Lv-382.TAQC\Sasha_OpenCartTesting\OpenCartTesting\InvalidAddressData.txt";
             return FileReaderToListArray(path);
         }
         [Test, TestCaseSource("InvalidAddressData")]
@@ -167,10 +167,21 @@ namespace OpenCartTesting
             driver.FindElement(By.ClassName("btn-primary")).Click();
             Thread.Sleep(1000);
 
-            IWebElement body = driver.FindElement(By.Id("content"));
-            LogoutUser();
-            Console.WriteLine(values[10]);
-            NUnit.Framework.Assert.IsTrue(body.Text.Contains(values[10]));           
+            if (driver.Url.Contains("address/add"))
+            {
+                IWebElement body = driver.FindElement(By.XPath("//div[@id='content']//div[contains(@class, 'has-error')]"));
+                LogoutUser();
+                NUnit.Framework.Assert.IsTrue(body.Text.Contains(values[10]));
+            }
+            else
+            {
+                LogoutUser();
+                NUnit.Framework.Assert.IsTrue(false);
+            }
+
+
+            //Console.WriteLine(values[10]);
+            //NUnit.Framework.Assert.IsTrue(body.Text.Contains(values[10]));
         }
 
 
