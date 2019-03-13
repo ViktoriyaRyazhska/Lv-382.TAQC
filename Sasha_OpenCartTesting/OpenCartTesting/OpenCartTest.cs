@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -43,28 +45,80 @@ namespace OpenCartTesting
 
 
 
-        private static readonly object[] validFirstname =
+
+        internal class CheckingAddressBookEditFunctionalityForTextboxes : IEnumerable<ITestCaseData>
         {
-           "Sasha",
-           "Oleksandra"
-        };
-        [Test, TestCaseSource("validFirstname")]
-        public void CheckAddressBookEditFunctionality(string firstname)
+
+            public IEnumerator<ITestCaseData> GetEnumerator()
+            {
+                yield return new TestCaseData("Sasha", "input-firstname").SetName("CheckAddressBookEditFunctionalityWithValidFirstname");
+                yield return new TestCaseData("Yarmoliuk", "input-lastname").SetName("CheckAddressBookEditFunctionalityWithValidLastname");
+                yield return new TestCaseData("5th Avenue", "input-address-1").SetName("CheckAddressBookEditFunctionalityWithValidAddress1");
+                yield return new TestCaseData("New York", "input-city").SetName("CheckAddressBookEditFunctionalityWithValidCity");
+            }
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
+        }
+        [Test, TestCaseSource(typeof(CheckingAddressBookEditFunctionalityForTextboxes))]
+        public void CheckAddressBookEditFunctionalityWithValidFirstname(string data, string locator)
+        {
+            string initialData;
+            LoginUser();
+            GoToAddressBook();
+            Thread.Sleep(2000); //For presentation ONLY
+
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            Thread.Sleep(2000); //For presentation ONLY
+
+            initialData = driver.FindElement(By.Id(locator)).GetAttribute("value");
+            driver.FindElement(By.Id(locator)).Clear();
+            driver.FindElement(By.Id(locator)).SendKeys(data + OpenQA.Selenium.Keys.Enter);
+            Thread.Sleep(2000); //For presentation ONLY
+
+            NUnit.Framework.Assert.AreEqual(true, driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-left']")).Text.Contains(data));
+
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.Id(locator)).Clear();
+            driver.FindElement(By.Id(locator)).SendKeys(initialData + OpenQA.Selenium.Keys.Enter);
+
+            LogoutUser();
+        }
+
+
+
+
+        public static List<string[]> CountryWithNoRegion()
+        {
+            List<string[]> countryWithNoRegion = new List<string[]>
+            {
+                new string[] { "Ukraine", ""}
+            };
+
+            return countryWithNoRegion;
+        }
+        [Test, TestCaseSource("CountryWithNoRegion")]
+        public void CheckAddressBookEditFunctionalityWithCountryAndNoRegion(string[] values)
         {
             LoginUser();
             GoToAddressBook();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.ClassName("btn-info")).Click();
-            Thread.Sleep(2000); //For presentation ONLY
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(firstname + OpenQA.Selenium.Keys.Enter);
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
-            NUnit.Framework.Assert.AreEqual(true, driver.FindElement(By.ClassName("text-left")).Text.Contains(firstname));
+            SelectElement countryDropdown = new SelectElement(driver.FindElement(By.Id("input-country")));
+            countryDropdown.SelectByText(values[0]);
 
+            driver.FindElement(By.ClassName("btn-primary")).Click();
+            Thread.Sleep(2000); //For presentation ONLY
+
+            NUnit.Framework.Assert.IsTrue(driver.Url.Contains("address/edit"));
+            
             LogoutUser();
         }
+
 
 
 
@@ -126,7 +180,7 @@ namespace OpenCartTesting
 
         private static List<string[]> ValidAddressData()
         {
-            string path = @"C:\Users\sasha\Desktop\Lv-382.TAQC\Sasha_OpenCartTesting\OpenCartTesting\ValidAddressData.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "../../ValidAddressData.txt";
             return FileReaderToListArray(path);
         }
         [Test, TestCaseSource("ValidAddressData")]
@@ -144,6 +198,7 @@ namespace OpenCartTesting
             Thread.Sleep(1000);
 
             countAddressAfterAdding = driver.FindElements(By.ClassName("text-left")).Count;
+            DeleteLastAddedAddress();
             LogoutUser();
 
             NUnit.Framework.Assert.AreEqual(countAddressAfterAdding, countAddressBeforeAdding + 1);
@@ -154,7 +209,7 @@ namespace OpenCartTesting
 
         private static List<string[]> InvalidAddressData()
         {
-            string path = @"C:\Users\sasha\Desktop\Lv-382.TAQC\Sasha_OpenCartTesting\OpenCartTesting\InvalidAddressData.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "../../InvalidAddressData.txt";
             return FileReaderToListArray(path);
         }
         [Test, TestCaseSource("InvalidAddressData")]
@@ -169,21 +224,18 @@ namespace OpenCartTesting
 
             if (driver.Url.Contains("address/add"))
             {
-                IWebElement body = driver.FindElement(By.XPath("//div[@id='content']//div[contains(@class, 'has-error')]"));
-                LogoutUser();
-                NUnit.Framework.Assert.IsTrue(body.Text.Contains(values[10]));
+                string body = driver.FindElement(By.XPath("//div[@id='content']//div[contains(@class, 'has-error')]")).Text;                LogoutUser();
+                NUnit.Framework.Assert.IsTrue(body.Contains(values[10]));
             }
             else
             {
+                DeleteLastAddedAddress();
                 LogoutUser();
                 NUnit.Framework.Assert.IsTrue(false);
             }
-
-
-            //Console.WriteLine(values[10]);
-            //NUnit.Framework.Assert.IsTrue(body.Text.Contains(values[10]));
+            
         }
-
-
+        
     }
 }
+

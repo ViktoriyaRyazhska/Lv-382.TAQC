@@ -94,6 +94,21 @@ namespace OpenCartTesting
             zoneDropdown.SelectByText(values[8]);
         }
 
+        public void ClearAllAddressPageField()
+        {
+            driver.FindElement(By.Id("input-firstname")).Clear();
+            driver.FindElement(By.Id("input-lastname")).Clear();
+            driver.FindElement(By.Id("input-company")).Clear();
+            driver.FindElement(By.Id("input-address-1")).Clear();
+            driver.FindElement(By.Id("input-address-2")).Clear();
+            driver.FindElement(By.Id("input-city")).Clear();
+            driver.FindElement(By.Id("input-postcode")).Clear();
+            SelectElement countryDropdown = new SelectElement(driver.FindElement(By.Id("input-country")));
+            countryDropdown.DeselectAll();
+            SelectElement zoneDropdown = new SelectElement(driver.FindElement(By.Id("input-zone")));
+            zoneDropdown.DeselectAll();
+        }
+
         public static List<string[]> FileReaderToListArray(string path)
         {
             string[] readText = File.ReadAllLines(path);
@@ -103,6 +118,11 @@ namespace OpenCartTesting
                 validAddressData.Add(line.Split(','));
             }
             return validAddressData;
+        }
+
+        public void DeleteLastAddedAddress()
+        {
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[last()]/td[@class='text-right']/a[contains(@href, 'delete')]")).Click();
         }
     }
 }
