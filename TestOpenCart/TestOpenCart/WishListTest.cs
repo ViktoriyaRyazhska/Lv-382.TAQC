@@ -23,7 +23,7 @@ namespace TestOpenCart
         public void CheckRegisteredUserAddFromFeaturedTab(List<string> expected)
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);           
-            driver.FindElement(By.XPath("//i[@class = 'fa fa-home']")).Click();            
+            driver.FindElement(By.XPath("//i[@class ='fa fa-home']")).Click();            
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'iPhone')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'MacBook')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'Canon EOS 5D')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
@@ -102,8 +102,8 @@ namespace TestOpenCart
         [Test]
         public void CheckNotRegisteredUser()
         {
-            driver.FindElement(By.CssSelector("#top-links > ul > li.dropdown > a")).Click();
-            driver.FindElement(By.CssSelector("ul.dropdown-menu.dropdown-menu-right a[href*='route=account/logout']")).Click();
+            driver.FindElement(By.CssSelector("#top-links .dropdown-toggle")).Click();
+            driver.FindElement(By.CssSelector(("#top-links a[href*='account/logout']"))).Click();
             driver.FindElement(By.XPath("//i[@class = 'fa fa-home']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'iPhone')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             Thread.Sleep(2000);

@@ -25,8 +25,8 @@ namespace TestOpenCart
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20); // by default 0
             driver.Navigate().GoToUrl("http://192.168.79.128/opencart/upload/");
             Thread.Sleep(2000);
-            driver.FindElement(By.CssSelector("#top-links > ul > li.dropdown > a")).Click();
-            driver.FindElement(By.LinkText("Login")).Click();
+            driver.FindElement(By.CssSelector("#top-links .dropdown-toggle")).Click();
+            driver.FindElement(By.CssSelector(("#top-links a[href*='account/login']"))).Click();
             driver.FindElement(By.Name("email")).SendKeys(adminName);
             driver.FindElement(By.Name("password")).SendKeys(adminPass + OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);
@@ -38,14 +38,7 @@ namespace TestOpenCart
             driver.Quit();
         }
 
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    driver.Navigate().GoToUrl("http://192.168.79.128/opencart/upload/");
-        //}
-
         [TearDown]
-        //public void TearDown(ITestResult testResult)
         public void TearDown()
         {
             Console.WriteLine("TestContext.CurrentContext.Result = " + NUnit.Framework.TestContext.CurrentContext.Result.Message);
