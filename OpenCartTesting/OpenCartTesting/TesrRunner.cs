@@ -46,9 +46,8 @@ namespace OpenCartTesting
             {
                 File.AppendAllText(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Log.txt",
                     "TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace + "\n");
-                string screenshot = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff");
+                string screenshot = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 TakesScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + screenshot + ".png");
-                TakesSources("");
             }
 
             driver.Manage().Cookies.DeleteAllCookies();
@@ -60,10 +59,5 @@ namespace OpenCartTesting
             Screenshot screenshot = takesScreenshot.GetScreenshot();
             screenshot.SaveAsFile(filePath, ScreenshotImageFormat.Png);
         }
-
-        protected void TakesSources(string filePath)
-        {
-            // Save Sources
-        }
-    }
+    }  
 }
