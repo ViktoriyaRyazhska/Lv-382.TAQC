@@ -44,13 +44,6 @@ namespace OpencartTesting
             }
         }
 
-        [Test]
-        public void SearchTest_NoInput()
-        {
-            driver.FindElement(By.Name("search")).Clear();
-            driver.FindElement(By.Name("search")).SendKeys(Keys.Enter);
-            Assert.AreEqual("There is no product that matches the search criteria.",driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
-        }
 
         private static readonly string[] SearchData_Negative =
         {
