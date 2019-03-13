@@ -37,7 +37,7 @@ namespace OpenCartAutomation
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-                TakesScreenshot($"C:/Users/Lutik/Desktop/SoftServe/{TestContext.CurrentContext.Result}.png");
+                TakesScreenshot($"C:/Users/Lutik/Desktop/SoftServe/{TestContext.CurrentContext.Result.Outcome}.png");
             }
         }
         protected void TakesScreenshot(string filePath)

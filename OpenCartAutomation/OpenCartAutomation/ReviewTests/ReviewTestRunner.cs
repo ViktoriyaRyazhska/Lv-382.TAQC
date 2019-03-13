@@ -13,7 +13,7 @@ namespace OpenCartAutomation
     [TestFixture]
     public abstract class ReviewTestRunner : TestRunner
     {
-        protected const string currentDate = "13/03/2019";
+        protected static readonly string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
         protected const string testProductPageAddress = "http://192.168.244.134/opencart/upload/index.php?route=product/product&product_id=40";
         protected const string ValidReviewName = "TestName";
         protected const string validReviewText = "Some test text for valid input Review text(>25 count)";

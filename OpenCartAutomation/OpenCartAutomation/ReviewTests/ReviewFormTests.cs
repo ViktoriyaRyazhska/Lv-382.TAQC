@@ -17,8 +17,8 @@ namespace OpenCartAutomation
               new object[] { "iPhone", "12characters", "3", "Disabled", currentDate, "Sometext50charactersherelSometext50charactersherel" },
               new object[] { "iPhone", "Somename25charactersherel", "5", "Disabled", currentDate, TooLongTextReview1001char.Substring(0,1000) }
         };
-        [Test(Description = "Positive Test"), TestCaseSource("ReviewFormTestsPosistiveData")]
-        public void ReviewTest_PosistiveCreateValidData(object[] data)
+        [Test(Description = "Positive Tests"), TestCaseSource("ReviewFormTestsPosistiveData")]
+        public void ReviewTest_CreateWithValidData(object[] data)
         {
             CreateReview(data[1].ToString(), data[5].ToString(), byte.Parse(data[2].ToString()));
             IWebElement validAlert = this.driver.FindElement(By.CssSelector("div[class='alert alert-success']"));
@@ -35,7 +35,6 @@ namespace OpenCartAutomation
 
             public IEnumerator<ITestCaseData> GetEnumerator()
             {
-
                 yield return new TestCaseData("", validReviewText, 1, reviewErrorMess[0]).SetName("ReviewsTest_CreateWithEmpryFieldName").SetDescription($"Error massage {reviewErrorMess[0]}  and not created review are expected");
                 yield return new TestCaseData(ValidReviewName, "", 2, reviewErrorMess[1]).SetName("ReviewsTest_CreateWithEmpryFielText").SetDescription($"Error massage {reviewErrorMess[0]}  and not created review are expected");
                 yield return new TestCaseData(ValidReviewName, validReviewText, 0, reviewErrorMess[2]).SetName("ReviewTest_CreateWithNotSelectedRating").SetDescription($"Error massage {reviewErrorMess[2]}  and not created review are expected");
@@ -44,21 +43,20 @@ namespace OpenCartAutomation
                 yield return new TestCaseData(ValidReviewName, "TooShortText24characters", 5, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooShortText").SetDescription($"Error massage {reviewErrorMess[1]} and not created review are expected");
                 yield return new TestCaseData(ValidReviewName, TooLongTextReview1001char, 1, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooLongText").SetDescription($"Error massage {reviewErrorMess[1]} and not created review are expected");
             }
-
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
             }
         }
-        [Test(Description = "Negative Tests"), TestCaseSource(typeof(ReviewTestNegativeData))]
+        [TestCaseSource(typeof(ReviewTestNegativeData))]
         public void ReviewsFormTest_NegativeTests(string yourName, string yourText, int yourRating, string ErrorMess)
         {
             CreateReview(yourName, yourText, byte.Parse(yourRating.ToString()));
-            IWebElement error = driver.FindElement(By.CssSelector("div[class='alert alert-danger']"));
-            Assert.AreEqual(ErrorMess, error.Text, "Wrong message");
+            Assert.AreEqual(1, driver.FindElements(By.CssSelector("div[class='alert alert-danger']")).Count, "No error messages when expected");
+            Assert.AreEqual(ErrorMess,driver.FindElement(By.CssSelector("div[class='alert alert-danger']")).Text);
             GoToAdminPanelReview();
             IWebElement reviewAdmList = driver.FindElement(By.CssSelector("td.text-center[colspan = '7']"));
-            Assert.AreEqual("No results!", reviewAdmList.Text,"Expected that review is not created but actual review is created");
+            Assert.AreEqual("No results!", reviewAdmList.Text, "Expected that review is not created but actual review is created");
         }
     }
 
