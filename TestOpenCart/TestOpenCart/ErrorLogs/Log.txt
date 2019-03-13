@@ -1,0 +1,318 @@
+2019-03-13-15-15-07-771
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 34
+
+2019-03-13-15-29-44-428
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckModification() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 89
+2019-03-13-15-33-41-199
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckModification() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 89
+2019-03-13-16-13-10-726
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 77
+
+2019-03-13-18-46-23-867
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 110
+2019-03-13-18-46-39-835
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 34
+
+2019-03-13-18-46-55-439
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromPhonesPDAsTab() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 130
+2019-03-13-18-47-09-236
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 70
+2019-03-13-18-51-51-643
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 110
+2019-03-13-18-52-00-800
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElements(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementsByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__1(ISearchContext context)
+   at OpenQA.Selenium.By.FindElements(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElements(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+2019-03-13-18-52-02-598
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteTimeouts.ExecuteSetTimeout(String timeoutType, TimeSpan timeToWait)
+   at OpenQA.Selenium.Remote.RemoteTimeouts.set_ImplicitWait(TimeSpan value)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromPhonesPDAsTab() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 123
+2019-03-13-18-52-02-618
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 64
+2019-03-13-18-54-27-702
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 110
+2019-03-13-18-54-36-308
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElements(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementsByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__1(ISearchContext context)
+   at OpenQA.Selenium.By.FindElements(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElements(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+2019-03-13-18-54-38-104
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteTimeouts.ExecuteSetTimeout(String timeoutType, TimeSpan timeToWait)
+   at OpenQA.Selenium.Remote.RemoteTimeouts.set_ImplicitWait(TimeSpan value)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromPhonesPDAsTab() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 123
+2019-03-13-18-54-38-123
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 64
+2019-03-13-19-19-28-710
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 118
+2019-03-13-19-21-29-057
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 118
+2019-03-13-19-22-32-156
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 117
+2019-03-13-19-24-46-300
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 118
+2019-03-13-19-26-21-851
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 119
+2019-03-13-19-28-29-554
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 117
+2019-03-13-19-30-22-112
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 114
+2019-03-13-19-31-55-059
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 119
+2019-03-13-19-36-13-095
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 120
+2019-03-13-19-41-30-093
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingAll() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 63
+2019-03-13-19-41-38-631
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 82
+2019-03-13-19-41-44-265
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 28
+2019-03-13-19-41-59-036
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 46
+2019-03-13-19-43-19-528
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingAll() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 63
+2019-03-13-19-43-38-032
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 85
+2019-03-13-19-43-41-513
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 28
+2019-03-13-19-43-59-597
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromPhonesPDAsTab() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 103
+2019-03-13-19-44-03-430
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at TestOpenCart.WishListRegisterUserTest.CheckRemovingAllFromWishList() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 46
+2019-03-13-19-45-02-642
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingAll() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 68
+2019-03-13-19-45-10-788
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingOneItem() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 85
+2019-03-13-19-45-10-808
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at TestOpenCart.TestRunner.SetUp() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\TestRunner.cs:line 29
+2019-03-13-19-45-10-848
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at TestOpenCart.TestRunner.SetUp() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\TestRunner.cs:line 29
+2019-03-13-19-45-10-867
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at TestOpenCart.TestRunner.SetUp() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\TestRunner.cs:line 29
+2019-03-13-19-46-27-072
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingAll() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 68
+2019-03-13-19-49-32-053
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListRegisterUserTest.CheckMessageAfterRemovingAll() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 65
+2019-03-13-19-50-51-928
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.WishListNotRegisterUserTest.CheckNotRegisteredUser() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 119
+2019-03-13-19-51-56-650
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.TestRunner.SetUp() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\TestRunner.cs:line 30
+2019-03-13-19-52-04-750
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at TestOpenCart.TestRunner.SetUp() in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\TestRunner.cs:line 30
