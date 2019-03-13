@@ -15,7 +15,7 @@ using OpenQA.Selenium.Support.UI;
 namespace OpenCartTesting
 {
     [TestFixture]
-    public partial class OpenCartAddressBookTest : TestRunner
+    public class OpenCartAddressBookTest : TestRunner
     {
         [Test]
         public void VerifyCorectnessOfAddressList()
@@ -32,10 +32,11 @@ namespace OpenCartTesting
             IWebElement menuCustomers = driver.FindElement(By.ClassName("fa-user"));
             new Actions(driver).MoveToElement(menuCustomers).Perform();
             Thread.Sleep(2000); //For presentation ONLY
-
             driver.FindElement(By.PartialLinkText("Customers")).Click();
             Thread.Sleep(2000); //For presentation ONLY
-            driver.FindElement(By.XPath("//*[@data-original-title='Edit']")).Click();
+
+            driver.FindElement(By.XPath("//div[@class='table-responsive']//td[contains(text(), '" + 
+                Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL") + "')]/..//a[@data-original-title='Edit']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
             countAddressOnAdminPage = driver.FindElements(By.ClassName("fa-minus-circle")).Count;
             LogoutAdmin();
@@ -65,6 +66,7 @@ namespace OpenCartTesting
         public void CheckAddressBookEditFunctionalityWithValidFirstname(string data, string locator)
         {
             string initialData;
+
             LoginUser();
             GoToAddressBook();
             Thread.Sleep(2000); //For presentation ONLY
@@ -73,6 +75,7 @@ namespace OpenCartTesting
             Thread.Sleep(2000); //For presentation ONLY
 
             initialData = driver.FindElement(By.Id(locator)).GetAttribute("value");
+
             driver.FindElement(By.Id(locator)).Clear();
             driver.FindElement(By.Id(locator)).SendKeys(data + OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000); //For presentation ONLY

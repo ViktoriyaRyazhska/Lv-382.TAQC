@@ -47,23 +47,26 @@ namespace OpenCartTesting
 
         public void LoginUser()
         {
-            driver.FindElement(By.ClassName("dropdown")).Click();
+            driver.FindElement(By.XPath("//div[@id='top-links']//a[@data-toggle='dropdown']")).Click();
             driver.FindElement(By.XPath("//div[@id='top-links']//a[contains(@href, 'login')]")).Click();
             driver.FindElement(By.Id("input-email")).SendKeys(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"));
             driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
-            driver.FindElement(By.CssSelector("form > input.btn.btn-primary")).Click();
+            driver.FindElement(By.XPath("//input[@class='btn btn-primary']")).Click();
         }
 
-        public void GoToAddressBook()
-        {
-            driver.FindElement(By.Id("column-right")).FindElement(By.XPath("//aside[@id='column-right']//a[contains(@href,'address')]")).Click();
-        }
 
         public void LogoutUser()
         {
             driver.FindElement(By.ClassName("dropdown")).Click();
             driver.FindElement(By.XPath("//div[@id='top-links']//a[contains(@href, 'logout')]")).Click();
         }
+
+
+        public void GoToAddressBook()
+        {
+            driver.FindElement(By.Id("column-right")).FindElement(By.XPath("//aside[@id='column-right']//a[contains(@href,'address')]")).Click();
+        }
+
 
         public void LoginAdmin()
         {
