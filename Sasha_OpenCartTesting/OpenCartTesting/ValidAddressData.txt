@@ -1,0 +1,28 @@
+﻿c,Petrenko, ,Universitetska 6, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+D,Kushnir, ,Heroiv Upa, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+AdAm,Smith, ,12000 5th Avenue, ,New York,35309,United States,New York,1
+vasil,Petrenko, ,Universitetska 6, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+G,Kushnir, ,Heroiv Upa, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+AdAmAdAmAdAmAdAmAdAmAdAmAdAmAdAm,Smith, ,12000 5th Avenue, ,New York,35309,United States,New York,1
+Vasil,c, ,Universitetska 6, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,D, ,Heroiv Upa, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,SmItH, ,12000 5th Avenue, ,New York,35309,United States,New York,1
+Vasil,chorn, ,Universitetska 6, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,K, ,Heroiv Upa, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,SmItHSmItHSmItHSmItHSmItHSmItHSm, ,12000 5th Avenue, ,New York,35309,United States,New York,1
+Vasil,Petrenko, ,ccc, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,Kushnir, ,DDD, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,Smith, ,444, ,New York,35309,United States,New York,1
+Vasil,Petrenko, ,uniVERSiteTska, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,Kushnir, ,12000 5th, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,Smith, ,12000 19TH, ,New York,35309,United States,New York,1
+Vasil,Petrenko, ,uniVERSiteTska 19tH, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,Kushnir, ,Heroe, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,Smith, ,TTT, ,New York,35309,United States,New York,1
+Vasil,Petrenko, ,uniVERSiteTska 19tHuniVERSiteTska 19tHuniVERSiteTska 19tHuniVERSiteTska 19tHuniVERSiteTska 19tHuniVERSiteTska 19tHuniVERSiteTska, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Vasil,Petrenko, ,Universitetska 6, ,cc,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,Kushnir, ,Heroiv Upa, ,DD,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,Smith, ,12000 5th Avenue, ,New York,35309,United States,New York,1
+Vasil,Petrenko, ,Universitetska 6, ,Lviv,79000,Ukraine,L'vivs'ka Oblast',0
+Galina,Kushnir, ,Heroiv Upa, ,Ll,79000,Ukraine,L'vivs'ka Oblast',0
+Adam,Smith, ,12000 5th Avenue, ,New YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew YorkNew York,35309,United States,New York,1
