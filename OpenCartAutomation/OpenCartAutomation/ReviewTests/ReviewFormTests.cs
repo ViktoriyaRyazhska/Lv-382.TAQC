@@ -35,13 +35,13 @@ namespace OpenCartAutomation
 
             public IEnumerator<ITestCaseData> GetEnumerator()
             {
-                yield return new TestCaseData("", validReviewText, 1, reviewErrorMess[0]).SetName("ReviewsTest_CreateWithEmpryFieldName").SetDescription($"Error massage {reviewErrorMess[0]}  and not created review are expected");
-                yield return new TestCaseData(ValidReviewName, "", 2, reviewErrorMess[1]).SetName("ReviewsTest_CreateWithEmpryFielText").SetDescription($"Error massage {reviewErrorMess[0]}  and not created review are expected");
-                yield return new TestCaseData(ValidReviewName, validReviewText, 0, reviewErrorMess[2]).SetName("ReviewTest_CreateWithNotSelectedRating").SetDescription($"Error massage {reviewErrorMess[2]}  and not created review are expected");
-                yield return new TestCaseData("2c", validReviewText, 3, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooShortName").SetDescription($"Error massage {reviewErrorMess[0]}  and not created review are expected");
-                yield return new TestCaseData("Too long name 26  characts", validReviewText, 4, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooLongtName").SetDescription($"Error massage {reviewErrorMess[0]} and not created review are expected");
-                yield return new TestCaseData(ValidReviewName, "TooShortText24characters", 5, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooShortText").SetDescription($"Error massage {reviewErrorMess[1]} and not created review are expected");
-                yield return new TestCaseData(ValidReviewName, TooLongTextReview1001char, 1, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooLongText").SetDescription($"Error massage {reviewErrorMess[1]} and not created review are expected");
+                yield return new TestCaseData("", validReviewText, 1, reviewErrorMess[0]).SetName("ReviewsTest_CreateWithEmptyFieldName").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
+                yield return new TestCaseData(ValidReviewName, "", 2, reviewErrorMess[1]).SetName("ReviewsTest_CreateWithEmptyFieldText").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
+                yield return new TestCaseData(ValidReviewName, validReviewText, 0, reviewErrorMess[2]).SetName("ReviewTest_CreateWithNotSelectedRating").SetDescription($"Error message {reviewErrorMess[2]} and not created review are expected");
+                yield return new TestCaseData("2c", validReviewText, 3, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooShortName").SetDescription($"Error message {reviewErrorMess[0]}  and not created review are expected");
+                yield return new TestCaseData("Too long name 26  characts", validReviewText, 4, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooLongtName").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
+                yield return new TestCaseData(ValidReviewName, "TooShortText24characters", 5, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooShortText").SetDescription($"Error message {reviewErrorMess[1]} and not created review are expected");
+                yield return new TestCaseData(ValidReviewName, TooLongTextReview1001char, 1, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooLongText").SetDescription($"Error message {reviewErrorMess[1]} and not created review are expected");
             }
             IEnumerator IEnumerable.GetEnumerator()
             {
@@ -49,7 +49,7 @@ namespace OpenCartAutomation
             }
         }
         [TestCaseSource(typeof(ReviewTestNegativeData))]
-        public void ReviewsFormTest_NegativeTests(string yourName, string yourText, int yourRating, string ErrorMess)
+        public void ReviewsTest_CreateWithEmptyFieldName(string yourName, string yourText, int yourRating, string ErrorMess)
         {
             CreateReview(yourName, yourText, byte.Parse(yourRating.ToString()));
             Assert.AreEqual(1, driver.FindElements(By.CssSelector("div[class='alert alert-danger']")).Count, "No error messages when expected");

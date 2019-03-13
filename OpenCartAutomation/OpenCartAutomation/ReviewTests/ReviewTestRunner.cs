@@ -83,7 +83,7 @@ namespace OpenCartAutomation
         {
             this.driver.Navigate().GoToUrl(adminURL);
             driver.FindElement(By.CssSelector(".fa.fa-tags.fw")).Click();
-            driver.FindElement(By.CssSelector("li[id='menu-catalog']>ul>li:nth-child(9)>a")).Click();
+            driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/review']")).Click();
         }
     }
 }
