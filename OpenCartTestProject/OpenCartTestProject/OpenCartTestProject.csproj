@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="SeleniumTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestRuner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
