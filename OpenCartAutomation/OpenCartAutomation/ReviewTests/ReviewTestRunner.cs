@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace OpenCartAutomation
@@ -15,10 +12,13 @@ namespace OpenCartAutomation
         protected const string testProductPageAddress = "http://192.168.244.134/opencart/upload/index.php?route=product/product&product_id=40";
         protected const string ValidReviewName = "TestName";
         protected const string validReviewText = "Some test text for valid input Review text(>25 count)";
+        protected const byte validRating = 5;
         protected static readonly string[] reviewErrorMess = {
             "Warning: Review Name must be between 3 and 25 characters!",
             "Warning: Review Text must be between 25 and 1000 characters!",
-             "Warning: Please select a review rating!"
+            "Warning: Please select a review rating!",
+            "Warning: Review Name cant containe forbited characters",
+            "Warning: Review Text cant containe forbited characters"
         };
         protected static readonly string adminName = Environment.GetEnvironmentVariable("adminName", EnvironmentVariableTarget.User).ToString();
         protected static readonly string adminPass = Environment.GetEnvironmentVariable("adminPass", EnvironmentVariableTarget.User).ToString();
@@ -28,24 +28,7 @@ namespace OpenCartAutomation
            "Than1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDat" +
            "aMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000Test" +
            "DataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan10001";
-        internal class ReviewTestNegativeData : IEnumerable<ITestCaseData>
-        {
 
-            public IEnumerator<ITestCaseData> GetEnumerator()
-            {
-                yield return new TestCaseData(new object[] { "", validReviewText, 1, reviewErrorMess[0] }).SetName("ReviewsTest_CreateWithEmptyFieldName").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
-                yield return new TestCaseData(new object[] { ValidReviewName, "", 2, reviewErrorMess[1] }).SetName("ReviewsTest_CreateWithEmptyFieldText").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
-                yield return new TestCaseData(new object[] { ValidReviewName, validReviewText, 0, reviewErrorMess[2] }).SetName("ReviewTest_CreateWithNotSelectedRating").SetDescription($"Error message {reviewErrorMess[2]} and not created review are expected");
-                yield return new TestCaseData(new object[] { "2c", validReviewText, 3, reviewErrorMess[0] }).SetName("ReviewTest_CreateWithTooShortName").SetDescription($"Error message {reviewErrorMess[0]}  and not created review are expected");
-                yield return new TestCaseData(new object[] { "Too long name 26  characts", validReviewText, 4, reviewErrorMess[0] }).SetName("ReviewTest_CreateWithTooLongtName").SetDescription($"Error message {reviewErrorMess[0]} and not created review are expected");
-                yield return new TestCaseData(new object[] { ValidReviewName, "TooShortText24characters", 5, reviewErrorMess[1] }).SetName("ReviewTest_CreateWithTooShortText").SetDescription($"Error message {reviewErrorMess[1]} and not created review are expected");
-                yield return new TestCaseData(new object[] { ValidReviewName, TooLongTextReview1001char, 1, reviewErrorMess[1] }).SetName("ReviewTest_CreateWithTooLongText").SetDescription($"Error message {reviewErrorMess[1]} and not created review are expected");
-            }
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
-            }
-        }
         [OneTimeSetUp]
         protected override void BeforeAllTests()
         {
