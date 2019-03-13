@@ -28,7 +28,7 @@ namespace OpenCartAutomation
         [SetUp]
         protected virtual void BeforeEachTest()
         {
-            driver.Navigate().GoToUrl("http://192.168.244.133/opencart/upload/");
+            driver.Navigate().GoToUrl("http://192.168.244.134/opencart/upload/");
         }
         [TearDown]
         protected virtual void AfterEachTest()

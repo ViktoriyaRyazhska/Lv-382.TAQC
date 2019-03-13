@@ -13,8 +13,8 @@ namespace OpenCartAutomation
     [TestFixture]
     public abstract class ReviewTestRunner : TestRunner
     {
-        protected const string currentDate = "12/03/2019";
-        protected const string testProductPageAddress = "http://192.168.244.133/opencart/upload/index.php?route=product/product&product_id=40";
+        protected const string currentDate = "13/03/2019";
+        protected const string testProductPageAddress = "http://192.168.244.134/opencart/upload/index.php?route=product/product&product_id=40";
         protected const string ValidReviewName = "TestName";
         protected const string validReviewText = "Some test text for valid input Review text(>25 count)";
         protected static readonly string[] reviewErrorMess = {
@@ -24,8 +24,12 @@ namespace OpenCartAutomation
         };
         protected static readonly string adminName = Environment.GetEnvironmentVariable("adminName", EnvironmentVariableTarget.User).ToString();
         protected static readonly string adminPass = Environment.GetEnvironmentVariable("adminPass", EnvironmentVariableTarget.User).ToString();
-        protected const string adminPage = "http://192.168.244.133/opencart/upload/admin/";
+        protected const string adminPage = "http://192.168.244.134/opencart/upload/admin/";
         protected string adminURL;
+        protected const string TooLongTextReview1001char = "TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMore" +
+           "Than1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDat" +
+           "aMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000Test" +
+           "DataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan1000TestDataMoreThan10001";
         [OneTimeSetUp]
         protected override void BeforeAllTests()
         {
