@@ -17,8 +17,8 @@ namespace OpenCartAutomation
             "Warning: Review Name must be between 3 and 25 characters!",
             "Warning: Review Text must be between 25 and 1000 characters!",
             "Warning: Please select a review rating!",
-            "Warning: Review Name cant containe forbited characters",
-            "Warning: Review Text cant containe forbited characters"
+            "Warning: Review Name cant contain forbited characters",
+            "Warning: Review Text cant contain forbited characters"
         };
         protected static readonly string adminName = Environment.GetEnvironmentVariable("adminName", EnvironmentVariableTarget.User).ToString();
         protected static readonly string adminPass = Environment.GetEnvironmentVariable("adminPass", EnvironmentVariableTarget.User).ToString();
