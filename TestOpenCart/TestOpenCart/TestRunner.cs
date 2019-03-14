@@ -13,6 +13,7 @@ namespace TestOpenCart
     public abstract class TestRunner
     {
         protected IWebDriver driver;
+        const int implicitWaitValueInSec = 10;
         static readonly string adminName = Environment.GetEnvironmentVariable("adminName", EnvironmentVariableTarget.User).ToString();
         static readonly string adminPass = Environment.GetEnvironmentVariable("adminPass", EnvironmentVariableTarget.User).ToString();
 
@@ -20,7 +21,7 @@ namespace TestOpenCart
         public void BeforeAllMethods()
         {
             driver = new FirefoxDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(implicitWaitValueInSec);
         }
 
         [SetUp]
@@ -29,8 +30,9 @@ namespace TestOpenCart
             driver.Navigate().GoToUrl("http://192.168.79.128/opencart/upload/");           
             driver.FindElement(By.CssSelector("#top-links .dropdown-toggle")).Click();
             driver.FindElement(By.CssSelector(("#top-links a[href*='account/login']"))).Click();
-            driver.FindElement(By.Name("email")).SendKeys(adminName);
-            driver.FindElement(By.Name("password")).SendKeys(adminPass + Keys.Enter);
+            driver.FindElement(By.Id("input-email")).SendKeys(adminName);
+            driver.FindElement(By.Id("input-password")).SendKeys(adminPass);
+            driver.FindElement(By.XPath("//input[@class='btn btn-primary']")).Click();
         }
 
         [OneTimeTearDown]
@@ -49,13 +51,13 @@ namespace TestOpenCart
                 string failTime = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff");
                 File.AppendAllText(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Log.txt",
                     failTime + "\nTestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace + "\n");
-                TakesScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + failTime + ".png");
+                TakeScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + failTime + ".png");
             }
 
             driver.Manage().Cookies.DeleteAllCookies();
         }
 
-        protected void TakesScreenshot(string filePath)
+        protected void TakeScreenshot(string filePath)
         {
             ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
             Screenshot screenshot = takesScreenshot.GetScreenshot();

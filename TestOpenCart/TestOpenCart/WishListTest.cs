@@ -18,10 +18,10 @@ namespace TestOpenCart
         {
            new List<string>() { "Canon EOS 5D", "iPhone", "MacBook" }
         };
+
         [Test, TestCaseSource("Choose")]
         public void CheckRegisteredUserAddFromFeaturedTab(List<string> expected)
-        {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);           
+        {        
             driver.FindElement(By.XPath("//i[@class ='fa fa-home']")).Click();            
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'iPhone')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'MacBook')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
@@ -50,7 +50,8 @@ namespace TestOpenCart
             driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=30']")).Click();
             driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=43']")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            Assert.AreEqual(0, driver.FindElements(By.CssSelector("#content > div.table-responsive td.text-left > a")).Count, "Not all elements was removed from Wish list");
+            int actualForRemoving = driver.FindElements(By.CssSelector("#content > div.table-responsive td.text-left > a")).Count;
+            Assert.AreEqual(0, actualForRemoving, "Not all elements was removed from Wish list");
             Thread.Sleep(2000); // For Presentation ONLY
         }
 
@@ -74,7 +75,6 @@ namespace TestOpenCart
         [Test]
         public void CheckMessageAfterRemovingOneItem()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.FindElement(By.XPath("//i[@class = 'fa fa-home']")).Click();
             driver.FindElement(By.CssSelector("a[href*='product/category&path=24']")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
@@ -93,7 +93,6 @@ namespace TestOpenCart
         [Test]
         public void CheckRegisteredUserAddFromPhonesPDAsTab()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.FindElement(By.XPath("//i[@class = 'fa fa-home']")).Click();
             driver.FindElement(By.CssSelector("a[href*='product/category&path=24']")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
@@ -105,12 +104,8 @@ namespace TestOpenCart
             Assert.AreEqual(expected, actual, $"In Wish List are no expected item: {expected}");
             Thread.Sleep(2000); // For Presentation ONLY
             driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=28']")).Click();
-        }     
-    }
+        }
 
-    [TestFixture]
-    public class WishListNotRegisterUserTest : TestRunner
-    {
         [Test]
         public void CheckNotRegisteredUser()
         {
@@ -124,6 +119,6 @@ namespace TestOpenCart
             string expected = "login";
             Assert.AreEqual(expected, actual, "There was no Message with offer to login or create an account");
             Thread.Sleep(2000); // For Presentation ONLY
-        }      
+        }
     }
 }

@@ -1,0 +1,12 @@
+2019-03-14-09-02-32-760
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+
+2019-03-14-09-04-39-760
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+
+2019-03-14-09-21-23-304
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+
+2019-03-14-10-02-07-233
+TestContext.CurrentContext.Result.StackTrace =    at TestOpenCart.WishListRegisterUserTest.CheckRegisteredUserAddFromFeaturedTab(List`1 expected) in F:\Academy.Soft\Lv-382.TAQC\TestOpenCart\TestOpenCart\WishListTest.cs:line 33
+
