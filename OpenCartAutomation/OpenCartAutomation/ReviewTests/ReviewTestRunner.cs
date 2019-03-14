@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
-using System.Threading;
 
 namespace OpenCartAutomation
 {
@@ -36,12 +35,14 @@ namespace OpenCartAutomation
             adminURL = AdminPageURL();
             ClearAfterTest();
         }
+
         [TearDown]
         protected override void AfterEachTest()
         {
             base.AfterEachTest();
             ClearAfterTest();
         }
+
         protected string AdminPageURL()
         {
             driver.Navigate().GoToUrl(adminPage);
@@ -50,14 +51,15 @@ namespace OpenCartAutomation
             driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             return driver.Url;
         }
+
         protected void ClearAfterTest()
         {
             GoToAdminPanelReview();
             this.driver.FindElement(By.CssSelector(".table.table-bordered.table-hover>thead>tr>td:nth-child(1)>input")).Click();
             this.driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
             this.driver.SwitchTo().Alert().Accept();
-            Thread.Sleep(100);
         }
+
         protected void CreateAndConfirmReview(string yourName, string yourReview, byte rating)
         {
             CreateReview(yourName, yourReview, rating);
@@ -66,6 +68,7 @@ namespace OpenCartAutomation
             this.driver.FindElement(By.CssSelector("#input-status>option[value='1']")).Click();
             this.driver.FindElement(By.CssSelector("button[type = 'submit']")).Click();
         }
+
         protected void CreateReview(string yourName, string yourReview, byte rating = 5)
         {
             this.driver.Navigate().GoToUrl(testProductPageAddress);
@@ -76,11 +79,12 @@ namespace OpenCartAutomation
             {
                 driver.FindElement(By.CssSelector($"input[value='{rating}']")).Click();
             }
-            this.driver.FindElement(By.CssSelector("#button-review")).Click();
+            driver.FindElement(By.CssSelector("#button-review")).Click();
         }
+
         protected void GoToAdminPanelReview()
         {
-            this.driver.Navigate().GoToUrl(adminURL);
+            driver.Navigate().GoToUrl(adminURL);
             driver.FindElement(By.CssSelector(".fa.fa-tags.fw")).Click();
             driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/review']")).Click();
         }

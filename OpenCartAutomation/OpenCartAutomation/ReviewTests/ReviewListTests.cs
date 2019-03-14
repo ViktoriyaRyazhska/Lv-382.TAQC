@@ -18,6 +18,7 @@ namespace OpenCartAutomation
             int countOfRewiews = int.Parse(driver.FindElement(By.CssSelector("a[href='#tab-review']")).Text.Split(new char[] { '(', ')' })[1]);
             Assert.AreEqual(0, countOfRewiews);
         }
+
         [Test(Description = "Positive Test")]
         public void ReviewsTest_EmptyListText()
         {

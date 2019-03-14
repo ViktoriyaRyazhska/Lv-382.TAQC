@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ namespace OpenCartAutomation
     [TestFixture]
     public partial class ReviewFormTests : ReviewTestRunner
     {
-
         static readonly object[] ReviewFormTestsPositiveData =
         {
               new object[] { "iPhone", "3ch", "1", "Disabled", currentDate, "Sometext25charactersherel" },
@@ -35,6 +33,7 @@ namespace OpenCartAutomation
                 Assert.AreEqual(validData[i - 1], review[i].Text);
             }
         }
+
         internal class ReviewTestNegativeData : IEnumerable<ITestCaseData>
         {
             public IEnumerator<ITestCaseData> GetEnumerator()
@@ -46,27 +45,24 @@ namespace OpenCartAutomation
                 yield return new TestCaseData("Too long name 26  characts", validReviewText, validRating, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooLongtName");
                 yield return new TestCaseData(ValidReviewName, "TooShortText24characters", validRating, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooShortText");
                 yield return new TestCaseData(ValidReviewName, TooLongTextReview1001char, validRating, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooLongText");
-                yield return new TestCaseData(ValidReviewName+ "%*&@#<>",validReviewText,validRating,reviewErrorMess[3]).SetName("ReviewTest_CreateWithForbiddenCharactersName");
-                yield return new TestCaseData(ValidReviewName , validReviewText + "%*&@#<>", validRating, reviewErrorMess[4]).SetName("ReviewTest_CreateWithForbiddenCharactersText");
+                yield return new TestCaseData($"{ValidReviewName} + %*&@#<>", validReviewText, validRating, reviewErrorMess[3]).SetName("ReviewTest_CreateWithForbiddenCharactersName");
+                yield return new TestCaseData(ValidReviewName, $"{validReviewText} + %*&@#<>", validRating, reviewErrorMess[4]).SetName("ReviewTest_CreateWithForbiddenCharactersText");
             }
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
             }
         }
+
         [TestCaseSource(typeof(ReviewTestNegativeData))]
         public void ReviewsTest_CreateWithEmptyFieldName(string name, string text, byte rating, string errorMess)
         {
             CreateReview(name, text, rating);
             Thread.Sleep(2000); // Only for presentation
-            IEnumerable<IWebElement> error = driver.FindElements(By.CssSelector("div[class='alert alert-danger']"));
-            if (error.Count() < 1)
-            {
-                Assert.Warn("No error message when expected!");
-            }
+            Assert.AreEqual(1,driver.FindElements(By.CssSelector("div[class='alert alert-danger']")).Count,"No error message when expected!");
             if (errorMess != driver.FindElement(By.CssSelector("div[class='alert alert-danger']")).Text)
             {
-                Console.WriteLine("Error messages are different!");
+                Assert.Warn("Error messages are different!");
             }
             GoToAdminPanelReview();
             Thread.Sleep(2000); // Only for presentation
