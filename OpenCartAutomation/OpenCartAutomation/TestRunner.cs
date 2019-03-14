@@ -36,7 +36,7 @@ namespace OpenCartAutomation
         }
 
         [TearDown]
-        protected virtual void AfterEachTest()
+        protected virtual void AfterEachTest() 
         {
             Console.WriteLine("TestContext.CurrentContext.Result = " + TestContext.CurrentContext.Result.Message);
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
