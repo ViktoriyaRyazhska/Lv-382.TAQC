@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace OpencartTesting
 {
@@ -28,8 +27,6 @@ namespace OpencartTesting
             int actual = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
             List<string> searchResults = driver.FindElements(By.CssSelector(".caption a")).ToList<IWebElement>().Select(x=>x.Text).ToList<string>();
 
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
-
             driver.Navigate().GoToUrl(adminPageUrl);
             driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("MY_ADMLOGIN"));
             driver.FindElement(By.Id("input-password")).SendKeys(Environment.GetEnvironmentVariable("MY_ADMPASSWORD"));
@@ -39,8 +36,6 @@ namespace OpencartTesting
             driver.FindElement(By.Id("input-name")).SendKeys("%" + searchText);
             driver.FindElement(By.Id("button-filter")).Click();
             int expected = int.Parse(driver.FindElement(By.CssSelector("div.col-sm-6.text-right")).Text.Split(' ')[5]);
-
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
 
             Assert.AreEqual(expected, actual);
             
@@ -63,8 +58,6 @@ namespace OpencartTesting
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
             Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
-
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
         }
 
         private static readonly string[] SearchData_InvalidLength =
@@ -97,8 +90,6 @@ namespace OpencartTesting
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
             Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
-
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
         }
 
         private static readonly object[] SearchData_Case_DefaultView =
@@ -140,9 +131,6 @@ namespace OpencartTesting
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
             bool wasGrid = false;
-
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
-
             if (hasClass(driver.FindElement(By.Id("grid-view")), "active"))
             {
                 driver.FindElement(By.Id("list-view")).Click();
@@ -153,14 +141,9 @@ namespace OpencartTesting
                 driver.FindElement(By.Id("grid-view")).Click();
             }
 
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
-
             driver.Navigate().GoToUrl(homePageUrl);
             driver.FindElement(By.Name("search")).Clear();
             driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
-
-            Thread.Sleep(3000);//FOR PRESENTATION ONLY!
-
             Assert.AreEqual(!wasGrid, hasClass(driver.FindElement(By.Id("grid-view")), "active"));
         }
 

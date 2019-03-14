@@ -47,7 +47,6 @@ namespace OpencartTesting
                 TakesScreenshot(AppDomain.CurrentDomain.BaseDirectory + "../../ErrorLogs/Screenshots/" + failTime +".png");
                 TakesSources(failTime);
             }
-
             driver.Manage().Cookies.DeleteAllCookies();
         }
 
@@ -74,7 +73,6 @@ namespace OpencartTesting
                     return true;
                 }
             }
-
             return false;
         }
     }
