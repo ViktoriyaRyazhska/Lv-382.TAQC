@@ -14,7 +14,7 @@ namespace OpenCartAutomation
     public abstract class TestRunner
     {
         protected IWebDriver driver;
-        protected const int implicitWait = 2;
+        protected const int implicitWait = 5;
 
         [OneTimeSetUp]
         protected virtual void BeforeAllTests()

@@ -13,40 +13,40 @@ namespace OpenCartAutomation
     {
         static readonly object[] ReviewFormTestsPositiveData =
         {
-              new object[] { "iPhone", "3ch", "1", "Disabled", currentDate, "Sometext25charactersherel" },
-              new object[] { "iPhone", "12characters", "3", "Disabled", currentDate, "Sometext50charactersherelSometext50charactersherel" },
-              new object[] { "iPhone", "Somename25charactersherel", "5", "Disabled", currentDate, TooLongTextReview1001char.Substring(0,1000) }
+              new ReviewTestData("iPhone", "3ch", "Sometext25charactersherel","1", "Disabled"),
+              new ReviewTestData("iPhone", "12characters","Sometext50charactersherelSometext50charactersherel", "3", "Disabled"),
+              new ReviewTestData( "iPhone", "Somename25charactersherel", TooLongTextReview1001char.Substring(0, 1000), "5", "Disabled")
         };
 
         [Test(Description = "Positive Tests"), TestCaseSource("ReviewFormTestsPositiveData")]
-        public void ReviewTest_CreateWithValidData(object[] validData)
+        public void ReviewTest_CreateWithValidData(ReviewTestData validData)
         {
-            CreateReview(validData[1].ToString(), validData[5].ToString(), byte.Parse(validData[2].ToString()));
-            IWebElement validAlert = driver.FindElement(By.CssSelector("div[class='alert alert-success']"));
+            CreateReview(validData.revName, validData.revText, validData.revRating);
             Thread.Sleep(2000); // Only for presentation
-            Assert.AreEqual("Thank you for your review. It has been submitted to the webmaster for approval.", validAlert.Text);
+            Assert.AreEqual("Thank you for your review. It has been submitted to the webmaster for approval.", driver.FindElement(By.CssSelector("div[class='alert alert-success']")).Text);
             GoToAdminPanelReview();
             Thread.Sleep(2000); // Only for presentation
             IWebElement[] review = driver.FindElements(By.CssSelector(".table.table-bordered.table-hover>tbody>tr:nth-child(1)>td")).ToArray();
-            for (int i = 1; i <= 5; i++)
-            {
-                Assert.AreEqual(validData[i - 1], review[i].Text);
-            }
+            Assert.AreEqual(review[1].Text,validData.revProduct,"Wrong product, meaby review is not created");
+            Assert.AreEqual(review[2].Text, validData.revName, "Wrong name, meaby review is not created");
+            Assert.AreEqual(review[3].Text, validData.revRating.ToString(), "Wrong rating, meaby review is not created");
+            Assert.AreEqual(review[4].Text, validData.status, "Wrong status, meaby review is not created or it's posted");
+            Assert.AreEqual(review[5].Text, validData.date, "Wrong date, meaby review is not created");
         }
 
         internal class ReviewTestNegativeData : IEnumerable<ITestCaseData>
         {
             public IEnumerator<ITestCaseData> GetEnumerator()
             {
-                yield return new TestCaseData("", validReviewText, validRating, reviewErrorMess[0]).SetName("ReviewsTest_CreateWithEmptyFieldName");
-                yield return new TestCaseData(ValidReviewName, "", validRating, reviewErrorMess[1]).SetName("ReviewsTest_CreateWithEmptyFieldText");
-                yield return new TestCaseData(ValidReviewName, validReviewText, (byte)0, reviewErrorMess[2]).SetName("ReviewTest_CreateWithNotSelectedRating");
-                yield return new TestCaseData("2c", validReviewText, validRating, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooShortName");
-                yield return new TestCaseData("Too long name 26  characts", validReviewText, validRating, reviewErrorMess[0]).SetName("ReviewTest_CreateWithTooLongtName");
-                yield return new TestCaseData(ValidReviewName, "TooShortText24characters", validRating, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooShortText");
-                yield return new TestCaseData(ValidReviewName, TooLongTextReview1001char, validRating, reviewErrorMess[1]).SetName("ReviewTest_CreateWithTooLongText");
-                yield return new TestCaseData($"{ValidReviewName} + %*&@#<>", validReviewText, validRating, reviewErrorMess[3]).SetName("ReviewTest_CreateWithForbiddenCharactersName");
-                yield return new TestCaseData(ValidReviewName, $"{validReviewText} + %*&@#<>", validRating, reviewErrorMess[4]).SetName("ReviewTest_CreateWithForbiddenCharactersText");
+                yield return new TestCaseData(new ReviewTestData("", validReviewText, validRating, reviewErrorMess[0])).SetName("ReviewsTest_CreateWithEmptyFieldName");
+                yield return new TestCaseData(new ReviewTestData(ValidReviewName, "", validRating, reviewErrorMess[1])).SetName("ReviewsTest_CreateWithEmptyFieldText");
+                yield return new TestCaseData(new ReviewTestData(ValidReviewName, validReviewText, "0", reviewErrorMess[2])).SetName("ReviewTest_CreateWithNotSelectedRating");
+                yield return new TestCaseData(new ReviewTestData("2c", validReviewText, validRating, reviewErrorMess[0])).SetName("ReviewTest_CreateWithTooShortName");
+                yield return new TestCaseData(new ReviewTestData("Too long name 26  characts", validReviewText, validRating, reviewErrorMess[0])).SetName("ReviewTest_CreateWithTooLongtName");
+                yield return new TestCaseData(new ReviewTestData(ValidReviewName, "TooShortText24characters", validRating, reviewErrorMess[1])).SetName("ReviewTest_CreateWithTooShortText");
+                yield return new TestCaseData(new ReviewTestData(ValidReviewName, TooLongTextReview1001char, validRating, reviewErrorMess[1])).SetName("ReviewTest_CreateWithTooLongText");
+                yield return new TestCaseData(new ReviewTestData($"{ValidReviewName}%*&@#<>", validReviewText, validRating, reviewErrorMess[3])).SetName("ReviewTest_CreateWithForbiddenCharactersName");
+                yield return new TestCaseData(new ReviewTestData(ValidReviewName, $"{validReviewText}%*&@#<>", validRating, reviewErrorMess[4])).SetName("ReviewTest_CreateWithForbiddenCharactersText");
             }
             IEnumerator IEnumerable.GetEnumerator()
             {
@@ -55,12 +55,12 @@ namespace OpenCartAutomation
         }
 
         [TestCaseSource(typeof(ReviewTestNegativeData))]
-        public void ReviewsTest_CreateWithEmptyFieldName(string name, string text, byte rating, string errorMess)
+        public void ReviewsTest_CreateWithEmptyFieldName(ReviewTestData negativeData)
         {
-            CreateReview(name, text, rating);
+            CreateReview(negativeData.revName, negativeData.revText, negativeData.revRating);
             Thread.Sleep(2000); // Only for presentation
-            Assert.AreEqual(1,driver.FindElements(By.CssSelector("div[class='alert alert-danger']")).Count,"No error message when expected!");
-            if (errorMess != driver.FindElement(By.CssSelector("div[class='alert alert-danger']")).Text)
+            Assert.AreEqual(1,driver.FindElements(By.CssSelector(".alert.alert-danger")).Count,"No error message when expected!Review is created!");
+            if (negativeData.revError != driver.FindElement(By.CssSelector(".alert.alert-danger")).Text)
             {
                 Assert.Warn("Error messages are different!");
             }
