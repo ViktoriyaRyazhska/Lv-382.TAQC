@@ -1,62 +1,293 @@
-﻿[3/12/2019 6:53:00 PM Informational] ------ Run test started ------
-[3/12/2019 6:53:13 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 6:53:13 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 6:53:14 PM Informational]    NUnit3TestExecutor converted 7 of 7 NUnit test cases
-[3/12/2019 6:54:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 6:54:03 PM Informational] ========== Run test finished: 2 run (0:01:03.6176432) ==========
-[3/12/2019 6:56:07 PM Informational] ------ Run test started ------
-[3/12/2019 6:56:08 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 6:56:08 PM Informational] Running selected tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 6:56:09 PM Informational]    NUnit3TestExecutor converted 7 of 7 NUnit test cases
-[3/12/2019 6:56:46 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 6:56:46 PM Informational] ========== Run test finished: 2 run (0:00:39.5971024) ==========
-[3/12/2019 7:12:21 PM Informational] ------ Discover test started ------
-[3/12/2019 7:12:22 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
-[3/12/2019 7:12:23 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
-[3/12/2019 7:12:23 PM Informational] ========== Discover test finished: 9 found (0:00:02.053768) ==========
-[3/12/2019 7:12:23 PM Informational] ------ Run test started ------
-[3/12/2019 7:12:24 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 7:12:24 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 7:12:25 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
-[3/12/2019 7:13:37 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 7:13:37 PM Informational] ========== Run test finished: 9 run (0:01:13.6139691) ==========
-[3/12/2019 7:22:25 PM Informational] ------ Discover test started ------
-[3/12/2019 7:22:26 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
-[3/12/2019 7:22:27 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
-[3/12/2019 7:22:27 PM Informational] ========== Discover test finished: 9 found (0:00:02.0545418) ==========
-[3/12/2019 7:22:27 PM Informational] ------ Run test started ------
-[3/12/2019 7:22:28 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 7:22:28 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 7:22:29 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
-[3/12/2019 7:23:42 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 7:23:42 PM Informational] ========== Run test finished: 9 run (0:01:14.4210558) ==========
-[3/12/2019 7:39:36 PM Informational] ------ Discover test started ------
-[3/12/2019 7:39:38 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
-[3/12/2019 7:39:40 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
-[3/12/2019 7:39:40 PM Informational] ========== Discover test finished: 9 found (0:00:03.4956944) ==========
-[3/12/2019 7:39:40 PM Informational] ------ Run test started ------
-[3/12/2019 7:39:41 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 7:39:41 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 7:39:41 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
-[3/12/2019 7:42:20 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 7:42:20 PM Informational] ========== Run test finished: 9 run (0:02:40.2835951) ==========
-[3/12/2019 7:58:34 PM Informational] ------ Discover test started ------
-[3/12/2019 7:58:36 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
-[3/12/2019 7:58:36 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
-[3/12/2019 7:58:37 PM Informational] ========== Discover test finished: 9 found (0:00:02.02199) ==========
-[3/12/2019 7:58:37 PM Informational] ------ Run test started ------
-[3/12/2019 7:58:37 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 7:58:37 PM Informational] Running all tests in E:\softserve courses\Training\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-[3/12/2019 7:58:38 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
-[3/12/2019 7:59:25 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 7:59:25 PM Informational] ========== Run test finished: 9 run (0:00:48.323293) ==========
-[3/12/2019 8:16:53 PM Informational] ------ Discover test started ------
-[3/12/2019 8:16:55 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
-[3/12/2019 8:16:56 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
-[3/12/2019 8:16:56 PM Informational] ========== Discover test finished: 9 found (0:00:02.8958836) ==========
-[3/12/2019 8:16:56 PM Informational] ------ Run test started ------
-[3/12/2019 8:16:57 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
-[3/12/2019 8:16:57 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
-[3/12/2019 8:16:57 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
-[3/12/2019 8:17:48 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
-[3/12/2019 8:17:48 PM Informational] ========== Run test finished: 9 run (0:00:52.6573893) ==========
+﻿[3/14/2019 10:36:06 AM Informational] ------ Run test started ------
+[3/14/2019 10:36:13 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:36:13 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:36:14 AM Informational]    NUnit3TestExecutor converted 11 of 11 NUnit test cases
+[3/14/2019 10:37:20 AM Informational] ========== Run test finished: 1 run (0:01:13.79985) ==========
+[3/14/2019 10:37:56 AM Informational] ------ Run test started ------
+[3/14/2019 10:37:57 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:37:57 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:37:57 AM Informational]    NUnit3TestExecutor converted 11 of 11 NUnit test cases
+[3/14/2019 10:38:23 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:38:24 AM Informational] ========== Run test finished: 2 run (0:00:28.3523276) ==========
+[3/14/2019 10:38:47 AM Informational] ------ Run test started ------
+[3/14/2019 10:38:47 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:38:47 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:38:48 AM Informational]    NUnit3TestExecutor converted 11 of 11 NUnit test cases
+[3/14/2019 10:39:07 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:39:07 AM Informational] ========== Run test finished: 1 run (0:00:20.4778152) ==========
+[3/14/2019 10:40:28 AM Informational] ------ Run test started ------
+[3/14/2019 10:40:28 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:40:28 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:40:29 AM Informational]    NUnit3TestExecutor converted 11 of 11 NUnit test cases
+[3/14/2019 10:41:01 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:41:01 AM Informational] ========== Run test finished: 1 run (0:00:33.2365153) ==========
+[3/14/2019 10:43:38 AM Informational] ------ Run test started ------
+[3/14/2019 10:43:40 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:43:40 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:43:41 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:43:57 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:43:57 AM Informational] ========== Run test finished: 1 run (0:00:18.6642483) ==========
+[3/14/2019 10:46:28 AM Informational] ------ Run test started ------
+[3/14/2019 10:46:28 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:46:29 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:46:29 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:47:03 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:47:03 AM Informational] ========== Run test finished: 1 run (0:00:34.8103967) ==========
+[3/14/2019 10:47:41 AM Informational] ------ Run test started ------
+[3/14/2019 10:47:42 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:47:42 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:47:42 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:48:12 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:48:12 AM Informational] ========== Run test finished: 1 run (0:00:30.9915299) ==========
+[3/14/2019 10:49:08 AM Informational] ------ Run test started ------
+[3/14/2019 10:49:09 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:49:09 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:49:10 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:49:43 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:49:43 AM Informational] ========== Run test finished: 2 run (0:00:35.3083812) ==========
+[3/14/2019 10:50:50 AM Informational] ------ Run test started ------
+[3/14/2019 10:50:50 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:50:51 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:50:51 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:51:05 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:51:05 AM Informational] ========== Run test finished: 2 run (0:00:15.5612475) ==========
+[3/14/2019 10:51:28 AM Informational] ------ Run test started ------
+[3/14/2019 10:51:29 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:51:29 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:51:30 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:51:47 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:51:48 AM Informational] ========== Run test finished: 2 run (0:00:19.7072189) ==========
+[3/14/2019 10:59:24 AM Informational] ------ Run test started ------
+[3/14/2019 10:59:25 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 10:59:25 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 10:59:25 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 10:59:38 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 10:59:38 AM Informational] ========== Run test finished: 1 run (0:00:14.2804621) ==========
+[3/14/2019 11:00:54 AM Informational] ------ Run test started ------
+[3/14/2019 11:00:55 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:00:55 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:00:55 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:01:17 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:01:17 AM Informational] ========== Run test finished: 1 run (0:00:22.8701126) ==========
+[3/14/2019 11:05:24 AM Informational] ------ Discover test started ------
+[3/14/2019 11:05:25 AM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/14/2019 11:05:26 AM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/14/2019 11:05:26 AM Informational] ========== Discover test finished: 9 found (0:00:02.3753815) ==========
+[3/14/2019 11:05:26 AM Informational] ------ Run test started ------
+[3/14/2019 11:05:27 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:05:27 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:05:27 AM Informational] ========== Run test finished: 0 run (0:00:00.9973631) ==========
+[3/14/2019 11:05:31 AM Informational] ------ Run test started ------
+[3/14/2019 11:05:33 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:05:34 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:05:34 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:05:53 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:05:54 AM Informational] ========== Run test finished: 1 run (0:00:22.0249662) ==========
+[3/14/2019 11:06:55 AM Informational] ------ Run test started ------
+[3/14/2019 11:06:56 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:06:56 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:06:57 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:07:12 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:07:12 AM Informational] ========== Run test finished: 1 run (0:00:16.8845141) ==========
+[3/14/2019 11:08:32 AM Informational] ------ Run test started ------
+[3/14/2019 11:08:33 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:08:33 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:08:33 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:08:49 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:08:50 AM Informational] ========== Run test finished: 2 run (0:00:17.3767693) ==========
+[3/14/2019 11:11:20 AM Informational] ------ Run test started ------
+[3/14/2019 11:11:20 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:11:20 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:11:21 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:11:50 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:11:50 AM Informational] ========== Run test finished: 1 run (0:00:30.0438274) ==========
+[3/14/2019 11:11:58 AM Informational] ------ Run test started ------
+[3/14/2019 11:11:58 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:11:59 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:11:59 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:12:14 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:12:15 AM Informational] ========== Run test finished: 1 run (0:00:16.7208949) ==========
+[3/14/2019 11:12:28 AM Informational] ------ Run test started ------
+[3/14/2019 11:12:28 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:12:28 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:12:29 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:12:55 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:12:55 AM Informational] ========== Run test finished: 4 run (0:00:27.7856995) ==========
+[3/14/2019 11:30:19 AM Informational] ------ Run test started ------
+[3/14/2019 11:30:20 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:30:20 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:30:21 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:30:47 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:30:47 AM Informational] ========== Run test finished: 2 run (0:00:28.054595) ==========
+[3/14/2019 11:37:43 AM Informational] ------ Run test started ------
+[3/14/2019 11:37:44 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:37:44 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:37:44 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:38:13 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:38:13 AM Informational] ========== Run test finished: 1 run (0:00:30.1216246) ==========
+[3/14/2019 11:39:21 AM Informational] ------ Run test started ------
+[3/14/2019 11:39:22 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:39:22 AM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:39:23 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:39:39 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:39:39 AM Informational] ========== Run test finished: 2 run (0:00:18.3734176) ==========
+[3/14/2019 11:44:48 AM Informational] ------ Run test started ------
+[3/14/2019 11:44:49 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:44:49 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:44:50 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:45:05 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:45:05 AM Informational] ========== Run test finished: 2 run (0:00:17.206009) ==========
+[3/14/2019 11:45:30 AM Informational] ------ Run test started ------
+[3/14/2019 11:45:31 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:45:31 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:45:31 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:45:48 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:45:48 AM Informational] ========== Run test finished: 2 run (0:00:18.6030989) ==========
+[3/14/2019 11:50:37 AM Informational] ------ Run test started ------
+[3/14/2019 11:50:38 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:50:39 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:50:39 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:51:14 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:51:14 AM Informational] ========== Run test finished: 2 run (0:00:36.9882101) ==========
+[3/14/2019 11:51:38 AM Informational] ------ Run test started ------
+[3/14/2019 11:51:39 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:51:39 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:51:40 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:52:03 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:52:03 AM Informational] ========== Run test finished: 2 run (0:00:25.1618768) ==========
+[3/14/2019 11:53:19 AM Informational] ------ Run test started ------
+[3/14/2019 11:53:20 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:53:20 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:53:21 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:53:45 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:53:45 AM Informational] ========== Run test finished: 2 run (0:00:26.1590109) ==========
+[3/14/2019 11:58:01 AM Informational] ------ Run test started ------
+[3/14/2019 11:58:03 AM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 11:58:03 AM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 11:58:04 AM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 11:58:23 AM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 11:58:24 AM Informational] ========== Run test finished: 2 run (0:00:22.8054585) ==========
+[3/14/2019 12:00:49 PM Informational] ------ Run test started ------
+[3/14/2019 12:00:52 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:00:52 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:00:52 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:01:28 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:01:29 PM Informational] ========== Run test finished: 1 run (0:00:39.1621692) ==========
+[3/14/2019 12:03:26 PM Informational] ------ Run test started ------
+[3/14/2019 12:03:28 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:03:28 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:03:28 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:04:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:04:01 PM Informational] ========== Run test finished: 1 run (0:00:35.3925957) ==========
+[3/14/2019 12:05:40 PM Informational] ------ Run test started ------
+[3/14/2019 12:05:42 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:05:42 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:05:43 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:05:57 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:05:57 PM Informational] ========== Run test finished: 1 run (0:00:16.7075) ==========
+[3/14/2019 12:06:47 PM Informational] ------ Run test started ------
+[3/14/2019 12:06:48 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:06:48 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:06:48 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:07:03 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:07:03 PM Informational] ========== Run test finished: 1 run (0:00:16.4882567) ==========
+[3/14/2019 12:09:27 PM Informational] ------ Run test started ------
+[3/14/2019 12:09:28 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:09:28 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:09:29 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:09:46 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:09:46 PM Informational] ========== Run test finished: 2 run (0:00:18.1933318) ==========
+[3/14/2019 12:10:25 PM Informational] ------ Run test started ------
+[3/14/2019 12:10:26 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:10:26 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:10:27 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:10:46 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:10:46 PM Informational] ========== Run test finished: 2 run (0:00:20.7136989) ==========
+[3/14/2019 12:10:59 PM Informational] ------ Run test started ------
+[3/14/2019 12:11:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:11:00 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:11:00 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:11:18 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:11:18 PM Informational] ========== Run test finished: 2 run (0:00:18.887528) ==========
+[3/14/2019 12:19:31 PM Informational] ------ Run test started ------
+[3/14/2019 12:19:32 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:19:32 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:19:32 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:19:54 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:19:54 PM Informational] ========== Run test finished: 1 run (0:00:23.0696754) ==========
+[3/14/2019 12:21:43 PM Informational] ------ Run test started ------
+[3/14/2019 12:21:43 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:21:44 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:21:44 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:21:59 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:21:59 PM Informational] ========== Run test finished: 1 run (0:00:16.3474002) ==========
+[3/14/2019 12:25:58 PM Informational] ------ Run test started ------
+[3/14/2019 12:25:59 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:25:59 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:26:00 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:26:39 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:26:39 PM Informational] ========== Run test finished: 5 run (0:00:40.8995146) ==========
+[3/14/2019 12:29:54 PM Informational] ------ Run test started ------
+[3/14/2019 12:29:57 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:29:57 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:29:58 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:30:27 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:30:27 PM Informational] ========== Run test finished: 1 run (0:00:32.8615879) ==========
+[3/14/2019 12:33:59 PM Informational] ------ Run test started ------
+[3/14/2019 12:34:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:34:00 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:34:00 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:34:22 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:34:23 PM Informational] ========== Run test finished: 1 run (0:00:24.081065) ==========
+[3/14/2019 12:38:41 PM Informational] ------ Run test started ------
+[3/14/2019 12:38:42 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:38:42 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:38:42 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:39:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:39:01 PM Informational] ========== Run test finished: 1 run (0:00:20.1135711) ==========
+[3/14/2019 12:51:22 PM Informational] ------ Run test started ------
+[3/14/2019 12:51:23 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:51:23 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:51:24 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:52:02 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:52:02 PM Informational] ========== Run test finished: 1 run (0:00:39.8275745) ==========
+[3/14/2019 12:53:13 PM Informational] ------ Run test started ------
+[3/14/2019 12:53:13 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:53:13 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:53:14 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:53:33 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:53:33 PM Informational] ========== Run test finished: 2 run (0:00:20.9323362) ==========
+[3/14/2019 12:57:01 PM Informational] ------ Run test started ------
+[3/14/2019 12:57:02 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:57:02 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:57:03 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:57:40 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:57:40 PM Informational] ========== Run test finished: 2 run (0:00:38.6377023) ==========
+[3/14/2019 12:59:16 PM Informational] ------ Run test started ------
+[3/14/2019 12:59:17 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 12:59:17 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 12:59:17 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 12:59:52 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 12:59:53 PM Informational] ========== Run test finished: 2 run (0:00:36.9365443) ==========
+[3/14/2019 1:03:32 PM Informational] ------ Run test started ------
+[3/14/2019 1:03:32 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 1:03:32 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 1:03:33 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 1:03:51 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 1:03:51 PM Informational] ========== Run test finished: 2 run (0:00:19.3979064) ==========
+[3/14/2019 1:04:55 PM Informational] ------ Run test started ------
+[3/14/2019 1:04:56 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 1:04:56 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 1:04:56 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 1:05:17 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 1:05:18 PM Informational] ========== Run test finished: 2 run (0:00:22.5576059) ==========
+[3/14/2019 1:08:17 PM Informational] ------ Discover test started ------
+[3/14/2019 1:08:19 PM Informational] NUnit Adapter 3.13.0.0: Test discovery starting
+[3/14/2019 1:08:20 PM Informational] NUnit Adapter 3.13.0.0: Test discovery complete
+[3/14/2019 1:08:20 PM Informational] ========== Discover test finished: 9 found (0:00:02.7957288) ==========
+[3/14/2019 1:08:20 PM Informational] ------ Run test started ------
+[3/14/2019 1:08:21 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/14/2019 1:08:21 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\bin\Debug\OpenCartTestProject.dll
+[3/14/2019 1:08:21 PM Informational]    NUnit3TestExecutor converted 9 of 9 NUnit test cases
+[3/14/2019 1:09:11 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/14/2019 1:09:11 PM Informational] ========== Run test finished: 9 run (0:00:50.8491742) ==========

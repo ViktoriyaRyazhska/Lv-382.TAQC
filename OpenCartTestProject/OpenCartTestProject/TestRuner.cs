@@ -40,7 +40,7 @@ namespace OpenCartTesting
         [SetUp]
         public void SetUp()
         {
-            //driver.Navigate().GoToUrl(tokenHttp);
+            driver.Navigate().GoToUrl(tokenHttp);
         }
 
         [TearDown]

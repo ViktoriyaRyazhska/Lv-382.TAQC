@@ -37,3 +37,190 @@ TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.Remo
    at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
    at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
    at OpenCartTestProject.SeleniumTest.ReplaceMenuSubItem1() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 132
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemValid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 29
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemValid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 29
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemValid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 30
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItem1Invalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 68
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItem1Valid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 39
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem(String n, String t, Int32 o) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 101
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem(String n, String t, Int32 o) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 90
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem(String n, String t, Int32 o) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 101
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 101
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 101
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid1() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 69
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 62
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 94
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 94
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemValid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 32
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 63
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at OpenCartTesting.TestRuner.SetUp() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\TestRuner.cs:line 43
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 63
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at OpenCartTesting.TestRuner.SetUp() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\TestRuner.cs:line 43
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 63
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at OpenCartTesting.TestRuner.SetUp() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\TestRuner.cs:line 43
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 95
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 95
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 95
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.AddNewMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 95
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 64
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 64
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 64
+
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+   at OpenCartTestProject.SeleniumTest.ReplaceMenuItem1() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 124
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.ReplaceMenuSubItem1() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 157
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at OpenCartTestProject.SeleniumTest.ReplaceMenuSubItem1() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 157
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.ReplaceMenuSubItem() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 143
+TestContext.CurrentContext.Result.StackTrace =    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at OpenCartTesting.TestRuner.SetUp() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\TestRuner.cs:line 43
+TestContext.CurrentContext.Result.StackTrace =    at OpenCartTestProject.SeleniumTest.AddNewMenuItemInvalid() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCartTestProject\OpenCartTestProject\SeleniumTest.cs:line 63
+
