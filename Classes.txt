@@ -1,0 +1,13 @@
+ATopPart
+ProductComponent
+HomePage
+
+ABreadCrumPart
+ASearchResultPart
+SearchCriteriaPage
+LeftMenuPage
+
+public IWebElement TitleLabel //{ get; private set; }
+            { get { return driver.FindElement(By.XPath("//div[@id='header']/div/h3/..")); } }
+
+

@@ -14,7 +14,7 @@ namespace OpenCartTestProject
     public class SimpleTest
     {
         //[TestMethod]
-        [Test]
+        //[Test]
         public void CheckLogin()
         {
             // Precondition
