@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCartAutomation", "OpenCartAutomation\OpenCartAutomation.csproj", "{495B47C8-3BA0-4574-9395-FB1853AA3866}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework", "TestFramework\TestFramework.csproj", "{D364E635-7DEE-4D41-BC36-78C28C37B04E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{8B5C7F6F-73B9-4864-9484-AA9AD24EFC2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{495B47C8-3BA0-4574-9395-FB1853AA3866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495B47C8-3BA0-4574-9395-FB1853AA3866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495B47C8-3BA0-4574-9395-FB1853AA3866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D364E635-7DEE-4D41-BC36-78C28C37B04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D364E635-7DEE-4D41-BC36-78C28C37B04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D364E635-7DEE-4D41-BC36-78C28C37B04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D364E635-7DEE-4D41-BC36-78C28C37B04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5C7F6F-73B9-4864-9484-AA9AD24EFC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5C7F6F-73B9-4864-9484-AA9AD24EFC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5C7F6F-73B9-4864-9484-AA9AD24EFC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5C7F6F-73B9-4864-9484-AA9AD24EFC2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
