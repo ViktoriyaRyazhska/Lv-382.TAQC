@@ -57,11 +57,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\ABreadCrumPart.cs" />
+    <Compile Include="Pages\ASearchResultPart.cs" />
     <Compile Include="Pages\ATopPart.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\LeftMenuPage.cs" />
+    <Compile Include="Pages\ProductComponent.cs" />
+    <Compile Include="Pages\ProductComponentsContainer.cs" />
+    <Compile Include="Pages\SearchCriteriaPage.cs" />
     <Compile Include="SimpleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmokeTest.cs" />
     <Compile Include="TestRunner.cs" />
+    <Compile Include="Tests\SearchTest.cs" />
+    <Compile Include="Tests\TestRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

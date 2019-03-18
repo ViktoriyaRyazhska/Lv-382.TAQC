@@ -11,3 +11,47 @@ public IWebElement TitleLabel //{ get; private set; }
             { get { return driver.FindElement(By.XPath("//div[@id='header']/div/h3/..")); } }
 
 
+public class ***Page
+
+public UnsuccessfulSearchPage(IWebDriver driver) {
+
+// Page Object
+
+	public string Get***Text() {}
+
+	public void Set***Field(string text) {}
+
+	public void Clear***() {}
+
+	public void Click***() {}
+
+// Functional
+
+// Business Logic
+
+--------------------------------
+public class ProductComponent
+    {
+        private IWebDriver driver;
+        //
+
+        public ProductComponent(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+	public HomePage(IWebDriver driver) : base(driver)
+        {
+        }
+
+        private void InitElements()
+        {
+            //productComponents =
+        }
+
+        // Page Object
+
+        // Functional
+
+        // Business Logic
+    }
