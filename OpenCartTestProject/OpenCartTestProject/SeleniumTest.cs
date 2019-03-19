@@ -28,9 +28,9 @@ namespace OpenCartTestProject
             driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
             driver.FindElement(By.CssSelector("a.asc")).Click();
-            Thread.Sleep(2000);   //For presentation only
-            Assert.AreEqual(true, driver.FindElements(By.XPath("//td[text()='Test1']/preceding-sibling::td/input")).Count>0, "No error message when expected!");
+            Thread.Sleep(3000);   //For presentation only
 
+            Assert.AreEqual(true, driver.FindElements(By.XPath("//td[text()='Test1']/preceding-sibling::td/input")).Count>0, "No error message when expected!");
         }
         [Test]
         public void AddNewMenuItemValid1()
@@ -59,9 +59,9 @@ namespace OpenCartTestProject
             driver.FindElement(By.Id("input-sort-order")).SendKeys("9");
             driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
-            Thread.Sleep(2000);   //For presentation only
+            Thread.Sleep(3000);   //For presentation only
+
             Assert.AreEqual(true, driver.FindElements(By.XPath("//td[text()='    ']/preceding-sibling::td/input")).Count <= 0, "No error message when expected!");
-            //Assert.AreEqual(true, driver.FindElements(By.CssSelector(".alert.alert-danger")).Count>0, "No error message when expected!");
         }
         [Test]
         public void AddNewMenuItemInvalid1()
@@ -72,7 +72,6 @@ namespace OpenCartTestProject
             driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
             driver.SwitchTo().Alert().Accept();
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
-            
             //Thread.Sleep(3000);   //For presentation only
         }
 
@@ -93,9 +92,9 @@ namespace OpenCartTestProject
             driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
             driver.FindElement(By.XPath("//td[contains(text(),'ear1')]/preceding-sibling::td/input")).Click();
+
             Thread.Sleep(2000);   //For presentation only
             Assert.AreEqual(true, driver.FindElements(By.XPath("//td[contains(text(),'ear1')]/preceding-sibling::td/input")).Count > 0, "No error message when expected!");
-
         }
 
 
@@ -128,39 +127,6 @@ namespace OpenCartTestProject
             driver.FindElement(By.Id("input-sort-order")).SendKeys("6");
             driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
-
-            //Thread.Sleep(3000);   //For presentation only
-        }
-
-
-        [Test]
-        public void ReplaceMenuSubItem()
-        {
-            driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog a[href*='category']")).Click();
-            driver.FindElement(By.XPath("//td[contains(text(),'Mice and Trackballs')]/preceding-sibling::td/input")).Click();
-            driver.FindElement(By.CssSelector("#form-category > div > table > tbody > tr:nth-child(3) > td:nth-child(4) > a")).Click();
-            driver.FindElement(By.CssSelector("a[href*='data']")).Click();
-            driver.FindElement(By.Id("input-sort-order")).Clear();
-            driver.FindElement(By.Id("input-sort-order")).SendKeys("5");
-            driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
-            driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
-
-            //Thread.Sleep(2000);   //For presentation only
-        }
-        [Test]
-        public void ReplaceMenuSubItem1()
-        {
-            driver.FindElement(By.Id("menu-catalog")).Click();
-            driver.FindElement(By.CssSelector("#menu-catalog a[href*='category']")).Click();
-            driver.FindElement(By.XPath("//td[contains(text(),'Mice and Trackballs')]/preceding-sibling::td/input")).Click();
-            driver.FindElement(By.CssSelector("#form-category > div > table > tbody > tr:nth-child(3) > td:nth-child(4) > a")).Click();
-            driver.FindElement(By.CssSelector("a[href*='data']")).Click();
-            driver.FindElement(By.Id("input-sort-order")).Clear();
-            driver.FindElement(By.Id("input-sort-order")).SendKeys("1");
-            driver.FindElement(By.CssSelector("div.pull-right .btn.btn-primary")).Click();
-            driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
-
             //Thread.Sleep(3000);   //For presentation only
         }
     }
