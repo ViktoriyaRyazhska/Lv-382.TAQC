@@ -30,7 +30,6 @@ namespace OpenCartTesting
             Thread.Sleep(2000); //For presentation ONLY
             driver.FindElement(By.PartialLinkText("Customers")).Click();
             Thread.Sleep(2000); //For presentation ONLY
-
             driver.FindElement(By.XPath("//div[@class='table-responsive']//td[contains(text(), '" +
                 userEmail + "')]/..//a[@data-original-title='Edit']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
@@ -65,7 +64,7 @@ namespace OpenCartTesting
             GoToAddressBook();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-info']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
             initialData = driver.FindElement(By.Id(locator)).GetAttribute("value");
@@ -77,7 +76,7 @@ namespace OpenCartTesting
 
             Assert.AreEqual(true, driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-left']")).Text.Contains(data));
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-info']")).Click();
             driver.FindElement(By.Id(locator)).Clear();
             driver.FindElement(By.Id(locator)).SendKeys(initialData);
             driver.FindElement(By.ClassName("btn-primary")).Click();
@@ -103,7 +102,7 @@ namespace OpenCartTesting
             GoToAddressBook();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-info']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
             SelectElement countryDropdown = new SelectElement(driver.FindElement(By.Id("input-country")));
@@ -132,14 +131,14 @@ namespace OpenCartTesting
             Thread.Sleep(2000); //For presentation ONLY
             countAddressBeforeDeletinge = driver.FindElements(By.ClassName("text-left")).Count;
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-info']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
             driver.FindElement(By.XPath("//input[@value='1']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
             driver.FindElement(By.ClassName("btn-primary")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[2]/td[@class='text-right']/a[contains(@href, 'delete')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[2]/td[@class='text-right']/a[@class='btn btn-danger']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
             countAddressAfterDeleting = driver.FindElements(By.ClassName("text-left")).Count;
@@ -156,14 +155,14 @@ namespace OpenCartTesting
             GoToAddressBook();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'edit')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-info']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
             driver.FindElement(By.XPath("//input[@value='1']")).Click();
             Thread.Sleep(2000); //For presentation ONLY
             driver.FindElement(By.ClassName("btn-primary")).Click();
             Thread.Sleep(2000); //For presentation ONLY
 
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[contains(@href, 'delete')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[1]/td[@class='text-right']/a[@class='btn btn-danger']")).Click();
 
             string expectedMessage = "Warning: You can not delete your default address!";
             string actualMessage = driver.FindElement(By.ClassName("alert-warning")).Text;

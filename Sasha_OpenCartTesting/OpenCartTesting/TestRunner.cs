@@ -12,8 +12,8 @@ namespace OpenCartTesting
     {
         protected IWebDriver driver;
         const int implicitValueInSec = 10;
-        protected string mainAdminUrl = "http://192.168.183.128/opencart/upload/admin";
-        protected string mainUrl = "http://192.168.183.128/opencart/upload";
+        protected string mainAdminUrl = "http://192.168.183.129/opencart/upload/admin";
+        protected string mainUrl = "http://192.168.183.129/opencart/upload";
         protected string userEmail = Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL");
         protected string userPassword = Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD");
         protected string adminUsername = Environment.GetEnvironmentVariable("OPENCART_ADMIN_USERNAME");
@@ -103,7 +103,7 @@ namespace OpenCartTesting
 
         public void DeleteLastAddedAddress()
         {
-            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[last()]/td[@class='text-right']/a[contains(@href, 'delete')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']/table/tbody/tr[last()]/td[@class='text-right']/a[@class='btn btn-danger']")).Click();
         }
     }
 }
