@@ -57,6 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\ProductRepository.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Pages\ABreadCrumPart.cs" />
     <Compile Include="Pages\ASearchResultPart.cs" />
     <Compile Include="Pages\ATopPart.cs" />

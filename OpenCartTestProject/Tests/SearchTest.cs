@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenCartTestProject.Data;
 using OpenCartTestProject.Pages;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,22 @@ namespace OpenCartTestProject.Tests
     public class SearchTest : TestRunner
     {
         // DataProvider
-        private static readonly object[] Products =
+        private static readonly object[] ProductData =
         {
-            new object[] { "mac", new List<string>() { "iMac", "MacBook", "MacBook Air", "MacBook Pro" } },
+            //new object[] { "mac", new List<string>() { "iMac", "MacBook", "MacBook Air", "MacBook Pro" } },
+            new object[] { ProductRepository.GetMacBook(), ProductRepository.GetMacListProducts() },
         };
 
 
-        [Test, TestCaseSource(nameof(Products))]
-        public void CheckSearch(string productName, IList<string> expectedList)
+        [Test, TestCaseSource(nameof(ProductData))]
+        public void CheckSearch(Product product, IList<Product> expectedList)
         {
             // Steps
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(productName);
+                .SearchItems(product);
             //
             // Check
-            CollectionAssert.AreEqual(expectedList,
+            CollectionAssert.AreEqual(Product.GetProductListNames(expectedList),
                 searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
             //
             // Return to Previous State

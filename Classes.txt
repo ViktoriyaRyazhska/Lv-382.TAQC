@@ -1,11 +1,39 @@
 ATopPart
 ProductComponent
 HomePage
+UpdatedHomePage
 
+ProductComponentsContainer
 ABreadCrumPart
 ASearchResultPart
 SearchCriteriaPage
 LeftMenuPage
+
+ShoppingCartPage
+ShoppingCartComponent
+
+DropDownComponent
+MainMenuComponent
+CartProductComponent
+CartProductContainer
+
+ARightMenuPart
+ARightLogoutPart
+ARightLoginPart
+
+LoginPage
+UnsuccessfulLoginPage
+RegisterPage
+AccountLogoutPage
+
+AccountPage
+UpdatedAccountPage
+EditAccountPage
+ChangePasswordPage
+AddressBookPage
+WishListPage
+UpdatedWishListPage
+WishListComponent
 
 public IWebElement TitleLabel //{ get; private set; }
             { get { return driver.FindElement(By.XPath("//div[@id='header']/div/h3/..")); } }
@@ -55,3 +83,10 @@ public class ProductComponent
 
         // Business Logic
     }
+
+-----------------
+Test Data
+Product
+User
+Menu/Categories
+Currency

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using OpenCartTestProject.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -160,9 +161,10 @@ namespace OpenCartTestProject.Pages
             return new HomePage(driver);
         }
 
-        public SearchCriteriaPage SearchItems(string searchText)
+        //public SearchCriteriaPage SearchItems(string searchText)
+        public SearchCriteriaPage SearchItems(Product searchProduct)
         {
-            MakeSearch(searchText);
+            MakeSearch(searchProduct.SearchKeyword);
             return new SearchCriteriaPage(driver);
         }
 
