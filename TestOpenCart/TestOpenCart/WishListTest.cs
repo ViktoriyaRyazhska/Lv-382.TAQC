@@ -27,14 +27,16 @@ namespace TestOpenCart
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'MacBook')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'Canon EOS 5D')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.CssSelector("#wishlist-total > i")).Click();
+            driver.FindElement(By.Id("wishlist-total")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
             List<string> actual = driver.FindElements(By.CssSelector("#content > div.table-responsive td.text-left > a")).ToList<IWebElement>().Select(x => x.Text).ToList();
             Assert.AreEqual(expected, actual, $"In Wish List are no expected item: {expected}");
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=40']")).Click();
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=30']")).Click();
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=43']")).Click();
+            int count = driver.FindElements(By.XPath("//div[@class='table-responsive']//tbody/tr")).Count();
+            for (int i = 0; i < count; i++)
+            {
+                driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();
+            }            
         }
 
         [Test]
@@ -46,9 +48,11 @@ namespace TestOpenCart
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'Canon EOS 5D')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.CssSelector("#wishlist-total > i")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=40']")).Click();
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=30']")).Click();
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=43']")).Click();
+            int count = driver.FindElements(By.XPath("//div[@class='table-responsive']//tbody/tr")).Count();
+            for (int i = 0; i < count; i++)
+            {
+                driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();
+            }
             Thread.Sleep(2000); // For Presentation ONLY
             int actualForRemoving = driver.FindElements(By.CssSelector("#content > div.table-responsive td.text-left > a")).Count;
             Assert.AreEqual(0, actualForRemoving, "Not all elements was removed from Wish list");
@@ -62,9 +66,12 @@ namespace TestOpenCart
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'MacBook')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'Canon EOS 5D')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.CssSelector("#wishlist-total > i")).Click();
-            Thread.Sleep(2000); // For Presentation ONLY          
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=30']")).Click();
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=43']")).Click();
+            Thread.Sleep(2000); // For Presentation ONLY    
+            int count = driver.FindElements(By.XPath("//div[@class='table-responsive']//tbody/tr")).Count();
+            for (int i = 0; i < count; i++)
+            {
+                driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();
+            }
             Thread.Sleep(2000); // For Presentation ONLY
             string actual = driver.FindElement(By.CssSelector("div[class = 'col-sm-9']>p")).Text;
             string expected = "Your wish list is empty.";
@@ -82,7 +89,7 @@ namespace TestOpenCart
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout product-grid')]//a[contains(text(), 'Palm Treo Pro')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             driver.FindElement(By.CssSelector("#wishlist-total > i")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=28']")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();
             string actual = driver.FindElement(By.CssSelector("div.alert.alert-success")).Text;
             string expected = "Success: You have modified your wish list!\r\n×";
             Assert.AreEqual(actual,expected, $"After removing one element was message{actual} instead of {expected}");
@@ -103,7 +110,7 @@ namespace TestOpenCart
             string expected = "HTC Touch HD";
             Assert.AreEqual(expected, actual, $"In Wish List are no expected item: {expected}");
             Thread.Sleep(2000); // For Presentation ONLY
-            driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=28']")).Click();
+            driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();
         }
 
         [Test]
@@ -115,7 +122,7 @@ namespace TestOpenCart
             driver.FindElement(By.XPath("//i[@class = 'fa fa-home']")).Click();
             driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'iPhone')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
             Thread.Sleep(2000); // For Presentation ONLY
-            string actual = driver.FindElement(By.CssSelector("div.alert.alert-success a[href*='route=account/login']")).Text;
+            string actual = driver.FindElement(By.CssSelector("div.alert.alert-success a[href*='/login']")).Text;
             string expected = "login";
             Assert.AreEqual(expected, actual, "There was no Message with offer to login or create an account");
             Thread.Sleep(2000); // For Presentation ONLY

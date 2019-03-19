@@ -1,0 +1,24 @@
+1.Button "Wish List" in top menu  
+	driver.FindElement(By.Id("wishlist-total")).Click(); 
+
+2. Add element "iPhone" to wish list
+	driver.FindElement(By.XPath("//div[contains(@class, 'product-layout')]//a[contains(text(), 'iPhone')]/../../following-sibling::div/button[@data-original-title='Add to Wish List']")).Click();
+
+3.Delete first element from wish list
+	driver.FindElement(By.XPath("//div[@class='table-responsive']//tbody/tr[1]//a[@class='btn btn-danger']")).Click();           
+
+4.Delete element by id of element
+	driver.FindElement(By.CssSelector("td[class = 'text-right']>a[href*= '/wishlist&remove=40']")).Click();
+
+5. Find name of all elements in wish list
+	driver.FindElements(By.CssSelector("#content > div.table-responsive td.text-left > a")).Count;
+
+6. Count number of all elemetn in wish list
+	driver.FindElements(By.XPath("//div[@class='table-responsive']//tbody/tr")).Count();
+
+7. Find message "Your wish list is empty." after removing all
+	driver.FindElement(By.CssSelector("div[class = 'col-sm-9']>p")).Text;
+
+8. Find message after removing one element
+	driver.FindElement(By.CssSelector("div.alert.alert-success")).Text;
+	
