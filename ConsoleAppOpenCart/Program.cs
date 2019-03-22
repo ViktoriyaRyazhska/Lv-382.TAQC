@@ -17,7 +17,7 @@ namespace ConsoleAppOpenCart
             //    "company1", "1address1", "1address2",
             //    "city1", "postcode1", "country1",
             //    "region1", "password1", true);
-            //Console.WriteLine("user.Lastname" + user.Lastname);
+            //Console.WriteLine("user.Lastname " + user.Lastname);
             //
             // 2. Default Constructor and Setters
             //User user = new User();
@@ -35,7 +35,7 @@ namespace ConsoleAppOpenCart
             //user.SetRegionState("regionState2");
             //user.SetPassword("password2");
             //user.SetSubscribe(true);
-            //Console.WriteLine("user.Lastname" + user.Lastname);
+            //Console.WriteLine("user.Lastname " + user.Lastname);
             //
             // 3. Add Fluent Interface
             //User user = new User()
@@ -53,25 +53,71 @@ namespace ConsoleAppOpenCart
             //    .SetRegionState("regionState3")
             //    .SetPassword("password3")
             //    .SetSubscribe(true);
-            //Console.WriteLine("user.Lastname" + user.Lastname);
+            //Console.WriteLine("user.Lastname " + user.Lastname);
             //
             // 4. Add Static Factory
-            User user = User.Get()
-                .SetFirstname("firstname4")
-                .SetLastname("lastname4")
-                .SetEmail("email4")
-                .SetTelephone("telephone4")
-                .SetFax("fax4")
-                .SetCompany("company4")
-                .SetAddress1("4address1")
-                .SetAddress2("4address2")
-                .SetCity("city4")
-                .SetPostcode("postcode4")
-                .SetCountry("country4")
-                .SetRegionState("regionState4")
-                .SetPassword("password4")
-                .SetSubscribe(true);
-            Console.WriteLine("user.Lastname" + user.Lastname);
+            //User user = User.Get()
+            //    .SetFirstname("firstname4")
+            //    .SetLastname("lastname4")
+            //    .SetEmail("email4")
+            //    .SetTelephone("telephone4")
+            //    .SetFax("fax4")
+            //    .SetCompany("company4")
+            //    .SetAddress1("4address1")
+            //    .SetAddress2("4address2")
+            //    .SetCity("city4")
+            //    .SetPostcode("postcode4")
+            //    .SetCountry("country4")
+            //    .SetRegionState("regionState4")
+            //    .SetPassword("password4")
+            //    .SetSubscribe(true);
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            //
+            // 5. Add Builder
+            //User user = User.Get()
+            //    .SetFirstname("Firstname5")
+            //    .SetLastname("Lastname5")
+            //    .SetEmail("Email5")
+            //    .SetTelephone("123456")
+            //    .SetAddress1("5Address1")
+            //    .SetCity("City5")
+            //    .SetPostcode("54321")
+            //    .SetCountry("Country5")
+            //    .SetRegionState("RegionState5")
+            //    .SetPassword("Password5")
+            //    .SetSubscribe(true)
+            //    .SetFax("Fax5")
+            //    .Build();
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            // Code
+            //user.SetLastname("12345");  // Defect
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            //
+            // 6. Dependency Inversion
+            //IUser user = User.Get()
+            //    .SetFirstname("Firstname6")
+            //    .SetLastname("Lastname6")
+            //    .SetEmail("Email6")
+            //    .SetTelephone("123456")
+            //    .SetAddress1("6Address1")
+            //    .SetCity("City6")
+            //    .SetPostcode("54321")
+            //    .SetCountry("Country6")
+            //    .SetRegionState("RegionState6")
+            //    .SetPassword("Password6")
+            //    .SetSubscribe(true)
+            //    .SetFax("Fax6")
+            //    .Build();
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            // Code
+            //user.SetLastname("12345");  // Compile Error
+            //((User)user).SetLastname("12345");  // Code Smell
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            //
+            // 7. Singleton
+            // 8. Repository
+            IUser user = UserRepository.Get().Registered();
+            Console.WriteLine("user.Lastname " + user.Lastname);
             //
             Console.WriteLine("\nDone.");
         }

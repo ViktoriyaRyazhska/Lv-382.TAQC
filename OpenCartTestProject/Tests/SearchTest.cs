@@ -20,7 +20,7 @@ namespace OpenCartTestProject.Tests
         };
 
 
-        [Test, TestCaseSource(nameof(ProductData))]
+        //[Test, TestCaseSource(nameof(ProductData))]
         public void CheckSearch(Product product, IList<Product> expectedList)
         {
             // Steps
