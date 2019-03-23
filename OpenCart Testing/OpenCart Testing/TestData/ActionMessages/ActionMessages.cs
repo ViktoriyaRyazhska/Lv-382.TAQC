@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.TestData.ActionMessages
 {
-    class ReviewActionMessages
+    class ActionMessages
     {
+        public string Message { get; private set; } 
     }
 }
