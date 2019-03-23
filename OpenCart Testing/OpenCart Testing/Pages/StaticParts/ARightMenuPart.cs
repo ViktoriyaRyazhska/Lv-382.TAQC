@@ -41,6 +41,140 @@ namespace OpenCart_Testing.Pages.StaticParts
         public IWebElement Logout
         { get { return driver.FindElement(MARightMenuPart.locatorLogout); } }
 
+        public new string GetMyAccountText()
+        {
+            return MyAccount.Text;
+        }
 
+        public new void ClickMyAccount()
+        {
+            MyAccount.Click();
+        }
+
+        public string GetEditAccountText()
+        {
+            return EditAccount.Text;
+        }
+
+        public void ClickEditAccount()
+        {
+            EditAccount.Click();
+        }
+
+        public string GetPasswordText()
+        {
+            return Password.Text;
+        }
+
+        public void ClickPassword()
+        {
+            Password.Click();
+        }
+
+        public string GetAddressBookText()
+        {
+            return AddressBook.Text;
+        }
+
+        public void ClickAddressBook()
+        {
+            AddressBook.Click();
+        }
+
+        public new string GetWishListText()
+        {
+            return WishList.Text;
+        }
+
+        public new void ClickWishList()
+        {
+            WishList.Click();
+        }
+
+        public string GetOrderHistoryText()
+        {
+            return OrderHistory.Text;
+        }
+
+        public void ClickOrderHistory()
+        {
+            OrderHistory.Click();
+        }
+
+        public string GetDownloadsText()
+        {
+            return Downloads.Text;
+        }
+
+        public void ClickDownloads()
+        {
+            Downloads.Click();
+        }
+
+        public string GetRecurringPaymentsText()
+        {
+            return RecurringPayments.Text;
+        }
+
+        public void ClickRecurringPayments()
+        {
+            RecurringPayments.Click();
+        }
+
+        public string GetRewardPointsText()
+        {
+            return RewardPoints.Text;
+        }
+
+        public void ClickRewardPoints()
+        {
+            RewardPoints.Click();
+        }
+
+        public string GetReturnsText()
+        {
+            return Returns.Text;
+        }
+
+        public void ClickReturns()
+        {
+            Returns.Click();
+        }
+
+        public string GetTransactionsText()
+        {
+            return Transactions.Text;
+        }
+
+        public void ClickTransactions()
+        {
+            Transactions.Click();
+        }
+
+        public string GetNewsletterText()
+        {
+            return Newsletter.Text;
+        }
+
+        public void ClickNewsletter()
+        {
+            Newsletter.Click();
+        }
+
+        public string GetLogoutText()
+        {
+            return Logout.Text;
+        }
+
+        public void ClickLogout()
+        {
+            Logout.Click();
+        }
+
+        //public AddressBookPage GotoAddressBookPage()
+        //{
+        //    ClickAddressBook;
+        //    return new AddressBookPage(driver);
+        //}
     }
 }
