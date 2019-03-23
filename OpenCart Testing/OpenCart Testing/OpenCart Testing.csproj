@@ -77,12 +77,13 @@
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-    <Compile Include="TestData\ProductData\Product.cs" />
-    <Compile Include="TestData\ActionMessages\ReviewActionMessages.cs" />
-    <Compile Include="TestData\ProductData\ProductRepository.cs" />
-    <Compile Include="TestData\ReviewData\IReview.cs" />
-    <Compile Include="TestData\ReviewData\Review.cs" />
-    <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestsData\ActionMessages\ActionMessageRepository.cs" />
+    <Compile Include="TestsData\ProductData\Product.cs" />
+    <Compile Include="TestsData\ActionMessages\ActionMessages.cs" />
+    <Compile Include="TestsData\ProductData\ProductRepository.cs" />
+    <Compile Include="TestsData\ReviewData\IReview.cs" />
+    <Compile Include="TestsData\ReviewData\Review.cs" />
+    <Compile Include="TestsData\ReviewData\ReviewsRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
-    <Folder Include="TestData\DataSourse\" />
+    <Folder Include="TestsData\DataSourse\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

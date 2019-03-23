@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.TestData.ActionMessages
+namespace OpenCart_Testing.TestsData
 {
-    class ActionMessages
+    public class ActionMessages
     {
         public string Message { get; private set; } 
+
+        public ActionMessages(string messageText)
+        {
+            Message = messageText;
+        }
     }
 }
