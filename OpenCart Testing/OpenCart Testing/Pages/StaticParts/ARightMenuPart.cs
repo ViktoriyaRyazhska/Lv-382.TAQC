@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.StaticParts
 {
-    public abstract class ARightMenuPart: ABreadCrumbsPart
+    public abstract class ARightMenuPart : ABreadCrumbsPart
     {
         public ARightMenuPart(IWebDriver driver) : base(driver)
         {
@@ -16,10 +16,7 @@ namespace OpenCart_Testing.Pages.StaticParts
 
         public new IWebElement MyAccount
         { get { return driver.FindElement(MARightMenuPart.locatorMyAccount); } }
-        public IWebElement EditAccount
-        { get { return driver.FindElement(MARightMenuPart.locatorEditAccount); } }
-        public IWebElement Password
-        { get { return driver.FindElement(MARightMenuPart.locatorPassword); } }
+
         public IWebElement AddressBook
         { get { return driver.FindElement(MARightMenuPart.locatorAddressBook); } }
         public new IWebElement WishList
@@ -38,8 +35,6 @@ namespace OpenCart_Testing.Pages.StaticParts
         { get { return driver.FindElement(MARightMenuPart.locatorTransactions); } }
         public IWebElement Newsletter
         { get { return driver.FindElement(MARightMenuPart.locatorNewsletter); } }
-        public IWebElement Logout
-        { get { return driver.FindElement(MARightMenuPart.locatorLogout); } }
 
         public new string GetMyAccountText()
         {
@@ -49,26 +44,6 @@ namespace OpenCart_Testing.Pages.StaticParts
         public new void ClickMyAccount()
         {
             MyAccount.Click();
-        }
-
-        public string GetEditAccountText()
-        {
-            return EditAccount.Text;
-        }
-
-        public void ClickEditAccount()
-        {
-            EditAccount.Click();
-        }
-
-        public string GetPasswordText()
-        {
-            return Password.Text;
-        }
-
-        public void ClickPassword()
-        {
-            Password.Click();
         }
 
         public string GetAddressBookText()
@@ -161,16 +136,7 @@ namespace OpenCart_Testing.Pages.StaticParts
             Newsletter.Click();
         }
 
-        public string GetLogoutText()
-        {
-            return Logout.Text;
-        }
-
-        public void ClickLogout()
-        {
-            Logout.Click();
-        }
-
+        
         //public AddressBookPage GotoAddressBookPage()
         //{
         //    ClickAddressBook;
