@@ -23,5 +23,12 @@ namespace OpenCart_Testing
             Assert.AreEqual("There are no reviews for this product.", IphoneReviews.ReviewsList.GetReviewEmptyListText());
         }
 
+        [Test, Order(1)]
+        public void ReviewsCount()
+        {
+            ProductPage Iphone = LoadApplication()
+                .GetProductPageByName("iPhone");
+            Assert.AreEqual(11, Iphone.GetReviewsCountAll());
+        }
     }
 }

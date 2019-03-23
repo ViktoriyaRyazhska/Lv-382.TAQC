@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.Extentions
+namespace OpenCart_Testing
 {
     public static class WebElementExtensions
     {
@@ -14,6 +14,11 @@ namespace OpenCart_Testing.Extentions
             element.Click();
             element.Clear();
             element.SendKeys(text);
+        }
+        public static void ClickExtended(this IWebElement element)
+        {
+            Application.WaitBeforeClick();
+            element.Click();
         }
     }
 }

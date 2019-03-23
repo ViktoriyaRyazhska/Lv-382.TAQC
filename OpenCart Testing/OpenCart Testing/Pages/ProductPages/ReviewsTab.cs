@@ -21,6 +21,7 @@ namespace OpenCart_Testing.Pages.ProductPages
         private void initElements()
         {
             ReviewsList = new ReviewComponentsContainer(driver);
+            ReviewAddForm = new ReviewAddNew(driver);
         }
         
 

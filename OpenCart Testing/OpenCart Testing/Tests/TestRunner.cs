@@ -14,9 +14,10 @@ namespace OpenCart_Testing
     public class TestRunner
     {
         protected IWebDriver driver;
-        protected const int spanTime = 15;
+        protected const int spanTime = 2;
         protected const int sleepTime = 2000;
-         
+        protected string baseUrl = "http://192.168.244.134/opencart/upload/";
+
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
@@ -32,7 +33,7 @@ namespace OpenCart_Testing
         [SetUp]
         public void BeforeAllTests()
         {
-            driver.Navigate().GoToUrl("http://192.168.244.134/opencart/upload/");
+            driver.Navigate().GoToUrl(baseUrl);
         }
 
 

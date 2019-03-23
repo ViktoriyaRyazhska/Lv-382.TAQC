@@ -21,6 +21,7 @@ namespace OpenCart_Testing.Pages.ProductPages
         }
         //
         private IWebElement EmptyListMessage => GetReviewComponentsCount() > 0? throw new Exception("List is not Empty") : driver.FindElement(MReviewComponentContainer.locatorReviewEmptyList);
+
         //
 
         private void InitElements()

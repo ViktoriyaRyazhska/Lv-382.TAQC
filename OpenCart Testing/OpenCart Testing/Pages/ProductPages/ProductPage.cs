@@ -31,7 +31,12 @@ namespace OpenCart_Testing.Pages.ProductPages
 
         private void ClickReviews()
         {
-            Reviews.Click();
+            Reviews.ClickExtended();
+        }
+
+        public int GetReviewsCountAll()
+        {
+            return int.Parse(GetReviewsText().Split(new char[] { '(', ')' })[1]);
         }
 
         public DescriptionTab OpenProductDescription()
@@ -39,6 +44,7 @@ namespace OpenCart_Testing.Pages.ProductPages
             ClicDescriptiont();
             return description;
         }
+
         public ReviewsTab OpenProductReviews()
         {
             ClickReviews();
