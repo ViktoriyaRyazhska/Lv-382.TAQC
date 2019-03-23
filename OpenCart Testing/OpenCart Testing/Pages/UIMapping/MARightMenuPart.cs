@@ -9,7 +9,6 @@ namespace OpenCart_Testing.Pages.UIMapping
 {
     public static class MARightMenuPart
     {
-
         public static By locatorMyAccount => By.XPath("//div[@class='list-group']/a[contains(@href, 'account/account')]");
         public static By locatorEditAccount => By.XPath("//div[@class='list-group']/a[contains(@href, 'account/edit')]");
         public static By locatorPassword => By.XPath("//div[@class='list-group']/a[contains(@href, 'account/password')]");
