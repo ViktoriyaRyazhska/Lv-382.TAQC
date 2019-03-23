@@ -77,9 +77,12 @@
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-    <Compile Include="TestData\IReview.cs" />
-    <Compile Include="TestData\Review.cs" />
-    <Compile Include="TestData\ReviewsRepository.cs" />
+    <Compile Include="TestData\ProductData\Product.cs" />
+    <Compile Include="TestData\ActionMessages\ReviewActionMessages.cs" />
+    <Compile Include="TestData\ProductData\ProductRepository.cs" />
+    <Compile Include="TestData\ReviewData\IReview.cs" />
+    <Compile Include="TestData\ReviewData\Review.cs" />
+    <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
