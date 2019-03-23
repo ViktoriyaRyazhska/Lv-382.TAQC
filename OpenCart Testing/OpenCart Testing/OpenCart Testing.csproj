@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Extentions\Application.cs" />
     <Compile Include="Extentions\WebElementExtensions.cs" />
+    <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
     <Compile Include="Pages\SearchPage\ASearchResultPart.cs" />
     <Compile Include="Pages\StaticParts\ARightLoginPart.cs" />
@@ -83,11 +84,17 @@
     <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-    <Compile Include="TestData\ProductData\Product.cs" />
-    <Compile Include="TestData\ProductData\ProductRepository.cs" />
+    <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
+    <Compile Include="Pages\UIMapping\MWishListPage.cs" />
+    <Compile Include="Pages\UIMapping\MWishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\ProductData\Product.cs" />
+    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
@@ -103,6 +110,7 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
+    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
