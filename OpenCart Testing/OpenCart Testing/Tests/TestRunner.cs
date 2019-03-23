@@ -17,7 +17,11 @@ namespace OpenCart_Testing
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
 
+<<<<<<< HEAD
         protected string baseUrl = "http://192.168.150.132/opencart/upload/";
+=======
+        protected string baseUrl = "http://192.168.79.129/opencart/upload/";
+>>>>>>> 83d142cc1815abf5f13b984712e8ff40ab667b62
 
         [OneTimeSetUp]
         public void BeforeAllMethods()
