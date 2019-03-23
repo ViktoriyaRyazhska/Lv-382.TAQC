@@ -30,6 +30,8 @@ namespace OpenCart_Testing.Pages
         { get { return driver.FindElement(MATopPart.locatorSearchButton); } }
         public IWebElement CartButton
         { get { return driver.FindElement(MATopPart.locatorCartButton); } }
+        public IWebElement LoginButton
+        { get { return driver.FindElement(MATopPart.locatorLoginButton); } }
         //
         public IList<IWebElement> TopMenu;
 
@@ -164,6 +166,11 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
 
+        public void ClickLoginButton()
+        {
+            ClickMyAccount();
+            LoginButton.Click();
+        }
     }
 }
 

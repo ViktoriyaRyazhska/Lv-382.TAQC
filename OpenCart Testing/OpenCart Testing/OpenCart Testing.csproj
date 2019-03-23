@@ -77,6 +77,11 @@
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
+    <Compile Include="Pages\UIMapping\MWishListPage.cs" />
+    <Compile Include="Pages\UIMapping\MWishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\IReview.cs" />
     <Compile Include="TestData\Review.cs" />
     <Compile Include="TestData\ReviewsRepository.cs" />
@@ -91,6 +96,7 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
+    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
