@@ -30,5 +30,17 @@ namespace OpenCart_Testing.Tests.WishListTests
         }
 
 
+        [TestCase("login", "iPhone")]
+        [Test]
+        public void CheckAddForNotLoggedIn(string expectedMessage, string name)
+        {
+            HomePage page = LoadApplication();
+            page.getProductComponentsContainer().ClickProductComponentAddToCartButtonByName(name);
+            UpdatedHomePage updatedPage = new UpdatedHomePage(driver);
+            string actualMessage = updatedPage.GetUpdatedMessage().Text;
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+
+
     }
 }

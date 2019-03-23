@@ -16,11 +16,8 @@ namespace OpenCart_Testing
         protected IWebDriver driver;
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
-<<<<<<< HEAD
+
         protected string baseUrl = "http://192.168.79.129/opencart/upload/";
-=======
-        protected string baseUrl = "http://192.168.85.129/opencart/upload/";
->>>>>>> 628e48fa57c3f3f1e68fc8bda95f2ce66563ffad
 
         [OneTimeSetUp]
         public void BeforeAllMethods()
