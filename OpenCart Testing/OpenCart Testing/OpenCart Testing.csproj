@@ -83,6 +83,8 @@
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
+    <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
