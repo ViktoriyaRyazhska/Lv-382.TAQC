@@ -30,9 +30,9 @@ namespace OpenCart_Testing.TestsData
             return instance;
         }
 
-        public static ActionMessages GetReviewEmptyListMessage()
+        public ActionMessages GetTooShortNameReview()
         {
-            return new ActionMessages("There are no reviews for this product.");
+            return new ActionMessages("");
         }
     }
 }

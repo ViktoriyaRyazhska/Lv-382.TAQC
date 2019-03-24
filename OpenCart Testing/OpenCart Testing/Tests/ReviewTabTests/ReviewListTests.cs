@@ -15,8 +15,8 @@ namespace OpenCart_Testing
 
 
 
-
-        [Test, TestCaseSource("ReviewEmptyListData"), Order(1)]
+        [Test]
+        [TestCaseSource("ReviewEmptyListData"), Order(1)]
         public void ReviewsTest_EmptyListText(Product product, string emptyListMessage)
         {
             ProductPage Iphone = LoadApplication()

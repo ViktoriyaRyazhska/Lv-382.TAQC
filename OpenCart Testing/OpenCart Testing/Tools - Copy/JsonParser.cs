@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tools
 {
-    class JsonParser 
+    class JsonParser
     {
         public static T DeserializeFromFile<T>(string filePath)
         {
