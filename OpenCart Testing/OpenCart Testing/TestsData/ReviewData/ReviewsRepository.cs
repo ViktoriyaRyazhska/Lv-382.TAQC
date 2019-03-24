@@ -8,7 +8,7 @@ namespace OpenCart_Testing.TestsData
         private volatile static ReviewsRepository instance;
         private static object lockingObject = new object();
         private const string reviewEmptyListMessage = "There are no reviews for this product.";
-        private static string ReviewPath = @"TestsData/DataSourse/";
+        private static string ReviewPath = @"C:\Users\Lutik\Desktop\New folder\OpenCart Testing\OpenCart Testing\TestsData\DataSourse\";
 
         private ReviewsRepository()
         {
@@ -40,11 +40,15 @@ namespace OpenCart_Testing.TestsData
 
         public IReview NewReviewFromJson(string filename)
         {
-            dynamic review = JsonParser.DeserializeFromFile<dynamic>(ReviewPath+filename);
-            var name = review.Name;
-            var text = review.Text;
-            var rating = review.Rating;
-            return Review.Get().SetName(name).SetText(text).SetRating(rating).Build();
+            try
+            {
+                return JsonParser.DeserializeFromFile<Review>(ReviewPath+filename) as IReview;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Cant Deserialize from file: "+ ReviewPath + filename);
+            }
+
         }
 
         //public IList<IReview> ListReviewsFromJson()

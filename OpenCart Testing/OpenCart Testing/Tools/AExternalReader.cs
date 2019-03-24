@@ -15,16 +15,14 @@ namespace OpenCart_Testing.Tools
         //
         //public static Logger log = LogManager.GetCurrentClassLogger(); // for NLog
 
-        public string Filename { get; private set; }
-        public string Path { get; protected set; }
+        public static string FilePath { get; protected set; }
 
         //protected ExternalReader(string filename)
-        public AExternalReader(string filename)
+        protected static string GetPath(string filename)
         {
-            Filename = filename;
-            Path = AppDomain.CurrentDomain.BaseDirectory;
-            Path = Path.Remove(Path.IndexOf(FOLDER_BIN)) + FOLDER_DATA + PATH_SEPARATOR + filename;
-            Console.WriteLine("***PATH to resource: " + Path);
+            FilePath = AppDomain.CurrentDomain.BaseDirectory;
+            return FilePath.Remove(FilePath.IndexOf(FOLDER_BIN)) + FOLDER_DATA + PATH_SEPARATOR + filename;
+            Console.WriteLine("***PATH to resource: " + FilePath);
         }
 
     }

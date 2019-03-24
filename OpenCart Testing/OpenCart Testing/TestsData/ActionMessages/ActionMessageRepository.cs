@@ -30,9 +30,9 @@ namespace OpenCart_Testing.TestsData
             return instance;
         }
 
-        public ActionMessages GetTooShortNameReview()
+        public ActionMessages TooShortNameReviewMessage()
         {
-            return new ActionMessages("");
+            return new ActionMessages("Warning: Review Name must be between 3 and 25 characters!");
         }
     }
 }

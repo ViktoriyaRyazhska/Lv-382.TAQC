@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tools
 {
-    class JsonParser 
+    class JsonParser : AExternalReader
     {
+        private const string FOLDER_BIN = "bin";
         public static T DeserializeFromFile<T>(string filePath)
         {
-            filePath = Path.Combine(TestContext.CurrentContext.WorkDirectory, filePath);
             string json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<T>(json);
         }

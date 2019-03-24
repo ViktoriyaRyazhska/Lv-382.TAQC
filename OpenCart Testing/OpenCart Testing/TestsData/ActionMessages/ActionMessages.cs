@@ -8,11 +8,15 @@ namespace OpenCart_Testing.TestsData
 {
     public class ActionMessages
     {
-        public string Message { get; private set; } 
+        private string Message { get; set; } 
 
         public ActionMessages(string messageText)
         {
             Message = messageText;
+        }
+        public string GetMessage()
+        {
+            return Message;
         }
     }
 }

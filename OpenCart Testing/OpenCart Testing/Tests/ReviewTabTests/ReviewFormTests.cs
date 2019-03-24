@@ -11,16 +11,16 @@ namespace OpenCart_Testing.Tests.ReviewTabTests
 
         public static object[] ReviewTooShortNameData =
         {
-            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortNameData.json")).SetName("ReviewTooShortName")
+            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortNameData.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName")
         };
 
         [Test]
         [TestCaseSource("ReviewTooShortNameData")]
-        public void CreateWithEmptyFieldName(Review invalid)
+        public void CreateWithEmptyFieldName(Product product, IReview review, ActionMessages actionMessages)
         {
             ProductPage Iphone = LoadApplication()
                 .GetProductPageByName(product.Name);
-            Assert.AreEqual("Warning: Review Name must be between 3 and 25 characters!", CreateMessage);
+            Assert.AreEqual(actionMessages.GetMessage(), Iphone.OpenProductReviews().ReviewAddForm.CreateReview(review));
         }
     }
 }

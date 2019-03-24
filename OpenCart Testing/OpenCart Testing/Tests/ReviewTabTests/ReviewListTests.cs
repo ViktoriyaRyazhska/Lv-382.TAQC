@@ -10,7 +10,7 @@ namespace OpenCart_Testing
     {
         public static object[] ReviewEmptyListData =
         {
-            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.GetReviewEmptyListMessage()).SetName("ReviewEmptyListText")
+            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().GetReviewEmptyListMessage()).SetName("ReviewEmptyListText")
         };
 
 

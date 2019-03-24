@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenCart_Testing.Pages.UIMapping.MReviewAddNew;
 using System.Threading;
+using OpenCart_Testing.TestsData;
 
 namespace OpenCart_Testing.Pages.ProductPages
 {
@@ -62,6 +63,14 @@ namespace OpenCart_Testing.Pages.ProductPages
             if(name != string.Empty) SetReviewName(name);
             if(text != string.Empty) SetReviewText(text);
             if(rating > 0) SetReviewRating(rating);
+            ClickCreateButton();
+            return GetCreateReviewMessage();
+        }
+        public string CreateReview(IReview reviewJson)
+        {
+            SetReviewName(reviewJson.Name);
+            SetReviewText(reviewJson.Text);
+            SetReviewRating(reviewJson.Rating);
             ClickCreateButton();
             return GetCreateReviewMessage();
         }

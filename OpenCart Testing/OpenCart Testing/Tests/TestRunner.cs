@@ -13,10 +13,10 @@ namespace OpenCart_Testing
     [TestFixture]
     public class TestRunner
     {
-        protected static IWebDriver driver;
+        protected IWebDriver driver;
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
-        protected string baseUrl = "http://192.168.244.134/opencart/upload/";
+        protected string baseUrl = "http://192.168.244.135/opencart/upload/";
 
         [OneTimeSetUp]
         public void BeforeAllMethods()
@@ -37,7 +37,7 @@ namespace OpenCart_Testing
         }
 
 
-        public static HomePage LoadApplication()
+        public HomePage LoadApplication()
         {
             return new HomePage(driver);
         }
