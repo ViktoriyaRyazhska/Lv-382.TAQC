@@ -9,13 +9,21 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tools
 {
-    class JsonParser
+    class JsonParser : AExternalReader
     {
-        public static T DeserializeFromFile<T>(string filePath)
+        public static T DeserializeFromFile<T>(string repository,string fileName)
         {
-            filePath = Path.Combine(TestContext.CurrentContext.WorkDirectory, filePath);
-            string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<T>(json);
+            try
+            {
+                string json = File.ReadAllText(GetPath(repository,fileName));
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception($"Cant Deserialize from file: {GetPath(repository, fileName)}");
+            }
+
         }
     }
 }

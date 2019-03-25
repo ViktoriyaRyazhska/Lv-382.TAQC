@@ -12,28 +12,28 @@ namespace OpenCart_Testing.Pages
         //
         protected IWebDriver driver;
         //
-        public IWebElement Currency
+        protected IWebElement Currency
         { get { return driver.FindElement(MATopPart.locatorCurrency); } }
-        public IWebElement MyAccount
+        protected IWebElement MyAccount
         { get { return driver.FindElement(MATopPart.locatorMyAccount); } }
-        public IWebElement WishList
+        protected IWebElement WishList
         { get { return driver.FindElement(MATopPart.locatorWishList); } }
-        public IWebElement ShoppingCart
+        protected IWebElement ShoppingCart
         { get { return driver.FindElement(MATopPart.locatorShoppingCart); } }
-        public IWebElement CheckOut
+        protected IWebElement CheckOut
         { get { return driver.FindElement(MATopPart.locatorCheckOut); } }
-        public IWebElement Logo
+        protected IWebElement Logo
         { get { return driver.FindElement(MATopPart.locatorLogo); } }
-        public IWebElement SearchField
+        protected IWebElement SearchField
         { get { return driver.FindElement(MATopPart.locatorSearchField); } }
-        public IWebElement SearchButton
+        protected IWebElement SearchButton
         { get { return driver.FindElement(MATopPart.locatorSearchButton); } }
-        public IWebElement CartButton
+        protected IWebElement CartButton
         { get { return driver.FindElement(MATopPart.locatorCartButton); } }
         public IWebElement LoginButton
         { get { return driver.FindElement(MATopPart.locatorLoginButton); } }
         //
-        public IList<IWebElement> TopMenu;
+        protected IList<IWebElement> TopMenu;
 
         public ATopPart(IWebDriver driver)
         {
@@ -43,100 +43,100 @@ namespace OpenCart_Testing.Pages
         // PageObject
 
         // Currency
-        public string GetCurrencyText()
+        protected string GetCurrencyText()
         {
             return Currency.Text;
         }
 
-        public void ClickCurrency()
+        protected void ClickCurrency()
         {
             Currency.Click();
         }
 
         // MyAccount
-        public string GetMyAccountText()
+        protected string GetMyAccountText()
         {
             return MyAccount.Text;
         }
 
-        public void ClickMyAccount()
+        protected void ClickMyAccount()
         {
             MyAccount.Click();
         }
 
         // WishList
-        public string GetWishListText()
+        protected string GetWishListText()
         {
             return WishList.Text;
         }
 
-        public void ClickWishList()
+        protected void ClickWishList()
         {
             WishList.Click();
         }
 
         // ShoppingCart
-        public string GetShoppingCartText()
+        protected string GetShoppingCartText()
         {
             return ShoppingCart.Text;
         }
 
-        public void ClickShoppingCart()
+        protected void ClickShoppingCart()
         {
             ShoppingCart.Click();
         }
 
         // CheckOut
-        public string GetCheckOutText()
+        protected string GetCheckOutText()
         {
             return CheckOut.Text;
         }
 
-        public void ClickCheckOut()
+        protected void ClickCheckOut()
         {
             CheckOut.Click();
         }
 
         // Logo
-        public void ClickLogo()
+        protected void ClickLogo()
         {
             Logo.Click();
         }
 
         // SearchField
-        public string GetSearchFieldText()
+        protected string GetSearchFieldText()
         {
             return SearchField.Text;
         }
 
-        public void SetSearchField(string text)
+        protected void SetSearchField(string text)
         {
             SearchField.SendKeys(text);
         }
 
-        public void ClearSearchField()
+        protected void ClearSearchField()
         {
             SearchField.Clear();
         }
 
-        public void ClickSearchField()
+        protected void ClickSearchField()
         {
             SearchField.Click();
         }
 
         // SearchButton
-        public void ClickSearchButton()
+        protected void ClickSearchButton()
         {
             SearchButton.Click();
         }
 
         // CartButton
-        public string GetCartButtonText()
+        protected string GetCartButtonText()
         {
             return CartButton.Text;
         }
 
-        public void ClickCartButton()
+        protected void ClickCartButton()
         {
             CartButton.Click();
         }
