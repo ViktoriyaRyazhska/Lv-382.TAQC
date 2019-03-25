@@ -1,4 +1,4 @@
-﻿namespace OpenCart_Testing.TestData
+﻿namespace OpenCart_Testing.TestsData
 {
 
     public interface IName

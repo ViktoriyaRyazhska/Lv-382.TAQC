@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading;
-using NUnit.Framework;
-using OpenCart_Testing.Pages.ProductPages;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
+﻿using NUnit.Framework;
+using OpenCart_Testing.Pages;
+using OpenCart_Testing.TestsData;
 
 namespace OpenCart_Testing
 {
@@ -14,21 +8,28 @@ namespace OpenCart_Testing
     [TestFixture]
     public class ReviewListTests : TestRunner
     {
-        [Test, Order(1)]
-        public void ReviewsTest_EmptyListText()
+        public static object[] ReviewEmptyListData =
         {
-            ReviewsTab IphoneReviews = LoadApplication()
-                .GetProductPageByName("iPhone")
-                .OpenProductReviews();
-            Assert.AreEqual("There are no reviews for this product.", IphoneReviews.ReviewsList.GetReviewEmptyListText());
-        }
+            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().GetReviewEmptyListMessage()).SetName("ReviewEmptyListText")
+        };
 
-        [Test, Order(1)]
-        public void ReviewsCount()
+
+
+        [Test]
+        [TestCaseSource("ReviewEmptyListData"), Order(1)]
+        public void ReviewsTest_EmptyListText(Product product, string emptyListMessage)
         {
             ProductPage Iphone = LoadApplication()
-                .GetProductPageByName("iPhone");
-            Assert.AreEqual(11, Iphone.GetReviewsCountAll());
+                .GetProductPageByName(product.Name);
+            Assert.AreEqual(emptyListMessage, Iphone.OpenProductReviews().ReviewsList.GetReviewEmptyListText());
         }
+
+        //[Test, Order(1)]
+        //public void ReviewsCount()
+        //{
+        //    ProductPage Iphone = LoadApplication()
+        //        .GetProductPageByName("iPhone");
+        //    Assert.AreEqual(11, Iphone.GetReviewsCountAll());
+        //}
     }
 }

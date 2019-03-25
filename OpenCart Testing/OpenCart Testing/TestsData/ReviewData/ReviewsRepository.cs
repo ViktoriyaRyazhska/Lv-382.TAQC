@@ -1,9 +1,14 @@
-﻿namespace OpenCart_Testing.TestData
+﻿using OpenCart_Testing.Tools;
+
+namespace OpenCart_Testing.TestsData
 {
     public sealed class ReviewsRepository
     {
         private volatile static ReviewsRepository instance;
         private static object lockingObject = new object();
+        private const string reviewEmptyListMessage = "There are no reviews for this product.";
+        private static string directory = "Reviews";
+
 
         private ReviewsRepository()
         {
@@ -28,11 +33,16 @@
         {
             return Review.Get().SetName("aa").SetText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa").SetRating(4).Build();
         }
+        public string GetReviewEmptyListMessage()
+        {
+            return reviewEmptyListMessage;
+        }
 
-        //public IReview NewReviewFromJson()
-        //{
 
-        //}
+        public IReview NewReviewFromJson(string fileName)
+        {
+            return JsonParser.DeserializeFromFile<Review>(directory,fileName) as IReview;
+        }
 
         //public IList<IReview> ListReviewsFromJson()
         //{

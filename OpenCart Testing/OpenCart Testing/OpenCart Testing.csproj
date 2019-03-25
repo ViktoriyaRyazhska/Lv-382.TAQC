@@ -41,6 +41,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -66,6 +67,8 @@
     <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
     <Compile Include="Pages\SearchPage\ASearchResultPart.cs" />
+    <Compile Include="Pages\StaticParts\ARightLoginPart.cs" />
+    <Compile Include="Pages\StaticParts\ARightLogoutPart.cs" />
     <Compile Include="Pages\StaticParts\ARightMenuPart.cs" />
     <Compile Include="Pages\StaticParts\ATopPart.cs" />
     <Compile Include="Pages\HomePage\HomePage.cs" />
@@ -78,8 +81,17 @@
     <Compile Include="Pages\ProductPages\ReviewComponentsContainer.cs" />
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
+    <Compile Include="Pages\UIMapping\MARightLoginPart.cs" />
+    <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
+    <Compile Include="TestsData\ActionMessages\ActionMessageRepository.cs" />
+    <Compile Include="TestsData\ProductData\Product.cs" />
+    <Compile Include="TestsData\ActionMessages\ActionMessage.cs" />
+    <Compile Include="TestsData\ProductData\ProductRepository.cs" />
+    <Compile Include="TestsData\ReviewData\IReview.cs" />
+    <Compile Include="TestsData\ReviewData\Review.cs" />
+    <Compile Include="TestsData\ReviewData\ReviewsRepository.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -108,12 +120,25 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
+    <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewValid.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidName.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidText.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidRating.json" />
+    <None Include="TestsData\DataSourse\Reviews\EmptyFieldText.json" />
+    <None Include="TestsData\DataSourse\Reviews\EmptyFieldName.json" />
+    <None Include="TestsData\DataSourse\Reviews\NotSelectedRating.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooLongName.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooShortText.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooLongText.json" />
+    <None Include="TestsData\DataSourse\Reviews\ValidReview.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooShortName.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />

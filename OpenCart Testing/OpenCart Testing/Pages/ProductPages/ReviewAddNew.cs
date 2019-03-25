@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenCart_Testing.Pages.UIMapping.MReviewAddNew;
 using System.Threading;
+using OpenCart_Testing.TestsData;
 
 namespace OpenCart_Testing.Pages.ProductPages
 {
@@ -47,7 +48,10 @@ namespace OpenCart_Testing.Pages.ProductPages
         }
         private void SetReviewRating(int rating)
         {
-            FindRatingElement(rating).Click();
+            if(rating > 0)
+            {
+                FindRatingElement(rating).Click();
+            }
         }
         private void ClickCreateButton()
         {
@@ -62,6 +66,14 @@ namespace OpenCart_Testing.Pages.ProductPages
             if(name != string.Empty) SetReviewName(name);
             if(text != string.Empty) SetReviewText(text);
             if(rating > 0) SetReviewRating(rating);
+            ClickCreateButton();
+            return GetCreateReviewMessage();
+        }
+        public string CreateReview(IReview review)
+        {
+            SetReviewName(review.Name);
+            SetReviewText(review.Text);
+            SetReviewRating(review.Rating);
             ClickCreateButton();
             return GetCreateReviewMessage();
         }
