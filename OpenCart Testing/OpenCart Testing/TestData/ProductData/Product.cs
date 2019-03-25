@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.TestsData
+namespace OpenCart_Testing.TestData
 {
     public class Product
     {
