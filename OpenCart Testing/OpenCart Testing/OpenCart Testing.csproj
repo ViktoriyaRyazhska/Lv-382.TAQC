@@ -85,19 +85,14 @@
     <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-    <Compile Include="TestsData\ActionMessages\ActionMessageRepository.cs" />
-    <Compile Include="TestsData\ProductData\Product.cs" />
-    <Compile Include="TestsData\ActionMessages\ActionMessage.cs" />
-    <Compile Include="TestsData\ProductData\ProductRepository.cs" />
-    <Compile Include="TestsData\ReviewData\IReview.cs" />
-    <Compile Include="TestsData\ReviewData\Review.cs" />
-    <Compile Include="TestsData\ReviewData\ReviewsRepository.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
+    <Compile Include="TestData\ActionMessages\ActionMessage.cs" />
+    <Compile Include="TestData\ActionMessages\ActionMessageRepository.cs" />
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
@@ -127,24 +122,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="TestsData\DataSourse\ActionMessages\ReviewValid.json" />
-    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidName.json" />
-    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidText.json" />
-    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidRating.json" />
-    <None Include="TestsData\DataSourse\Reviews\EmptyFieldText.json" />
-    <None Include="TestsData\DataSourse\Reviews\EmptyFieldName.json" />
-    <None Include="TestsData\DataSourse\Reviews\NotSelectedRating.json" />
-    <None Include="TestsData\DataSourse\Reviews\TooLongName.json" />
-    <None Include="TestsData\DataSourse\Reviews\TooShortText.json" />
-    <None Include="TestsData\DataSourse\Reviews\TooLongText.json" />
-    <None Include="TestsData\DataSourse\Reviews\ValidReview.json" />
-    <None Include="TestsData\DataSourse\Reviews\TooShortName.json" />
+    <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidName.json" />
+    <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidRating.json" />
+    <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidText.json" />
+    <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
+    <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
+    <None Include="TestData\DataSourse\Reviews\EmptyFieldText.json" />
+    <None Include="TestData\DataSourse\Reviews\NotSelectedRating.json" />
+    <None Include="TestData\DataSourse\Reviews\TooLongName.json" />
+    <None Include="TestData\DataSourse\Reviews\TooLongText.json" />
+    <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
+    <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
+    <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
     <Folder Include="Pages\AddressBookPages\" />
-    <Folder Include="TestData\ActionMessages\" />
-    <Folder Include="TestData\DataSourse\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -70,7 +70,7 @@ namespace OpenCart_Testing.Pages
             return WishList.Text;
         }
 
-        protected void ClickWishList()
+        public void ClickWishList()
         {
             WishList.Click();
         }

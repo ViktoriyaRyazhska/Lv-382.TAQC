@@ -1,6 +1,6 @@
 ﻿using OpenCart_Testing.Tools;
 
-namespace OpenCart_Testing.TestsData
+namespace OpenCart_Testing.TestData
 {
     public sealed class ActionMessageRepository
     {

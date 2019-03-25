@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenCart_Testing.Pages.UIMapping.MReviewAddNew;
 using System.Threading;
-using OpenCart_Testing.TestsData;
+using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing.Pages.ProductPages
 {
