@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.UIMapping.MHomePage
+namespace OpenCart_Testing.TestData.SimpleSearchData
 {
-    static public class MHomePage
+    class SimpleSearchRepository
     {
-        public static string testc = "adefwef";
     }
 }

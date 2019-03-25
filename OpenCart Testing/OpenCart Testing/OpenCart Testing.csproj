@@ -64,8 +64,12 @@
   <ItemGroup>
     <Compile Include="Extentions\Application.cs" />
     <Compile Include="Extentions\WebElementExtensions.cs" />
+    <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
     <Compile Include="Pages\SearchPage\ASearchResultPart.cs" />
+    <Compile Include="Pages\StaticParts\ARightLoginPart.cs" />
+    <Compile Include="Pages\StaticParts\ARightLogoutPart.cs" />
+    <Compile Include="Pages\StaticParts\ARightMenuPart.cs" />
     <Compile Include="Pages\StaticParts\ATopPart.cs" />
     <Compile Include="Pages\HomePage\HomePage.cs" />
     <Compile Include="Pages\HomePage\ProductComponent.cs" />
@@ -77,6 +81,9 @@
     <Compile Include="Pages\ProductPages\ReviewComponentsContainer.cs" />
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
+    <Compile Include="Pages\UIMapping\MARightLoginPart.cs" />
+    <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
+    <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="TestsData\ActionMessages\ActionMessageRepository.cs" />
     <Compile Include="TestsData\ProductData\Product.cs" />
@@ -85,6 +92,19 @@
     <Compile Include="TestsData\ReviewData\IReview.cs" />
     <Compile Include="TestsData\ReviewData\Review.cs" />
     <Compile Include="TestsData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
+    <Compile Include="Pages\UIMapping\MWishListPage.cs" />
+    <Compile Include="Pages\UIMapping\MWishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishProduct.cs" />
+    <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
+    <Compile Include="TestData\ReviewData\IReview.cs" />
+    <Compile Include="TestData\ReviewData\Review.cs" />
+    <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\ProductData\Product.cs" />
+    <Compile Include="TestData\ProductData\ProductRepository.cs" />
+    <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
+    <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +119,7 @@
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
+    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
+    <Folder Include="Pages\AddressBookPages\" />
+    <Folder Include="TestData\ActionMessages\" />
+    <Folder Include="TestData\DataSourse\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
