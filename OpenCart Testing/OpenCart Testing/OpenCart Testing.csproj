@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Extentions\Application.cs" />
     <Compile Include="Extentions\WebElementExtensions.cs" />
+    <Compile Include="Pages\AddressBookPages\AddressBookPage.cs" />
+    <Compile Include="Pages\AddressBookPages\AddressComponent.cs" />
+    <Compile Include="Pages\AddressBookPages\AddressComponentsContainer.cs" />
     <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
     <Compile Include="Pages\SearchPage\ASearchResultPart.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Pages\ProductPages\ReviewComponentsContainer.cs" />
     <Compile Include="Pages\ProductPages\ReviewsTab.cs" />
     <Compile Include="Pages\SearchPage\SearchCriteriaPage.cs" />
+    <Compile Include="Pages\UIMapping\MAddressComponent.cs" />
     <Compile Include="Pages\UIMapping\MARightLoginPart.cs" />
     <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
@@ -134,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
-    <Folder Include="Pages\AddressBookPages\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
