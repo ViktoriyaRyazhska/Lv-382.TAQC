@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
-using OpenCart_Testing.TestsData;
+using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing
 {

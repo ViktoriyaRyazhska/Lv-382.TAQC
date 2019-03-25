@@ -9,7 +9,7 @@ namespace OpenCart_Testing.Tools
     abstract class AExternalReader
     {
         public const string PATH_SEPARATOR = "\\";
-        protected const string FOLDER_DATA = "TestsData\\DataSourse";
+        protected const string FOLDER_DATA = "TestData\\DataSourse";
         protected const string FOLDER_BIN = "bin";
         //
         //public static Logger log = LogManager.GetCurrentClassLogger(); // for NLog
