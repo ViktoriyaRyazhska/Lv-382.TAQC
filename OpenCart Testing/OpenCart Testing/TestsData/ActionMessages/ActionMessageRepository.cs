@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenCart_Testing.Tools;
 
 namespace OpenCart_Testing.TestsData
 {
@@ -10,6 +6,7 @@ namespace OpenCart_Testing.TestsData
     {
         private volatile static ActionMessageRepository instance;
         private static object lockingObject = new object();
+        private static string directory = "ActionMessages";
 
         private ActionMessageRepository()
         {
@@ -30,9 +27,19 @@ namespace OpenCart_Testing.TestsData
             return instance;
         }
 
-        public ActionMessages TooShortNameReviewMessage()
+        public ActionMessage TooShortNameReviewMessage()
         {
-            return new ActionMessages("Warning: Review Name must be between 3 and 25 characters!");
+            return new ActionMessage("Warning: Review Name must be between 3 and 25 characters!");
         }
+        public ActionMessage TooLongReviewMessage()
+        {
+            return new ActionMessage("Warning: Review Name must be between 3 and 25 characters!");
+        }
+
+        public ActionMessage ActionMessageFromJson(string filename)
+        {
+            return JsonParser.DeserializeFromFile<ActionMessage>(directory, filename);
+        }
+
     }
 }

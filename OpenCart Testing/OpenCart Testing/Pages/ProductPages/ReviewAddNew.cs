@@ -48,7 +48,10 @@ namespace OpenCart_Testing.Pages.ProductPages
         }
         private void SetReviewRating(int rating)
         {
-            FindRatingElement(rating).Click();
+            if(rating > 0)
+            {
+                FindRatingElement(rating).Click();
+            }
         }
         private void ClickCreateButton()
         {
@@ -66,11 +69,11 @@ namespace OpenCart_Testing.Pages.ProductPages
             ClickCreateButton();
             return GetCreateReviewMessage();
         }
-        public string CreateReview(IReview reviewJson)
+        public string CreateReview(IReview review)
         {
-            SetReviewName(reviewJson.Name);
-            SetReviewText(reviewJson.Text);
-            SetReviewRating(reviewJson.Rating);
+            SetReviewName(review.Name);
+            SetReviewText(review.Text);
+            SetReviewRating(review.Rating);
             ClickCreateButton();
             return GetCreateReviewMessage();
         }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.TestsData
 {
-    public class ActionMessages
+    public class ActionMessage
     {
-        private string Message { get; set; } 
+        public string Message { get; set; } 
 
-        public ActionMessages(string messageText)
+        public ActionMessage(string messageText)
         {
             Message = messageText;
         }

@@ -1,5 +1,4 @@
 ﻿using OpenCart_Testing.Tools;
-using System;
 
 namespace OpenCart_Testing.TestsData
 {
@@ -8,7 +7,8 @@ namespace OpenCart_Testing.TestsData
         private volatile static ReviewsRepository instance;
         private static object lockingObject = new object();
         private const string reviewEmptyListMessage = "There are no reviews for this product.";
-        private static string ReviewPath = @"C:\Users\Lutik\Desktop\New folder\OpenCart Testing\OpenCart Testing\TestsData\DataSourse\";
+        private static string directory = "Reviews";
+
 
         private ReviewsRepository()
         {
@@ -38,17 +38,10 @@ namespace OpenCart_Testing.TestsData
             return reviewEmptyListMessage;
         }
 
-        public IReview NewReviewFromJson(string filename)
-        {
-            try
-            {
-                return JsonParser.DeserializeFromFile<Review>(ReviewPath+filename) as IReview;
-            }
-            catch (Exception)
-            {
-                throw new Exception("Cant Deserialize from file: "+ ReviewPath + filename);
-            }
 
+        public IReview NewReviewFromJson(string fileName)
+        {
+            return JsonParser.DeserializeFromFile<Review>(directory,fileName) as IReview;
         }
 
         //public IList<IReview> ListReviewsFromJson()

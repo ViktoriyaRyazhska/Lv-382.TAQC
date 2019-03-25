@@ -9,18 +9,25 @@ namespace OpenCart_Testing.Tests.ReviewTabTests
     class ReviewFormTests : TestRunner
     {
 
-        public static object[] ReviewTooShortNameData =
+        public static object[] ReviewNegativeData =
         {
-            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortNameData.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName")
+            new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("EmptyFieldName.json"), ActionMessageRepository.Get().ActionMessageFromJson("ReviewInvalidName.json")).SetName("EmptyFieldNameTest")
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+            //new TestCaseData(ProductRepository.Get().GetIphone(), ReviewsRepository.Get().NewReviewFromJson("TooShortName.json"), ActionMessageRepository.Get().TooShortNameReviewMessage()).SetName("ReviewTooShortName"),
+
         };
 
         [Test]
-        [TestCaseSource("ReviewTooShortNameData")]
-        public void CreateWithEmptyFieldName(Product product, IReview review, ActionMessages actionMessages)
+        [TestCaseSource("ReviewNegativeData")]
+        public void CreateWithEmptyFieldName(Product product, IReview review, ActionMessage actionMessages)
         {
             ProductPage Iphone = LoadApplication()
                 .GetProductPageByName(product.Name);
-            Assert.AreEqual(actionMessages.GetMessage(), Iphone.OpenProductReviews().ReviewAddForm.CreateReview(review));
+            Assert.AreEqual(actionMessages.Message, Iphone.OpenProductReviews().ReviewAddForm.CreateReview(review));
         }
     }
 }

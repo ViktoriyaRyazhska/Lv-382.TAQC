@@ -80,7 +80,7 @@
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="TestsData\ActionMessages\ActionMessageRepository.cs" />
     <Compile Include="TestsData\ProductData\Product.cs" />
-    <Compile Include="TestsData\ActionMessages\ActionMessages.cs" />
+    <Compile Include="TestsData\ActionMessages\ActionMessage.cs" />
     <Compile Include="TestsData\ProductData\ProductRepository.cs" />
     <Compile Include="TestsData\ReviewData\IReview.cs" />
     <Compile Include="TestsData\ReviewData\Review.cs" />
@@ -103,7 +103,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="TestsData\DataSourse\TooShortNameData.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewValid.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidName.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidText.json" />
+    <None Include="TestsData\DataSourse\ActionMessages\ReviewInvalidRating.json" />
+    <None Include="TestsData\DataSourse\Reviews\EmptyFieldText.json" />
+    <None Include="TestsData\DataSourse\Reviews\EmptyFieldName.json" />
+    <None Include="TestsData\DataSourse\Reviews\NotSelectedRating.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooLongName.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooShortText.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooLongText.json" />
+    <None Include="TestsData\DataSourse\Reviews\ValidReview.json" />
+    <None Include="TestsData\DataSourse\Reviews\TooShortName.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
