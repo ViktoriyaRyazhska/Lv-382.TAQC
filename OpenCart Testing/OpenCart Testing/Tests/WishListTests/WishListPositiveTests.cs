@@ -35,7 +35,8 @@ namespace OpenCart_Testing.Tests.WishListTests
         public void CheckAddForNotLoggedIn(string expectedMessage, string name)
         {
             HomePage page = LoadApplication();
-            page.getProductComponentsContainer().ClickProductComponentAddToCartButtonByName(name);
+            page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name);
+            Thread.Sleep(3000);
             UpdatedHomePage updatedPage = new UpdatedHomePage(driver);
             string actualMessage = updatedPage.GetUpdatedMessage().Text;
             Assert.AreEqual(expectedMessage, actualMessage);

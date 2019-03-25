@@ -93,6 +93,8 @@
     <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
+    <Compile Include="TestData\WishListData\WishList.cs" />
+    <Compile Include="TestData\WishListData\WishListRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
     <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
+    <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
