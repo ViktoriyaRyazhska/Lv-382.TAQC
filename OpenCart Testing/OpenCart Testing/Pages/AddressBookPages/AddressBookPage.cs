@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
-    class AddressBookPage : ARightLoginPart
+    public class AddressBookPage : ARightLoginPart
     {
         public const string addressBookEntries = "Address Book Entries";
 
-        public IWebElement addressPageHeader
-        { get { return driver.FindElement(MAddressBookPage.locatorAddressPageHeader); } }
+        public IWebElement addressPageHeader => driver.FindElement(MAddressBookPage.locatorAddressPageHeader); 
 
         private AddressComponentsContainer addressComponentsContainer;
 
@@ -43,6 +42,12 @@ namespace OpenCart_Testing.Pages.AddressBookPages
         public EditAddressPage EditAddressByName(string name)
         {
             addressComponentsContainer.AddressComponentByNameEdit(name);
+            return new EditAddressPage(driver);
+        }
+
+        public EditAddressPage EditFirstAddress()
+        {
+            addressComponentsContainer.AddressComponentEditFirst();
             return new EditAddressPage(driver);
         }
 

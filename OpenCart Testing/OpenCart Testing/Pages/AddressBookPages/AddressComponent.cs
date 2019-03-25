@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
-    class AddressComponent
+    public class AddressComponent
     {
         private IWebElement addressRow;
         private IWebElement AddressDescription => addressRow.FindElement(MAddressComponent.locatorAddressDescription);

@@ -16,7 +16,6 @@ namespace OpenCart_Testing.Pages.StaticParts
 
         public new IWebElement MyAccount
         { get { return driver.FindElement(MARightMenuPart.locatorMyAccount); } }
-
         public IWebElement AddressBook
         { get { return driver.FindElement(MARightMenuPart.locatorAddressBook); } }
         public new IWebElement WishList

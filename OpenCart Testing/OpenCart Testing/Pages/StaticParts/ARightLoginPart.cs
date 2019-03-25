@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.StaticParts
 {
-    class ARightLoginPart : ARightMenuPart
+    public abstract class ARightLoginPart : ARightMenuPart
     {
         public ARightLoginPart(IWebDriver driver) : base(driver)
         {

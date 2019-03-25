@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages
 {
-    public class ABreadCrumbsPart : ATopPart
+    public abstract class ABreadCrumbsPart : ATopPart
     {
         public ABreadCrumbsPart(IWebDriver driver) : base(driver)
         {

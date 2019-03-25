@@ -4,7 +4,6 @@ using OpenCart_Testing.UIMapping.MATopPart;
 
 namespace OpenCart_Testing.Pages
 {
-
     public abstract class ATopPart
     {
         protected const string TAG_ATTRIBUTE_VALUE = "value";
@@ -59,7 +58,7 @@ namespace OpenCart_Testing.Pages
             return MyAccount.Text;
         }
 
-        protected void ClickMyAccount()
+        public void ClickMyAccount()
         {
             MyAccount.Click();
         }

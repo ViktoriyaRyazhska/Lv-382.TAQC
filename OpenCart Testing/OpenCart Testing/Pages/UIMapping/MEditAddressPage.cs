@@ -19,9 +19,8 @@ namespace OpenCart_Testing.Pages.UIMapping
         public static By locatorPostcodeTextbox => By.Id("input-postcode");
         public static By locatorCountryDropdown => By.Id("input-country");
         public static By locatorZoneDropdown => By.Id("input-zone");
-        public static By locatorContinueButton => By.ClassName("btn-primary");
         public static By locatorDefaultYes => By.XPath("//input[@value='1']");
         public static By locatorDefaultNo => By.XPath("//input[@value='0']");
-
+        public static By locatorContinueButton => By.ClassName("btn-primary");
     }
 }

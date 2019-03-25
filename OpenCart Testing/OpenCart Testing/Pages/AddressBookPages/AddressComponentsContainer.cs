@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
-    class AddressComponentsContainer
+    public class AddressComponentsContainer
     {
         private const string ADDRESS_COMPONENT_XPASS = "//tr";
 
@@ -63,6 +63,16 @@ namespace OpenCart_Testing.Pages.AddressBookPages
         public void AddressComponentByNameDelete(string addressName)
         {
             GetAddressComponentByName(addressName).ClickDeleteButton();
+        }
+
+        public void AddressComponentEditFirst()
+        {
+            addressComponents[0].ClickEditButton();
+        }
+
+        public AddressComponent GetFirstAddress()
+        {
+            return addressComponents[0];
         }
 
         public int GetAddressComponentsCount()
