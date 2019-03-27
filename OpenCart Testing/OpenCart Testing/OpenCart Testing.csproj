@@ -74,6 +74,7 @@
     <Compile Include="Pages\AddressBookPages\AddressComponentsContainer.cs" />
     <Compile Include="Pages\AddressBookPages\EditAddressPage.cs" />
     <Compile Include="Pages\AddressBookPages\SuccessfullyDeletedAddressPage.cs" />
+    <Compile Include="Pages\ChangePasswordPages\ChangePasswordPage.cs" />
     <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\LoginPages\LoginPage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Pages\UIMapping\MARightLoginPart.cs" />
     <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
+    <Compile Include="Pages\UIMapping\MChangePasswordPage.cs" />
     <Compile Include="Pages\UIMapping\MEditAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
+    <Compile Include="Tests\ChangePasswordTests\ClangePasswordPositiveTest.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
