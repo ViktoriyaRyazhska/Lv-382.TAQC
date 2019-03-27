@@ -46,7 +46,7 @@ namespace OpenCart_Testing.Pages.AddressBookPages
 
         public EditAddressPage EditFirstAddress()
         {
-            addressComponentsContainer.EditFirst();
+            addressComponentsContainer.ClickEditFirst();
             return new EditAddressPage(driver);
         }
 
@@ -56,12 +56,19 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return new SuccessfullyDeletedAddressPage(driver);
         }
 
-        public void SetFirstDefault()
+        public AddressBookPage SetFirstDefault()
         {
-            EditAddressPage page = addressComponentsContainer.EditFirst();
+            addressComponentsContainer.ClickEditFirst();
+            EditAddressPage page = new EditAddressPage(driver);
             page.SetAsDefault();
             Thread.Sleep(2000);
             page.ClickContinue();
+            return new AddressBookPage(driver);
+        }
+
+        public void LogoutUser()
+        {
+            ClickLogoutUserButton();
         }
         
 
