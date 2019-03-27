@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.Generic;
 using OpenCart_Testing.UIMapping.MATopPart;
+using OpenCart_Testing.Pages.LoginPages;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages
 {
@@ -31,6 +33,8 @@ namespace OpenCart_Testing.Pages
         { get { return driver.FindElement(MATopPart.locatorCartButton); } }
         public IWebElement LoginButton
         { get { return driver.FindElement(MATopPart.locatorLoginButton); } }
+        public IWebElement LogoutButton
+        { get { return driver.FindElement(MATopPart.locatorLogoutButton); } }
         //
         protected IList<IWebElement> TopMenu;
 
@@ -169,6 +173,19 @@ namespace OpenCart_Testing.Pages
         {
             ClickMyAccount();
             LoginButton.Click();
+        }
+
+        public LoginPage ClickLoginUserButton()
+        {
+            ClickMyAccount();
+            LoginButton.Click();
+            return new LoginPage(driver);
+        }
+
+        public void ClickLogoutUserButton()
+        {
+            ClickMyAccount();
+            LogoutButton.Click();
         }
     }
 }

@@ -7,6 +7,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
 using OpenCart_Testing.Pages;
+using OpenCart_Testing.Pages.AccountPages;
 
 namespace OpenCart_Testing
 {
@@ -16,7 +17,13 @@ namespace OpenCart_Testing
         protected IWebDriver driver;
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
+<<<<<<< HEAD
         protected string baseUrl = "http://192.168.85.129/opencart/upload/";
+=======
+        protected string baseUrl = "http://192.168.183.131/opencart/upload/";
+        //protected string baseUrl = "http://taqc-opencart.epizy.com/";
+        protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
+>>>>>>> 8502fe34e8cd1e6b874f54c09398357a4bbcbcf1
 
         [OneTimeSetUp]
         public void BeforeAllMethods()

@@ -1,4 +1,5 @@
-﻿using OpenCart_Testing.Pages.UIMapping;
+﻿using OpenCart_Testing.Pages.AddressBookPages;
+using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -134,12 +135,11 @@ namespace OpenCart_Testing.Pages.StaticParts
         {
             Newsletter.Click();
         }
-
         
-        //public AddressBookPage GotoAddressBookPage()
-        //{
-        //    ClickAddressBook;
-        //    return new AddressBookPage(driver);
-        //}
+        public AddressBookPage GotoAddressBookPage()
+        {
+            ClickAddressBook();
+            return new AddressBookPage(driver);
+        }
     }
 }
