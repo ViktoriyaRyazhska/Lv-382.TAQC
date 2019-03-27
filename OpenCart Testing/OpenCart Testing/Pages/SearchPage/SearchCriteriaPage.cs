@@ -61,6 +61,7 @@ namespace OpenCart_Testing.Pages
             return int.Parse(GetSearchItemsCount().Split(' ')[5]);
         }
 
+
         //public bool hasClass(IWebElement element, string searchedClass)
         //{
         //    string[] classes = element.GetAttribute("class").Split(' ');
@@ -73,7 +74,8 @@ namespace OpenCart_Testing.Pages
         //    }
         //    return false;
         //}
-        // Business Logic
+
+        //Business Logic
 
     }
 }

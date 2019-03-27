@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenCart_Testing.UIMapping.MProductPage;
 using System.Threading;
+using OpenCart_Testing.Pages.ProductPages;
 
-namespace OpenCart_Testing.Pages.ProductPages
+namespace OpenCart_Testing.Pages
 {
     public class ProductPage : ABreadCrumbsPart
     {
@@ -38,6 +39,8 @@ namespace OpenCart_Testing.Pages.ProductPages
         {
             return int.Parse(GetReviewsText().Split(new char[] { '(', ')' })[1]);
         }
+
+
 
         public DescriptionTab OpenProductDescription()
         {

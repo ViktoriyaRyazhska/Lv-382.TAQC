@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.TestData.ActionMessages
+namespace OpenCart_Testing.TestData
 {
-    class Product
+    public class Product
     {
-        public string SearchKeyword { get; private set; }
         public string Name { get; private set; }
         public string ShortDescription { get; private set; }
         public decimal PriceTax { get; private set; }

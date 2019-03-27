@@ -36,12 +36,10 @@ namespace OpenCart_Testing
             driver.Navigate().GoToUrl(baseUrl);
         }
 
-
         public HomePage LoadApplication()
         {
             return new HomePage(driver);
         }
+
     }
-
-
 }

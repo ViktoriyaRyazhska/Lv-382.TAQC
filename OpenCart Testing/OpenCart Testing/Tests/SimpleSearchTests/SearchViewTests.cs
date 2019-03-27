@@ -14,7 +14,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     public class SearchViewTests : TestRunner
     {
         private static readonly object[] SearchData_Case_DefaultView =
-       {
+        {
             "mac",
             "a",
             "i",
@@ -86,5 +86,6 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
             Assert.AreEqual(beforeChange, afterChange);
         }
+
     }
 }

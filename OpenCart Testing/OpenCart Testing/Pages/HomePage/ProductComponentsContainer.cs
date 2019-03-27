@@ -110,6 +110,13 @@ namespace OpenCart_Testing.Pages
             return GetProductComponents().Count;
         }
 
+        public void AddItemsToWishListByNames(string[] names)
+        {
+            foreach (string Name in names)
+            {
+                ClickProductComponentAddToWishButtonByName(Name);
+            }
+        }
         // Business Logic
 
         //public string GetProductComponentPriceByProduct(Product product)
