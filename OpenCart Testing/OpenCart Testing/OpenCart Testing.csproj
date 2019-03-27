@@ -85,8 +85,6 @@
     <Compile Include="Pages\UIMapping\MARightLogoutPart.cs" />
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessageRepository.cs" />
-    <Compile Include="TestData\ProductData\Product.cs" />
-    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
@@ -95,11 +93,11 @@
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessage.cs" />
+    <Compile Include="TestData\ProductData\Product.cs" />
+    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
-    <Compile Include="TestData\ProductData\Product.cs" />
-    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
