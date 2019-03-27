@@ -16,5 +16,7 @@ namespace OpenCart_Testing.UIMapping.MATopPart
         public static By locatorSearchField => By.Name("search");
         public static By locatorSearchButton => By.CssSelector(".btn.btn-default.btn-lg");
         public static By locatorCartButton => By.CssSelector("#cart > button");
-        public static By locatorLoginButton => By.XPath("//div[@id='top-links']//a[contains(@href, 'login')]");    }
+        public static By locatorLoginButton => By.XPath("//div[@id='top-links']//a[contains(@href, 'login')]");
+        public static By locatorLogoutButton => By.XPath("//div[@id='top-links']//a[contains(@href, 'logout')]");
+    }
 }

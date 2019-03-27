@@ -102,7 +102,11 @@
     <Compile Include="Pages\UIMapping\MEditAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
+
+    <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
+
     <Compile Include="Pages\UIMapping\MSuccessfullyDeletedAddressPage.cs" />
+
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -111,11 +115,11 @@
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessage.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessageRepository.cs" />
+    <Compile Include="TestData\ProductData\Product.cs" />
+    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
-    <Compile Include="TestData\ProductData\Product.cs" />
-    <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
@@ -140,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\DataSourse\ActionMessages\SimpleSearchMaxLength.json" />
+    <None Include="TestData\DataSourse\ActionMessages\SimpleSearchNoProduct.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidName.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidRating.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidText.json" />
@@ -152,6 +158,7 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />

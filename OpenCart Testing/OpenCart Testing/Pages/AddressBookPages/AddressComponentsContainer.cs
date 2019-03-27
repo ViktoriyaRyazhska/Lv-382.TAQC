@@ -66,10 +66,9 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             GetAddressComponentByName(addressName).ClickDeleteButton();
         }
 
-        public EditAddressPage EditFirst()
+        public void ClickEditFirst()
         {
-            addressComponents[0].ClickEditButton();
-            return new EditAddressPage(driver);
+            addressComponents[0].ClickEditButton();            
         }
 
         public void DeleteSecond()
@@ -82,7 +81,7 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return addressComponents[0];
         }
 
-        public int Count()
+        public int GetCount()
         {
             return GetAddressComponents().Count;
         }

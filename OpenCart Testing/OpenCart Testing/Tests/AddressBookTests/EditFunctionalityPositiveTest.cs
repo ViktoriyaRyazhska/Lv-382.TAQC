@@ -16,31 +16,23 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 {
     class EditFunctionalityPositiveTest : TestRunner
     {
-        //[Test, TestCaseSource(typeof(CheckingAddressBookEditFunctionalityForTextboxes))]
-        //private static readonly object[] ValidFirstname =
-        //{
-        //   "Sasha",
-        //   "Oleksandra",
-        //};
+        private static readonly object[] ValidFirstname =
+{
+           "Sasha",
+           "Oleksandra",
+        };
 
-        //[Test, TestCaseSource("ValidFirstname")]
-        [Test]
-        public void CheckAddressBookEditFunctionalityWithValidFirstname()
+        [Test, TestCaseSource("ValidFirstname")]
+        public void CheckAddressBookEditFunctionalityWithValidFirstname(string data)
         {
             AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
+                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
+                .EditFirstAddress().SetOnlyFirstname(data);
 
-            page.EditFirstAddress().SetFirstname("Sasha");
+            Assert.IsTrue(page.GetAddressComponentsContainer().GetFirstAddress()
+                .GetAddressDescription().Contains(data));
 
-            //AddressComponent address = page.GetAddressComponentsContainer().GetFirstAddress();
-            //string str = address.GetAddressDescription();
-            //Console.WriteLine(str);
-
-            //Console.WriteLine(page.GetAddressComponentsContainer().GetFirstAddress()
-            //    .GetAddressDescription());
-
-            //Assert.IsTrue(page.getAddressComponentsContainer().GetFirstAddress()
-            //    .GetAddressDescription().Contains("Sasha"));
+            page.LogoutUser();
         }
     }
 }

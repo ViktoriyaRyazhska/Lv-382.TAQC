@@ -16,11 +16,10 @@ namespace OpenCart_Testing.Tests.AddressBookTests
         public void CheckDeletingOfDefaultAddress()
         {
             AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
-            
-            page.SetFirstDefault();
+                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
+                .SetFirstDefault();
 
-            //SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
+            SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
 
             //Console.WriteLine(deletedPage.GetAddressComponentsContainer().Count());
 

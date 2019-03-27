@@ -134,5 +134,12 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             ContinueButton.Click();
         }
 
+        public AddressBookPage SetOnlyFirstname(string firstname)
+        {
+            SetFirstname(firstname);
+            ClickContinue();
+            return new AddressBookPage(driver);
+        }
+
     }
 }

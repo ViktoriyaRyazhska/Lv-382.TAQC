@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
+using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,13 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText);
-            int actual = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
-            List<string> searchResults = driver.FindElements(By.CssSelector(".caption a")).ToList<IWebElement>().Select(x => x.Text).ToList<string>();
-
-            //Thread.Sleep(3000);//FOR PRESENTATION ONLY!
+           
+            int actual = searchCriteriaPage.FindActualCount();
+            //int actual = int.Parse(driver.FindElement(MSearchCriteriaPage.locatorSearchItemsCount).Text.Split(' ')[5]);
+            //List<string> searchResults = driver.FindElements(MSearchCriteriaPage.locatorSearchItemCaption)
+            //.ToList<IWebElement>().Select(x => x.Text).ToList<string>();
+            List<string> searchResults = driver.FindElements(MSearchCriteriaPage.locatorSearchItemCaption)
+            .ToList<IWebElement>().Select(x => x.Text).ToList<string>();
 
             driver.Navigate().GoToUrl("http://192.168.85.129/opencart/upload/admin");
             driver.FindElement(By.Id("input-username")).SendKeys(Environment.GetEnvironmentVariable("adminLogin"));
@@ -63,7 +67,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText);
-            Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
+            Assert.AreEqual("There is no product that matches the search criteria.",
+                searchCriteriaPage.GetItemNotMatchesMessage());
         }
 
 
@@ -78,7 +83,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText);
-            Assert.AreEqual("Search text maximum length is 255 characters. Please make a different search request.", driver.FindElement(By.Id("search_alert")).Text);
+            Assert.AreEqual("Search text maximum length is 255 characters. Please make a different search request.",
+                searchCriteriaPage.GetSearchAlertMessage());
         }
 
 
@@ -97,7 +103,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText);
-            Assert.AreEqual("There is no product that matches the search criteria.", driver.FindElement(By.CssSelector("#button-search ~ p")).Text);
+            Assert.AreEqual("There is no product that matches the search criteria.",
+                searchCriteriaPage.GetItemNotMatchesMessage());
         }
 
 
@@ -114,42 +121,13 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPageLower = LoadApplication()
                 .SearchItems(searchText.ToLower());
-            int lowerResult = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
+            int lowerResult = searchCriteriaPageLower.FindActualCount();
 
-            //driver.Navigate().GoToUrl(homePageUrl);
-
-            //driver.FindElement(By.Name("search")).Clear();
-            //driver.FindElement(By.Name("search")).SendKeys(searchText.ToUpper() + Keys.Enter);
             SearchCriteriaPage searchCriteriaPageUpper = LoadApplication()
                 .SearchItems(searchText.ToUpper());
-            int upperResult = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
+            int upperResult = searchCriteriaPageUpper.FindActualCount();
 
             Assert.AreEqual(lowerResult, upperResult);
         }
-
-        //// DataProvider
-        //private static readonly object[] ProductData =
-        //{
-        //    //new object[] { "mac", new List<string>() { "iMac", "MacBook", "MacBook Air", "MacBook Pro" } },
-        //    new object[] { ProductRepository.GetMacBook(), ProductRepository.GetMacListProducts() },
-        //};
-
-        ////[Test, TestCaseSource(nameof(ProductData))]
-        //public void CheckSearch(Product product, IList<Product> expectedList)
-        //{
-        //    // Steps
-        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
-        //        .SearchItems(product);
-        //    //
-        //    // Check
-        //    CollectionAssert.AreEqual(Product.GetProductListNames(expectedList),
-        //        searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
-        //    //
-        //    // Return to Previous State
-        //    HomePage homePage = searchCriteriaPage.GotoHomePage();
-        //    //
-        //    // Check
-        //    Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
-        //}
     }
 }
