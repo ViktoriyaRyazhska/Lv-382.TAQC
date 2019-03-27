@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.Generic;
 using OpenCart_Testing.UIMapping.MATopPart;
+using OpenCart_Testing.Pages.LoginPages;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages
 {
@@ -170,6 +172,15 @@ namespace OpenCart_Testing.Pages
             ClickMyAccount();
             LoginButton.Click();
         }
+
+        public LoginPage ClickLoginUserButton()
+        {
+            ClickMyAccount();
+            LoginButton.Click();
+            return new LoginPage(driver);
+        }
+
+
     }
 }
 

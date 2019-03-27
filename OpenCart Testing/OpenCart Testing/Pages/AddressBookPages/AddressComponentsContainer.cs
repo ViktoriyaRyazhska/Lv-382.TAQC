@@ -55,19 +55,26 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return result;
         }
 
-        public void AddressComponentByNameEdit(string addressName)
+        public void EditByName(string addressName)
         {
             GetAddressComponentByName(addressName).ClickEditButton();
+            EditAddressPage page = new EditAddressPage(driver);
         }
 
-        public void AddressComponentByNameDelete(string addressName)
+        public void DeleteByName(string addressName)
         {
             GetAddressComponentByName(addressName).ClickDeleteButton();
         }
 
-        public void AddressComponentEditFirst()
+        public EditAddressPage EditFirst()
         {
             addressComponents[0].ClickEditButton();
+            return new EditAddressPage(driver);
+        }
+
+        public void DeleteSecond()
+        {
+            addressComponents[1].ClickDeleteButton();
         }
 
         public AddressComponent GetFirstAddress()
@@ -75,7 +82,7 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return addressComponents[0];
         }
 
-        public int GetAddressComponentsCount()
+        public int Count()
         {
             return GetAddressComponents().Count;
         }

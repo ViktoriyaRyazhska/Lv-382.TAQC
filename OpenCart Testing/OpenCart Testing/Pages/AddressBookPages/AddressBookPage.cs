@@ -5,14 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
     public class AddressBookPage : ARightLoginPart
     {
-        public const string addressBookEntries = "Address Book Entries";
-
         public IWebElement addressPageHeader => driver.FindElement(MAddressBookPage.locatorAddressPageHeader); 
 
         private AddressComponentsContainer addressComponentsContainer;
@@ -34,28 +33,37 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return addressPageHeader.Text;
         }
 
-        public AddressComponentsContainer getAddressComponentsContainer()
+        public AddressComponentsContainer GetAddressComponentsContainer()
         {
             return addressComponentsContainer;
         }
 
         public EditAddressPage EditAddressByName(string name)
         {
-            addressComponentsContainer.AddressComponentByNameEdit(name);
+            addressComponentsContainer.EditByName(name);
             return new EditAddressPage(driver);
         }
 
         public EditAddressPage EditFirstAddress()
         {
-            addressComponentsContainer.AddressComponentEditFirst();
+            addressComponentsContainer.EditFirst();
             return new EditAddressPage(driver);
         }
 
-        //public DeleteAddressPage DeleteAddressByName(string name)
-        //{
-        //    addressComponentsContainer.AddressComponentByNameDelete(name);
-        //    return new DeleteAddressPage(driver);
-        //}
+        public SuccessfullyDeletedAddressPage DeleteSecondAddress()
+        {
+            addressComponentsContainer.DeleteSecond();
+            return new SuccessfullyDeletedAddressPage(driver);
+        }
+
+        public void SetFirstDefault()
+        {
+            EditAddressPage page = addressComponentsContainer.EditFirst();
+            page.SetAsDefault();
+            Thread.Sleep(2000);
+            page.ClickContinue();
+        }
+        
 
         //public AddNewAddressPage AddNewAddress(AddressComponent address)
         //{

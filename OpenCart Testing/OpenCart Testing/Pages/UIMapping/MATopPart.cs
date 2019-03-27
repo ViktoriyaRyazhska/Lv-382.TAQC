@@ -8,7 +8,7 @@ namespace OpenCart_Testing.UIMapping.MATopPart
     public static class MATopPart
     {
         public static By locatorCurrency => By.CssSelector(".btn.btn - link.dropdown - toggle");
-        public static By locatorMyAccount => By.CssSelector(".list - inline > li > a.dropdown - toggle");
+        public static By locatorMyAccount => By.XPath("//div[@id='top-links']//a[@data-toggle='dropdown']");
         public static By locatorWishList => By.Id("wishlist-total");
         public static By locatorShoppingCart => By.CssSelector("a[title='Shopping Cart']");
         public static By locatorCheckOut => By.CssSelector("a[title='Checkout']");
@@ -16,5 +16,5 @@ namespace OpenCart_Testing.UIMapping.MATopPart
         public static By locatorSearchField => By.Name("search");
         public static By locatorSearchButton => By.CssSelector(".btn.btn-default.btn-lg");
         public static By locatorCartButton => By.CssSelector("#cart > button");
-        public static By locatorLoginButton => By.CssSelector(("#top-links a[href*='account/login']"));    }
+        public static By locatorLoginButton => By.XPath("//div[@id='top-links']//a[contains(@href, 'login')]");    }
 }
