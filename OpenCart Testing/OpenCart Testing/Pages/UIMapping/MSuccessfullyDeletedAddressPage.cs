@@ -10,5 +10,6 @@ namespace OpenCart_Testing.Pages.UIMapping
     public class MSuccessfullyDeletedAddressPage
     {
         public static By locatorDeletedAddressMessage => By.XPath("//div[@class='alert alert-success']");
+        public static By locatorNotDeletedAddressMessage => By.XPath("//div[@class='alert alert-warning']");        
     }
 }
