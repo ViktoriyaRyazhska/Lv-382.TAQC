@@ -17,6 +17,11 @@ namespace OpenCart_Testing
         protected IWebDriver driver;
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
+<<<<<<< HEAD
+        protected string baseUrl = "http://192.168.183.132/opencart/upload/";
+        //protected string baseUrl = "http://taqc-opencart.epizy.com/";
+        protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
+=======
 
 
         protected string baseUrl = "http://192.168.85.129/opencart/upload/";
@@ -25,6 +30,7 @@ namespace OpenCart_Testing
         //protected string baseUrl = "http://taqc-opencart.epizy.com/";
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
 
+>>>>>>> b90c15d7e85e38a7b1ea364e1335d5026e0d44ed
 
         [OneTimeSetUp]
         public void BeforeAllMethods()
