@@ -169,6 +169,12 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
 
+        public SearchCriteriaPage GoToSearchCriteriaPage()
+        {
+            ClickSearchButton();
+            return new SearchCriteriaPage(driver);
+        }
+
         public void ClickLoginButton()
         {
             ClickMyAccount();

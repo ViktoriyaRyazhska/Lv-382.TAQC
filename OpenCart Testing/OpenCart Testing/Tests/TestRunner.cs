@@ -19,7 +19,7 @@ namespace OpenCart_Testing
         protected const int sleepTime = 2000;
 
 
-        protected string baseUrl = "http://192.168.150.134/opencart/upload/";
+        protected string baseUrl = "http://192.168.150.135/opencart/upload/";
 
 
         //protected string baseUrl = "http://taqc-opencart.epizy.com/";
