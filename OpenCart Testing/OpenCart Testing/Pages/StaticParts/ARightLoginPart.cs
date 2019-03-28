@@ -1,4 +1,5 @@
-﻿using OpenCart_Testing.Pages.UIMapping;
+﻿using OpenCart_Testing.Pages.ChangePasswordPages;
+using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -51,8 +52,10 @@ namespace OpenCart_Testing.Pages.StaticParts
             Logout.Click();
         }
 
-        
-
-
+        public ChangePasswordPage GotoChangePasswordPage()
+        {
+            ClickPassword();
+            return new ChangePasswordPage(driver);
+        }
     }
 }
