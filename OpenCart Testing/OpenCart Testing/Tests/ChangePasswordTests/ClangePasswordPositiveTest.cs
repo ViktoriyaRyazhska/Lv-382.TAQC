@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.ChangePasswordPages;
+using System.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
                 .ClickLoginUserButton()
                 .LoginUser(REGISTERED)
                 .GotoChangePasswordPage();
-
-            page.ChangePassword();
-
+            SuccessfulPassChangeAccountPage message = page.SuccessfulChangePassword();
+            Assert.AreEqual(message.GetSuccessfulPassChangeMessage(), SuccessfulPassChangeAccountPage.PassChengedMessage);
+            Thread.Sleep(3000);
         }
     }
 }
