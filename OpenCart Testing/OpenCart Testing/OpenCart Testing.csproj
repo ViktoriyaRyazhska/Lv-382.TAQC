@@ -118,6 +118,7 @@
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
+    <Compile Include="Tests\DeletingNotDefaultAddress.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

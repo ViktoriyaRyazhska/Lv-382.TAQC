@@ -19,12 +19,9 @@ namespace OpenCart_Testing.Tests.AddressBookTests
                 .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
                 .SetFirstDefault();
 
-            SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
-
-            //Console.WriteLine(deletedPage.GetAddressComponentsContainer().Count());
-
-            //Assert.AreEqual(deletedPage.GetDeletedAddressMessageText(), SuccessfullyDeletedAddressPage.EXPECTEDMESSAGE);
+            SuccessfullyDeletedAddressPage deletedPage = page.DeleteFirstAddress();
+           
+            Assert.AreEqual(deletedPage.GetNotDeletedAddressMessageText(), SuccessfullyDeletedAddressPage.DELETINGDEFAULT);
         }
-
     }
 }
