@@ -1,4 +1,7 @@
 ﻿using NUnit.Framework;
+using OpenCart_Testing.Pages;
+using OpenCart_Testing.Pages.UIMapping;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,63 +13,79 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     [TestFixture]
     public class SearchViewTests : TestRunner
     {
-        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
-        //public void SearchDefaultView_Test(string searchText)
-        //{
-        //    driver.FindElement(By.Name("search")).Clear();
-        //    driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
+        private static readonly object[] SearchData_Case_DefaultView =
+        {
+            "mac",
+            "a",
+            "i",
+            "book"
+         };
 
-        //    bool actual = hasClass(driver.FindElement(By.Id("grid-view")), "active");
-        //    Assert.AreEqual(true, actual);
-        //}
 
-        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
-        //public void SearchSavedView_Test(string searchText)
-        //{
-        //    driver.FindElement(By.Name("search")).Clear();
-        //    driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
-        //    bool wasGrid = false;
+        protected bool hasClass(IWebElement element, string searchedClass)
+        {
+            string[] classes = element.GetAttribute("class").Split(' ');
+            foreach (string str in classes)
+            {
+                if (str.Equals(searchedClass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-        //    Thread.Sleep(3000);//FOR PRESENTATION ONLY!
 
-        //    if (hasClass(driver.FindElement(By.Id("grid-view")), "active"))
-        //    {
-        //        driver.FindElement(By.Id("list-view")).Click();
-        //        wasGrid = true;
-        //    }
-        //    else
-        //    {
-        //        driver.FindElement(By.Id("grid-view")).Click();
-        //    }
+        [Test, TestCaseSource("SearchData_Case_DefaultView")]
+        public void SearchDefaultView_Test(string searchText)
+        {
+            SearchCriteriaPage searchCriteriaPage = LoadApplication()
+                .SearchItems(searchText);
+            bool actual = hasClass(searchCriteriaPage.GridView, "active");
+            Assert.AreEqual(true, actual);
+        }
 
-        //    Thread.Sleep(3000);//FOR PRESENTATION ONLY!
+        [Test, TestCaseSource("SearchData_Case_DefaultView")]
+        public void SearchSavedView_Test(string searchText)
+        {
+            SearchCriteriaPage searchCriteriaPage = LoadApplication()
+                .SearchItems(searchText);
+            bool wasGrid = false;
 
-        //    driver.Navigate().GoToUrl(homePageUrl);
-        //    driver.FindElement(By.Name("search")).Clear();
-        //    driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
+            if (hasClass(searchCriteriaPage.GridView, "active"))
+            {
+                searchCriteriaPage.ClickListView();
+                wasGrid = true;
+            }
+            else
+            {
+                searchCriteriaPage.ClickGridView();
+            }
 
-        //    Thread.Sleep(3000);//FOR PRESENTATION ONLY!
+            SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
+                .SearchItems(searchText);
 
-        //    Assert.AreEqual(!wasGrid, hasClass(driver.FindElement(By.Id("grid-view")), "active"));
-        //}
+            Assert.AreEqual(!wasGrid, hasClass(searchCriteriaPage1.GridView, "active"));
+        }
 
-        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
-        //public void SearchChangeViewNumberOfElements_Test(string searchText)
-        //{
-        //    driver.FindElement(By.Name("search")).Clear();
-        //    driver.FindElement(By.Name("search")).SendKeys(searchText + Keys.Enter);
-        //    int beforeChange = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
-        //    if (hasClass(driver.FindElement(By.Id("grid-view")), "active"))
-        //    {
-        //        driver.FindElement(By.Id("list-view")).Click();
-        //    }
-        //    else
-        //    {
-        //        driver.FindElement(By.Id("grid-view")).Click();
-        //    }
-        //    int afterChange = int.Parse(driver.FindElement(By.CssSelector(".col-sm-6.text-right")).Text.Split(' ')[5]);
+        [Test, TestCaseSource("SearchData_Case_DefaultView")]
+        public void SearchChangeViewNumberOfElements_Test(string searchText)
+        {
+            SearchCriteriaPage searchCriteriaPage = LoadApplication()
+                .SearchItems(searchText);
+            int beforeChange = searchCriteriaPage.FindActualCount();
+            if (hasClass(searchCriteriaPage.GridView, "active"))
+            {
+                searchCriteriaPage.ClickListView();
+            }
+            else
+            {
+                searchCriteriaPage.ClickGridView();
+            }
+            int afterChange = searchCriteriaPage.FindActualCount();
 
-        //    Assert.AreEqual(beforeChange, afterChange);
-        //}
+            Assert.AreEqual(beforeChange, afterChange);
+        }
+
     }
 }
