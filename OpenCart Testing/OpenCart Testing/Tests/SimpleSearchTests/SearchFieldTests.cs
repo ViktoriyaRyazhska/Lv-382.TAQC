@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.UIMapping;
+using OpenCart_Testing.TestData;
+using OpenCart_Testing.TestData.SimpleSearchData;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -15,18 +17,15 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     {
         private static readonly object[] SearchData_Positive =
         {
-           "a",
-           "i",
-           "mac"//,
-           //"TestProductWith255SymbolsTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe"
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Positive.json"))
         };
 
         [Test, TestCaseSource("SearchData_Positive")]
-        public void SearchTest_Positive(string searchText)
+        public void SearchTest_Positive(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
-           
+                .SearchItems(searchText.SearchData);
+
             int actual = searchCriteriaPage.FindActualCount();
             //int actual = int.Parse(driver.FindElement(MSearchCriteriaPage.locatorSearchItemsCount).Text.Split(' ')[5]);
             //List<string> searchResults = driver.FindElements(MSearchCriteriaPage.locatorSearchItemCaption)
@@ -40,7 +39,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             driver.FindElement(By.CssSelector(".btn.btn-primary")).Click();
             driver.FindElement(By.Id("menu-catalog")).Click();
             driver.FindElement(By.CssSelector("#menu-catalog a[href*='catalog/product']")).Click();
-            driver.FindElement(By.Id("input-name")).SendKeys("%" + searchText);
+            driver.FindElement(By.Id("input-name")).SendKeys("%" + searchText.SearchData);
             driver.FindElement(By.Id("button-filter")).Click();
             int expected = int.Parse(driver.FindElement(By.CssSelector("div.col-sm-6.text-right")).Text.Split(' ')[5]);
 
@@ -50,84 +49,78 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
             for (int i = 0; i < searchResults.Count; i++)
             {
-                Assert.AreEqual(true, searchResults[i].ToLower().Contains(searchText.ToLower()));
+                Assert.AreEqual(true, searchResults[i].ToLower().Contains(searchText.SearchData.ToLower()));
             }
         }
 
 
-        private static readonly string[] SearchData_Negative =
+        private static readonly object[] SearchData_Negative =
         {
-            "",
-           "nonexistent",
-           "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe"
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Negative.json"), 
+                ActionMessageRepository.Get().ActionMessageFromJson("SimpleSearchNoProduct.json"))
         };
 
         [Test, TestCaseSource("SearchData_Negative")]
-        public void SearchTest_Negative(string searchText)
+        public void SearchTest_Negative(SimpleSearch searchText, ActionMessage actionMessages)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
-            Assert.AreEqual("There is no product that matches the search criteria.",
+                .SearchItems(searchText.SearchData);
+            Assert.AreEqual(actionMessages.Message,
                 searchCriteriaPage.GetItemNotMatchesMessage());
         }
 
 
-        private static readonly string[] SearchData_InvalidLength =
+        private static readonly object[] SearchData_InvalidLength =
         {
-            "TestProduct1With256SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe",
-            "TestProductWith300SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest"
-         };
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_InvalidLength.json"),
+                ActionMessageRepository.Get().ActionMessageFromJson("SimpleSearchMaxLength.json"))
+                                                                
+        };
 
         [Test, TestCaseSource("SearchData_InvalidLength")]
-        public void SearchTest_InvalidLength(string searchText)
+        public void SearchTest_InvalidLength(SimpleSearch searchText, ActionMessage actionMessages)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
-            Assert.AreEqual("Search text maximum length is 255 characters. Please make a different search request.",
+                .SearchItems(searchText.SearchData);
+            Assert.AreEqual(actionMessages.Message,
                 searchCriteriaPage.GetSearchAlertMessage());
         }
 
 
-        private static readonly string[] SearchData_SpecialCharacters =
+        private static readonly object[] SearchData_SpecialCharacters =
         {
-             "*",
-             "%",
-             "%mac",
-             "%r%",
-             "like '%a%'",
-             " "
-         };
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_SpecialCharacters.json"), 
+                ActionMessageRepository.Get().ActionMessageFromJson("SimpleSearchNoProduct.json"))
+        };
 
         [Test, TestCaseSource("SearchData_SpecialCharacters")]
-        public void SearchTest_SpecialCharacters(string searchText)
+        public void SearchTest_SpecialCharacters(SimpleSearch searchText, ActionMessage actionMessages)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
-            Assert.AreEqual("There is no product that matches the search criteria.",
+                .SearchItems(searchText.SearchData);
+            Assert.AreEqual(actionMessages.Message,
                 searchCriteriaPage.GetItemNotMatchesMessage());
         }
 
 
         private static readonly object[] SearchData_Case_DefaultView =
-       {
-            "mac",
-            "a",
-            "i",
-            "book"
-         };
+        {
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Case_DefaultView.json"))
+        };
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchCaseInsensitive_Test(string searchText)
+        public void SearchCaseInsensitive_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPageLower = LoadApplication()
-                .SearchItems(searchText.ToLower());
+                .SearchItems(searchText.SearchData.ToLower());
             int lowerResult = searchCriteriaPageLower.FindActualCount();
 
             SearchCriteriaPage searchCriteriaPageUpper = LoadApplication()
-                .SearchItems(searchText.ToUpper());
+                .SearchItems(searchText.SearchData.ToUpper());
             int upperResult = searchCriteriaPageUpper.FindActualCount();
 
             Assert.AreEqual(lowerResult, upperResult);
         }
+
     }
 }

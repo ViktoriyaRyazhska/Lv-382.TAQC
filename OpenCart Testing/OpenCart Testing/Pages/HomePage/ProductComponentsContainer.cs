@@ -63,7 +63,7 @@ namespace OpenCart_Testing.Pages
             IList<string> productComponentNames = new List<string>();
             foreach (ProductComponent current in GetProductComponents())
             {
-                productComponentNames.Add(current.GetNameText());
+                productComponentNames.Add(current.GetNameText().ToLower());
             }
             return productComponentNames;
         }

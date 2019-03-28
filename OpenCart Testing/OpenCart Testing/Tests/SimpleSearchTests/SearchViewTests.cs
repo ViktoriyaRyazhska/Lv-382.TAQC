@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.UIMapping;
+using OpenCart_Testing.TestData.SimpleSearchData;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -15,44 +16,42 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     {
         private static readonly object[] SearchData_Case_DefaultView =
         {
-            "mac",
-            "a",
-            "i",
-            "book"
-         };
+            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Case_DefaultView.json"))
+        };
 
 
-        protected bool hasClass(IWebElement element, string searchedClass)
-        {
-            string[] classes = element.GetAttribute("class").Split(' ');
-            foreach (string str in classes)
-            {
-                if (str.Equals(searchedClass))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
+        //protected bool hasClass(IWebElement element, string searchedClass)
+        //{
+        //    string[] classes = element.GetAttribute("class").Split(' ');
+        //    foreach (string str in classes)
+        //    {
+        //        if (str.Equals(searchedClass))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+        
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchDefaultView_Test(string searchText)
+        public void SearchDefaultView_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
-            bool actual = hasClass(searchCriteriaPage.GridView, "active");
+                .SearchItems(searchText.SearchData);
+            bool actual = searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active");
             Assert.AreEqual(true, actual);
+            searchCriteriaPage.GotoHomePage();
         }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchSavedView_Test(string searchText)
+        public void SearchSavedView_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
+                .SearchItems(searchText.SearchData);
             bool wasGrid = false;
 
-            if (hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
             {
                 searchCriteriaPage.ClickListView();
                 wasGrid = true;
@@ -63,18 +62,19 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             }
 
             SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
-                .SearchItems(searchText);
+                .SearchItems(searchText.SearchData);
 
-            Assert.AreEqual(!wasGrid, hasClass(searchCriteriaPage1.GridView, "active"));
+            Assert.AreEqual(!wasGrid, searchCriteriaPage.hasClass(searchCriteriaPage1.GridView, "active"));
+            searchCriteriaPage.GotoHomePage();
         }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchChangeViewNumberOfElements_Test(string searchText)
+        public void SearchChangeViewNumberOfElements_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText);
+                .SearchItems(searchText.SearchData);
             int beforeChange = searchCriteriaPage.FindActualCount();
-            if (hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
             {
                 searchCriteriaPage.ClickListView();
             }
@@ -85,6 +85,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             int afterChange = searchCriteriaPage.FindActualCount();
 
             Assert.AreEqual(beforeChange, afterChange);
+            searchCriteriaPage.GotoHomePage();
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,111 @@ namespace OpenCart_Testing.Pages
         public IWebElement ListView
         { get { return driver.FindElement(MSearchCriteriaPage.locatorListView); } }
 
+        public IWebElement SearchCriteriaField
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchCriteriaField); } }
+        public IWebElement SearchCriteriaButton
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchCriteriaButton); } }
+        public IWebElement Categories
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorCategories); } }
+        public IWebElement Subcategories
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSubcategories); } }
+        public IWebElement ProductDescription
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorProductDescription); } }
+        
         public SearchCriteriaPage(IWebDriver driver) : base(driver)
         {
         }
 
+        // SearchCriteriaField
+        public string GetSearchCriteriaFieldText()
+        {
+            return SearchCriteriaField.Text;
+        }
+
+        public void SetSearchCriteriaField(string text)
+        {
+            SearchCriteriaField.SendKeys(text);
+        }
+
+        public void ClearSearchCriteriaField()
+        {
+            SearchCriteriaField.Clear();
+        }
+
+        public void ClickSearchCriteriaField()
+        {
+            SearchCriteriaField.Click();
+        }
+
+        // SearchCriteriaButton
+        public void ClickSearchCriteriaButton()
+        {
+            SearchCriteriaButton.Click();
+        }
+
+        // Categories
+        public void ClickCategories()
+        {
+            Categories.Click();
+        }
+
+        //Subcategories
+        public void ClickSubcategories()
+        {
+            Subcategories.Click();
+        }
+
+        //ProductDescription
+        public void ClickProductDescription()
+        {
+            ProductDescription.Click();
+        }
+
+        public void SetCategories(string category)
+        {
+            new SelectElement(Categories).SelectByText(category);
+        }
+
+        public void ChooseProductDescription(bool click)
+        {
+            if (click == true)
+                ClickProductDescription();
+        }
+
+        public void ChooseSearchInSubcategories(bool click)
+        {
+            if (click == true)
+                ClickSubcategories();
+        }
+
+        // Functional
+        protected void MakeSearchCriteria(string searchText, bool choiceDescription, string nameCategory, bool choiceSubcategories)
+        {
+            ClickSearchCriteriaField();
+            ClearSearchCriteriaField();
+            SetSearchCriteriaField(searchText);
+            ChooseProductDescription(choiceDescription);
+            SetCategories(nameCategory);
+            ChooseSearchInSubcategories(choiceSubcategories);
+            ClickSearchCriteriaButton();
+        }
+
+        // Business Logic
+        public SearchCriteriaPage SearchCriteriaItems(string searchData, bool description, string category, bool subcategories)
+        {
+            MakeSearchCriteria(searchData, description, category, subcategories);          
+            return new SearchCriteriaPage(driver);
+        }
+
+        //public SearchCriteriaPage SearchCriteriaItems1(string searchProduct)
+        //{
+        //    MakeSearchCriteria(searchProduct);
+        //    ClickProductDescription();
+        //    Categories.SelectDropdownItemByText("Cameras");
+        //    return new SearchCriteriaPage(driver);
+        //}
         // Page Object
-        
+
         //SearchItemsCount
         public string GetSearchItemsCount()
         {
@@ -62,18 +162,18 @@ namespace OpenCart_Testing.Pages
         }
 
 
-        //public bool hasClass(IWebElement element, string searchedClass)
-        //{
-        //    string[] classes = element.GetAttribute("class").Split(' ');
-        //    foreach (string str in classes)
-        //    {
-        //        if (str.Equals(searchedClass))
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+        public bool hasClass(IWebElement element, string searchedClass)
+        {
+            string[] classes = element.GetAttribute("class").Split(' ');
+            foreach (string str in classes)
+            {
+                if (str.Equals(searchedClass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         //Business Logic
 
