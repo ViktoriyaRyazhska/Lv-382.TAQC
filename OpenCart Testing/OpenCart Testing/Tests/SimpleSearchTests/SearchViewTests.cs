@@ -20,27 +20,28 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         };
 
 
-        protected bool hasClass(IWebElement element, string searchedClass)
-        {
-            string[] classes = element.GetAttribute("class").Split(' ');
-            foreach (string str in classes)
-            {
-                if (str.Equals(searchedClass))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
+        //protected bool hasClass(IWebElement element, string searchedClass)
+        //{
+        //    string[] classes = element.GetAttribute("class").Split(' ');
+        //    foreach (string str in classes)
+        //    {
+        //        if (str.Equals(searchedClass))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+        
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
         public void SearchDefaultView_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.SearchData);
-            bool actual = hasClass(searchCriteriaPage.GridView, "active");
+            bool actual = searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active");
             Assert.AreEqual(true, actual);
+            searchCriteriaPage.GotoHomePage();
         }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
@@ -50,7 +51,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
                 .SearchItems(searchText.SearchData);
             bool wasGrid = false;
 
-            if (hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
             {
                 searchCriteriaPage.ClickListView();
                 wasGrid = true;
@@ -63,7 +64,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
                 .SearchItems(searchText.SearchData);
 
-            Assert.AreEqual(!wasGrid, hasClass(searchCriteriaPage1.GridView, "active"));
+            Assert.AreEqual(!wasGrid, searchCriteriaPage.hasClass(searchCriteriaPage1.GridView, "active"));
+            searchCriteriaPage.GotoHomePage();
         }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
@@ -72,7 +74,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.SearchData);
             int beforeChange = searchCriteriaPage.FindActualCount();
-            if (hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
             {
                 searchCriteriaPage.ClickListView();
             }
@@ -83,6 +85,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             int afterChange = searchCriteriaPage.FindActualCount();
 
             Assert.AreEqual(beforeChange, afterChange);
+            searchCriteriaPage.GotoHomePage();
         }
 
     }

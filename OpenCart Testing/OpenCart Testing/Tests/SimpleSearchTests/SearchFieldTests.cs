@@ -73,8 +73,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         private static readonly object[] SearchData_InvalidLength =
         {
             new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_InvalidLength.json"),
-                ActionMessageRepository.Get().ActionMessageFromJson("SimpleSearchNoProduct.json"))
-                                                                //   SimpleSearchMaxLength.json
+                ActionMessageRepository.Get().ActionMessageFromJson("SimpleSearchMaxLength.json"))
+                                                                
         };
 
         [Test, TestCaseSource("SearchData_InvalidLength")]
