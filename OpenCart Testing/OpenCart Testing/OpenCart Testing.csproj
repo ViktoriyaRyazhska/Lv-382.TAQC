@@ -101,12 +101,11 @@
     <Compile Include="Pages\UIMapping\MChangePasswordPage.cs" />
     <Compile Include="Pages\UIMapping\MEditAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MLoginPage.cs" />
+    <Compile Include="Pages\UIMapping\MProductComponent.cs" />
+    <Compile Include="Pages\UIMapping\MProductComponentsContainer.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
-
     <Compile Include="Pages\UIMapping\MSuccessfullyDeletedAddressPage.cs" />
-
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -120,11 +119,12 @@
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\SimpleSearchData\ISimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
-    <Compile Include="Tests\ChangePasswordTests\ClangePasswordPositiveTest.cs" />
+    <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,28 +1,24 @@
 ﻿using OpenQA.Selenium;
+using OpenCart_Testing.UIMapping.MProductComponent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace OpenCart_Testing.Pages
 {
     public class ProductComponent
     {
         private IWebElement productLayout;
-        //
-        public IWebElement Name
-        { get { return productLayout.FindElement(By.CssSelector("h4 a")); } }
-        public IWebElement PartialDescription
-        { get { return productLayout.FindElement(By.CssSelector("h4 + p")); } }
-        public IWebElement Price
-        { get { return productLayout.FindElement(By.CssSelector(".price")); } }
-        public IWebElement AddToCartButton
-        { get { return productLayout.FindElement(By.CssSelector(".fa.fa-shopping-cart")); } }
-        public IWebElement AddToWishButton
-        { get { return productLayout.FindElement(By.CssSelector(".fa.fa-heart")); } }
-        public IWebElement AddToCompareButton
-        { get { return productLayout.FindElement(By.CssSelector(".fa.fa-exchange")); } }
+        //     
+        private IWebElement Name => productLayout.FindElement(MProductComponent.locatorName);
+        private IWebElement PartialDescription => productLayout.FindElement(MProductComponent.locatorPartialDescription);
+        private IWebElement Price => productLayout.FindElement(MProductComponent.locatorPrice);
+        private IWebElement AddToCartButton => productLayout.FindElement(MProductComponent.locatorAddToCartButton);
+        private IWebElement AddToWishButton => productLayout.FindElement(MProductComponent.locatorAddToWishButton);
+        private IWebElement AddToCompareButton => productLayout.FindElement(MProductComponent.locatorAddToCompareButton);
 
         public ProductComponent(IWebElement productLayout)
         {

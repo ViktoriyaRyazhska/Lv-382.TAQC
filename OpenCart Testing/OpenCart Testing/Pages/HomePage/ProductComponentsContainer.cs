@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenCart_Testing.UIMapping.MProductComponentsContainer;
 
 namespace OpenCart_Testing.Pages
 {
@@ -23,10 +24,15 @@ namespace OpenCart_Testing.Pages
                     // TODO Develop Custom Exception 
                     throw new Exception("Message not Found.");
                 }
-                return driver.FindElement(By.CssSelector("#button-search + h2 + p"));
+                return driver.FindElement(MProductComponentsContainer.locatorEmptyListMessage);
             }
         }
-        //
+        
+        public string GetEmptyListMessange()
+        {
+            return EmptyListMessage.Text;
+        }
+
         private IList<ProductComponent> productComponents;
 
         public ProductComponentsContainer(IWebDriver driver)
@@ -38,7 +44,7 @@ namespace OpenCart_Testing.Pages
         private void InitElements()
         {
             productComponents = new List<ProductComponent>();
-            foreach (IWebElement current in driver.FindElements(By.CssSelector(PRODUCT_COMPONENT_CSSSELECTOR)))
+            foreach (IWebElement current in driver.FindElements(MProductComponentsContainer.locatorProductComponent))
             {
                 productComponents.Add(new ProductComponent(current));
             }
