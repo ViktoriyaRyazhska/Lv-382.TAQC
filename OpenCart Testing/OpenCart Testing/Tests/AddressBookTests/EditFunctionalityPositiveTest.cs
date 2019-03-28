@@ -17,7 +17,7 @@ namespace OpenCart_Testing.Tests.AddressBookTests
     class EditFunctionalityPositiveTest : TestRunner
     {
         private static readonly object[] ValidFirstname =
-{
+        {
            "Sasha",
            "Oleksandra",
         };

@@ -119,12 +119,12 @@
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
-    <Compile Include="TestData\SimpleSearchData\ISimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
+    <Compile Include="Tests\ChangePasswordTests\ClangePasswordPositiveTest.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,10 +159,15 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_InvalidLength.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
+    <Folder Include="TestData\DataSourse\Products\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
