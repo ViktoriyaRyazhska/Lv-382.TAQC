@@ -100,11 +100,8 @@
     <Compile Include="Pages\UIMapping\MEditAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
-
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
-
     <Compile Include="Pages\UIMapping\MSuccessfullyDeletedAddressPage.cs" />
-
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -118,6 +115,7 @@
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\SimpleSearchData\ISimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
