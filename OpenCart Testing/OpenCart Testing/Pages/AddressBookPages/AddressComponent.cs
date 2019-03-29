@@ -11,15 +11,10 @@ namespace OpenCart_Testing.Pages.AddressBookPages
     public class AddressComponent
     {
         private IWebElement addressRow;
-        //private IWebElement AddressDescription => addressRow.FindElement(MAddressComponent.locatorAddressDescription);
-        //private IWebElement EditButton => addressRow.FindElement(MAddressComponent.locatorEditButton);
-        //private IWebElement DeleteButton => addressRow.FindElement(MAddressComponent.locatorDeleteButton);
-
-
+        
         private IWebElement AddressDescription { get; set; }
         private IWebElement EditButton { get; set; }
         private IWebElement DeleteButton { get; set; }
-
 
         public AddressComponent(IWebElement addressRow)
         {
