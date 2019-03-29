@@ -14,16 +14,12 @@ namespace OpenCart_Testing.Tests
         public void CheckDeletingOfNotDefaultAddress()
         {
             AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
-                .SetFirstDefault();
+                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
             Console.WriteLine(page.GetAddressComponentsContainer().GetCount());
-            page.GetAddressComponentsContainer().Print();
             
-            //page.GetAddressComponentsContainer().DeleteByName("Vasil");
+            SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
 
-            //SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
-
-            //Assert.AreEqual(deletedPage.GetDeletedAddressMessageText(), SuccessfullyDeletedAddressPage.DELETINGNOTDEFAULT);
+            Assert.AreEqual(deletedPage.GetDeletedAddressMessageText(), SuccessfullyDeletedAddressPage.DELETINGNOTDEFAULT);
         }
     }
 }
