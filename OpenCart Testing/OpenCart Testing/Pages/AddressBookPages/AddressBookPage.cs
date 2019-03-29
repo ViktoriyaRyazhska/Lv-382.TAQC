@@ -70,16 +70,10 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             page.ClickContinue();
             return new AddressBookPage(driver);
         }
-
-        public void LogoutUser()
-        {
-            ClickLogoutUserButton();
-        }
         
-
-        //public AddNewAddressPage AddNewAddress(AddressComponent address)
-        //{
-        //    return new AddNewAddressPage(driver);
-        //}
+        public void AddNewAddress()
+        {
+            AddNewAddressPage addPage = new AddNewAddressPage(driver);
+        }
     }
 }

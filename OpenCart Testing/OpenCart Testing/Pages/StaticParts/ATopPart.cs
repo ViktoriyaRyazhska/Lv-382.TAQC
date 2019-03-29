@@ -195,7 +195,7 @@ namespace OpenCart_Testing.Pages
             return new LoginPage(driver);
         }
 
-        public void ClickLogoutUserButton()
+        public void LogoutUser()
         {
             ClickMyAccount();
             LogoutButton.Click();

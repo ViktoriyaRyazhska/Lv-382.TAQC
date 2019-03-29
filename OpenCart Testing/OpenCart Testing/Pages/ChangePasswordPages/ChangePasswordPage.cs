@@ -45,11 +45,12 @@ namespace OpenCart_Testing.Pages.ChangePasswordPages
             ConfirmNewPasswordField.ClearAndSendKeys(passwordConfirmation);
         }
 
-        public void ChangePassword()
+        public SuccessfulPassChangeAccountPage SuccessfulChangePassword()
         {
             SetNewPassword();
             ConfirmNewPassword();
             ClickChangePassContinueButton();
+            return new SuccessfulPassChangeAccountPage(driver);
         }
     }
 }
