@@ -1,9 +1,4 @@
 ﻿using OpenCart_Testing.Tools;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.TestData.AddressBookData
 {
@@ -32,25 +27,9 @@ namespace OpenCart_Testing.TestData.AddressBookData
             return instance;
         }
 
-        public IAddress Registered()
-        {
-            return Address.Get()
-                .SetFirstname("Firstname8")
-                .SetLastname("Lastname8")
-                .SetAddress1("8Address1")
-                .SetCity("City8")
-                .SetPostcode("54321")
-                .SetCountry("Country8")
-                .SetRegionState("RegionState8")
-                .SetCompany("Company")
-                .SetAddress2("Address2")
-                .SetDefault(false)
-                .Build();
-        }
-
         public IAddress NewAddressFromJson(string fileName)
         {
-            return JsonParser.DeserializeFromFile<Review>(directory, fileName) as IAddress;
+            return JsonParser.DeserializeFromFile<Address>(directory, fileName) as IAddress;
         }
     }
 }
