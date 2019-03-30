@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using OpenCart_Testing.Pages.UIMapping;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +11,171 @@ namespace OpenCart_Testing.Pages
 {
     public class SearchCriteriaPage : ASearchResultPart
     {
+        //protected IWebDriver driver;
+
+        public IWebElement SearchItemsCount
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchItemsCount); } }
+        public IWebElement ItemNotMatchesMessage
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorItemNotMatchesMessage); } }
+        public IWebElement SearchAlertMessage
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchAlertMessage); } }
+        public IWebElement GridView
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorGridView); } }
+        public IWebElement ListView
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorListView); } }
+
+        public IWebElement SearchCriteriaField
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchCriteriaField); } }
+        public IWebElement SearchCriteriaButton
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSearchCriteriaButton); } }
+        public IWebElement Categories
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorCategories); } }
+        public IWebElement Subcategories
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorSubcategories); } }
+        public IWebElement ProductDescription
+        { get { return driver.FindElement(MSearchCriteriaPage.locatorProductDescription); } }
+        
         public SearchCriteriaPage(IWebDriver driver) : base(driver)
         {
         }
 
-        // Page Object
+        // SearchCriteriaField
+        public string GetSearchCriteriaFieldText()
+        {
+            return SearchCriteriaField.Text;
+        }
+
+        public void SetSearchCriteriaField(string text)
+        {
+            SearchCriteriaField.SendKeys(text);
+        }
+
+        public void ClearSearchCriteriaField()
+        {
+            SearchCriteriaField.Clear();
+        }
+
+        public void ClickSearchCriteriaField()
+        {
+            SearchCriteriaField.Click();
+        }
+
+        // SearchCriteriaButton
+        public void ClickSearchCriteriaButton()
+        {
+            SearchCriteriaButton.Click();
+        }
+
+        // Categories
+        public void ClickCategories()
+        {
+            Categories.Click();
+        }
+
+        //Subcategories
+        public void ClickSubcategories()
+        {
+            Subcategories.Click();
+        }
+
+        //ProductDescription
+        public void ClickProductDescription()
+        {
+            ProductDescription.Click();
+        }
+
+        public void SetCategories(string category)
+        {
+            new SelectElement(Categories).SelectByText(category);
+        }
+
+        public void ChooseProductDescription(bool click)
+        {
+            if (click == true)
+                ClickProductDescription();
+        }
+
+        public void ChooseSearchInSubcategories(bool click)
+        {
+            if (click == true)
+                ClickSubcategories();
+        }
 
         // Functional
+        protected void MakeSearchCriteria(string searchText, bool choiceDescription, string nameCategory, bool choiceSubcategories)
+        {
+            ClickSearchCriteriaField();
+            ClearSearchCriteriaField();
+            SetSearchCriteriaField(searchText);
+            ChooseProductDescription(choiceDescription);
+            SetCategories(nameCategory);
+            ChooseSearchInSubcategories(choiceSubcategories);
+            ClickSearchCriteriaButton();
+        }
 
         // Business Logic
+        public SearchCriteriaPage SearchCriteriaItems(string searchData, bool description, string category, bool subcategories)
+        {
+            MakeSearchCriteria(searchData, description, category, subcategories);          
+            return new SearchCriteriaPage(driver);
+        }
+
+        //public SearchCriteriaPage SearchCriteriaItems1(string searchProduct)
+        //{
+        //    MakeSearchCriteria(searchProduct);
+        //    ClickProductDescription();
+        //    Categories.SelectDropdownItemByText("Cameras");
+        //    return new SearchCriteriaPage(driver);
+        //}
+        // Page Object
+
+        //SearchItemsCount
+        public string GetSearchItemsCount()
+        {
+            return SearchItemsCount.Text;
+        }
+        //SearchItemNotMatchesMessage
+        public string GetItemNotMatchesMessage()
+        {
+            return ItemNotMatchesMessage.Text;
+        }
+        //SearchItemNotMatchesMessage
+        public string GetSearchAlertMessage()
+        {
+            return SearchAlertMessage.Text;
+        }
+        //SearchGridViewButton
+        public void ClickGridView()
+        {
+            GridView.Click();
+        }
+        //SearchListViewButton
+        public void ClickListView()
+        {
+            ListView.Click();
+        }
+
+        // Functional
+        public int FindActualCount()
+        {
+            return int.Parse(GetSearchItemsCount().Split(' ')[5]);
+        }
+
+
+        public bool hasClass(IWebElement element, string searchedClass)
+        {
+            string[] classes = element.GetAttribute("class").Split(' ');
+            foreach (string str in classes)
+            {
+                if (str.Equals(searchedClass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //Business Logic
 
     }
 }

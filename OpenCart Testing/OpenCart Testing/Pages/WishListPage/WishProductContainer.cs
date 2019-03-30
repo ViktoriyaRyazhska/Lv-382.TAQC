@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using OpenCart_Testing.TestData.WishListData;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages.WishListPage
 {
@@ -34,9 +36,10 @@ namespace OpenCart_Testing.Pages.WishListPage
             return wishProducts;
         }
 
-        public bool CheckResultAddingToWishList(IList<string> productName)
+        public bool CheckResultAddingToWishList(IList<WishListItem> productName)
         {
-            IList<WishProduct> actualItems = GetWishedItems();
+            List<WishProduct> actualItems = GetWishedItems().ToList<WishProduct>();
+           
             if (GetWishedItemCount() == 0)
             {
                 throw new Exception("List is empty.");
@@ -45,7 +48,7 @@ namespace OpenCart_Testing.Pages.WishListPage
             {
                 for (int i = 0; i < GetWishedItemCount(); i++)
                 {
-                    if (actualItems[i].ProductNameText != productName[i])
+                    if (actualItems[i].ProductNameText != productName[i].Name)
                     {
                         return false;
                     }

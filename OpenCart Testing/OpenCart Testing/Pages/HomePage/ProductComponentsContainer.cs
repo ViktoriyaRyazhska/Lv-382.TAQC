@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenCart_Testing.UIMapping.MProductComponentsContainer;
+using OpenCart_Testing.TestData;
+using System.Threading;
+using OpenCart_Testing.TestData.WishListData;
 
 namespace OpenCart_Testing.Pages
 {
@@ -23,10 +27,15 @@ namespace OpenCart_Testing.Pages
                     // TODO Develop Custom Exception 
                     throw new Exception("Message not Found.");
                 }
-                return driver.FindElement(By.CssSelector("#button-search + h2 + p"));
+                return driver.FindElement(MProductComponentsContainer.locatorEmptyListMessage);
             }
         }
-        //
+        
+        public string GetEmptyListMessange()
+        {
+            return EmptyListMessage.Text;
+        }
+
         private IList<ProductComponent> productComponents;
 
         public ProductComponentsContainer(IWebDriver driver)
@@ -38,7 +47,7 @@ namespace OpenCart_Testing.Pages
         private void InitElements()
         {
             productComponents = new List<ProductComponent>();
-            foreach (IWebElement current in driver.FindElements(By.CssSelector(PRODUCT_COMPONENT_CSSSELECTOR)))
+            foreach (IWebElement current in driver.FindElements(MProductComponentsContainer.locatorProductComponent))
             {
                 productComponents.Add(new ProductComponent(current));
             }
@@ -57,7 +66,7 @@ namespace OpenCart_Testing.Pages
             IList<string> productComponentNames = new List<string>();
             foreach (ProductComponent current in GetProductComponents())
             {
-                productComponentNames.Add(current.GetNameText());
+                productComponentNames.Add(current.GetNameText().ToLower());
             }
             return productComponentNames;
         }
@@ -105,7 +114,17 @@ namespace OpenCart_Testing.Pages
             GetProductComponentByName(productName).ClickAddToWishButton();
         }
 
-        public int GetProductComponentsCount()
+        public void ClickProductComponentAddToWishButtonByName(IList<WishListItem> items)
+        {
+            foreach (WishListItem item in items)
+            {
+                GetProductComponentByName(item.Name).ClickAddToWishButton();
+                Thread.Sleep(1000);
+            }
+        }
+         
+
+    public int GetProductComponentsCount()
         {
             return GetProductComponents().Count;
         }

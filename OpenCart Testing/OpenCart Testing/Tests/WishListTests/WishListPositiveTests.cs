@@ -2,6 +2,9 @@
 using OpenCart_Testing.Pages.WishListPage;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.TestData;
+using System.Threading;
+using System.Collections.Generic;
+using OpenCart_Testing.TestData.WishListData;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
@@ -9,13 +12,13 @@ namespace OpenCart_Testing.Tests.WishListTests
     class WishListPositiveTests : TestRunner
     {
 
-        public static object[] RevievMessageNotLogged =
-        {
-            new TestCaseData( .GetIphone(), ReviewsRepository.Get().NewReviewFromJson("EmptyFieldName.json"), ActionMessageRepository.Get().ActionMessageFromJson("ReviewInvalidName.json")).SetName("EmptyFieldNameTest")
-            
-        };
+        //public static object[] RevievMessageNotLogged1 =
+        //{
+        //   new TestCaseData(ActionMessageRepository.Get().ActionMessageFromJson("NotLoggedUser"))
 
-        //[TestCase("Your wish list is empty.", new string[] { "iPhone","MacBook"})]
+        //};
+
+        //[TestCase("Your wish list is empty.", new string[] { "iPhone", "MacBook" })]
         //[Test]
         //public void CheckRemowingAll(string expectedMessage, string[] names)
         //{
@@ -31,19 +34,39 @@ namespace OpenCart_Testing.Tests.WishListTests
         //    Assert.AreEqual(expectedMessage, actualMessage);
         //}
 
+        public static object[] ReviewMessageNotLogged =
+        {
+           new TestCaseData(ActionMessageRepository.Get().ActionMessageFromJson("NotLoggedUser.json"), WishListItemsRepository.Get().WishListItemFromJson("ItemForNotLogged.json"))         
+        };
 
-        // [TestCase("login", "iPhone")]
-        [Test]
-        public void CheckAddForNotLoggedIn(string expectedMessage, string name)
+        [Test, TestCaseSource("ReviewMessageNotLogged")]
+        public void CheckAddForNotLoggedIn(ActionMessage expectedMessage, WishListItem name)
         {
             HomePage page = LoadApplication();
-            page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name);
-            //Thread.Sleep(3000);
+            page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name.GetItemName());
+            Thread.Sleep(3000);
             UpdatedHomePage updatedPage = new UpdatedHomePage(driver);
             string actualMessage = updatedPage.GetUpdatedMessage().Text;
-            Assert.AreEqual(expectedMessage, actualMessage);
+            Assert.AreEqual(expectedMessage.Message, actualMessage);
         }
 
+        public static object[] RevievAddingToWishList =
+        {
+            new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
+        };
+
+        [Test, TestCaseSource("RevievAddingToWishList")]
+        public void CheckAddFromHomePage(IList<WishListItem> names)
+        {
+            LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
+                .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
+            
+            HomePage page = LoadApplication(); 
+            WishListPage wishlist = page.ClickWishList();
+            Assert.AreEqual(true,wishlist.GetWishProductContainer().CheckResultAddingToWishList(names));
+
+
+        }
 
     }
 }

@@ -1,0 +1,341 @@
+﻿[3/28/2019 2:00:59 PM Informational] ------ Run test started ------
+[3/28/2019 2:01:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:01:01 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:01:02 PM Informational]    NUnit3TestExecutor converted 39 of 39 NUnit test cases
+[3/28/2019 2:02:07 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:02:08 PM Informational] ========== Run test finished: 4 run (0:01:08.7562702) ==========
+[3/28/2019 2:02:29 PM Informational] ------ Run test started ------
+[3/28/2019 2:02:32 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:02:32 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:02:33 PM Informational]    NUnit3TestExecutor converted 39 of 39 NUnit test cases
+[3/28/2019 2:02:53 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:02:53 PM Informational] ========== Run test finished: 4 run (0:00:23.6859423) ==========
+[3/28/2019 2:18:36 PM Informational] ------ Run test started ------
+[3/28/2019 2:18:38 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:18:38 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:18:39 PM Informational]    NUnit3TestExecutor converted 37 of 37 NUnit test cases
+[3/28/2019 2:18:53 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:18:53 PM Informational] ========== Run test finished: 1 run (0:00:16.3375866) ==========
+[3/28/2019 2:31:03 PM Informational] ------ Run test started ------
+[3/28/2019 2:31:04 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:31:04 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:31:06 PM Informational]    NUnit3TestExecutor converted 36 of 36 NUnit test cases
+[3/28/2019 2:31:26 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:31:26 PM Informational] ========== Run test finished: 1 run (0:00:22.470804) ==========
+[3/28/2019 2:49:50 PM Informational] ------ Run test started ------
+[3/28/2019 2:49:51 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:49:51 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:49:53 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:49:53 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:49:53 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:49:53 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:49:53 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:49:53 PM Informational] ========== Run test finished: 1 run (0:00:02.8077537) ==========
+[3/28/2019 2:52:00 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:01 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:02 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:02 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:52:02 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:52:02 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:52:02 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:02 PM Informational] ========== Run test finished: 1 run (0:00:02.2096393) ==========
+[3/28/2019 2:52:07 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:08 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:08 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:09 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:09 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:52:09 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:52:09 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:52:09 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:09 PM Informational] ========== Run test finished: 1 run (0:00:02.1399916) ==========
+[3/28/2019 2:52:19 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:19 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:19 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:20 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:21 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:52:21 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:52:21 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:52:21 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:21 PM Informational] ========== Run test finished: 1 run (0:00:02.1923615) ==========
+[3/28/2019 2:52:29 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:30 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:30 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:31 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:31 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:52:31 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:52:31 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:52:31 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:31 PM Informational] ========== Run test finished: 1 run (0:00:02.5349135) ==========
+[3/28/2019 2:52:37 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:38 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:38 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:39 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:39 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:39 PM Informational] ========== Run test finished: 0 run (0:00:02.0631502) ==========
+[3/28/2019 2:52:46 PM Informational] ------ Run test started ------
+[3/28/2019 2:52:47 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:52:47 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:52:48 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:52:48 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:52:48 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:52:48 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:52:48 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:52:48 PM Informational] ========== Run test finished: 1 run (0:00:02.3279054) ==========
+[3/28/2019 2:53:51 PM Informational] ------ Run test started ------
+[3/28/2019 2:53:52 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:53:52 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:53:53 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:53:54 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:53:54 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:53:54 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:53:54 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:53:54 PM Informational] ========== Run test finished: 1 run (0:00:02.2995862) ==========
+[3/28/2019 2:54:49 PM Informational] ------ Run test started ------
+[3/28/2019 2:54:50 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:54:50 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:54:51 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:54:51 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:54:51 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:54:51 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:54:51 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:54:51 PM Informational] ========== Run test finished: 1 run (0:00:02.3555563) ==========
+[3/28/2019 2:57:18 PM Informational] ------ Run test started ------
+[3/28/2019 2:57:19 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:57:19 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:57:20 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 2:57:21 PM Warning] SetUp failed for test fixture OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests
+[3/28/2019 2:57:21 PM Warning] System.TypeInitializationException : The type initializer for 'OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests' threw an exception.
+  ----> System.Exception : Cant Deserialize from file: E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json
+[3/28/2019 2:57:21 PM Warning]    at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..ctor()
+--Exception
+   at OpenCart_Testing.Tools.JsonParser.DeserializeFromFile[T](String repository, String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tools\JsonParser.cs:line 24
+   at OpenCart_Testing.TestData.SimpleSearchData.SimpleSearchRepository.NewSearchDataFromJson(String fileName) in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\TestData\SimpleSearchData\SimpleSearchRepository.cs:line 16
+   at OpenCart_Testing.Tests.SimpleSearchTests.SearchFieldTests..cctor() in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\Tests\SimpleSearchTests\SearchFieldTests.cs:line 115
+[3/28/2019 2:57:21 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:57:21 PM Informational] ========== Run test finished: 1 run (0:00:02.5104297) ==========
+[3/28/2019 2:58:38 PM Informational] ------ Run test started ------
+[3/28/2019 2:58:38 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:58:38 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:58:40 PM Informational]    NUnit3TestExecutor converted 30 of 30 NUnit test cases
+[3/28/2019 2:58:58 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 2:58:58 PM Informational] ========== Run test finished: 1 run (0:00:20.5634764) ==========
+[3/28/2019 2:59:49 PM Informational] ------ Run test started ------
+[3/28/2019 2:59:49 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 2:59:49 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 2:59:50 PM Informational]    NUnit3TestExecutor converted 30 of 30 NUnit test cases
+[3/28/2019 3:00:14 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:00:14 PM Informational] ========== Run test finished: 3 run (0:00:25.7116757) ==========
+[3/28/2019 3:01:00 PM Informational] ------ Run test started ------
+[3/28/2019 3:01:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:01:01 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:01:02 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:01:02 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:01:02 PM Informational] ========== Run test finished: 0 run (0:00:02.5994141) ==========
+[3/28/2019 3:01:09 PM Informational] ------ Run test started ------
+[3/28/2019 3:01:11 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:01:11 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:01:12 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:01:43 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:01:43 PM Informational] ========== Run test finished: 1 run (0:00:33.5207585) ==========
+[3/28/2019 3:01:55 PM Informational] ------ Run test started ------
+[3/28/2019 3:01:56 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:01:56 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:01:57 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:02:07 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:02:07 PM Informational] ========== Run test finished: 1 run (0:00:11.8552842) ==========
+[3/28/2019 3:02:40 PM Informational] ------ Run test started ------
+[3/28/2019 3:02:41 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:02:41 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:02:42 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:02:52 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:02:52 PM Informational] ========== Run test finished: 1 run (0:00:12.0735769) ==========
+[3/28/2019 3:03:10 PM Informational] ------ Run test started ------
+[3/28/2019 3:03:10 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:03:11 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:03:12 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:03:23 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:03:23 PM Informational] ========== Run test finished: 1 run (0:00:13.1199859) ==========
+[3/28/2019 3:04:13 PM Informational] ------ Run test started ------
+[3/28/2019 3:04:14 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:04:14 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:04:15 PM Informational]    NUnit3TestExecutor converted 28 of 28 NUnit test cases
+[3/28/2019 3:04:26 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:04:26 PM Informational] ========== Run test finished: 1 run (0:00:12.8220584) ==========
+[3/28/2019 3:12:41 PM Warning] Build failed or it was cancelled.
+[3/28/2019 3:16:17 PM Warning] Build failed or it was cancelled.
+[3/28/2019 3:18:14 PM Warning] Build failed or it was cancelled.
+[3/28/2019 3:19:04 PM Warning] Build failed or it was cancelled.
+[3/28/2019 3:19:45 PM Warning] Build failed or it was cancelled.
+[3/28/2019 3:20:57 PM Informational] ------ Run test started ------
+[3/28/2019 3:20:57 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:20:57 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:20:58 PM Informational]    NUnit3TestExecutor converted 25 of 25 NUnit test cases
+[3/28/2019 3:21:10 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:21:10 PM Informational] ========== Run test finished: 1 run (0:00:12.9600051) ==========
+[3/28/2019 3:21:49 PM Informational] ------ Run test started ------
+[3/28/2019 3:21:50 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:21:50 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:21:51 PM Informational]    NUnit3TestExecutor converted 25 of 25 NUnit test cases
+[3/28/2019 3:22:27 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:22:27 PM Informational] ========== Run test finished: 1 run (0:00:38.6394087) ==========
+[3/28/2019 3:25:05 PM Informational] ------ Run test started ------
+[3/28/2019 3:25:06 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:25:06 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:25:07 PM Informational]    NUnit3TestExecutor converted 25 of 25 NUnit test cases
+[3/28/2019 3:25:32 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:25:32 PM Informational] ========== Run test finished: 1 run (0:00:26.8566565) ==========
+[3/28/2019 3:25:57 PM Informational] ------ Run test started ------
+[3/28/2019 3:25:59 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:25:59 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:26:00 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 3:26:12 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:26:12 PM Informational] ========== Run test finished: 1 run (0:00:14.6228273) ==========
+[3/28/2019 3:28:26 PM Informational] ------ Run test started ------
+[3/28/2019 3:28:26 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:28:26 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:28:27 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 3:28:38 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:28:38 PM Informational] ========== Run test finished: 1 run (0:00:11.9983878) ==========
+[3/28/2019 3:31:17 PM Informational] ------ Run test started ------
+[3/28/2019 3:31:18 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:31:18 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:31:19 PM Informational]    NUnit3TestExecutor converted 26 of 26 NUnit test cases
+[3/28/2019 3:31:31 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:31:31 PM Informational] ========== Run test finished: 1 run (0:00:14.0722599) ==========
+[3/28/2019 3:36:49 PM Informational] ------ Run test started ------
+[3/28/2019 3:36:49 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:36:49 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:36:51 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 3:37:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:37:00 PM Informational] ========== Run test finished: 1 run (0:00:11.1484046) ==========
+[3/28/2019 3:38:15 PM Informational] ------ Run test started ------
+[3/28/2019 3:38:17 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:38:17 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:38:18 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 3:38:30 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:38:30 PM Informational] ========== Run test finished: 3 run (0:00:14.8701018) ==========
+[3/28/2019 3:39:14 PM Informational] ------ Run test started ------
+[3/28/2019 3:39:14 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:39:14 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:39:15 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 3:39:24 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:39:24 PM Informational] ========== Run test finished: 1 run (0:00:10.4683054) ==========
+[3/28/2019 3:39:29 PM Informational] ------ Run test started ------
+[3/28/2019 3:39:30 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:39:30 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:39:31 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 3:39:43 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:39:43 PM Informational] ========== Run test finished: 3 run (0:00:13.5529781) ==========
+[3/28/2019 3:39:46 PM Informational] ------ Run test started ------
+[3/28/2019 3:39:46 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 3:39:46 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 3:39:47 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 3:39:56 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 3:39:56 PM Informational] ========== Run test finished: 1 run (0:00:09.9884653) ==========
+[3/28/2019 4:15:38 PM Informational] ------ Run test started ------
+[3/28/2019 4:15:42 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:15:42 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:15:44 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:15:44 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:15:45 PM Informational] ========== Run test finished: 0 run (0:00:06.7005089) ==========
+[3/28/2019 4:16:04 PM Informational] ------ Run test started ------
+[3/28/2019 4:16:05 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:16:05 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:16:06 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:16:41 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:16:41 PM Informational] ========== Run test finished: 1 run (0:00:37.0978938) ==========
+[3/28/2019 4:20:37 PM Informational] ------ Run test started ------
+[3/28/2019 4:20:38 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:20:38 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:20:39 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:20:39 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:20:40 PM Informational] ========== Run test finished: 0 run (0:00:02.2144038) ==========
+[3/28/2019 4:20:43 PM Informational] ------ Run test started ------
+[3/28/2019 4:20:44 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:20:44 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:20:45 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:21:00 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:21:00 PM Informational] ========== Run test finished: 1 run (0:00:17.572877) ==========
+[3/28/2019 4:25:03 PM Informational] ------ Run test started ------
+[3/28/2019 4:25:03 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:25:04 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:25:05 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:25:05 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:25:05 PM Informational] ========== Run test finished: 0 run (0:00:02.2537814) ==========
+[3/28/2019 4:25:08 PM Informational] ------ Run test started ------
+[3/28/2019 4:25:09 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:25:09 PM Informational] Running all tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:25:10 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:25:36 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:25:36 PM Informational] ========== Run test finished: 1 run (0:00:28.0551038) ==========
+[3/28/2019 4:30:58 PM Informational] ------ Run test started ------
+[3/28/2019 4:30:59 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:30:59 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:31:00 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:31:19 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:31:19 PM Informational] ========== Run test finished: 1 run (0:00:20.8813847) ==========
+[3/28/2019 4:32:48 PM Informational] ------ Run test started ------
+[3/28/2019 4:32:49 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:32:49 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:32:50 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:33:07 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:33:07 PM Informational] ========== Run test finished: 1 run (0:00:18.8441729) ==========
+[3/28/2019 4:46:19 PM Informational] ------ Run test started ------
+[3/28/2019 4:46:20 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:46:20 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:46:21 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:46:37 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:46:37 PM Informational] ========== Run test finished: 1 run (0:00:17.9348183) ==========
+[3/28/2019 4:54:16 PM Informational] ------ Run test started ------
+[3/28/2019 4:54:17 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:54:17 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:54:19 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:54:39 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:54:40 PM Informational] ========== Run test finished: 1 run (0:00:23.3593207) ==========
+[3/28/2019 4:55:00 PM Informational] ------ Run test started ------
+[3/28/2019 4:55:01 PM Informational] NUnit Adapter 3.13.0.0: Test execution started
+[3/28/2019 4:55:01 PM Informational] Running selected tests in E:\softserve courses\Soft Repo\Lv-382.TAQC\OpenCart Testing\OpenCart Testing\bin\Debug\OpenCart Testing.dll
+[3/28/2019 4:55:02 PM Informational]    NUnit3TestExecutor converted 17 of 17 NUnit test cases
+[3/28/2019 4:55:18 PM Informational] NUnit Adapter 3.13.0.0: Test execution complete
+[3/28/2019 4:55:19 PM Informational] ========== Run test finished: 1 run (0:00:18.3064317) ==========

@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.Generic;
 using OpenCart_Testing.UIMapping.MATopPart;
+using OpenCart_Testing.Pages.LoginPages;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages
 {
-
     public abstract class ATopPart
     {
         protected const string TAG_ATTRIBUTE_VALUE = "value";
@@ -32,6 +33,8 @@ namespace OpenCart_Testing.Pages
         { get { return driver.FindElement(MATopPart.locatorCartButton); } }
         public IWebElement LoginButton
         { get { return driver.FindElement(MATopPart.locatorLoginButton); } }
+        public IWebElement LogoutButton
+        { get { return driver.FindElement(MATopPart.locatorLogoutButton); } }
         //
         protected IList<IWebElement> TopMenu;
 
@@ -59,7 +62,7 @@ namespace OpenCart_Testing.Pages
             return MyAccount.Text;
         }
 
-        protected void ClickMyAccount()
+        public void ClickMyAccount()
         {
             MyAccount.Click();
         }
@@ -70,10 +73,7 @@ namespace OpenCart_Testing.Pages
             return WishList.Text;
         }
 
-        public void ClickWishList()
-        {
-            WishList.Click();
-        }
+        
 
         // ShoppingCart
         protected string GetShoppingCartText()
@@ -166,10 +166,35 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
 
+        public SearchCriteriaPage GoToSearchCriteriaPage()
+        {
+            ClickSearchButton();
+            return new SearchCriteriaPage(driver);
+        }
+
         public void ClickLoginButton()
         {
             ClickMyAccount();
             LoginButton.Click();
+        }
+
+        public LoginPage ClickLoginUserButton()
+        {
+            ClickMyAccount();
+            LoginButton.Click();
+            return new LoginPage(driver);
+        }
+
+        public void LogoutUser()
+        {
+            ClickMyAccount();
+            LogoutButton.Click();
+        }
+
+        public WishListPage.WishListPage ClickWishList()
+        {
+            WishList.Click();
+            return new WishListPage.WishListPage(driver);
         }
     }
 }

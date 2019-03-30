@@ -1,0 +1,48 @@
+﻿using OpenCart_Testing.Pages.AccountPages;
+using OpenCart_Testing.Pages.UIMapping;
+using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OpenCart_Testing.Pages.LoginPages
+{
+    public class LoginPage: ABreadCrumbsPart
+    {
+        public LoginPage(IWebDriver driver) : base(driver)
+        {
+        }
+
+        public IWebElement Email => driver.FindElement(MLoginPage.locatorEmailTextbox);
+        public IWebElement Password => driver.FindElement(MLoginPage.locatorPasswordTextbox);
+        public IWebElement LoginUserButton => driver.FindElement(MLoginPage.locatorLoginButton);
+        
+
+        public void SetEmail(string email)
+        {
+            Email.ClearAndSendKeys(email);
+        }
+
+        public void SetPassword(string password)
+        {
+            Password.ClearAndSendKeys(password);
+        }
+
+        public new void ClickLoginButton()
+        {
+            LoginUserButton.Click();
+        }
+
+        public AccountPage LoginUser(User user)
+        {
+            SetEmail(user.Email);
+            SetPassword(user.Password);
+            ClickLoginButton();
+            return new AccountPage(driver);
+        }
+
+
+    }
+}
