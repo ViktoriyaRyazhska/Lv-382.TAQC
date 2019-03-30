@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing.Tests.SearchCriteriaTests
 {
@@ -90,5 +91,31 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
             Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
 
+
+        private static readonly object[] ProductData2 =
+        {
+            SearchCriteriasRepository.Get().Mac()
+        };
+
+        [Test, TestCaseSource(nameof(ProductData2))]
+        public void CheckSearchCriteria2(ISearchCriteria searchCriteria)
+        {
+            // Steps
+            SearchCriteriaPage searchCriteriaPage = LoadApplication()
+                .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria);
+
+            //Check
+            //Assert.IsTrue(searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames().Contains(data));
+
+            for (int i = 0; i < searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames().Count; i++)
+            {
+                Assert.AreEqual(true, searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames()[i].Contains(searchCriteria.Keyword));
+            }
+            // Return to Previous State
+            HomePage homePage = searchCriteriaPage.GotoHomePage();
+            //
+            // Check
+            Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
+        }
     }
 }

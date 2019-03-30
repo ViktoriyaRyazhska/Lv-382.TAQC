@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing.Pages
 {
@@ -117,6 +118,12 @@ namespace OpenCart_Testing.Pages
         public SearchCriteriaPage SearchCriteriaItems(string searchData, bool description, string category, bool subcategories)
         {
             MakeSearchCriteria(searchData, description, category, subcategories);          
+            return new SearchCriteriaPage(driver);
+        }
+
+        public SearchCriteriaPage SearchCriteriaItems(ISearchCriteria searchCriteria)
+        {
+            MakeSearchCriteria(searchCriteria.Keyword, searchCriteria.Description, searchCriteria.Category, searchCriteria.Subcategory);
             return new SearchCriteriaPage(driver);
         }
 
