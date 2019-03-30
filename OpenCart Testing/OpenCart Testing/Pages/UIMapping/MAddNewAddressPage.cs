@@ -2,7 +2,7 @@
 
 namespace OpenCart_Testing.Pages.UIMapping
 {
-    class MEditAddressPage
+    public class MAddNewAddressPage
     {
         public static By locatorFirstnameTextbox => By.Id("input-firstname");
         public static By locatorLastnameTextbox => By.Id("input-lastname");

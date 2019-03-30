@@ -1,28 +1,29 @@
 ﻿using OpenCart_Testing.Pages.StaticParts;
 using OpenCart_Testing.Pages.UIMapping;
-using OpenQA.Selenium.Support.UI;
+using OpenCart_Testing.TestData.AddressBookData;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
-    public class EditAddressPage : ARightLoginPart
+    public class AddNewAddressPage : ARightLoginPart
     {
-        public EditAddressPage(IWebDriver driver) : base(driver)
+        public AddNewAddressPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public IWebElement Firstname => driver.FindElement(MEditAddressPage.locatorFirstnameTextbox);
-        public IWebElement Lastname => driver.FindElement(MEditAddressPage.locatorLastnameTextbox);
-        public IWebElement Company => driver.FindElement(MEditAddressPage.locatorCompanyTextbox);
-        public IWebElement Address1 => driver.FindElement(MEditAddressPage.locatorAddress1Textbox);
-        public IWebElement Address2 => driver.FindElement(MEditAddressPage.locatorAddress2Textbox);
-        public IWebElement City => driver.FindElement(MEditAddressPage.locatorCityTextbox);
-        public IWebElement Postcode => driver.FindElement(MEditAddressPage.locatorPostcodeTextbox);
-        public IWebElement Country => driver.FindElement(MEditAddressPage.locatorCountryDropdown);
-        public IWebElement Region => driver.FindElement(MEditAddressPage.locatorZoneDropdown);
-        public IWebElement DefaultAddress => driver.FindElement(MEditAddressPage.locatorDefaultYes);
-        public IWebElement NotDefaultAddress => driver.FindElement(MEditAddressPage.locatorDefaultNo);
-        public IWebElement ContinueButton => driver.FindElement(MEditAddressPage.locatorContinueButton);
+        public IWebElement Firstname => driver.FindElement(MAddNewAddressPage.locatorFirstnameTextbox);
+        public IWebElement Lastname => driver.FindElement(MAddNewAddressPage.locatorLastnameTextbox);
+        public IWebElement Company => driver.FindElement(MAddNewAddressPage.locatorCompanyTextbox);
+        public IWebElement Address1 => driver.FindElement(MAddNewAddressPage.locatorAddress1Textbox);
+        public IWebElement Address2 => driver.FindElement(MAddNewAddressPage.locatorAddress2Textbox);
+        public IWebElement City => driver.FindElement(MAddNewAddressPage.locatorCityTextbox);
+        public IWebElement Postcode => driver.FindElement(MAddNewAddressPage.locatorPostcodeTextbox);
+        public IWebElement Country => driver.FindElement(MAddNewAddressPage.locatorCountryDropdown);
+        public IWebElement Region => driver.FindElement(MAddNewAddressPage.locatorZoneDropdown);
+        public IWebElement DefaultAddress => driver.FindElement(MAddNewAddressPage.locatorDefaultYes);
+        public IWebElement NotDefaultAddress => driver.FindElement(MAddNewAddressPage.locatorDefaultNo);
+        public IWebElement ContinueButton => driver.FindElement(MAddNewAddressPage.locatorContinueButton);
 
         public string GetFirstnameText()
         {
@@ -129,11 +130,27 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             ContinueButton.Click();
         }
 
-        public AddressBookPage SetOnlyFirstname(string firstname)
+        public SuccessfullyUpdatedAddressPage FillAddressAndContinue(IAddress address)
         {
-            SetFirstname(firstname);
+            SetFirstname(address.Firstname);
+            SetLastname(address.Lastname);
+            SetCompany(address.Company);
+            SetAddress1(address.Address1);
+            SetAddress2(address.Address2);
+            SetCity(address.City);
+            SetPostcode(address.Postcode);
+            SetCountry(address.Country);            
+            SetRegion(address.RegionState);
+            if (address.Default == true)
+            {
+                SetAsDefault();
+            }
+            else
+            {
+                SetAsNotDefault();
+            }
             ClickContinue();
-            return new AddressBookPage(driver);
+            return new SuccessfullyUpdatedAddressPage(driver);
         }
     }
 }

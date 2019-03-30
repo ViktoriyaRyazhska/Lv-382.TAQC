@@ -1,16 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿using OpenCart_Testing.Pages.UIMapping;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
     public class AddressComponentsContainer
     {
-        private const string ADDRESS_COMPONENTS_XPASS = "table.table-bordered.table-hover tbody";
+        private const string ADDRESS_COMPONENTS_XPASS = "//tr";
 
         private IWebDriver driver;
 
@@ -25,38 +22,22 @@ namespace OpenCart_Testing.Pages.AddressBookPages
         private void InitElements()
         {
             addressComponents = new List<AddressComponent>();
-            IList<IWebElement> elements = driver.FindElements(By.CssSelector("tr"));
-            IWebElement tableComponents = driver.FindElement(By.CssSelector(ADDRESS_COMPONENTS_XPASS));
-            for(int i=1; i<=elements.Count; i++)
+            int rowsCount = driver.FindElements(By.XPath(ADDRESS_COMPONENTS_XPASS)).Count;            
+            AddressComponent address;
+            for (int i= 1; i <= rowsCount; i++)
             {
-                addressComponents.Add(new AddressComponent(tableComponents.FindElement(By.XPath("//tr[" + i + "]"))));
-            }
-
-
-            //foreach (IWebElement current in driver.FindElements(By.CssSelector(ADDRESS_COMPONENTS_XPASS)))
-            //{
-            //    addressComponents.Add(new AddressComponent(current));
-            //}
+                address = new AddressComponent(driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorAddressDescription)),
+                    driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorEditButton)),
+                    driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorDeleteButton)));
+                addressComponents.Add(address);
+            }            
         }
 
         public List<AddressComponent> GetAddressComponents()
         {
             return addressComponents;
         }
-
-
-
-        public void Print()
-        {
-            foreach(AddressComponent comp in addressComponents)
-            {
-                Console.WriteLine(comp.GetAddressDescription());
-            }
-        }
-
-
-
-
+        
         AddressComponent GetAddressComponentByName(string addressName)
         {
             AddressComponent result = null;
@@ -103,9 +84,19 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             addressComponents[1].ClickDeleteButton();
         }
 
+        public void ClickDeleteLast()
+        {
+            addressComponents[addressComponents.Count-1].ClickDeleteButton();
+        }
+
         public AddressComponent GetFirstAddress()
         {
             return addressComponents[0];
+        }
+
+        public AddressComponent GetLastAddress()
+        {
+            return addressComponents[addressComponents.Count - 1];
         }
 
         public int GetCount()

@@ -1,12 +1,6 @@
 ﻿using OpenCart_Testing.Pages.StaticParts;
 using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
@@ -50,16 +44,21 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             return new EditAddressPage(driver);
         }
 
-        public SuccessfullyDeletedAddressPage DeleteFirstAddress()
+        public SuccessfullyUpdatedAddressPage DeleteFirstAddress()
         {
             addressComponentsContainer.ClickDeleteFirst();
-            return new SuccessfullyDeletedAddressPage(driver);
+            return new SuccessfullyUpdatedAddressPage(driver);
         }
 
-        public SuccessfullyDeletedAddressPage DeleteSecondAddress()
+        public SuccessfullyUpdatedAddressPage DeleteSecondAddress()
         {
             addressComponentsContainer.ClickDeleteSecond();
-            return new SuccessfullyDeletedAddressPage(driver);
+            return new SuccessfullyUpdatedAddressPage(driver);
+        }
+
+        public void DeleteLastAddress()
+        {
+            addressComponentsContainer.ClickDeleteLast();
         }
 
         public AddressBookPage SetFirstDefault()
@@ -70,16 +69,11 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             page.ClickContinue();
             return new AddressBookPage(driver);
         }
-
-        public void LogoutUser()
-        {
-            ClickLogoutUserButton();
-        }
         
-
-        //public AddNewAddressPage AddNewAddress(AddressComponent address)
-        //{
-        //    return new AddNewAddressPage(driver);
-        //}
+        public AddNewAddressPage AddNewAddress()
+        {
+            ClickNewAddressButton();
+            return new AddNewAddressPage(driver);
+        }
     }
 }

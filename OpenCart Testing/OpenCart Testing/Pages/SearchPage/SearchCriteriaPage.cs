@@ -169,18 +169,18 @@ namespace OpenCart_Testing.Pages
         }
 
 
-        //public bool hasClass(IWebElement element, string searchedClass)
-        //{
-        //    string[] classes = element.GetAttribute("class").Split(' ');
-        //    foreach (string str in classes)
-        //    {
-        //        if (str.Equals(searchedClass))
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+        public bool hasClass(IWebElement element, string searchedClass)
+        {
+            string[] classes = element.GetAttribute("class").Split(' ');
+            foreach (string str in classes)
+            {
+                if (str.Equals(searchedClass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         //Business Logic
 
