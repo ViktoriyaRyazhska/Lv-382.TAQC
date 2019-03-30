@@ -74,7 +74,7 @@
     <Compile Include="Pages\AddressBookPages\AddressComponent.cs" />
     <Compile Include="Pages\AddressBookPages\AddressComponentsContainer.cs" />
     <Compile Include="Pages\AddressBookPages\EditAddressPage.cs" />
-    <Compile Include="Pages\AddressBookPages\SuccessfullyDeletedAddressPage.cs" />
+    <Compile Include="Pages\AddressBookPages\SuccessfullyUpdatedAddressPage.cs" />
     <Compile Include="Pages\ChangePasswordPages\ChangePasswordPage.cs" />
     <Compile Include="Pages\ChangePasswordPages\SuccessfulPassChangeAccountPage.cs" />
     <Compile Include="Pages\ChangePasswordPages\UnsuccessfulPasswordChangePage.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Pages\UIMapping\MProductComponentsContainer.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
-    <Compile Include="Pages\UIMapping\MSuccessfullyDeletedAddressPage.cs" />
+    <Compile Include="Pages\UIMapping\MSuccessfullyUpdatedAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -127,10 +127,17 @@
     <Compile Include="TestData\ReviewData\IReview.cs" />
     <Compile Include="TestData\ReviewData\Review.cs" />
     <Compile Include="TestData\ReviewData\ReviewsRepository.cs" />
+    <Compile Include="TestData\SearchCriteriaData\ISearchCriteria.cs" />
+    <Compile Include="TestData\SearchCriteriaData\SearchCriteria.cs" />
+    <Compile Include="TestData\SearchCriteriaData\SearchCriteriasRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
+
     <Compile Include="TestData\WishListData\WishListItem.cs" />
     <Compile Include="TestData\WishListData\WishListItemsRepository.cs" />
+
+    <Compile Include="Tests\AddressBookTests\AddNewAddressTest.cs" />
+
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
@@ -170,7 +177,11 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
+
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
+
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
+
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />

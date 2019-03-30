@@ -10,6 +10,12 @@ namespace OpenCart_Testing.TestData.SimpleSearchData
     public class SimpleSearch 
     {
         public string SearchData { get; set; }
+        
     }
-    
+    public class SimpleSearch1
+    {
+        public string Name { get; set; }
+        public string State { get; set; }
+    }
+
 }

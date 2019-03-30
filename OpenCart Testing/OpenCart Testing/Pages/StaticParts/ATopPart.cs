@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using OpenCart_Testing.UIMapping.MATopPart;
 using OpenCart_Testing.Pages.LoginPages;
 using System.Threading;
+using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing.Pages
 {
@@ -165,6 +166,12 @@ namespace OpenCart_Testing.Pages
             MakeSearch(searchText);
             return new SearchCriteriaPage(driver);
         }
+        ////////////////
+        //public SearchCriteriaPage SearchItems1(Product searchProduct)
+        //{
+        //    MakeSearch(searchProduct.SearchKeyword);
+        //    return new SearchCriteriaPage(driver);
+        //}
 
         public SearchCriteriaPage GoToSearchCriteriaPage()
         {

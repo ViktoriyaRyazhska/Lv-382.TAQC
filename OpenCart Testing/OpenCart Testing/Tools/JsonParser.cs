@@ -20,7 +20,6 @@ namespace OpenCart_Testing.Tools
             }
             catch (Exception)
             {
-
                 throw new Exception($"Cant Deserialize from file: {GetPath(repository, fileName)}");
             }
 

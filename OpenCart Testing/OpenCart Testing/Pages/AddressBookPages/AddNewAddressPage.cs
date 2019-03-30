@@ -1,16 +1,12 @@
 ﻿using OpenCart_Testing.Pages.StaticParts;
 using OpenCart_Testing.Pages.UIMapping;
+using OpenCart_Testing.TestData.AddressBookData;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
-    public class AddNewAddressPage: ARightLoginPart
+    public class AddNewAddressPage : ARightLoginPart
     {
         public AddNewAddressPage(IWebDriver driver) : base(driver)
         {
@@ -134,9 +130,27 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             ContinueButton.Click();
         }
 
-        public void FillAddress()
+        public SuccessfullyUpdatedAddressPage FillAddressAndContinue(IAddress address)
         {
-
+            SetFirstname(address.Firstname);
+            SetLastname(address.Lastname);
+            SetCompany(address.Company);
+            SetAddress1(address.Address1);
+            SetAddress2(address.Address2);
+            SetCity(address.City);
+            SetPostcode(address.Postcode);
+            SetCountry(address.Country);            
+            SetRegion(address.RegionState);
+            if (address.Default == true)
+            {
+                SetAsDefault();
+            }
+            else
+            {
+                SetAsNotDefault();
+            }
+            ClickContinue();
+            return new SuccessfullyUpdatedAddressPage(driver);
         }
     }
 }

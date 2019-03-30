@@ -11,6 +11,8 @@ namespace OpenCart_Testing.TestData
         public string Name { get; private set; }
         public string ShortDescription { get; private set; }
         public decimal PriceTax { get; private set; }
+        //
+        public string SearchKeyword { get; private set; }
 
         public Product(string name, string shortDescription, decimal priceTax)
         {
@@ -18,6 +20,14 @@ namespace OpenCart_Testing.TestData
             ShortDescription = shortDescription;
             PriceTax = priceTax;
         }
+        //
+        //public Product(string searchKeyword, string name, string shortDescription, decimal priceTax)
+        //{
+        //    SearchKeyword = searchKeyword;
+        //    Name = name;
+        //    ShortDescription = shortDescription;
+        //    PriceTax = priceTax;
+        //}
 
         public override bool Equals(object obj)
         {
@@ -32,7 +42,7 @@ namespace OpenCart_Testing.TestData
             IList<string> productNames = new List<string>();
             foreach (Product currentProduct in productList)
             {
-                productNames.Add(currentProduct.Name);
+                productNames.Add(currentProduct.Name.ToLower());
             }
             return productNames;
         }
