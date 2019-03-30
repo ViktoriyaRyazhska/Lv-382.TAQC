@@ -1,10 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.AddressBookPages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tests
 {
@@ -15,11 +10,10 @@ namespace OpenCart_Testing.Tests
         {
             AddressBookPage page = LoadApplication()
                 .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
-            Console.WriteLine(page.GetAddressComponentsContainer().GetCount());
             
-            SuccessfullyDeletedAddressPage deletedPage = page.DeleteSecondAddress();
+            SuccessfullyUpdatedAddressPage updatedPage = page.DeleteSecondAddress();
 
-            Assert.AreEqual(deletedPage.GetDeletedAddressMessageText(), SuccessfullyDeletedAddressPage.DELETINGNOTDEFAULT);
+            Assert.AreEqual(updatedPage.GetDeletedAddressMessageText(), SuccessfullyUpdatedAddressPage.DELETINGNOTDEFAULT);
         }
     }
 }

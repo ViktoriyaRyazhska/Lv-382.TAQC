@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace OpenCart_Testing.TestData.AddressBookData
 {
     public interface IFirstname
@@ -46,10 +41,6 @@ namespace OpenCart_Testing.TestData.AddressBookData
         IAddressBuild SetCompany(string company);
         IAddressBuild SetAddress2(string address2);
         IAddressBuild SetDefault(bool isDefault);
-
-        // 5. Add Builder
-        //User Build();
-        // 6. Dependency Inversion
         IAddress Build();
     }
 
@@ -69,29 +60,29 @@ namespace OpenCart_Testing.TestData.AddressBookData
 
     public class Address : IFirstname, ILastname, IAddress1, ICity, IPostcode, ICountry, IRegionState, IAddressBuild, IAddress
     {
-        public string Firstname { get; private set; }
-        public string Lastname { get; private set; }
-        public string Company { get; private set; }     
-        public string Address1 { get; private set; }
-        public string Address2 { get; private set; }  
-        public string City { get; private set; }
-        public string Postcode { get; private set; }
-        public string Country { get; private set; }
-        public string RegionState { get; private set; }
-        public bool Default { get; private set; }
-        
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Company { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string Postcode { get;  set; }
+        public string Country { get;  set; }
+        public string RegionState { get; set; }
+        public bool Default { get; set; }
+
         private Address()
         {
             Company = string.Empty;
             Address2 = string.Empty;
             Default = false;
         }
-        
+
         public static IFirstname Get()
         {
             return new Address();
         }
-        
+
         public ILastname SetFirstname(string firstname)
         {
             Firstname = firstname;
@@ -151,10 +142,7 @@ namespace OpenCart_Testing.TestData.AddressBookData
             Default = isDefault;
             return this;
         }
-
-        // 5. Add Builder
-        //public User Build()
-        // 6. Dependency Inversion
+        
         public IAddress Build()
         {
             return this;
@@ -171,39 +159,39 @@ namespace OpenCart_Testing.TestData.AddressBookData
                 + "\nPostcode = " + Postcode
                 + "\nCountry = " + Country
                 + "\nRegionState = " + RegionState
-                + "\nSubscribe = " + Default.ToString();
+                + "\nDefault = " + Default.ToString();
         }
 
-        public static IAddress GetAddress(IList<string> row)
-        {
-            IList<string> fields = new List<string>(row);
-            for (int i = fields.Count; i < ((AddressFields[])Enum.GetValues(typeof(AddressFields))).Length; i++)
-            {
-                fields.Add("");
-            }
-            return Get()
-                .SetFirstname(fields[(int)AddressFields.Firstname])
-                .SetLastname(fields[(int)AddressFields.Lastname])
-                .SetAddress1(fields[(int)AddressFields.Address1])
-                .SetCity(fields[(int)AddressFields.City])
-                .SetPostcode(fields[(int)AddressFields.Postcode])
-                .SetCountry(fields[(int)AddressFields.Country])
-                .SetRegionState(fields[(int)AddressFields.RegionState])
-                .SetCompany(fields[(int)AddressFields.Company])
-                .SetAddress2(fields[(int)AddressFields.Address2])
-                .SetDefault(Boolean.Parse(fields[(int)AddressFields.Default]))
-                .Build();
-        }
+        //public static IAddress GetAddress(IList<string> row)
+        //{
+        //    IList<string> fields = new List<string>(row);
+        //    for (int i = fields.Count; i < ((AddressFields[])Enum.GetValues(typeof(AddressFields))).Length; i++)
+        //    {
+        //        fields.Add("");
+        //    }
+        //    return Get()
+        //        .SetFirstname(fields[(int)AddressFields.Firstname])
+        //        .SetLastname(fields[(int)AddressFields.Lastname])
+        //        .SetAddress1(fields[(int)AddressFields.Address1])
+        //        .SetCity(fields[(int)AddressFields.City])
+        //        .SetPostcode(fields[(int)AddressFields.Postcode])
+        //        .SetCountry(fields[(int)AddressFields.Country])
+        //        .SetRegionState(fields[(int)AddressFields.RegionState])
+        //        .SetCompany(fields[(int)AddressFields.Company])
+        //        .SetAddress2(fields[(int)AddressFields.Address2])
+        //        .SetDefault(Boolean.Parse(fields[(int)AddressFields.Default]))
+        //        .Build();
+        //}
 
-        public static IList<IAddress> GetAllAddresses(IList<IList<string>> rows)
-        {
-            IList<IAddress> addresses = new List<IAddress>();
+        //public static IList<IAddress> GetAllAddresses(IList<IList<string>> rows)
+        //{
+        //    IList<IAddress> addresses = new List<IAddress>();
 
-            foreach (IList<string> row in rows)
-            {
-                addresses.Add(GetAddress(row));
-            }
-            return addresses;
-        }
+        //    foreach (IList<string> row in rows)
+        //    {
+        //        addresses.Add(GetAddress(row));
+        //    }
+        //    return addresses;
+        //}
     }
 }

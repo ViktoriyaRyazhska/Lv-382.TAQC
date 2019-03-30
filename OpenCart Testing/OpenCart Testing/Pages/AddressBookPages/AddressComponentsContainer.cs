@@ -2,10 +2,6 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
@@ -29,11 +25,11 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             int rowsCount = driver.FindElements(By.XPath(ADDRESS_COMPONENTS_XPASS)).Count;            
             AddressComponent address;
             for (int i= 1; i <= rowsCount; i++)
-            {                
-                address = new AddressComponent(driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorAddressDescription)), 
-                    driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorEditButton)), 
+            {
+                address = new AddressComponent(driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorAddressDescription)),
+                    driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorEditButton)),
                     driver.FindElement(By.XPath(ADDRESS_COMPONENTS_XPASS + "[" + i + "]" + MAddressComponent.locatorDeleteButton)));
-                addressComponents.Add(address);                
+                addressComponents.Add(address);
             }            
         }
 
@@ -88,9 +84,19 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             addressComponents[1].ClickDeleteButton();
         }
 
+        public void ClickDeleteLast()
+        {
+            addressComponents[addressComponents.Count-1].ClickDeleteButton();
+        }
+
         public AddressComponent GetFirstAddress()
         {
             return addressComponents[0];
+        }
+
+        public AddressComponent GetLastAddress()
+        {
+            return addressComponents[addressComponents.Count - 1];
         }
 
         public int GetCount()
