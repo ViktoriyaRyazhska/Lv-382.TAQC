@@ -170,11 +170,11 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
         ////////////////
-        public SearchCriteriaPage SearchItems1(Product searchProduct)
-        {
-            MakeSearch(searchProduct.SearchKeyword);
-            return new SearchCriteriaPage(driver);
-        }
+        //public SearchCriteriaPage SearchItems1(Product searchProduct)
+        //{
+        //    MakeSearch(searchProduct.SearchKeyword);
+        //    return new SearchCriteriaPage(driver);
+        //}
 
         public SearchCriteriaPage GoToSearchCriteriaPage()
         {

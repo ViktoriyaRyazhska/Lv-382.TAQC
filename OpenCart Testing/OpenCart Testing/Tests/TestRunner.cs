@@ -42,7 +42,11 @@ namespace OpenCart_Testing
         {
             driver.Navigate().GoToUrl(baseUrl);
         }
-
+        [TearDown]
+        public void AfterAllTests()
+        {
+            driver.Manage().Cookies.DeleteAllCookies();
+        }
         public HomePage LoadApplication()
         {
             return new HomePage(driver);

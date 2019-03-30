@@ -14,35 +14,30 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     [TestFixture]
     public class SearchViewTests : TestRunner
     {
+
+        private static readonly object[] SearchData_Case_DefaultViewActive =
+        {
+            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[0],
+            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[1],
+            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[2],
+            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[3]
+        };
+
+        [Test]
+        [TestCaseSource("SearchData_Case_DefaultViewActive"), Order(1)]
+        public void SearchDefaultView_Test(SimpleSearch1 searchText)
+        {
+            SearchCriteriaPage searchCriteriaPage = LoadApplication()
+                .SearchItems(searchText.Name);
+            Assert.AreEqual(true, searchCriteriaPage.hasClass(searchCriteriaPage.GridView, searchText.State));
+
+        }
+
+
         private static readonly object[] SearchData_Case_DefaultView =
         {
             new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Case_DefaultView.json"))
         };
-
-
-        //protected bool hasClass(IWebElement element, string searchedClass)
-        //{
-        //    string[] classes = element.GetAttribute("class").Split(' ');
-        //    foreach (string str in classes)
-        //    {
-        //        if (str.Equals(searchedClass))
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-        
-
-        [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchDefaultView_Test(SimpleSearch searchText)
-        {
-            SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
-            bool actual = searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active");
-            Assert.AreEqual(true, actual);
-            searchCriteriaPage.GotoHomePage();
-        }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
         public void SearchSavedView_Test(SimpleSearch searchText)
@@ -65,7 +60,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
                 .SearchItems(searchText.SearchData);
 
             Assert.AreEqual(!wasGrid, searchCriteriaPage.hasClass(searchCriteriaPage1.GridView, "active"));
-            searchCriteriaPage.GotoHomePage();
+            
         }
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
@@ -73,7 +68,8 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.SearchData);
-            int beforeChange = searchCriteriaPage.FindActualCount();
+            
+            int beforeChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
             if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
             {
                 searchCriteriaPage.ClickListView();
@@ -82,10 +78,9 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             {
                 searchCriteriaPage.ClickGridView();
             }
-            int afterChange = searchCriteriaPage.FindActualCount();
-
-            Assert.AreEqual(beforeChange, afterChange);
+            int afterChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
             searchCriteriaPage.GotoHomePage();
+            Assert.AreEqual(beforeChange, afterChange);
         }
 
     }

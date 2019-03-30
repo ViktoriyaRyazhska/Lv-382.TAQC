@@ -169,6 +169,7 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
