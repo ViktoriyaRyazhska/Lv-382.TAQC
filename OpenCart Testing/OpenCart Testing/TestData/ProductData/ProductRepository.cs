@@ -10,7 +10,7 @@ namespace OpenCart_Testing.TestData
     {
         private volatile static ProductRepository instance;
         private static object lockingObject = new object();
-
+        private const string productEmptyListMessage = "There is no product that matches the search criteria.";
         private ProductRepository()
         {
         }
@@ -75,6 +75,11 @@ namespace OpenCart_Testing.TestData
             return new Product("mac", "MacBook Pro",
                 "Latest Intel mobile architecture Powered by the most advanced mobile processors ..",
                 2000.0m);
+        }
+
+        public string GetProductEmptyListMessage()
+        {
+            return productEmptyListMessage;
         }
 
     }
