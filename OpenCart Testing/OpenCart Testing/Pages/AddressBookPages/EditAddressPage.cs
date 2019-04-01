@@ -2,6 +2,7 @@
 using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
+using System;
 
 namespace OpenCart_Testing.Pages.AddressBookPages
 {
@@ -132,6 +133,8 @@ namespace OpenCart_Testing.Pages.AddressBookPages
         public AddressBookPage SetOnlyFirstname(string firstname)
         {
             SetFirstname(firstname);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(driver => Region.Enabled);
             ClickContinue();
             return new AddressBookPage(driver);
         }
