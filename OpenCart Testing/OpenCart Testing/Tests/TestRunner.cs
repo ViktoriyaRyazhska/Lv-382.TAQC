@@ -3,13 +3,20 @@ using NUnit.Framework;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Extentions;
+using OpenQA.Selenium;
 
 namespace OpenCart_Testing
 {
     [TestFixture]
     public class TestRunner
     {
+        protected IWebDriver driver;
         public Application application;
+
+
+        //protected string baseUrl = "http://192.168.150.137/opencart/upload/";
+
+        //protected string baseUrl = "http://taqc-opencart.epizy.com/";
 
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
         
