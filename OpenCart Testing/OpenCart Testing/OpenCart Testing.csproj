@@ -122,6 +122,8 @@
     <Compile Include="TestData\AddressBookData\Address.cs" />
     <Compile Include="TestData\AddressBookData\AddressRepository.cs" />
     <Compile Include="TestData\AddressBookData\IAddress.cs" />
+    <Compile Include="TestData\ChangePassData\ChangePasswordData.cs" />
+    <Compile Include="TestData\LoginData\LoginDataRespository.cs" />
     <Compile Include="TestData\ProductData\Product.cs" />
     <Compile Include="TestData\ProductData\ProductRepository.cs" />
     <Compile Include="TestData\ReviewData\IReview.cs" />
@@ -132,12 +134,9 @@
     <Compile Include="TestData\SearchCriteriaData\SearchCriteriasRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
-
     <Compile Include="TestData\WishListData\WishListItem.cs" />
     <Compile Include="TestData\WishListData\WishListItemsRepository.cs" />
-
     <Compile Include="Tests\AddressBookTests\AddNewAddressTest.cs" />
-
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
@@ -177,16 +176,16 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
-
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
-
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
-
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_InvalidLength.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
+    <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
+    <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>
