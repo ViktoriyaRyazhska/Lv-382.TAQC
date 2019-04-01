@@ -10,6 +10,7 @@ namespace OpenCart_Testing
     public class TestRunner
     {
         public Application application;
+
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
         
         [OneTimeSetUp]

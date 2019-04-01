@@ -1,12 +1,26 @@
-{
-  "Firstname": "Vasil",
-  "Lastname": "Petrenko",
-  "Company": "",
-  "Address1": "Universitetska 6",
-  "Address2": "",
-  "City": "Lviv",
-  "Postcode": "79000",
-  "Country": "Ukraine",
-  "RegionState": "L'vivs'ka Oblast'",
-  "Default": "false"
-}
+[
+  {
+    "Firstname": "Vasil",
+    "Lastname": "Petrenko",
+    "Company": "",
+    "Address1": "Universitetska 6",
+    "Address2": "",
+    "City": "Lviv",
+    "Postcode": "79000",
+    "Country": "Ukraine",
+    "RegionState": "L'vivs'ka Oblast'",
+    "Default": "false"
+  },
+  {
+    "Firstname": "Vasil",
+    "Lastname": "Petrenko",
+    "Company": "",
+    "Address1": "Universitetska 6",
+    "Address2": "",
+    "City": "Lviv",
+    "Postcode": "79000",
+    "Country": "Ukraine",
+    "RegionState": "L'vivs'ka Oblast'",
+    "Default": "false"
+  }
+]
