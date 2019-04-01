@@ -114,6 +114,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
+    <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
@@ -132,12 +133,9 @@
     <Compile Include="TestData\SearchCriteriaData\SearchCriteriasRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
-
     <Compile Include="TestData\WishListData\WishListItem.cs" />
     <Compile Include="TestData\WishListData\WishListItemsRepository.cs" />
-
     <Compile Include="Tests\AddressBookTests\AddNewAddressTest.cs" />
-
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
@@ -156,12 +154,18 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
-    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
+    <Compile Include="Tests\WishListTests\AddingFromHomePage.cs" />
+    <Compile Include="Tests\WishListTests\AddingForNotLoggedIn.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemoveOneItem.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemovingOneItem.cs" />
+    <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchMaxLength.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchNoProduct.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidName.json" />
@@ -177,11 +181,8 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
-
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
-
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
-
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />

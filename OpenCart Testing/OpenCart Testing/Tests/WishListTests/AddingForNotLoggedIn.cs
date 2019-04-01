@@ -9,7 +9,7 @@ using OpenCart_Testing.TestData.WishListData;
 namespace OpenCart_Testing.Tests.WishListTests
 {
     [TestFixture]
-    class WishListPositiveTests : TestRunner
+    class AddingForNotLoggedIn : TestRunner
     {
 
         //public static object[] RevievMessageNotLogged1 =
@@ -48,24 +48,6 @@ namespace OpenCart_Testing.Tests.WishListTests
             UpdatedHomePage updatedPage = new UpdatedHomePage(driver);
             string actualMessage = updatedPage.GetUpdatedMessage().Text;
             Assert.AreEqual(expectedMessage.Message, actualMessage);
-        }
-
-        public static object[] RevievAddingToWishList =
-        {
-            new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
-        };
-
-        [Test, TestCaseSource("RevievAddingToWishList")]
-        public void CheckAddFromHomePage(IList<WishListItem> names)
-        {
-            LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
-                .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
-            
-            HomePage page = LoadApplication(); 
-            WishListPage wishlist = page.ClickWishList();
-            Assert.AreEqual(true,wishlist.GetWishProductContainer().CheckResultAddingToWishList(names));
-
-
         }
 
     }
