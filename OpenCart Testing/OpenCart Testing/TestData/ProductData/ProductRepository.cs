@@ -77,7 +77,7 @@ namespace OpenCart_Testing.TestData
                 2000.0m);
         }
 
-        public string GetProductEmptyListMessage()
+        public static string GetProductEmptyListMessage()
         {
             return productEmptyListMessage;
         }
