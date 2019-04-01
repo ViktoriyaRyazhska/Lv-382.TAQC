@@ -116,6 +116,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
+    <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
@@ -155,12 +156,18 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
-    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
+    <Compile Include="Tests\WishListTests\AddingFromHomePage.cs" />
+    <Compile Include="Tests\WishListTests\AddingForNotLoggedIn.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemoveOneItem.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemovingOneItem.cs" />
+    <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchMaxLength.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchNoProduct.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidName.json" />
