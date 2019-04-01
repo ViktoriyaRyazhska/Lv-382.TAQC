@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenCart_Testing.UIMapping.MProductComponentsContainer;
+using OpenCart_Testing.TestData;
+using System.Threading;
+using OpenCart_Testing.TestData.WishListData;
 
 namespace OpenCart_Testing.Pages
 {
@@ -111,7 +114,17 @@ namespace OpenCart_Testing.Pages
             GetProductComponentByName(productName).ClickAddToWishButton();
         }
 
-        public int GetProductComponentsCount()
+        public void ClickProductComponentAddToWishButtonByName(IList<WishListItem> items)
+        {
+            foreach (WishListItem item in items)
+            {
+                GetProductComponentByName(item.Name).ClickAddToWishButton();
+                Thread.Sleep(1000);
+            }
+        }
+         
+
+    public int GetProductComponentsCount()
         {
             return GetProductComponents().Count;
         }

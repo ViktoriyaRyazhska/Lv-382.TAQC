@@ -74,10 +74,7 @@ namespace OpenCart_Testing.Pages
             return WishList.Text;
         }
 
-        public void ClickWishList()
-        {
-            WishList.Click();
-        }
+        
 
         // ShoppingCart
         protected string GetShoppingCartText()
@@ -170,11 +167,11 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
         ////////////////
-        public SearchCriteriaPage SearchItems1(Product searchProduct)
-        {
-            MakeSearch(searchProduct.SearchKeyword);
-            return new SearchCriteriaPage(driver);
-        }
+        //public SearchCriteriaPage SearchItems1(Product searchProduct)
+        //{
+        //    MakeSearch(searchProduct.SearchKeyword);
+        //    return new SearchCriteriaPage(driver);
+        //}
 
         public SearchCriteriaPage GoToSearchCriteriaPage()
         {
@@ -199,6 +196,12 @@ namespace OpenCart_Testing.Pages
         {
             ClickMyAccount();
             LogoutButton.Click();
+        }
+
+        public WishListPage.WishListPage ClickWishList()
+        {
+            WishList.Click();
+            return new WishListPage.WishListPage(driver);
         }
     }
 }

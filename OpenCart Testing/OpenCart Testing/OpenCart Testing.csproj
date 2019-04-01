@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extentions\Application.cs" />
+    <Compile Include="Extentions\ApplicationSources.cs" />
+    <Compile Include="Extentions\ApplicationSourcesRepository.cs" />
     <Compile Include="Extentions\WebElementExtensions.cs" />
     <Compile Include="Pages\AccountPages\AccountPage.cs" />
     <Compile Include="Pages\AccountPages\User.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
+    <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
@@ -132,6 +135,8 @@
     <Compile Include="TestData\SearchCriteriaData\SearchCriteriasRepository.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearch.cs" />
     <Compile Include="TestData\SimpleSearchData\SimpleSearchRepository.cs" />
+    <Compile Include="TestData\WishListData\WishListItem.cs" />
+    <Compile Include="TestData\WishListData\WishListItemsRepository.cs" />
     <Compile Include="Tests\AddressBookTests\AddNewAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
@@ -151,12 +156,18 @@
     <Compile Include="Pages\UIMapping\MProductPage.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponent.cs" />
     <Compile Include="Pages\UIMapping\MReviewComponentContainer.cs" />
+    <Compile Include="Tests\WishListTests\AddingFromHomePage.cs" />
+    <Compile Include="Tests\WishListTests\AddingForNotLoggedIn.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemoveOneItem.cs" />
+    <Compile Include="Tests\WishListTests\MessageAfterRemovingOneItem.cs" />
+    <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
-    <Compile Include="Tests\WishListTests\WishListPositiveTests.cs" />
     <Compile Include="Tools\JsonParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
+    <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchMaxLength.json" />
     <None Include="TestData\DataSourse\ActionMessages\SimpleSearchNoProduct.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidName.json" />
@@ -172,12 +183,19 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
+
     <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
+
+    <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
+    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
+
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_InvalidLength.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
+    <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
+    <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
@@ -194,7 +212,9 @@
     <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets')" />
 </Project>

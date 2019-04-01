@@ -5,28 +5,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using OpenCart_Testing.TestData.WishListData;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages.WishListPage
 {
     public class WishProductContainer
     {
-        private IWebDriver driver;
+        private IWebElement withProdContainer;
 
         private IList<WishProduct> wishProducts;
 
-        public WishProductContainer(IWebDriver driver)
+        public WishProductContainer(IWebElement withProdContainer)
         {
-            this.driver = driver;
+            this.withProdContainer = withProdContainer;
             InitElements();
         }
 
         private void InitElements()
         {
             wishProducts = new List<WishProduct>();
-            foreach (IWebElement current in driver.FindElements(MWishListPage.locatorWishItem))
+            IList<IWebElement> temp = withProdContainer.FindElements(MWishListPage.locatorWishItem);
+            foreach (IWebElement current in temp)
             {
                 wishProducts.Add(new WishProduct(current));
             }
+            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[1]"))));
+            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[2]"))));
+            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[3]"))));
+            //for (int i = 1; i < 4; i++)
+            //{
+            //    wishProducts[i-1].ProductName = driver.FindElement(By.XPath($"//*[@id='content']/div[1]/table/tbody/tr[{i}]/td[2]"));
+            //}
         }
 
         public IList<WishProduct> GetWishedItems()
@@ -34,24 +44,27 @@ namespace OpenCart_Testing.Pages.WishListPage
             return wishProducts;
         }
 
-        public bool CheckResultAddingToWishList(IList<string> productName)
+
+
+
+
+        public List<WishListItem> GetWishListItemsNames()
         {
-            IList<WishProduct> actualItems = GetWishedItems();
+            List<WishListItem> actualItems = new List<WishListItem>();
+
             if (GetWishedItemCount() == 0)
             {
                 throw new Exception("List is empty.");
             }
             else
             {
-                for (int i = 0; i < GetWishedItemCount(); i++)
+                foreach (var item in GetWishedItems())
                 {
-                    if (actualItems[i].ProductNameText != productName[i])
-                    {
-                        return false;
-                    }
+                    actualItems.Add(new WishListItem(item.ProductNameText));
+                    Console.WriteLine(item.ProductNameText+"\n");
                 }
             }
-            return true;
+            return actualItems;
         }
 
         public string GetEmptyListMessage()
@@ -62,7 +75,7 @@ namespace OpenCart_Testing.Pages.WishListPage
             }
             else
             {
-                return driver.FindElement(MWishListPage.locatorEmptyListMessage).Text;
+                return withProdContainer.FindElement(MWishListPage.locatorEmptyListMessage).Text;
             }           
         }
 

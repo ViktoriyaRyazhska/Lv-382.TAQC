@@ -118,7 +118,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
         private static readonly object[] ProductData3 =
        {
-            new object[] {SearchCriteriasRepository.Get().Qwerty(), ProductRepository.GetProductEmptyListMessage() }
+            new object[] {SearchCriteriasRepository.Get().Qwerty(), ProductRepository.Get().GetProductEmptyListMessage() }
         };
 
         [Test, TestCaseSource(nameof(ProductData3))]
@@ -131,7 +131,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
             //Check
             //Assert.IsTrue(searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames().Contains(data));
 
-            Assert.AreEqual(ProductRepository.GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
+            Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
 
             // Return to Previous State
             HomePage homePage = searchCriteriaPage.GotoHomePage();

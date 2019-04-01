@@ -10,7 +10,9 @@ namespace OpenCart_Testing.TestData
     {
         private volatile static ProductRepository instance;
         private static object lockingObject = new object();
-        private const string productEmptyListMessage = "There is no product that matches the search criteria.";
+        public string GetProductEmptyListMessage() => "There is no product that matches the search criteria.";
+        public string GetProductMaxLengthMessage() => "Search text maximum length is 255 characters. Please make a different search request.";
+
         private ProductRepository()
         {
         }
@@ -36,8 +38,6 @@ namespace OpenCart_Testing.TestData
                 101.0m);
         }
 
-
-
         ///////////////////////////////////
         public static Product GetDefault()
         {
@@ -51,36 +51,37 @@ namespace OpenCart_Testing.TestData
 
         public static Product GetMacBook()
         {
-            return new Product("mac", "MacBook",
+            return new Product("MacBook",
                 "Intel Core 2 Duo processor Powered by an Intel Core 2 Duo processor at speeds up to 2.1..",
                 500.0m);
         }
 
         public static Product GetIMac()
         {
-            return new Product("mac", "iMac",
+            return new Product("iMac",
                 "Just when you thought iMac had everything, now there´s even more. More powerful Intel Core 2 Duo ..",
                 100.0m);
         }
 
         public static Product GetMacBookAir()
         {
-            return new Product("mac", "MacBook Air",
+            return new Product("MacBook Air",
                 "MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don’t lose..",
                 1000.0m);
         }
 
         public static Product GetMacBookPro()
         {
-            return new Product("mac", "MacBook Pro",
+            return new Product("MacBook Pro",
                 "Latest Intel mobile architecture Powered by the most advanced mobile processors ..",
                 2000.0m);
         }
 
-        public static string GetProductEmptyListMessage()
-        {
-            return productEmptyListMessage;
-        }
+
+        //public static string GetProductEmptyListMessage()
+        //{
+        //    return productEmptyListMessage;
+        //}
 
     }
 }
