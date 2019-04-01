@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
-using System.Threading;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.AccountPages;
+using OpenCart_Testing.Extentions;
 
 namespace OpenCart_Testing
 {
     [TestFixture]
     public class TestRunner
     {
+<<<<<<< HEAD
         protected IWebDriver driver;
         protected const int spanTime = 2;
         protected const int sleepTime = 2000;
@@ -22,37 +18,39 @@ namespace OpenCart_Testing
         protected string baseUrl = "http://192.168.79.130/opencart/upload/";
 
         //protected string baseUrl = "http://taqc-opencart.epizy.com/";
+=======
+        public Application application;
+>>>>>>> 77e6f13dfa426c14d6b3c0063604263cef9e0956
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
-
-
-
-
+        
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(spanTime); 
+            //application = Application.Get(ApplicationSourcesRepository.GetFirefoxApplication());
+            application = Application.Get(ApplicationSourcesRepository.GetChromeApplication());
         }
 
         [OneTimeTearDown]
         public void AfterAllMethods()
         {
-            driver.Quit();
+            application.Quit();
         }
+
         [SetUp]
         public void BeforeAllTests()
         {
-            driver.Navigate().GoToUrl(baseUrl);
+            application.Load();
         }
+
         [TearDown]
         public void AfterAllTests()
         {
-            driver.Manage().Cookies.DeleteAllCookies();
-        }
-        public HomePage LoadApplication()
-        {
-            return new HomePage(driver);
+            application.DeleteCookies();
         }
 
+        public HomePage LoadApplication()
+        {
+            return new HomePage(application.Driver);
+        }
     }
 }
