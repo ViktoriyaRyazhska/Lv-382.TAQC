@@ -18,5 +18,10 @@ namespace OpenCart_Testing.TestData.WishListData
             return Name;
         }
 
+        public override bool Equals(object obj)
+        {
+            WishListItem temp = obj as WishListItem;
+            return (temp.Name == this.Name);
+        }
     }
 }

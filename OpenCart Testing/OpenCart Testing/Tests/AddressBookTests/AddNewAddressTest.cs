@@ -6,17 +6,19 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 {
     public class AddNewAddressTest : TestRunner
     {
-        public static object[] ValidAddressData =
+        private static readonly object[] ValidAddressData =
         {
-            new TestCaseData(AddressRepository.Get().NewAddressFromJson("ValidAddress.json"))
+            AddressRepository.NewAddressArrayFromJson("ValidAddress.json")[0],
+            AddressRepository.NewAddressArrayFromJson("ValidAddress.json")[1],   
         };
+
         [Test, TestCaseSource("ValidAddressData")]
         public void CheckAddingValidAddress(Address address)
         {
             AddressBookPage page = LoadApplication()
                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
             SuccessfullyUpdatedAddressPage updatedPage = page.AddNewAddress().FillAddressAndContinue(address);
-            
+
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(page.GetAddressComponentsContainer().GetCount(), updatedPage.GetAddressComponentsContainer().GetCount() - 1);

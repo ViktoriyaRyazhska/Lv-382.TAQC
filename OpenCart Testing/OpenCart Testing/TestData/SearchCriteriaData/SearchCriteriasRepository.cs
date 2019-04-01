@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenCart_Testing.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace OpenCart_Testing.TestData
         private volatile static SearchCriteriasRepository instance;
         private static object lockingObject = new object();
         private const string searchCriteriaEmptyListMessage = "There is no product that matches the search criteria.";
- //todo       private static string directory = "Reviews";
+        private static string directory = "SearchCriteria";
 
 
         private SearchCriteriasRepository()
@@ -35,18 +36,24 @@ namespace OpenCart_Testing.TestData
 
         public ISearchCriteria Mac()
         {
-            return SearchCriteria.Get().SetKeyword("mac").ChoiceDescription(false).ChoiceCategory("Desktops").ChoiceSubcategory(true).Build();
+            return SearchCriteria.Get().SetKeyword("mac").ChoiceDescription(false).ChoiceCategory("All Categories").ChoiceSubcategory(true).Build();
         }
+
+        public ISearchCriteria Qwerty()
+        {
+            return SearchCriteria.Get().SetKeyword("qwerty").ChoiceDescription(true).ChoiceCategory("Desktops").ChoiceSubcategory(true).Build();
+        }
+
         public string GetSearchCriteriaEmptyListMessage()
         {
             return searchCriteriaEmptyListMessage;
         }
 
 
- //todo       public IReview NewReviewFromJson(string fileName)
- //       {
- //           return JsonParser.DeserializeFromFile<Review>(directory, fileName) as IReview;
- //       }
+        public ISearchCriteria NewSearchCriteriaFromJson(string fileName)
+        {
+            return JsonParser.DeserializeFromFile<SearchCriteria>(directory, fileName) as ISearchCriteria;
+        }
 
 
 

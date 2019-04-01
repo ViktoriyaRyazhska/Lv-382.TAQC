@@ -1,34 +1,73 @@
-﻿using OpenQA.Selenium;
+﻿using OpenCart_Testing.Extentions;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing
 {
-    public static class Application
+    public class Application
     {
-        public static IWebDriver Driver { get; private set; }
+        public IWebDriver Driver { get; private set; }
+        public ApplicationSources applicationSources;
 
-        public static int ImplicitWait = 2;
-        public static int PageLoad = 60;
+        private Application(ApplicationSources applicationSources)
+        {
+            this.applicationSources = applicationSources;
+        }
+
+        public static Application Get(ApplicationSources applicationSources)
+        {
+            Application instance = new Application(applicationSources);
+            instance.Driver = instance.GetWebDriver();
+            instance.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(applicationSources.ImplicitTimeOut);
+            return instance;
+        }
+
+        public void Load()
+        {
+            Driver.Navigate().GoToUrl(applicationSources.BaseUrl);
+        }
+
+        public void Quit()
+        {
+            if (Driver != null)
+            {
+                Driver.Quit();
+            }
+        }
+
+        public void DeleteCookies()
+        {
+            Driver.Manage().Cookies.DeleteAllCookies();
+        }
+
+        private IWebDriver GetWebDriver()
+        {
+            if (applicationSources.BrowserName.ToLower().Equals("firefox"))
+            {
+                return GetFirefoxDriver();
+            }
+            else if (applicationSources.BrowserName.ToLower().Equals("chrome"))
+            {
+                return GetChromeDriver();
+            }
+            return GetChromeDriver();
+        }
+
+        private IWebDriver GetFirefoxDriver()
+        {
+            return new FirefoxDriver();
+        }
+
+        private IWebDriver GetChromeDriver()
+        {
+            return new ChromeDriver();
+        }
+
         public static int SleepTimeClickMiliSeconds = 100;
-        public static int SleepTimeActionMiliSeconds = 300;
-
-        public static void StartChromeDriver() => Driver = new ChromeDriver();
-
-        public static void NavigateTo(string url) =>
-            Driver.Navigate().GoToUrl(url);
-
-        public static void CloseBrowser() => Driver.Close();
-
         public static void WaitBeforeClick() =>
             Thread.Sleep(SleepTimeClickMiliSeconds);
-
-        public static void WaitAfterAction() =>
-            Thread.Sleep(SleepTimeActionMiliSeconds);
     }
 }

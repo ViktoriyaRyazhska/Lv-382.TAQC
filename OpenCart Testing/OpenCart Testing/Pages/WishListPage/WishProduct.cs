@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenCart_Testing.Pages.UIMapping.MWishPoduct;
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
+using OpenCart_Testing.TestData.WishListData;
 
 namespace OpenCart_Testing.Pages.WishListPage
 {
@@ -13,6 +14,7 @@ namespace OpenCart_Testing.Pages.WishListPage
     {
         private IWebElement revievItem;
         private IWebElement Image => revievItem.FindElement(MWishProduct.locatorImg);
+        //public IWebElement ProductName;
         private IWebElement ProductName => revievItem.FindElement(MWishProduct.locatorProductName);
         private IWebElement Model => revievItem.FindElement(MWishProduct.locatorModel);
         private IWebElement Stock => revievItem.FindElement(MWishProduct.locatorStock);
@@ -42,7 +44,6 @@ namespace OpenCart_Testing.Pages.WishListPage
         }
 
         public string ProductNameText => GetProductNameText();
-
         private string GetModelText()
         {
             return Model.Text;
@@ -66,6 +67,14 @@ namespace OpenCart_Testing.Pages.WishListPage
         public void ClickOnRemove()
         {
             Remove.Click();
+        }
+
+        public void ClickOnRemove(IList<WishListItem> items)
+        {
+            foreach (WishListItem item in items)
+            {
+                Remove.Click();
+            }
         }
 
         public string GetModifiedListMessage()
