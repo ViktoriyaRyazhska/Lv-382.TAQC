@@ -10,16 +10,16 @@ namespace OpenCart_Testing.Pages.WishListPage
 {
     public class WishListPage : ABreadCrumbsPart
     {
-        private WishProductContainer WishProductContainer;
+        private WishProductContainer ProductContainer;
         private IWebElement Continue => driver.FindElement(MWishListPage.locatorContinue);       
         public WishListPage(IWebDriver driver) : base(driver)
         {
-            WishProductContainer = new WishProductContainer(driver);
+            ProductContainer = new WishProductContainer(driver);
         }
 
         public WishProductContainer GetWishProductContainer()
         {
-            return WishProductContainer;
+            return ProductContainer;
         }
     }
 }

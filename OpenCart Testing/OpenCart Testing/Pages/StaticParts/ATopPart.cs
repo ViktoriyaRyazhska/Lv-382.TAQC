@@ -74,10 +74,7 @@ namespace OpenCart_Testing.Pages
             return WishList.Text;
         }
 
-        public void ClickWishList()
-        {
-            WishList.Click();
-        }
+        
 
         // ShoppingCart
         protected string GetShoppingCartText()
@@ -199,6 +196,12 @@ namespace OpenCart_Testing.Pages
         {
             ClickMyAccount();
             LogoutButton.Click();
+        }
+
+        public WishListPage.WishListPage ClickWishList()
+        {
+            WishList.Click();
+            return new WishListPage.WishListPage(driver);
         }
     }
 }
