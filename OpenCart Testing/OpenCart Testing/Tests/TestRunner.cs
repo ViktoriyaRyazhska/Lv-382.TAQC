@@ -16,7 +16,7 @@ namespace OpenCart_Testing
             Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
      
         [OneTimeSetUp]
-        public void BeforeAllMethods()
+        public virtual void BeforeAllMethods()
         {
             application = Application.Get(ApplicationSourcesRepository.Default());
         }

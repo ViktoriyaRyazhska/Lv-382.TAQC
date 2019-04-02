@@ -6,11 +6,11 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 {
     class DeletingDefaultAddressTest: TestRunner
     {
-        //[SetUp]
-        //public void TestSetUp()
-        //{
-        //    application = Application.Get(ApplicationSourcesRepository.ApplicationSourceFromJson("Chrome.json"));
-        //}
+        [OneTimeSetUp]
+        public override void BeforeAllMethods()
+        {             
+            application = Application.Get(ApplicationSourcesRepository.ApplicationSourceFromJson("Firefox.json"));
+        }
 
         [Test]
         public void CheckDeletingOfDefaultAddress()
