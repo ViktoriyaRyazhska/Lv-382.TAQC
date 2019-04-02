@@ -1,26 +1,16 @@
-﻿using OpenCart_Testing.Pages.StaticParts;
+﻿using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Pages.UIMapping;
 using OpenQA.Selenium;
-using System;
-using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace OpenCart_Testing.Pages.ChangePasswordPages
 {
-    public class ChangePasswordPage : ARightLoginPart
+    public class ChangePasswordPage : AccountPage
     {
         private IWebElement ChangePassPageHeader => driver.FindElement(MChangePasswordPage.locatorChangePassHeader);
         private IWebElement ChangePassContinueButton => driver.FindElement(MChangePasswordPage.locatorPassContinueButton);
         private IWebElement NewPasswordField => driver.FindElement(MChangePasswordPage.locatorNewPasswordField);
         private IWebElement ConfirmNewPasswordField => driver.FindElement(MChangePasswordPage.locatorConfirmNewPasswordField);
-
-        private string newPassword = Environment.GetEnvironmentVariable("NewPassword");
-        private string passwordConfirmation = Environment.GetEnvironmentVariable("NewPassword");
-
 
         public ChangePasswordPage(IWebDriver driver) : base(driver)
         { }
@@ -35,22 +25,31 @@ namespace OpenCart_Testing.Pages.ChangePasswordPages
             ChangePassContinueButton.Click();
         }
 
-        public void SetNewPassword()
+        public void SetNewPassword(string newPassword)
         {
             NewPasswordField.ClearAndSendKeys(newPassword);
         }
 
-        public void ConfirmNewPassword()
+        public void ConfirmNewPassword(string passwordConfirmation)
         {
             ConfirmNewPasswordField.ClearAndSendKeys(passwordConfirmation);
         }
 
-        public SuccessfulPassChangeAccountPage SuccessfulChangePassword()
+        public SuccessfulPassChangeAccountPage SuccessfulChangePassword(string newPassword, string passwordConfirmation)
         {
-            SetNewPassword();
-            ConfirmNewPassword();
+            SetNewPassword(newPassword);
+            ConfirmNewPassword(passwordConfirmation);
             ClickChangePassContinueButton();
             return new SuccessfulPassChangeAccountPage(driver);
         }
+
+        public UnsuccessfulPasswordChangePage UnsuccessfulChangePassword(string newPassword, string passwordConfirmation)
+        {
+            SetNewPassword(newPassword);
+            ConfirmNewPassword(passwordConfirmation);
+            ClickChangePassContinueButton();
+            return new UnsuccessfulPasswordChangePage(driver);
+        }
+
     }
 }

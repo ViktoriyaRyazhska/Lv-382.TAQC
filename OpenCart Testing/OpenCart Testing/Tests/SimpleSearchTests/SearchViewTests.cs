@@ -25,7 +25,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
         [Test]
         [TestCaseSource("SearchData_Case_DefaultViewActive"), Order(1)]
-        public void SearchDefaultView_Test(SimpleSearch1 searchText)
+        public void SearchDefaultView_Test(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);

@@ -10,16 +10,20 @@ namespace OpenCart_Testing
     [TestFixture]
     public class TestRunner
     {
-        protected IWebDriver driver;
-        public Application application;
 
+        protected IWebDriver driver;
+        //protected const int spanTime = 2;
+        //protected const int sleepTime = 2000;
 
         //protected string baseUrl = "http://192.168.150.138/opencart/upload/";
 
-        //protected string baseUrl = "http://taqc-opencart.epizy.com/";
+//       //protected string baseUrl = "http://taqc-opencart.epizy.com/";
 
-        protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
-        
+        public Application application;
+
+        protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), 
+            Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
+
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
@@ -49,5 +53,6 @@ namespace OpenCart_Testing
         {
             return new HomePage(application.Driver);
         }
+
     }
 }

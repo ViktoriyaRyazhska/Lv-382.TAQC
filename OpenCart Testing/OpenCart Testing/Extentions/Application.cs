@@ -58,14 +58,12 @@ namespace OpenCart_Testing
 
         private IWebDriver GetFirefoxDriver()
         {
-            Driver = new FirefoxDriver();
-            return Driver;
+            return new FirefoxDriver();
         }
 
         private IWebDriver GetChromeDriver()
         {
-            Driver = new ChromeDriver();
-            return Driver;
+            return new ChromeDriver();
         }
 
         public static int SleepTimeClickMiliSeconds = 100;

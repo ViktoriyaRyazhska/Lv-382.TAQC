@@ -5,11 +5,12 @@ namespace OpenCart_Testing.Extentions
 {
     public sealed class ApplicationSourcesRepository
     {
+
         private static string baseUrl = "http://192.168.150.138/opencart/upload/";
 
         public static ApplicationSources GetFirefoxApplication()
         {
-            return new ApplicationSources("FireFox", new FirefoxDriver(),
+            return new ApplicationSources("FireFox", 
               baseUrl,
               5L);
         }
@@ -17,7 +18,6 @@ namespace OpenCart_Testing.Extentions
         public static ApplicationSources GetChromeApplication()
         {
             return new ApplicationSources("Chrome",
-                new ChromeDriver(),
                 baseUrl,
                 5L);
         }

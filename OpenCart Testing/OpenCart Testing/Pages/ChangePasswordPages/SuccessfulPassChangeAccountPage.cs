@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenCart_Testing.Pages.UIMapping;
 
 namespace OpenCart_Testing.Pages.ChangePasswordPages
 {
-    public class SuccessfulPassChangeAccountPage : ChangePasswordPage
+    public class SuccessfulPassChangeAccountPage : ABreadCrumbsPart
     {
         private IWebElement SuccessfulPassChangeMessage => driver.FindElement(MSuccessfulPassChangeAccountPage.locatorSuccessfulPassChangeMessage);
         public const string PassChengedMessage = "Success: Your password has been successfully updated.";

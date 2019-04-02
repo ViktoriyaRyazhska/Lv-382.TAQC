@@ -20,19 +20,14 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
         [Test, TestCaseSource(nameof(ProductNoInDescriptionData))]
         public void CheckSearchWithoutInDescription(ISearchCriteria searchCriteria, string expectedMessage)
         {
-            // Steps
+
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria);
 
-            //Check
-            //Assert.IsTrue(searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames().Contains(data));
-
             Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
-
-            // Return to Previous State
+            
             HomePage homePage = searchCriteriaPage.GotoHomePage();
-            //
-            // Check
+
             Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
 
@@ -44,19 +39,14 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
         [Test, TestCaseSource(nameof(ProductDescriptioData))]
         public void CheckSearchInDescription(ISearchCriteria searchCriteria, IList<Product> expectedList)
         {
-            // Steps
+
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria);
 
-            //Check
-            //Assert.IsTrue(searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames().Contains(data));
-
             Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
 
-            // Return to Previous State
             HomePage homePage = searchCriteriaPage.GotoHomePage();
-            //
-            // Check
+
             Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
     }
