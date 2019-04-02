@@ -116,8 +116,10 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
-    <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
+    <Compile Include="Pages\WishListPage\AWishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessage.cs" />
@@ -159,7 +161,7 @@
     <Compile Include="Tests\WishListTests\AddingFromHomePage.cs" />
     <Compile Include="Tests\WishListTests\AddingForNotLoggedIn.cs" />
     <Compile Include="Tests\WishListTests\MessageAfterRemoveOneItem.cs" />
-    <Compile Include="Tests\WishListTests\MessageAfterRemovingOneItem.cs" />
+    <Compile Include="Tests\WishListTests\MessageForEmptyList.cs" />
     <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />

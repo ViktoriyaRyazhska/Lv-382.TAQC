@@ -1,16 +1,13 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.WishListPage;
-using OpenCart_Testing.Pages.WishListPage.EmptyWishListPage;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.TestData;
 using System.Threading;
-using System.Collections.Generic;
-using OpenCart_Testing.TestData.WishListData;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
     [TestFixture]
-    class MessageAfterRemovingOneItem : TestRunner
+    class MessageForEmptyList : TestRunner
     {
         public static object[] RevievAddingToWishList =
         {
@@ -24,9 +21,7 @@ namespace OpenCart_Testing.Tests.WishListTests
             HomePage page = LoadApplication();
             WishListPage wishlist = page.ClickWishList();
             Thread.Sleep(3000);
-            EmptyWishListPage empty = new EmptyWishListPage(driver);
-            //    Assert.AreEqual(expectedMessage, actualMessage);
-            Assert.AreEqual(expectedMessage.GetMessage(), empty.GetEmptyMessage().Text);
+            Assert.AreEqual(expectedMessage.Message, wishlist.GetEmptyMessage());
         }
     }
 }
