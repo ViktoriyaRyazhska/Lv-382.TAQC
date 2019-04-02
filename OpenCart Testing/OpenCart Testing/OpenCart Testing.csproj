@@ -189,6 +189,8 @@
     <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
     <None Include="TestData\DataSourse\Addresses\ValidAddress.json" />
     <None Include="TestData\DataSourse\Addresses\ValidFirstname.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Chrome.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Firefox.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldText.json" />
     <None Include="TestData\DataSourse\Reviews\NotSelectedRating.json" />
@@ -197,19 +199,16 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
-
     <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchNoInDescription.json" />
-
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
-
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchWithoutInDescription.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
