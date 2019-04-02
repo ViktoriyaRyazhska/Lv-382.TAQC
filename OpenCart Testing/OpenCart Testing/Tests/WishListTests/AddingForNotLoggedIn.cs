@@ -12,28 +12,6 @@ namespace OpenCart_Testing.Tests.WishListTests
     class AddingForNotLoggedIn : TestRunner
     {
 
-        //public static object[] RevievMessageNotLogged1 =
-        //{
-        //   new TestCaseData(ActionMessageRepository.Get().ActionMessageFromJson("NotLoggedUser"))
-
-        //};
-
-        //[TestCase("Your wish list is empty.", new string[] { "iPhone", "MacBook" })]
-        //[Test]
-        //public void CheckRemowingAll(string expectedMessage, string[] names)
-        //{
-        //    HomePage page = LoadApplication();
-        //    page.getProductComponentsContainer().AddItemsToWishListByNames(names);
-        //    page.ClickWishList();
-        //    WishListPage wishlistPage = new WishListPage(driver);
-        //    foreach (WishProduct product in wishlistPage.GetWishProductContainer().GetWishedItems())
-        //    {
-        //        product.ClickOnRemove();
-        //    }
-        //    string actualMessage = wishlistPage.GetWishProductContainer().GetEmptyListMessage();
-        //    Assert.AreEqual(expectedMessage, actualMessage);
-        //}
-
         public static object[] ReviewMessageNotLogged =
         {
            new TestCaseData(ActionMessageRepository.Get().ActionMessageFromJson("NotLoggedUser.json"), WishListItemsRepository.Get().WishListItemFromJson("ItemForNotLogged.json"))         
@@ -45,9 +23,8 @@ namespace OpenCart_Testing.Tests.WishListTests
             HomePage page = LoadApplication();
             page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name.GetItemName());
             Thread.Sleep(3000);
-            UpdatedHomePage updatedPage = new UpdatedHomePage(application.Driver);
-            string actualMessage = updatedPage.GetUpdatedMessage().Text;
-            Assert.AreEqual(expectedMessage.Message, actualMessage);
+            UpdatedHomePage updatedPage = new UpdatedHomePage(application.Driver);           
+            Assert.AreEqual(expectedMessage.Message, updatedPage.GetUpdatedMessage().Text);
         }
 
     }

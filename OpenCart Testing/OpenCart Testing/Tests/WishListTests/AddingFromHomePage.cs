@@ -21,7 +21,6 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
-
             HomePage page = LoadApplication();
             WishListPage wishlist = page.ClickWishList();
             Thread.Sleep(1000);
