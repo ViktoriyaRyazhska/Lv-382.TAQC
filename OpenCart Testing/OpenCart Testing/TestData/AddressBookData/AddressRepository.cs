@@ -1,4 +1,7 @@
-﻿using OpenCart_Testing.Tools;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OpenCart_Testing.Tools;
+using System.Collections.Generic;
 
 namespace OpenCart_Testing.TestData.AddressBookData
 {
@@ -30,6 +33,11 @@ namespace OpenCart_Testing.TestData.AddressBookData
         public IAddress NewAddressFromJson(string fileName)
         {
             return JsonParser.DeserializeFromFile<Address>(directory, fileName) as IAddress;
+        }
+
+        public static IList<Address> NewAddressArrayFromJson(string fileName)
+        {
+            return JsonParser.DeserializeFromFile<IList<Address>>(directory, fileName);
         }
     }
 }

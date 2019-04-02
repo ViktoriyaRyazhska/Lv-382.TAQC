@@ -24,7 +24,7 @@ namespace OpenCart_Testing.Tests.WishListTests
             HomePage page = LoadApplication();
             WishListPage wishlist = page.ClickWishList();
             Thread.Sleep(3000);
-            EmptyWishListPage empty = new EmptyWishListPage(driver);
+            EmptyWishListPage empty = new EmptyWishListPage(application.Driver);
             //    Assert.AreEqual(expectedMessage, actualMessage);
             Assert.AreEqual(expectedMessage.GetMessage(), empty.GetEmptyMessage().Text);
         }
