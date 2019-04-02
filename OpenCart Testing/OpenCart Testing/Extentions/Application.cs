@@ -10,7 +10,7 @@ namespace OpenCart_Testing
     public class Application
     {
         public IWebDriver Driver { get; private set; }
-        public ApplicationSources applicationSources; //{ get; private set; }
+        public ApplicationSources applicationSources;
 
         private Application(ApplicationSources applicationSources)
         {
@@ -65,9 +65,5 @@ namespace OpenCart_Testing
         {
             return new ChromeDriver();
         }
-
-        public static int SleepTimeClickMiliSeconds = 100;
-        public static void WaitBeforeClick() =>
-            Thread.Sleep(SleepTimeClickMiliSeconds);
     }
 }

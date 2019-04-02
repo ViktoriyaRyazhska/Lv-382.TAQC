@@ -32,7 +32,7 @@ namespace OpenCart_Testing.Pages
 
         private void ClickReviews()
         {
-            Reviews.ClickExtended();
+            Reviews.Click();
         }
 
         public int GetReviewsCountAll()
