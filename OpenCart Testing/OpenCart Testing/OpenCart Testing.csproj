@@ -69,6 +69,9 @@
     <Compile Include="Extentions\ApplicationSources.cs" />
     <Compile Include="Extentions\ApplicationSourcesRepository.cs" />
     <Compile Include="Extentions\WebElementExtensions.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Pages\AccountPages\AccountPage.cs" />
     <Compile Include="Pages\AccountPages\User.cs" />
     <Compile Include="Pages\AddressBookPages\AddNewAddressPage.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfullyUpdatedAddressPage.cs" />
+    <Compile Include="Pages\UIMapping\MUnsuccessfulPassChangePage.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
@@ -188,8 +192,13 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
-
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchWithoutInDescription.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
@@ -197,6 +206,7 @@
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_InvalidLength.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
     <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
