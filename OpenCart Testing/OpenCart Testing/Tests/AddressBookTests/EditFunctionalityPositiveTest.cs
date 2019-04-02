@@ -5,6 +5,8 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 {
     class EditFunctionalityPositiveTest : TestRunner
     {
+        private AddressBookPage page;
+
         private static readonly object[] ValidFirstname =
         {
            "Sasha",
@@ -14,13 +16,17 @@ namespace OpenCart_Testing.Tests.AddressBookTests
         [Test, TestCaseSource("ValidFirstname")]
         public void CheckAddressBookEditFunctionalityWithValidFirstname(string data)
         {
-            AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
-                .EditFirstAddress().SetOnlyFirstname(data);
+            page = LoadApplication()
+               .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
+               .EditFirstAddress().SetOnlyFirstname(data);
 
             Assert.IsTrue(page.GetAddressComponentsContainer().GetFirstAddress()
                 .GetAddressDescription().Contains(data));
+        }
 
+        [OneTimeTearDown]
+        private void AfterEachTest()
+        {
             page.LogoutUser();
         }
     }

@@ -179,6 +179,7 @@
     <None Include="TestData\DataSourse\ActionMessages\ReviewInvalidText.json" />
     <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
     <None Include="TestData\DataSourse\Addresses\ValidAddress.json" />
+    <None Include="TestData\DataSourse\Addresses\ValidFirstname.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldText.json" />
     <None Include="TestData\DataSourse\Reviews\NotSelectedRating.json" />

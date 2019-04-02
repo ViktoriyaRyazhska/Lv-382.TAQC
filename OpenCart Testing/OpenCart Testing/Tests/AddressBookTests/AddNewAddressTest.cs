@@ -7,6 +7,8 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 {
     public class AddNewAddressTest : TestRunner
     {
+        private SuccessfullyUpdatedAddressPage updatedPage;
+
         private static readonly object[] ValidAddressData =
             ListUtils.ToMultiArray(AddressRepository.NewAddressArrayFromJson("ValidAddress.json"));
 
@@ -16,7 +18,7 @@ namespace OpenCart_Testing.Tests.AddressBookTests
             AddressBookPage page = LoadApplication()
                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
 
-            SuccessfullyUpdatedAddressPage updatedPage = page.AddNewAddress().FillAddressAndContinue(address);
+            updatedPage = page.AddNewAddress().FillAddressAndContinue(address);
 
             Assert.Multiple(() =>
             {
@@ -24,7 +26,11 @@ namespace OpenCart_Testing.Tests.AddressBookTests
                 Assert.AreEqual(updatedPage.GetNewAddressAddedMessageText(), SuccessfullyUpdatedAddressPage.NEWADDRESSADDED);
                 Assert.That(updatedPage.GetAddressComponentsContainer().GetLastAddress().GetAddressDescription().Contains(address.Firstname));
             });
+        }
 
+        [OneTimeTearDown]
+        private void AfterEachTest()
+        {
             updatedPage.DeleteLastAddress();
         }
     }
