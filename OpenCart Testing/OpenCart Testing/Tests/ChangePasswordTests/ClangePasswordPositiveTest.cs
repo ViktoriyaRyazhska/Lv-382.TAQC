@@ -3,7 +3,6 @@ using OpenCart_Testing.Pages.ChangePasswordPages;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.TestData.LoginData;
 using OpenCart_Testing.TestData.ChangePassData;
-using OpenCart_Testing.TestData;
 using System.Threading;
 
 
@@ -14,39 +13,53 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
     {
         public static object[] PositiveTestUserLoginData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"))
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswords_PasswordChangingPositiveTest.json") )
         };
 
         [Test]
         [TestCaseSource("PositiveTestUserLoginData")]
-        public void ChangePasswordPositiveTest(User userData)
+        public void ChangePasswordPositiveTest(User userData, ChangePasswordData passData)
         {
+            ///Going to change password page
             ChangePasswordPage page = 
                 LoadApplication()
                 .ClickLoginUserButton()
                 .LoginUser(userData)
                 .GotoChangePasswordPage();
-            SuccessfulPassChangeAccountPage message = page.SuccessfulChangePassword();
-            Assert.AreEqual(message.GetSuccessfulPassChangeMessage(), SuccessfulPassChangeAccountPage.PassChengedMessage);
+            ///Changing password and checking the message
+            Assert.AreEqual(page.SuccessfulChangePassword(passData.NewPassword, passData.ConfirmedPassword).GetSuccessfulPassChangeMessage(), 
+                            SuccessfulPassChangeAccountPage.PassChengedMessage);
+            ///Check for no password reset
+            page.ClickLogout();
+            page.ClickLoginUserButton().LoginUser(new User(userData.Email, passData.NewPassword));
+            Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
+
             Thread.Sleep(3000);
         }
 
-        //public static object[] NegativeTestUserLoginData =
-        //{
-        //   new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"))
-        //};
+        public static object[] NegativeTestUserLoginData =
+        {
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"),LoginDataRespository.Get().GetChangePasswordData("TestPasswords_PasswordChangingNegativeTest.json"))
+        };
 
-        //public void ChangePasswordNegativeTest(User userData)
-        //{
-        //    ChangePasswordPage page =
-        //        LoadApplication()
-        //        .ClickLoginUserButton()
-        //        .LoginUser(userData)
-        //        .GotoChangePasswordPage();
-        //    UnsuccessfulPasswordChangePage message = page.UnsuccessfulChangePassword();
-        //    Assert.AreEqual(message.GetSuccessfulPassChangeMessage(), SuccessfulPassChangeAccountPage.PassChengedMessage);
-        //    Thread.Sleep(3000);
-        //}
-
+        [Test]
+        [TestCaseSource("NegativeTestUserLoginData")]
+        public void ChangePasswordNegativeTest(User userData, ChangePasswordData passData)
+        {
+            ///Going to change password page
+            ChangePasswordPage page =
+                LoadApplication()
+                .ClickLoginUserButton()
+                .LoginUser(userData)
+                .GotoChangePasswordPage();
+            ///Changing password with wrong confirmation and checking the message
+            Assert.AreEqual(page.UnsuccessfulChangePassword(passData.NewPassword, passData.ConfirmedPassword).GetUnsuccessfulPassChangeMessage(), 
+                            UnsuccessfulPasswordChangePage.PassChengedMessage);
+            ///Check for no password reset
+            page.ClickLogout();
+            page.ClickLoginUserButton().LoginUser(userData);
+            Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
+            Thread.Sleep(3000);
+        }
     }
 }
