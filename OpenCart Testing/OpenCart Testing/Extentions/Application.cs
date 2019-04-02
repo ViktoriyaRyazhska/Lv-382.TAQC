@@ -10,7 +10,7 @@ namespace OpenCart_Testing
     public class Application
     {
         public IWebDriver Driver { get; private set; }
-        public ApplicationSources applicationSources;
+        public ApplicationSources applicationSources; //{ get; private set; }
 
         private Application(ApplicationSources applicationSources)
         {
@@ -24,7 +24,7 @@ namespace OpenCart_Testing
             instance.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(applicationSources.ImplicitTimeOut);
             return instance;
         }
-
+        
         public void Load()
         {
             Driver.Navigate().GoToUrl(applicationSources.BaseUrl);
