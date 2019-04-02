@@ -5,7 +5,7 @@ namespace OpenCart_Testing.Extentions
 {
     public sealed class ApplicationSourcesRepository
     {
-        private static string baseUrl = "http://192.168.183.131/opencart/upload/";
+        private static string baseUrl = "http://192.168.85.129/opencart/upload/";
 
         public static ApplicationSources GetFirefoxApplication()
         {
