@@ -27,9 +27,9 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
             Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
             
-            HomePage homePage = searchCriteriaPage.GotoHomePage();
+           // HomePage homePage = searchCriteriaPage.GotoHomePage();
            
-            Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
+          //  Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
 
         private static readonly object[] ProductData3 =
@@ -46,9 +46,9 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
             Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
 
-            HomePage homePage = searchCriteriaPage.GotoHomePage();
+          //  HomePage homePage = searchCriteriaPage.GotoHomePage();
  
-            Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
+          //  Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
 
         private static readonly object[] ProductData4 =
@@ -64,9 +64,9 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
             Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
 
-            HomePage homePage = searchCriteriaPage.GotoHomePage();
+         //   HomePage homePage = searchCriteriaPage.GotoHomePage();
 
-            Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
+         //   Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
     }
 }

@@ -45,9 +45,9 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
             Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
 
-            HomePage homePage = searchCriteriaPage.GotoHomePage();
+         //   HomePage homePage = searchCriteriaPage.GotoHomePage();
 
-            Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
+         //   Assert.IsTrue(homePage.GetSlideshow0FirstImageAttributeSrcText().Contains(HomePage.IPHONE6));
         }
     }
 }
