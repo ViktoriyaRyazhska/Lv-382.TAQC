@@ -22,7 +22,6 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             HomePage page = LoadApplication();
             page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name.GetItemName());
-            Thread.Sleep(3000);
             UpdatedHomePage updatedPage = new UpdatedHomePage(application.Driver);           
             Assert.AreEqual(expectedMessage.Message, updatedPage.GetUpdatedMessage().Text);
         }

@@ -21,19 +21,10 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
-            HomePage page = LoadApplication();
-            WishListPage wishlist = page.ClickWishList();
-<<<<<<< HEAD
+            WishListPage wishlist = LoadApplication().ClickWishList();
             wishlist.ClickOnRemoveOne();
-            Thread.Sleep(3000);
             UpdatedWishListPage updatedPage = new UpdatedWishListPage(application.Driver);
             Assert.AreEqual(expectedMessage.Message, updatedPage.GetUpdatedMessage().Text);
-=======
-            //Thread.Sleep(3000);
-            EmptyWishListPage empty = new EmptyWishListPage(driver);
-            //    Assert.AreEqual(expectedMessage, actualMessage);
-            Assert.AreEqual(expectedMessage.GetMessage(), empty.GetEmptyMessage().Text);
->>>>>>> aefe4e38b610897a70632dc0ae5acc9417dca282
         }
     }
 }
