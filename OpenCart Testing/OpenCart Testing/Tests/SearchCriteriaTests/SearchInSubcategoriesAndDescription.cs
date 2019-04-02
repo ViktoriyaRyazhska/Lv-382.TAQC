@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace OpenCart_Testing.Tests.SearchCriteriaTests
 {
     [TestFixture]
-    public class SearchInCategoriesAndDescriptionTest : TestRunner
+    public class SearchInSubcategoriesAndDescriptionTest : TestRunner
     {
-        private static readonly object[] ProductCategoryAndDescriptionData =
+        private static readonly object[] ProductSubcategoriesAndDescriptionData =
         {
-            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategoriesAndDescription.json"), ProductRepository.GetSearchInCategoryAndDescriptionProducts() )
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInSubcategoriesAndDescription.json"), ProductRepository.GetSearchInSubcategoryAndDescriptionProducts() )
         };
 
-        [Test, TestCaseSource(nameof(ProductCategoryAndDescriptionData))]
+        [Test, TestCaseSource(nameof(ProductSubcategoriesAndDescriptionData))]
         public void CheckSearchInCategory(ISearchCriteria searchCriteria, IList<Product> expectedList)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
