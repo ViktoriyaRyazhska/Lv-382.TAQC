@@ -1,22 +1,21 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.AddressBookPages;
 using OpenCart_Testing.TestData.AddressBookData;
+using OpenCart_Testing.Tools;
 
 namespace OpenCart_Testing.Tests.AddressBookTests
 {
     public class AddNewAddressTest : TestRunner
     {
         private static readonly object[] ValidAddressData =
-        {
-            AddressRepository.NewAddressArrayFromJson("ValidAddress.json")[0],
-            AddressRepository.NewAddressArrayFromJson("ValidAddress.json")[1],   
-        };
+            ListUtils.ToMultiArray(AddressRepository.NewAddressArrayFromJson("ValidAddress.json"));
 
-        [Test, TestCaseSource("ValidAddressData")]
+        [Test, TestCaseSource(nameof(ValidAddressData))]
         public void CheckAddingValidAddress(Address address)
         {
             AddressBookPage page = LoadApplication()
                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage();
+
             SuccessfullyUpdatedAddressPage updatedPage = page.AddNewAddress().FillAddressAndContinue(address);
 
             Assert.Multiple(() =>

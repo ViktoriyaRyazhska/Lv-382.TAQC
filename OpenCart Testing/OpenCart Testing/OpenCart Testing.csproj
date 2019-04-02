@@ -166,6 +166,7 @@
     <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
+    <Compile Include="Tools\ListUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
