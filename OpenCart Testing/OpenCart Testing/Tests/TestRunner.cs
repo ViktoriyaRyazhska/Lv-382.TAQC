@@ -11,9 +11,8 @@ namespace OpenCart_Testing
     public class TestRunner
     {
 
+
         protected IWebDriver driver;
-        //protected const int spanTime = 2;
-        //protected const int sleepTime = 2000;
 
         //protected string baseUrl = "http://192.168.150.138/opencart/upload/";
 

@@ -8,7 +8,7 @@ using OpenCart_Testing.Pages.UIMapping.MWishPoduct;
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenCart_Testing.TestData.WishListData;
 
-namespace OpenCart_Testing.Pages.WishListPage
+namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishProduct
     {

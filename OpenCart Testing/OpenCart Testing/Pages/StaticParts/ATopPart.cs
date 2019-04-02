@@ -198,10 +198,10 @@ namespace OpenCart_Testing.Pages
             LogoutButton.Click();
         }
 
-        public WishListPage.WishListPage ClickWishList()
+        public WishPage.WishListPage ClickWishList()
         {
             WishList.Click();
-            return new WishListPage.WishListPage(driver);
+            return new WishPage.WishListPage(driver);
         }
     }
 }

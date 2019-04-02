@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using OpenCart_Testing.Pages.WishListPage;
+using OpenCart_Testing.Pages.WishPage;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.TestData;
 using System.Threading;
@@ -22,7 +22,6 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             HomePage page = LoadApplication();
             page.getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(name.GetItemName());
-            Thread.Sleep(3000);
             UpdatedHomePage updatedPage = new UpdatedHomePage(application.Driver);           
             Assert.AreEqual(expectedMessage.Message, updatedPage.GetUpdatedMessage().Text);
         }

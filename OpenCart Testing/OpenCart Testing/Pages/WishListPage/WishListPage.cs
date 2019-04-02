@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.Pages.WishListPage
+namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishListPage : ABreadCrumbsPart
     {
