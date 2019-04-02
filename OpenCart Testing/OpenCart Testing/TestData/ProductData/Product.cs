@@ -20,14 +20,6 @@ namespace OpenCart_Testing.TestData
             ShortDescription = shortDescription;
             PriceTax = priceTax;
         }
-        //
-        //public Product(string searchKeyword, string name, string shortDescription, decimal priceTax)
-        //{
-        //    SearchKeyword = searchKeyword;
-        //    Name = name;
-        //    ShortDescription = shortDescription;
-        //    PriceTax = priceTax;
-        //}
 
         public override bool Equals(object obj)
         {

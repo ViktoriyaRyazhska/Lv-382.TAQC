@@ -96,6 +96,10 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         private static readonly object[] SearchData_Case_DefaultView =
         {
             new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Case_DefaultView.json"))
+            //SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json")[0],
+            //SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json")[1],
+            //SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json")[2],
+            //SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json")[3]
         };
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
@@ -103,13 +107,13 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPageLower = LoadApplication()
                 .SearchItems(searchText.SearchData.ToLower());
-            IList<string> lowerSearchItems= searchCriteriaPageLower.GetProductComponentsContainer().GetProductComponentNames();
+            IList<string> lowerSearchItems = searchCriteriaPageLower.GetProductComponentsContainer().GetProductComponentNames();
 
             SearchCriteriaPage searchCriteriaPageUpper = LoadApplication()
                 .SearchItems(searchText.SearchData.ToUpper());
             IList<string> upperSearchItems = searchCriteriaPageUpper.GetProductComponentsContainer().GetProductComponentNames();
 
-            Assert.AreEqual(lowerSearchItems,upperSearchItems);
+            Assert.AreEqual(lowerSearchItems, upperSearchItems);
         }
 
     }

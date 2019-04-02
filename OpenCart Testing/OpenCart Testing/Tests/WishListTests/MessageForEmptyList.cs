@@ -21,7 +21,13 @@ namespace OpenCart_Testing.Tests.WishListTests
             HomePage page = LoadApplication();
             WishListPage wishlist = page.ClickWishList();
             Thread.Sleep(3000);
+<<<<<<< HEAD:OpenCart Testing/OpenCart Testing/Tests/WishListTests/MessageForEmptyList.cs
             Assert.AreEqual(expectedMessage.Message, wishlist.GetEmptyMessage());
+=======
+            EmptyWishListPage empty = new EmptyWishListPage(application.Driver);
+            //    Assert.AreEqual(expectedMessage, actualMessage);
+            Assert.AreEqual(expectedMessage.GetMessage(), empty.GetEmptyMessage().Text);
+>>>>>>> aefe4e38b610897a70632dc0ae5acc9417dca282:OpenCart Testing/OpenCart Testing/Tests/WishListTests/MessageAfterRemovingOneItem.cs
         }
     }
 }

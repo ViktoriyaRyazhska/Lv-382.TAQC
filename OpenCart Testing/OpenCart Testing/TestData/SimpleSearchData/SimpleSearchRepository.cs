@@ -16,11 +16,9 @@ namespace OpenCart_Testing.TestData.SimpleSearchData
             return JsonParser.DeserializeFromFile<SimpleSearch>(directory, fileName);
         }
 
-        public static IList<SimpleSearch1> NewDataListFromJson(string fileName)
+        public static IList<SimpleSearchView> NewDataListFromJson(string fileName)
         {
-            return JsonParser.DeserializeFromFile<IList<SimpleSearch1>>(directory, fileName);
-
+            return JsonParser.DeserializeFromFile<IList<SimpleSearchView>>(directory, fileName);
         }
-
     }
 }

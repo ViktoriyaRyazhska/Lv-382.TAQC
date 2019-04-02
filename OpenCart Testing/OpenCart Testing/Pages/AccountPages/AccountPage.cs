@@ -8,5 +8,6 @@ namespace OpenCart_Testing.Pages.AccountPages
         public AccountPage(IWebDriver driver) : base(driver)
         {
         }
+
     }
 }
