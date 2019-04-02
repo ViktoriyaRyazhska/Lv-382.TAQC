@@ -12,12 +12,12 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
     [TestFixture]
     public class SearchInDescriptionTest : TestRunner
     {
-        private static readonly object[] ProductWithoutInDescriptionData =
+        private static readonly object[] ProductNoInDescriptionData =
        {
-            new object[] {SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchWithoutInDescription.json"), ProductRepository.Get().GetProductEmptyListMessage() }
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchNoInDescription.json"), ProductRepository.Get().GetProductEmptyListMessage() )
         };
 
-        [Test, TestCaseSource(nameof(ProductWithoutInDescriptionData))]
+        [Test, TestCaseSource(nameof(ProductNoInDescriptionData))]
         public void CheckSearchWithoutInDescription(ISearchCriteria searchCriteria, string expectedMessage)
         {
             // Steps
@@ -38,7 +38,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
         private static readonly object[] ProductDescriptioData =
        {
-            new object[] {SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInDescription.json"), ProductRepository.GetSearchInDescriptionProducts() }
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInDescription.json"), ProductRepository.GetSearchInDescriptionProducts() )
         };
 
         [Test, TestCaseSource(nameof(ProductDescriptioData))]

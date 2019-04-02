@@ -15,7 +15,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
        
         private static readonly object[] ProductData2 =
         {
-            new object[] {SearchCriteriasRepository.Get().Mac(), ProductRepository.GetMacListProducts() }
+            new TestCaseData(SearchCriteriasRepository.Get().Mac(), ProductRepository.GetMacListProducts() )
         };
 
         [Test, TestCaseSource(nameof(ProductData2))]
@@ -39,7 +39,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
         private static readonly object[] ProductData3 =
        {
-            new object[] {SearchCriteriasRepository.Get().Qwerty(), ProductRepository.Get().GetProductEmptyListMessage() }
+            new TestCaseData(SearchCriteriasRepository.Get().Qwerty(), ProductRepository.Get().GetProductEmptyListMessage() )
         };
 
         [Test, TestCaseSource(nameof(ProductData3))]
@@ -63,7 +63,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
         private static readonly object[] ProductData4 =
        {
-            new object[] {SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchCriteria_Description_AllCategories.json"), ProductRepository.GetMacListProducts() }
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchCriteria_Description_AllCategories.json"), ProductRepository.GetMacListProducts() )
         };
 
         [Test, TestCaseSource(nameof(ProductData4))]

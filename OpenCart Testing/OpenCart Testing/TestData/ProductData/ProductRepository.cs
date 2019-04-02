@@ -131,6 +131,11 @@ namespace OpenCart_Testing.TestData
         {
             return new List<Product>() { GetAppleCinema(), GetiPhone(), GetMacBook(), GetMacBookAir()};
         }
+
+        public static IList<Product> GetSearchInSubcategoryAndDescriptionProducts()
+        {
+            return new List<Product>() { GetAppleCinema(), GetIMac(), GetiPhone(), GetMacBook(), GetMacBookAir() };
+        }
         //public static string GetProductEmptyListMessage()
         //{
         //    return productEmptyListMessage;

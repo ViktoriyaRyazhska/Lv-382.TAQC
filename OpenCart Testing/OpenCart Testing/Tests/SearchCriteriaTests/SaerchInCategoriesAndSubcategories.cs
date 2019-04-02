@@ -14,7 +14,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
     {
         private static readonly object[] ProductCategoryData =
         {
-            new object[] {SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategories.json"), ProductRepository.GetSearchInCategoriesProducts() }
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategories.json"), ProductRepository.GetSearchInCategoriesProducts() )
         };
 
         [Test, TestCaseSource(nameof(ProductCategoryData))]
@@ -39,7 +39,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
 
         private static readonly object[] ProductSubcategoryData =
         {
-            new object[] {SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategoryAndSubcategories.json"), ProductRepository.GetSearchInCategoryAndSybcategoryProducts() }
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategoryAndSubcategories.json"), ProductRepository.GetSearchInCategoryAndSybcategoryProducts() )
         };
 
         [Test, TestCaseSource(nameof(ProductSubcategoryData))]
