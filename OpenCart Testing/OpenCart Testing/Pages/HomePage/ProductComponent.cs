@@ -11,7 +11,7 @@ namespace OpenCart_Testing.Pages
         private IWebElement PartialDescription => productLayout.FindElement(MProductComponent.locatorPartialDescription);
         private IWebElement Price => productLayout.FindElement(MProductComponent.locatorPrice);
         private IWebElement AddToCartButton => productLayout.FindElement(MProductComponent.locatorAddToCartButton);
-        private IWebElement AddToWishButton => productLayout.FindElement(MProductComponent.locatorAddToWishButton);
+        public IWebElement AddToWishButton => productLayout.FindElement(MProductComponent.locatorAddToWishButton);
         private IWebElement AddToCompareButton => productLayout.FindElement(MProductComponent.locatorAddToCompareButton);
 
         public ProductComponent(IWebElement productLayout)
