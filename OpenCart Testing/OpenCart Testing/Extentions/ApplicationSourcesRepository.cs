@@ -9,7 +9,7 @@ namespace OpenCart_Testing.Extentions
         {
             return new ApplicationSources("Chrome",
                 "http://192.168.183.131/opencart/upload/",
-                10);
+                10L);
         }
 
         public static ApplicationSources ApplicationSourceFromJson(string fileName)

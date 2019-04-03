@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using OpenCart_Testing.TestData;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.TestData.LoginData;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
