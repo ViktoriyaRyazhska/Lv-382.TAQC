@@ -5,7 +5,6 @@ using OpenCart_Testing.Tools;
 
 namespace OpenCart_Testing.Tests.SimpleSearchTests
 {
-
     [TestFixture]
     public class ChangeViewNumberOfElementsTest : TestRunner
     {
@@ -17,16 +16,9 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
-
+            searchCriteriaPage.ClickGridView();
             int beforeChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
-            if (searchCriteriaPage.isView(ViewType.Grid))
-            {
-                searchCriteriaPage.ClickListView();
-            }
-            else
-            {
-                searchCriteriaPage.ClickGridView();
-            }
+            searchCriteriaPage.ClickListView();
             int afterChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
             Assert.AreEqual(beforeChange, afterChange);
         }

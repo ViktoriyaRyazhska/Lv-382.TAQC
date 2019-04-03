@@ -15,7 +15,7 @@ namespace OpenCart_Testing.Pages.WishPage
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
-         }
+        }
 
         public WishProductContainer GetWishProductContainer()
         {

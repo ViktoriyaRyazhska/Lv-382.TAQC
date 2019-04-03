@@ -14,12 +14,12 @@ namespace OpenCart_Testing.Tests.WishListTests
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
         private WishListPage wishlist;
 
-        public static object[] RevievAddingToWishList =
+        public static object[] ReviewAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
         };
 
-        [Test, TestCaseSource("RevievAddingToWishList")]
+        [Test, TestCaseSource("ReviewAddingToWishList")]
         public void CheckAddingFromHomePage(IList<WishListItem> names)
         {
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()

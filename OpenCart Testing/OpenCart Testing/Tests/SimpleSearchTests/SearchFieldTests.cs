@@ -10,18 +10,18 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     [TestFixture]
     public class SearchFieldTests : TestRunner
     {
-
         private static readonly object[] SearchData_Positive =
         {
-             new object[] { SimpleSearchRepository.NewSearchDataFromJson("SearchData_Positive.json") }
+             new object[] { SimpleSearchRepository.NewSearchDataFromJson("SearchData_Positive.json"),
+                ProductRepository.NewProductArrayFromJson("MacListProducts.json")}
         };
 
         [Test, TestCaseSource("SearchData_Positive")]
-        public void SearchTest_Positive(SimpleSearch searchText)
+        public void SearchTest_Positive(SimpleSearch searchText, List<Product> expectedList)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
-            Assert.AreEqual(Product.GetProductListNames(ProductRepository.NewProductArrayFromJson("MacListProducts.json")),
+            Assert.AreEqual(Product.GetProductListNames(expectedList),
                 searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
         }
 
