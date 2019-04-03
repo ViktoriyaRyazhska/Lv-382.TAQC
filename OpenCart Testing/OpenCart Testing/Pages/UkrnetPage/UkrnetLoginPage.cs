@@ -1,4 +1,7 @@
-﻿using OpenCart_Testing.Pages.UIMapping;
+﻿using OpenCart_Testing.Pages.AccountPages;
+using OpenCart_Testing.Pages.ForgottenPasswordPages;
+using OpenCart_Testing.Pages.UIMapping;
+using OpenCart_Testing.TestData.ChangePassData;
 using OpenQA.Selenium;
 using System.Threading;
 
@@ -15,6 +18,11 @@ namespace OpenCart_Testing.Pages.UkrnetPage
         {
             this.driver = driver;
             driver.Navigate().GoToUrl("https://mail.ukr.net");
+        }
+
+        public RestorePasswordPage ReadRestoreLetter(User restoreUser)
+        {
+            return LoginUkrnetUser(restoreUser.Email, restoreUser.Password).ClickUnread().GotoNewRecoveryLetter().ClickRestoreLink();
         }
 
         public UkrnetMainPage LoginUkrnetUser(string username, string userpassword)

@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\nunit_random_seed.tmp" />
+    <None Include="OpenCartClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />

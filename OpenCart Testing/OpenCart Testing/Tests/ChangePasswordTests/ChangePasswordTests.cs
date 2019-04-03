@@ -30,13 +30,12 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
                 .GotoChangePasswordPage();
             ///Changing password and checking the message
             Assert.AreEqual(page.SuccessfulChangePassword(passData.NewPassword, passData.ConfirmedPassword).GetSuccessfulPassChangeMessage(), 
-                            SuccessfulPassChangeAccountPage.PassChengedMessage);
+                            SuccessfulPassChangeAccountPage.PassChengeMessage);
             ///Check for no password reset
             page.ClickLogout();
             page.ClickLoginUserButton().LoginUser(new User(userData.Email, passData.NewPassword));
-            Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
+            Assert.AreEqual(page.GetEditAccountText(), AccountPage.AccountIdentifier);
 
-            //Thread.Sleep(3000);
         }
 
 
@@ -61,8 +60,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
             ///Check for no password reset
             page.ClickLogout();
             page.ClickLoginUserButton().LoginUser(userData);
-            Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
-            //Thread.Sleep(3000);
+            Assert.AreEqual(page.GetEditAccountText(), AccountPage.AccountIdentifier); 
         }
     }
 }

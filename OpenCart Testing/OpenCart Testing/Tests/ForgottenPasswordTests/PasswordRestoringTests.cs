@@ -16,7 +16,8 @@ namespace OpenCart_Testing.Tests.ForgottenPasswordTests
     {
         public static object[] PasswordRestoringData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserDataForPasswordChange.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserDataForPasswordChange.json"),
+               LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
         };
 
         [Test]
@@ -25,14 +26,12 @@ namespace OpenCart_Testing.Tests.ForgottenPasswordTests
         {
             ForgottenPasswordPage page = LoadApplication().ClickLoginUserButton().GotoForgottenPasswordPage();
             page.SendRecoveryLetter(restoreUser.Email);
-            Assert.AreEqual(LoadUkrnet()
-                .LoginUkrnetUser(restoreUser.Email, restoreUser.Password)
-                .ClickUnread()
-                .GotoNewRecoveryLetter()
-                .ClickRestoreLink().RestorePassword(passData.NewPassword, passData.ConfirmedPassword)
-                .ClickLoginUserButton().LoginUser(restoreUser)
-                .GetEditAccountText(), "Edit Account");
-            Thread.Sleep(3000);
+            RestorePasswordPage confirmation = LoadUkrnet().ReadRestoreLetter(restoreUser);
+            Assert.AreEqual(
+                confirmation.RestorePassword(passData.NewPassword, passData.ConfirmedPassword)
+                .ClickLoginUserButton()
+                .LoginUser(new User(restoreUser.Email, passData.NewPassword))
+                .GetEditAccountText(), AccountPage.AccountIdentifier);
         }
     }
 }
