@@ -178,6 +178,7 @@
     <Compile Include="Tools\ListUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OpenCartClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />

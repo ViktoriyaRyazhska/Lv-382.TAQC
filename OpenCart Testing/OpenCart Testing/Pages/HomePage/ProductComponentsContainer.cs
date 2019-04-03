@@ -139,5 +139,13 @@ namespace OpenCart_Testing.Pages
                 ClickProductComponentAddToWishButtonByName(Name);
             }
         }
+
+        public HomePage HomePage
+        {
+            get => default(HomePage);
+            set
+            {
+            }
+        }
     }
 }

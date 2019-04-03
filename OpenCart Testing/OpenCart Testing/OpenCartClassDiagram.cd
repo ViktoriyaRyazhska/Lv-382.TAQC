@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OpenCart_Testing.Pages.ATopPart" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>BBBBsUBAHAIAFAgAAAAQAAyCCgAAZAAgIJAAIQBA4KA=</HashCode>
+      <FileName>Pages\StaticParts\ATopPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.ABreadCrumbsPart" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\StaticParts\ABreadCrumbsPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.HomePage" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAKEAAAAAAAQAAAgAAAAAAAAAEAAAgAAAAEAAAAAAA=</HashCode>
+      <FileName>Pages\HomePage\HomePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.UpdatedHomePage" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.ASearchResultPart" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\SearchPage\ASearchResultPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.SearchCriteriaPage" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IJAgAAUAAAAAAAgEAwBDEgABgJAAECgEwEAIAAAgCAA=</HashCode>
+      <FileName>Pages\SearchPage\SearchCriteriaPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.StaticParts.ARightMenuPart" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIDEAAQEDIAAMAgAAAAIABBEAAIBCAAAQAkigQgBgAA=</HashCode>
+      <FileName>Pages\StaticParts\ARightMenuPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.StaticParts.ARightLoginPart" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAAAAAAAAAAQAAAAIAEAAAIAACAAAIAQAAEAA=</HashCode>
+      <FileName>Pages\StaticParts\ARightLoginPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.StaticParts.ARightLogoutPart" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAhQAAACAAQACEAAIA=</HashCode>
+      <FileName>Pages\StaticParts\ARightLogoutPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.AccountPages.AccountPage" Collapsed="true">
+    <Position X="11.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\AccountPages\AccountPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.AddressBookPages.AddressBookPage" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACIBACAACAQAAAICAAAAAAQAABAAAAAAMAQAAAAAAA=</HashCode>
+      <FileName>Pages\AddressBookPages\AddressBookPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.ChangePasswordPages.ChangePasswordPage" Collapsed="true">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAIEAAAAAEAAgAAAABAAAAgAAIAAAAAAQBA=</HashCode>
+      <FileName>Pages\ChangePasswordPages\ChangePasswordPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.WishListPage.WishListPage" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAgAAAAAAAIAAAACABQEAAAAAAQAAAAAgAA=</HashCode>
+      <FileName>Pages\WishListPage\WishListPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
