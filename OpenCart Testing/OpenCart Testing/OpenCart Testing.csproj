@@ -8,7 +8,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F470DB9A-C24E-423E-B271-ABAE983D76EA}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenCart_Testing</RootNamespace>
     <AssemblyName>OpenCart Testing</AssemblyName>
@@ -31,6 +31,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +41,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -83,6 +88,8 @@
     <Compile Include="Pages\ChangePasswordPages\ChangePasswordPage.cs" />
     <Compile Include="Pages\ChangePasswordPages\SuccessfulPassChangeAccountPage.cs" />
     <Compile Include="Pages\ChangePasswordPages\UnsuccessfulPasswordChangePage.cs" />
+    <Compile Include="Pages\ForgottenPasswordPages\ForgottenPasswordPage.cs" />
+    <Compile Include="Pages\ForgottenPasswordPages\RestorePasswordPage.cs" />
     <Compile Include="Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs" />
     <Compile Include="Pages\LoginPages\LoginPage.cs" />
     <Compile Include="Pages\StaticParts\ABreadCrumbsPart.cs" />
@@ -109,12 +116,14 @@
     <Compile Include="Pages\UIMapping\MARightMenuPart.cs" />
     <Compile Include="Pages\UIMapping\MChangePasswordPage.cs" />
     <Compile Include="Pages\UIMapping\MEditAddressPage.cs" />
+    <Compile Include="Pages\UIMapping\MForgottenPasswordPage.cs" />
     <Compile Include="Pages\UIMapping\MLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MProductComponent.cs" />
     <Compile Include="Pages\UIMapping\MProductComponentsContainer.cs" />
     <Compile Include="Pages\UIMapping\MReviewAddNew.cs" />
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfullyUpdatedAddressPage.cs" />
+    <Compile Include="Pages\UIMapping\MUkrnetElemntsPart.cs" />
     <Compile Include="Pages\UIMapping\MUnsuccessfulPassChangePage.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
@@ -148,7 +157,8 @@
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
-    <Compile Include="Tests\ChangePasswordTests\ClangePasswordPositiveTest.cs" />
+    <Compile Include="Tests\ChangePasswordTests\ChangePasswordTests.cs" />
+    <Compile Include="Tests\ForgottenPasswordTests\PasswordRestoringTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,8 +166,10 @@
     <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
+    <Compile Include="Tests\SimpleSearchTests\ChangeViewNumberOfElementsTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\DefaultViewTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\SavedViewTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchFieldTests.cs" />
-    <Compile Include="Tests\SimpleSearchTests\SearchViewTests.cs" />
     <Compile Include="Tests\TestRunner.cs" />
     <Compile Include="Pages\UIMapping\MABreadCrumPart.cs" />
     <Compile Include="Pages\UIMapping\MATopPart.cs" />
@@ -213,7 +225,6 @@
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
-    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />

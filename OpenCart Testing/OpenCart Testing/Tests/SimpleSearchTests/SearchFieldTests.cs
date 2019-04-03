@@ -27,7 +27,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
         public void SearchTest_Positive(SimpleSearch searchText, IList<Product> expectedList)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
+                .SearchItems(searchText.Name);
             Assert.AreEqual(Product.GetProductListNames(expectedList),
                 searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
         }
@@ -37,7 +37,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Negative.json"));
 
         [Test, TestCaseSource("SearchData_Negative")]
-        public void SearchTest_Negative(SimpleSearchView searchText)
+        public void SearchTest_Negative(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
@@ -50,7 +50,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_InvalidLength.json"));
 
         [Test, TestCaseSource("SearchData_InvalidLength")]
-        public void SearchTest_InvalidLength(SimpleSearchView searchText)
+        public void SearchTest_InvalidLength(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
@@ -63,7 +63,7 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_SpecialCharacters.json"));
 
         [Test, TestCaseSource("SearchData_SpecialCharacters")]
-        public void SearchTest_SpecialCharacters(SimpleSearchView searchText)
+        public void SearchTest_SpecialCharacters(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
@@ -73,10 +73,10 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
 
         private static readonly object[] SearchData_Case_DefaultView =
-            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json"));
+            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json"));
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchCaseInsensitive_Test(SimpleSearchView searchText)
+        public void SearchCaseInsensitive_Test(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPageLower = LoadApplication()
                 .SearchItems(searchText.Name.ToLower());

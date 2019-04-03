@@ -11,8 +11,6 @@ namespace OpenCart_Testing
     public class TestRunner
     {
 
-        protected IWebDriver driver;
-
         public Application application;
 
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), 
@@ -25,7 +23,7 @@ namespace OpenCart_Testing
         }
 
         [OneTimeTearDown]
-        public virtual void AfterAllMethods()
+        public void AfterAllMethods()
         {
             application.Quit();
         }
@@ -37,7 +35,7 @@ namespace OpenCart_Testing
         }
 
         [TearDown]
-        public virtual void AfterAllTests()
+        public void AfterAllTests()
         {
             application.DeleteCookies();
         }

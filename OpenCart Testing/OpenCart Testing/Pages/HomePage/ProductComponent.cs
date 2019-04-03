@@ -1,18 +1,12 @@
 ﻿using OpenQA.Selenium;
 using OpenCart_Testing.UIMapping.MProductComponent;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace OpenCart_Testing.Pages
 {
     public class ProductComponent
     {
         private IWebElement productLayout;
-        //     
+        
         private IWebElement Name => productLayout.FindElement(MProductComponent.locatorName);
         private IWebElement PartialDescription => productLayout.FindElement(MProductComponent.locatorPartialDescription);
         private IWebElement Price => productLayout.FindElement(MProductComponent.locatorPrice);
@@ -24,8 +18,6 @@ namespace OpenCart_Testing.Pages
         {
             this.productLayout = productLayout;
         }
-
-        // Page Object
 
         //Name
         public string GetNameText()
@@ -72,9 +64,5 @@ namespace OpenCart_Testing.Pages
         {
             AddToCompareButton.Click();
         }
-
-        // Functional
-
-        // Business Logic
     }
 }
