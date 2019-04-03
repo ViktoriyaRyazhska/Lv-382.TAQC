@@ -12,13 +12,13 @@ namespace OpenCart_Testing.Tests.WishListTests
     class MessageForEmptyList : TestRunner
     {
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
-        public static object[] RevievAddingToWishList =
+        public static object[] ReviewAddingToWishList =
         {
             new TestCaseData(ActionMessageRepository.Get().ActionMessageFromJson("RemovingAllMessage.json"))
         };
 
-        [Test, TestCaseSource("RevievAddingToWishList")]
-        public void CheckAddingFromHomePage(ActionMessage expectedMessage)
+        [Test, TestCaseSource("ReviewAddingToWishList")]
+        public void CheckMessageForEmptyList(ActionMessage expectedMessage)
         {
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage();
             WishListPage wishlist = LoadApplication().ClickWishList();
