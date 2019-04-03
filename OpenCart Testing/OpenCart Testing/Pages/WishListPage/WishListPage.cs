@@ -7,10 +7,11 @@ namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishListPage : ARightLoginPart
     {
-        private WishProductContainer ProductContainer;
         private WishProduct Product;
+        private WishProductContainer ProductContainer;
         private IWebElement Continue => driver.FindElement(MWishListPage.locatorContinue);
         protected IWebElement emptyMessage;
+
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
@@ -25,7 +26,7 @@ namespace OpenCart_Testing.Pages.WishPage
         {
             try
             {
-                ProductContainer = new WishProductContainer(driver.FindElement(By.CssSelector(".table.table-bordered.table-hover tbody")));
+                ProductContainer = new WishProductContainer(driver.FindElement(MWishListPage.locatorElements));
             }
 
             catch (Exception)
@@ -55,10 +56,5 @@ namespace OpenCart_Testing.Pages.WishPage
         {
             return Product;
         }
-
-        //public string GetEmptyMessage()
-        //{
-        //    return emptyMessage.Text;
-        //}
     }
 }

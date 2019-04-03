@@ -245,14 +245,10 @@
     <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
-    <None Include="XMLSchema1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="Exeptions\" />
-    <Folder Include="Pages\WishListPage\EmptyWishListPage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\chromedriver.exe" />
