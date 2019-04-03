@@ -1,0 +1,26 @@
+[
+  {
+    "Firstname": "Vasil",
+    "Lastname": "Pilipenko",
+    "Company": "",
+    "Address1": "Heroiv Upa",
+    "Address2": "",
+    "City": "Lviv",
+    "Postcode": "79000",
+    "Country": "Ukraine",
+    "RegionState": "L'vivs'ka Oblast'",
+    "Default": "false"
+  },
+  {
+    "Firstname": "Anna",
+    "Lastname": "Pilipenko",
+    "Company": "",
+    "Address1": "Heroiv Upa",
+    "Address2": "",
+    "City": "Lviv",
+    "Postcode": "79000",
+    "Country": "Ukraine",
+    "RegionState": "L'vivs'ka Oblast'",
+    "Default": "false"
+  }
+]

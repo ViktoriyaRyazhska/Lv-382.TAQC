@@ -1,24 +1,21 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
+﻿using OpenCart_Testing.Tools;
 
 namespace OpenCart_Testing.Extentions
 {
     public sealed class ApplicationSourcesRepository
     {
-        private static string baseUrl = "http://192.168.85.129/opencart/upload/";
+        private static string directory = "ApplicationSources";
 
-        public static ApplicationSources GetFirefoxApplication()
-        {
-            return new ApplicationSources("FireFox", 
-              baseUrl,
-              5L);
-        }
-
-        public static ApplicationSources GetChromeApplication()
+        public static ApplicationSources Default()
         {
             return new ApplicationSources("Chrome",
-                baseUrl,
+                "http://192.168.85.129/opencart/upload/",
                 5L);
+        }
+
+        public static ApplicationSources ApplicationSourceFromJson(string fileName)
+        {
+            return JsonParser.DeserializeFromFile<ApplicationSources>(directory, fileName) as ApplicationSources;
         }
     }
 }

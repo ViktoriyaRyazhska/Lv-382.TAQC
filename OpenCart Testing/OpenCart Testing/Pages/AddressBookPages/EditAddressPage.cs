@@ -133,9 +133,11 @@ namespace OpenCart_Testing.Pages.AddressBookPages
         public AddressBookPage SetOnlyFirstname(string firstname)
         {
             SetFirstname(firstname);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(driver => Region.Enabled);
             ClickContinue();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             return new AddressBookPage(driver);
         }
     }

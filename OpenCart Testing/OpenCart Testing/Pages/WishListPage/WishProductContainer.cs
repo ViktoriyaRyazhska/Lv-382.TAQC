@@ -10,13 +10,13 @@ using System.Threading;
 
 namespace OpenCart_Testing.Pages.WishListPage
 {
-    public class WishProductContainer
+    public class WishProductContainer 
     {
         private IWebElement withProdContainer;
 
         private IList<WishProduct> wishProducts;
 
-        public WishProductContainer(IWebElement withProdContainer)
+        public WishProductContainer(IWebElement withProdContainer)// : base(withProdContainer)
         {
             this.withProdContainer = withProdContainer;
             InitElements();
@@ -29,24 +29,13 @@ namespace OpenCart_Testing.Pages.WishListPage
             foreach (IWebElement current in temp)
             {
                 wishProducts.Add(new WishProduct(current));
-            }
-            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[1]"))));
-            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[2]"))));
-            //wishProducts.Add(new WishProduct(driver.FindElement(By.XPath("//*[@id='content']/div[1]/table/tbody/tr[3]"))));
-            //for (int i = 1; i < 4; i++)
-            //{
-            //    wishProducts[i-1].ProductName = driver.FindElement(By.XPath($"//*[@id='content']/div[1]/table/tbody/tr[{i}]/td[2]"));
-            //}
+            }           
         }
 
         public IList<WishProduct> GetWishedItems()
         {
             return wishProducts;
         }
-
-
-
-
 
         public List<WishListItem> GetWishListItemsNames()
         {

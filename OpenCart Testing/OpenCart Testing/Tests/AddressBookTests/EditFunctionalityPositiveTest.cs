@@ -1,27 +1,35 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.AddressBookPages;
+using OpenCart_Testing.TestData.AddressBookData;
+using OpenCart_Testing.Tools;
 
 namespace OpenCart_Testing.Tests.AddressBookTests
 {
     class EditFunctionalityPositiveTest : TestRunner
     {
-        private static readonly object[] ValidFirstname =
-        {
-           "Sasha",
-           "Oleksandra",
-        };
+        private AddressBookPage page;
 
-        [Test, TestCaseSource("ValidFirstname")]
+        private static readonly object[] ValidFirstnameData =
+            ListUtils.ToMultiArray(AddressRepository.AddressFirstnameFromJson("ValidFirstname.json"));
+
+        [Test, TestCaseSource(nameof(ValidFirstnameData))]
         public void CheckAddressBookEditFunctionalityWithValidFirstname(string data)
         {
-            AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
-                .EditFirstAddress().SetOnlyFirstname(data);
+            page = LoadApplication()
+               .ClickLoginUserButton().LoginUser(REGISTERED).GotoAddressBookPage()
+               .EditFirstAddress().SetOnlyFirstname(data);
 
             Assert.IsTrue(page.GetAddressComponentsContainer().GetFirstAddress()
                 .GetAddressDescription().Contains(data));
+        }
 
-            page.LogoutUser();
+        [TearDown]
+        public void TestTearDown()
+        {
+            if (page != null)
+            {
+                page.LogoutUser();
+            }
         }
     }
 }

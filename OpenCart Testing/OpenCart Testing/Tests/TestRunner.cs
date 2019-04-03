@@ -10,20 +10,15 @@ namespace OpenCart_Testing
     [TestFixture]
     public class TestRunner
     {
-
-        protected IWebDriver driver;
-
-
         public Application application;
 
         protected User REGISTERED = new User(Environment.GetEnvironmentVariable("OPENCART_USER_EMAIL"), 
             Environment.GetEnvironmentVariable("OPENCART_USER_PASSWORD"));
 
         [OneTimeSetUp]
-        public void BeforeAllMethods()
+        public virtual void BeforeAllMethods()
         {
-            //application = Application.Get(ApplicationSourcesRepository.GetFirefoxApplication());
-            application = Application.Get(ApplicationSourcesRepository.GetChromeApplication());
+            application = Application.Get(ApplicationSourcesRepository.Default());
         }
 
         [OneTimeTearDown]
@@ -46,8 +41,8 @@ namespace OpenCart_Testing
 
         public HomePage LoadApplication()
         {
+            application.Load();
             return new HomePage(application.Driver);
         }
-
     }
 }

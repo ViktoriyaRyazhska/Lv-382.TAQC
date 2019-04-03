@@ -8,9 +8,8 @@ namespace OpenCart_Testing.TestData.LoginData
     {
         private volatile static LoginDataRespository instance;
         private static object lockingObject = new object();
-        private static string userDataDirectory = "UsersData",
-                              passwordChangeDataDirectory = "";
-
+        private static string userDataDirectory = "UsersData";
+                              
         public static LoginDataRespository Get()
         {
             if (instance == null)
@@ -33,7 +32,7 @@ namespace OpenCart_Testing.TestData.LoginData
 
         public ChangePasswordData GetChangePasswordData(string fileName)
         {
-            return JsonParser.DeserializeFromFile<ChangePasswordData>(passwordChangeDataDirectory, fileName);
+            return JsonParser.DeserializeFromFile<ChangePasswordData>(userDataDirectory, fileName);
         }
     }
 }
