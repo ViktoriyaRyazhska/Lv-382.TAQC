@@ -239,7 +239,7 @@
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
     <None Include="TestData\DataSourse\PasswordsData\TestPasswordsForChanging_CorrectConfirmation.json" />
     <None Include="TestData\DataSourse\PasswordsData\TestPasswordsForChanging_WrongConfirmation.json" />
-    <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\UsersData\UserDataForPasswordChange.json" />
     <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
     <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />

@@ -20,9 +20,14 @@ namespace OpenCart_Testing.Pages.ForgottenPasswordPages
             RecoveryContinueButton.Click();
         }
 
-        public UkrnetLoginPage GotoUkrnetMail()
+        public IWebDriver GetDriver()
         {
-            return new UkrnetLoginPage(driver);
+            return driver;
         }
+
+        //public UkrnetLoginPage GotoUkrnetMail()
+        //{
+        //    return new UkrnetLoginPage(driver);
+        //}
     }
 }

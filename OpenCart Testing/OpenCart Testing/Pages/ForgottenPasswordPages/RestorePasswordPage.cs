@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace OpenCart_Testing.Pages.ForgottenPasswordPages
 {
-    public class RestorePasswordPage : NewLetterPage
+    public class RestorePasswordPage : ABreadCrumbsPart
     {
         private IWebElement NewPasswordField => driver.FindElement(MChangePasswordPage.locatorNewPasswordField);
         private IWebElement ConfirmNewPasswordField => driver.FindElement(MChangePasswordPage.locatorConfirmNewPasswordField);

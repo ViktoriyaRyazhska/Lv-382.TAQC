@@ -15,7 +15,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
 
         public static object[] PositiveTestUserLoginData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserDataForPasswordChange.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
         };
 
         [Test]
@@ -36,13 +36,13 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
             page.ClickLoginUserButton().LoginUser(new User(userData.Email, passData.NewPassword));
             Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
 
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
         }
 
 
         public static object[] NegativeTestUserLoginData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"),LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_WrongConfirmation.json"))
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserDataForPasswordChange.json"),LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_WrongConfirmation.json"))
         };
 
         [Test]
@@ -62,7 +62,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
             page.ClickLogout();
             page.ClickLoginUserButton().LoginUser(userData);
             Assert.AreEqual(page.GetEditAccountText(), "Edit Account"); // Куди це втикнути?
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
         }
     }
 }

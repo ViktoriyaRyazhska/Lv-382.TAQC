@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace OpenCart_Testing.Pages.UkrnetPage
 {
-    public class NewLetterPage : UnreadPage
+    public class NewLetterPage : AUkrnetLeftMenuPart
     {
         public IWebElement RestoreLink => driver.FindElement(MUkrnetElemntsPart.locatorRestoreLink);
 

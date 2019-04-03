@@ -5,6 +5,7 @@ using OpenCart_Testing.UIMapping.MProductComponentsContainer;
 using OpenCart_Testing.TestData.WishListData;
 using OpenQA.Selenium.Support.UI;
 using OpenCart_Testing.Pages.UIMapping.MUpdatedHomePage;
+using System.Threading;
 
 namespace OpenCart_Testing.Pages
 {
@@ -108,14 +109,19 @@ namespace OpenCart_Testing.Pages
 
         public void ClickProductComponentAddToWishButtonByName(IList<WishListItem> items)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             foreach (WishListItem item in items)
             {
+                //wait.Until(driver => GetProductComponentByName(item.Name).AddToWishButton.Enabled);
+                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(25);
+                //Thread.Sleep(4000);
                 GetProductComponentByName(item.Name).ClickAddToWishButton();
-                IWebElement myDynamicElement = wait.Until(driver => driver.FindElement(MUpdatedHomePage.locatorMessageSuccessAddingToWishList));
+                //Thread.Sleep(4000);
+                IWebElement myDynamicElement = driver.FindElement(MUpdatedHomePage.locatorMessageSuccessAddingToWishList);
+                
             }
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
          
     public int GetProductComponentsCount()

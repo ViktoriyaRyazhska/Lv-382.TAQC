@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Pages.ForgottenPasswordPages;
+using OpenCart_Testing.Pages.LoginPages;
 using OpenCart_Testing.Pages.UkrnetPage;
 using OpenCart_Testing.TestData.ChangePassData;
 using OpenCart_Testing.TestData.LoginData;
@@ -15,7 +16,7 @@ namespace OpenCart_Testing.Tests.ForgottenPasswordTests
     {
         public static object[] PasswordRestoringData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserDataForPasswordChange.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
         };
 
         [Test]
@@ -24,14 +25,14 @@ namespace OpenCart_Testing.Tests.ForgottenPasswordTests
         {
             ForgottenPasswordPage page = LoadApplication().ClickLoginUserButton().GotoForgottenPasswordPage();
             page.SendRecoveryLetter(restoreUser.Email);
-            page.GotoUkrnetMail()
+            Assert.AreEqual(LoadUkrnet()
                 .LoginUkrnetUser(restoreUser.Email, restoreUser.Password)
                 .ClickUnread()
                 .GotoNewRecoveryLetter()
-                .ClickRestoreLink().RestorePassword(passData.NewPassword, passData.ConfirmedPassword).ClickLoginUserButton();
+                .ClickRestoreLink().RestorePassword(passData.NewPassword, passData.ConfirmedPassword)
+                .ClickLoginUserButton().LoginUser(restoreUser)
+                .GetEditAccountText(), "Edit Account");
             Thread.Sleep(3000);
-
         }
-
     }
 }
