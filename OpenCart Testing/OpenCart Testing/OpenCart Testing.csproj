@@ -130,6 +130,11 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
+    <Compile Include="Pages\UkrnetPage\AUkrnetLeftMenuPart.cs" />
+    <Compile Include="Pages\UkrnetPage\NewLetterPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UkrnetLoginPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UkrnetMainPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UnreadPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
