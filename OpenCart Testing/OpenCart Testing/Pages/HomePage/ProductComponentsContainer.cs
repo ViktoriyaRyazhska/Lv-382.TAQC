@@ -1,12 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenCart_Testing.UIMapping.MProductComponentsContainer;
-using OpenCart_Testing.TestData;
-using System.Threading;
 using OpenCart_Testing.TestData.WishListData;
 using OpenQA.Selenium.Support.UI;
 
@@ -25,7 +20,6 @@ namespace OpenCart_Testing.Pages
             {
                 if (GetProductComponentsCount() > 0)
                 {
-                    // TODO Develop Custom Exception 
                     throw new Exception("Message not Found.");
                 }
                 return driver.FindElement(MProductComponentsContainer.locatorEmptyListMessage);
