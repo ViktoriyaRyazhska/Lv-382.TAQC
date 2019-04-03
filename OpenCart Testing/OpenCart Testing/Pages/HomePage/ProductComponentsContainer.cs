@@ -9,6 +9,7 @@ using OpenCart_Testing.TestData;
 using System.Threading;
 using OpenCart_Testing.TestData.WishListData;
 using OpenQA.Selenium.Support.UI;
+using OpenCart_Testing.Pages.UIMapping.MUpdatedHomePage;
 
 namespace OpenCart_Testing.Pages
 {
@@ -121,8 +122,8 @@ namespace OpenCart_Testing.Pages
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             foreach (WishListItem item in items)
             {
-                GetProductComponentByName(item.Name).ClickAddToWishButton();             
-                IWebElement myDynamicElement = wait.Until<IWebElement>(driver => driver.FindElement(By.CssSelector(".alert.alert-success"))); //    
+                GetProductComponentByName(item.Name).ClickAddToWishButton();
+                IWebElement myDynamicElement = wait.Until(driver => driver.FindElement(MUpdatedHomePage.locatorMessageSuccessAddingToWishList));
             }
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }

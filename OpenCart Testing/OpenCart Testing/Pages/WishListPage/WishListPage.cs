@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OpenCart_Testing.Pages.WishListPage
+namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishListPage : ABreadCrumbsPart
     {
@@ -45,7 +45,6 @@ namespace OpenCart_Testing.Pages.WishListPage
             {
                 ProductContainer.GetWishedItems()[0].ClickOnRemove();
                 ProductContainer.GetWishedItems().RemoveAt(0);
-                //Thread.Sleep(2000);
                 RefreshContainer();
             }
             return Product;

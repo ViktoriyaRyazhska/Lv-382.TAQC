@@ -4,6 +4,7 @@ using OpenCart_Testing.UIMapping.MATopPart;
 using OpenCart_Testing.Pages.LoginPages;
 using System.Threading;
 using OpenCart_Testing.TestData;
+using OpenCart_Testing.Pages.WishPage;
 
 namespace OpenCart_Testing.Pages
 {
@@ -166,13 +167,7 @@ namespace OpenCart_Testing.Pages
             MakeSearch(searchText);
             return new SearchCriteriaPage(driver);
         }
-        ////////////////
-        //public SearchCriteriaPage SearchItems1(Product searchProduct)
-        //{
-        //    MakeSearch(searchProduct.SearchKeyword);
-        //    return new SearchCriteriaPage(driver);
-        //}
-
+        
         public SearchCriteriaPage GoToSearchCriteriaPage()
         {
             ClickSearchButton();
@@ -198,10 +193,10 @@ namespace OpenCart_Testing.Pages
             LogoutButton.Click();
         }
 
-        public WishListPage.WishListPage ClickWishList()
+        public WishListPage ClickWishList()
         {
             WishList.Click();
-            return new WishListPage.WishListPage(driver);
+            return new WishPage.WishListPage(driver);
         }
     }
 }
