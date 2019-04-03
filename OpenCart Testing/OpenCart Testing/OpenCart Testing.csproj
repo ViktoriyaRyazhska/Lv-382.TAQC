@@ -169,6 +169,7 @@
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoryAndSubcategories.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchInAllCategories.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
@@ -224,7 +225,7 @@
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchByDescription.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInAllCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
