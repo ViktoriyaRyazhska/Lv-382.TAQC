@@ -124,12 +124,17 @@
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfullyUpdatedAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MUkrnetElemntsPart.cs" />
+    <Compile Include="Pages\UIMapping\MUkrnetLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MUnsuccessfulPassChangePage.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
-    <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
+    <Compile Include="Pages\UkrnetPage\AUkrnetLeftMenuPart.cs" />
+    <Compile Include="Pages\UkrnetPage\NewLetterPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UkrnetLoginPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UkrnetMainPage.cs" />
+    <Compile Include="Pages\UkrnetPage\UnreadPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
@@ -239,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
+    <Folder Include="Pages\WishListPage\EmptyWishListPage\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
