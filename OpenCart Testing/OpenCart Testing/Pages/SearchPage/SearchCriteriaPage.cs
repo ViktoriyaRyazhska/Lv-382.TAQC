@@ -134,15 +134,6 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
 
-        //public SearchCriteriaPage SearchCriteriaItems1(string searchProduct)
-        //{
-        //    MakeSearchCriteria(searchProduct);
-        //    ClickProductDescription();
-        //    Categories.SelectDropdownItemByText("Cameras");
-        //    return new SearchCriteriaPage(driver);
-        //}
-        // Page Object
-
         //SearchItemsCount
         public string GetSearchItemsCount()
         {

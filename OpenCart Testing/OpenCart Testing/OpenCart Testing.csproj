@@ -153,9 +153,8 @@
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoriesAndSubcategories.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchCriteriaDescriptionTests.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInCategoriesAndDescription.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoryAndSubcategories.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchFieldTests.cs" />
@@ -190,6 +189,12 @@
     <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
     <None Include="TestData\DataSourse\Addresses\ValidAddress.json" />
     <None Include="TestData\DataSourse\Addresses\ValidFirstname.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInSubcategoryAndDescription.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndDescription.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndSubcategory.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategory.json" />
+    <None Include="TestData\DataSourse\Products\MacListProducts.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInDescription.json" />
     <None Include="TestData\DataSourse\ApplicationSources\Chrome.json" />
     <None Include="TestData\DataSourse\ApplicationSources\Firefox.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
@@ -200,18 +205,15 @@
     <None Include="TestData\DataSourse\Reviews\TooShortName.json" />
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchNoInDescription.json" />
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchByDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchWithoutInDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
@@ -222,12 +224,12 @@
     <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
-    <Folder Include="TestData\DataSourse\Products\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
