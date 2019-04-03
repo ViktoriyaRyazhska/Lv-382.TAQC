@@ -22,7 +22,6 @@ namespace OpenCart_Testing.Tests.WishListTests
             LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
             WishListPage wishlist = LoadApplication().ClickWishList();
-            //WishPage wishlist = LoadApplication().ClickWishList();
             CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
         }
     }

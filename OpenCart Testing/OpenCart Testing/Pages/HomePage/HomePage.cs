@@ -1,10 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenCart_Testing.Pages.ProductPages;
 
 namespace OpenCart_Testing.Pages
 {
@@ -21,10 +15,7 @@ namespace OpenCart_Testing.Pages
         {
             productComponentsContainer = new ProductComponentsContainer(driver);
         }
-
-        // Page Object
-
-        // Slideshow0
+        
         public IWebElement GetSlideshow0FirstImage()
         {
             return Slideshow0.FindElement(By.XPath(".//a/img"));
@@ -39,8 +30,7 @@ namespace OpenCart_Testing.Pages
         {
             return GetSlideshow0FirstImageAttributeText(TAG_ATTRIBUTE_SRC);
         }
-
-        // productComponentsContainer
+        
         public ProductComponentsContainer getProductComponentsContainer()
         {
             return productComponentsContainer;
@@ -50,15 +40,5 @@ namespace OpenCart_Testing.Pages
             productComponentsContainer.ProductComponentByNameClick(name);
             return new ProductPage(driver);
         }
-
-        // Functional
-
-        // Business Logic
-        //public HomePage chooseCurrency(Currencies currency)
-        //{
-        //    ClickCurrencyByPartialName(currency);
-        //    return new HomePage(driver);
-        //}
-
     }
 }

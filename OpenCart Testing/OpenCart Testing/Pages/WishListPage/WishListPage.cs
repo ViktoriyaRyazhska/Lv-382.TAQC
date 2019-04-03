@@ -45,7 +45,6 @@ namespace OpenCart_Testing.Pages.WishPage
             {
                 ProductContainer.GetWishedItems()[0].ClickOnRemove();
                 ProductContainer.GetWishedItems().RemoveAt(0);
-                //Thread.Sleep(2000);
                 RefreshContainer();
             }
             return Product;
