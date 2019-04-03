@@ -1,15 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
-using OpenCart_Testing.Pages.UIMapping;
 using OpenCart_Testing.TestData;
 using OpenCart_Testing.TestData.SimpleSearchData;
 using OpenCart_Testing.Tools;
-using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tests.SimpleSearchTests
 {
@@ -19,16 +13,15 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
         private static readonly object[] SearchData_Positive =
         {
-             new object[] { SimpleSearchRepository.NewSearchDataFromJson("SearchData_Positive.json"),
-                 ProductRepository.GetMacListProducts()}
+             new object[] { SimpleSearchRepository.NewSearchDataFromJson("SearchData_Positive.json") }
         };
 
         [Test, TestCaseSource("SearchData_Positive")]
-        public void SearchTest_Positive(SimpleSearch searchText, IList<Product> expectedList)
+        public void SearchTest_Positive(SimpleSearch searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
-            Assert.AreEqual(Product.GetProductListNames(expectedList),
+            Assert.AreEqual(Product.GetProductListNames(ProductRepository.NewProductArrayFromJson("MacListProducts.json")),
                 searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
         }
 

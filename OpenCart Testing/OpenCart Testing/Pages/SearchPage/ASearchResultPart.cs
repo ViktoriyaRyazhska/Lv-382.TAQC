@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages
 {
@@ -16,14 +11,9 @@ namespace OpenCart_Testing.Pages
             productComponentsContainer = new ProductComponentsContainer(driver);
         }
 
-        // Page Object
         public ProductComponentsContainer GetProductComponentsContainer()
         {
             return productComponentsContainer;
         }
-
-        // Functional
-
-        // Business Logic
     }
 }

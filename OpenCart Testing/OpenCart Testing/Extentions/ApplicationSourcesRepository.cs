@@ -8,7 +8,11 @@ namespace OpenCart_Testing.Extentions
         public static ApplicationSources Default()
         {
             return new ApplicationSources("Chrome",
+<<<<<<< HEAD
                 "http://192.168.79.130/opencart/upload/",
+=======
+                "http://192.168.85.129/opencart/upload/",
+>>>>>>> c68658a2372c7628c26ee623759fcc8ea396c84c
                 5L);
         }
 
