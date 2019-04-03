@@ -157,8 +157,10 @@
     <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
+    <Compile Include="Tests\SimpleSearchTests\ChangeViewNumberOfElementsTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\DefaultViewTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\SavedViewTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchFieldTests.cs" />
-    <Compile Include="Tests\SimpleSearchTests\SearchViewTests.cs" />
     <Compile Include="Tests\TestRunner.cs" />
     <Compile Include="Pages\UIMapping\MABreadCrumPart.cs" />
     <Compile Include="Pages\UIMapping\MATopPart.cs" />
@@ -214,7 +216,6 @@
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
-    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />

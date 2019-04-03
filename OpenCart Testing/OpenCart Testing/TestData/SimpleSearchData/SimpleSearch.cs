@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.TestData.SimpleSearchData
 {
-    
-    public class SimpleSearch 
-    {
-        public string SearchData { get; set; }
-        
-    }
-
-    public class SimpleSearchView
+    public class SimpleSearch
     {
         public string Name { get; set; }
-        public string State { get; set; }
     }
-
 }
