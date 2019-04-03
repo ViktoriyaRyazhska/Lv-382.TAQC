@@ -124,6 +124,7 @@
     <Compile Include="Pages\UIMapping\MSearchCriteriaPage.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfullyUpdatedAddressPage.cs" />
     <Compile Include="Pages\UIMapping\MUkrnetElemntsPart.cs" />
+    <Compile Include="Pages\UIMapping\MUkrnetLoginPage.cs" />
     <Compile Include="Pages\UIMapping\MUnsuccessfulPassChangePage.cs" />
     <Compile Include="Pages\UIMapping\MUpdatedHomePage.cs" />
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
@@ -241,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
+    <Folder Include="Pages\WishListPage\EmptyWishListPage\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
