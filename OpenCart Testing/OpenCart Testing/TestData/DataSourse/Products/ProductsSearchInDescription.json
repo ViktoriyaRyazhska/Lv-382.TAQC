@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "iPod Touch",
+    "ShortDescription": "Revolutionary multi-touch interface. iPod touch features the same multi-touch screen technology..",
+    "PriceTax": 100.0
+  },
+  {
+    "Name": "Palm Treo Pro",
+    "ShortDescription": "Redefine your workday with the Palm Treo Pro smartphone. Perfectly balanced, you can respond to b..",
+    "PriceTax": 279.99
+  },
+  {
+    "Name": "Samsung Galaxy Tab 10.1",
+    "ShortDescription": "Samsung Galaxy Tab 10.1, is the world’s thinnest tablet, measuring 8.6 mm thickness, running with..",
+    "PriceTax": 199.99
+  }
+]

@@ -5,7 +5,7 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-//namespace OpenCart_Testing.Pages.WishListPage
+//namespace OpenCart_Testing.Pages.WishPage
 //{
 //    abstract public class AWishListPage
 //    {

@@ -9,7 +9,7 @@ namespace OpenCart_Testing.Extentions
         public static ApplicationSources Default()
         {
             return new ApplicationSources("Chrome",
-                "http://192.168.183.131/opencart/upload/",
+                "http://192.168.150.138/opencart/upload/",
                 5L);
         }
 

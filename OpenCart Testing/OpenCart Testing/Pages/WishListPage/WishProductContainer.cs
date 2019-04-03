@@ -8,7 +8,7 @@ using System;
 using OpenCart_Testing.TestData.WishListData;
 using System.Threading;
 
-namespace OpenCart_Testing.Pages.WishListPage
+namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishProductContainer 
     {
