@@ -77,14 +77,5 @@ namespace OpenCart_Testing.Pages.WishPage
             ClickOnRemove();
             return ModifiedMessage.Text;
         }
-
-        //public override bool Equals(object obj)
-        //{
-        //    WishProduct compare = obj as WishProduct;
-        //    return (this.GetProductNameText() == compare.GetProductNameText())
-        //        && (this.GetModelText() == compare.GetModelText())
-        //        && (this.GetStockText() == compare.GetStockText())
-        //        && (this.GetUnitPriceText() == compare.GetUnitPriceText());
-        //}
     }
 }

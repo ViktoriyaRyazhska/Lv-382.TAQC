@@ -251,7 +251,6 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="Exeptions\" />
-    <Folder Include="Pages\WishListPage\EmptyWishListPage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\chromedriver.exe" />

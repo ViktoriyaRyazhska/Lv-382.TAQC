@@ -1,8 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.WishPage;
-using OpenCart_Testing.Pages;
-using OpenCart_Testing.TestData;
-using System.Threading;
 using System.Collections.Generic;
 using OpenCart_Testing.TestData.WishListData;
 using OpenCart_Testing.Pages.AccountPages;
@@ -14,6 +11,8 @@ namespace OpenCart_Testing.Tests.WishListTests
     class AddingFromHomePage : TestRunner
     {
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
+        private WishListPage wishlist;
+
         public static object[] RevievAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
@@ -24,8 +23,17 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
-            WishListPage wishlist = LoadApplication().ClickWishList();
+            wishlist = LoadApplication().ClickWishList();
             CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
+        }
+        
+        [TearDown]
+        public void AfterTest()
+        {
+            if (wishlist != null)
+            {
+                wishlist.ClickOnRemoveAll();
+            }
         }
     }
 }

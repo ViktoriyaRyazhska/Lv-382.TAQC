@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenCart_Testing.UIMapping.MProductPage;
-using System.Threading;
 using OpenCart_Testing.Pages.ProductPages;
 
 namespace OpenCart_Testing.Pages

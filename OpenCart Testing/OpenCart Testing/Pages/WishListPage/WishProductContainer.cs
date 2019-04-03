@@ -33,7 +33,7 @@ namespace OpenCart_Testing.Pages.WishPage
             return wishProducts;
         }
 
-        public List<WishListItem> GetWishListItemsNames()
+       public List<WishListItem> GetWishListItemsNames()
         {
             List<WishListItem> actualItems = new List<WishListItem>();
 
