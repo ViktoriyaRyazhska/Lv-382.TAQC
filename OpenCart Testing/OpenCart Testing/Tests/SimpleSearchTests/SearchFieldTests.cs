@@ -1,15 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages;
-using OpenCart_Testing.Pages.UIMapping;
 using OpenCart_Testing.TestData;
 using OpenCart_Testing.TestData.SimpleSearchData;
 using OpenCart_Testing.Tools;
-using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Tests.SimpleSearchTests
 {

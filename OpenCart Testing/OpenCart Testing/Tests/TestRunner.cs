@@ -3,7 +3,6 @@ using NUnit.Framework;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Extentions;
-using OpenQA.Selenium;
 
 namespace OpenCart_Testing
 {
