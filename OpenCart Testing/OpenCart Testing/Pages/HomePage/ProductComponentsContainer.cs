@@ -14,7 +14,7 @@ namespace OpenCart_Testing.Pages
         private const string PRODUCT_COMPONENT_CSSSELECTOR = ".product-layout";
 
         private IWebDriver driver;
-        //
+        
         public IWebElement EmptyListMessage
         {
             get
@@ -49,13 +49,10 @@ namespace OpenCart_Testing.Pages
             }
         }
 
-        // Page Object
         public IList<ProductComponent> GetProductComponents()
         {
             return productComponents;
         }
-
-        // Functional
 
         public IList<string> GetProductComponentNames()
         {
@@ -81,7 +78,6 @@ namespace OpenCart_Testing.Pages
             }
             if (result == null)
             {
-                // TODO Develop Custom Exception 
                 throw new Exception("ProductName: " + productName + " not Found.");
             }
             return result;

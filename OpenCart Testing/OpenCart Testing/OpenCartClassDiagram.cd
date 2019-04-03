@@ -85,7 +85,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="OpenCart_Testing.Pages.WishPage.WishListPage" Collapsed="true">
+<<<<<<< HEAD
+    <Position X="5" Y="3.25" Width="1.5" />
+=======
     <Position X="5" Y="6" Width="1.5" />
+>>>>>>> 5694150c33832268e3d13cdc5f61b68fc21f5840
     <TypeIdentifier>
       <HashCode>AAACCAAAAAgAAAAAAAIAAAACABQEAAAAAAQAAAAAgAA=</HashCode>
       <FileName>Pages\WishListPage\WishListPage.cs</FileName>

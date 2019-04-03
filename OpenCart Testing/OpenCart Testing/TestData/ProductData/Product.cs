@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace OpenCart_Testing.TestData
 {
@@ -10,9 +6,7 @@ namespace OpenCart_Testing.TestData
     {
         public string Name { get; private set; }
         public string ShortDescription { get; private set; }
-        public decimal PriceTax { get; private set; }
-        //
-        public string SearchKeyword { get; private set; }
+        public decimal PriceTax { get; private set; }     
 
         public Product(string name, string shortDescription, decimal priceTax)
         {

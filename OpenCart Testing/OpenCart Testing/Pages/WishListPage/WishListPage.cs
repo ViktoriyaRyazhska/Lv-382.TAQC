@@ -2,20 +2,16 @@
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishListPage : ARightLoginPart
     {
-        private WishProductContainer ProductContainer;
         private WishProduct Product;
+        private WishProductContainer ProductContainer;
         private IWebElement Continue => driver.FindElement(MWishListPage.locatorContinue);
         protected IWebElement emptyMessage;
+
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
@@ -30,7 +26,7 @@ namespace OpenCart_Testing.Pages.WishPage
         {
             try
             {
-                ProductContainer = new WishProductContainer(driver.FindElement(By.CssSelector(".table.table-bordered.table-hover tbody")));
+                ProductContainer = new WishProductContainer(driver.FindElement(MWishListPage.locatorElements));
             }
 
             catch (Exception)
@@ -59,11 +55,6 @@ namespace OpenCart_Testing.Pages.WishPage
         public WishProduct GetWishProduct()
         {
             return Product;
-        }
-
-        public string GetEmptyMessage()
-        {
-            return emptyMessage.Text;
         }
     }
 }

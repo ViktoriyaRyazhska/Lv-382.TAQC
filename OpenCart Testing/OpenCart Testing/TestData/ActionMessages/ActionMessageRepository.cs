@@ -14,7 +14,7 @@ namespace OpenCart_Testing.TestData
 
         public static ActionMessageRepository Get()
         {
-            if (instance == null)  //
+            if (instance == null)  
             {
                 lock (lockingObject)
                 {

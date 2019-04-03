@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace OpenCart_Testing.Tests.SearchCriteriaTests
 {
     [TestFixture]
-    public class SearchInCategoryAndDescriptionTest : TestRunner
+    public class SearchInAllCategories : TestRunner
     {
-        private static readonly object[] ProductCategoryAndDescriptionData =
-        {
-            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInCategoryAndDescription.json"), ProductRepository.NewProductArrayFromJson("ProductsSearchInCategoryAndDescription.json") )
+        private static readonly object[] ProductAllCategoriesData =
+       {
+            new TestCaseData(SearchCriteriasRepository.Get().NewSearchCriteriaFromJson("SearchInAllCategories.json"), ProductRepository.NewProductArrayFromJson("MacListProducts.json") )
         };
 
-        [Test, TestCaseSource(nameof(ProductCategoryAndDescriptionData))]
+        [Test, TestCaseSource(nameof(ProductAllCategoriesData))]
         public void CheckSearchInCategoryAndDescription(ISearchCriteria searchCriteria, IList<Product> expectedList)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()

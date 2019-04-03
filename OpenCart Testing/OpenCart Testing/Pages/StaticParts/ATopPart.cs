@@ -12,9 +12,9 @@ namespace OpenCart_Testing.Pages
     {
         protected const string TAG_ATTRIBUTE_VALUE = "value";
         protected const string TAG_ATTRIBUTE_SRC = "src";
-        //
+        
         protected IWebDriver driver;
-        //
+        
         protected IWebElement Currency
         { get { return driver.FindElement(MATopPart.locatorCurrency); } }
         protected IWebElement MyAccount
@@ -37,7 +37,7 @@ namespace OpenCart_Testing.Pages
         { get { return driver.FindElement(MATopPart.locatorLoginButton); } }
         public IWebElement LogoutButton
         { get { return driver.FindElement(MATopPart.locatorLogoutButton); } }
-        //
+        
         protected IList<IWebElement> TopMenu;
 
         public ATopPart(IWebDriver driver)
@@ -45,9 +45,6 @@ namespace OpenCart_Testing.Pages
             this.driver = driver;
         }
 
-        // PageObject
-
-        // Currency
         protected string GetCurrencyText()
         {
             return Currency.Text;
@@ -58,7 +55,6 @@ namespace OpenCart_Testing.Pages
             Currency.Click();
         }
 
-        // MyAccount
         protected string GetMyAccountText()
         {
             return MyAccount.Text;
@@ -69,15 +65,11 @@ namespace OpenCart_Testing.Pages
             MyAccount.Click();
         }
 
-        // WishList
         protected string GetWishListText()
         {
             return WishList.Text;
         }
 
-        
-
-        // ShoppingCart
         protected string GetShoppingCartText()
         {
             return ShoppingCart.Text;
@@ -88,7 +80,6 @@ namespace OpenCart_Testing.Pages
             ShoppingCart.Click();
         }
 
-        // CheckOut
         protected string GetCheckOutText()
         {
             return CheckOut.Text;
@@ -99,13 +90,11 @@ namespace OpenCart_Testing.Pages
             CheckOut.Click();
         }
 
-        // Logo
         protected void ClickLogo()
         {
             Logo.Click();
         }
 
-        // SearchField
         protected string GetSearchFieldText()
         {
             return SearchField.Text;
@@ -126,13 +115,11 @@ namespace OpenCart_Testing.Pages
             SearchField.Click();
         }
 
-        // SearchButton
         protected void ClickSearchButton()
         {
             SearchButton.Click();
         }
 
-        // CartButton
         protected string GetCartButtonText()
         {
             return CartButton.Text;
@@ -143,9 +130,6 @@ namespace OpenCart_Testing.Pages
             CartButton.Click();
         }
 
-        // TopMenu
-
-        // Functional
         protected void MakeSearch(string searchText)
         {
             ClickSearchField();
@@ -153,8 +137,6 @@ namespace OpenCart_Testing.Pages
             SetSearchField(searchText);
             ClickSearchButton();
         }
-
-        // Business Logic
 
         public HomePage GotoHomePage()
         {

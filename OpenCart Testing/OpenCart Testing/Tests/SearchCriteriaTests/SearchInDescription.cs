@@ -18,7 +18,6 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria);
-
             Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
         }
 
@@ -32,26 +31,7 @@ namespace OpenCart_Testing.Tests.SearchCriteriaTests
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria);
-
             Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
-        }
-
-        //private static readonly object[] ProductDescriptionData =
-        //{
-        //    new TestCaseData(SearchCriteriasRepository.NewSearchCriteriaArrayFromJson("SearchByDescription.json"), ProductRepository.NewProductArrayFromJson("ProductsSearchInDescription.json") )
-        //};
-
-        //[Test, TestCaseSource(nameof(ProductDescriptionData))]
-        //public void CheckSearchDescription(IList<SearchCriteria> searchCriteria, IList<Product> expectedList)
-        //{
-
-        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
-        //        .GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria[0]);
-        //    Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(), searchCriteriaPage.GetProductComponentsContainer().GetEmptyListMessange());
-
-        //    searchCriteriaPage.GotoHomePage().GoToSearchCriteriaPage().SearchCriteriaItems(searchCriteria[1]);           
-        //    Assert.AreEqual(Product.GetProductListNames(expectedList), searchCriteriaPage.GetProductComponentsContainer().GetProductComponentNames());
-            
-        //}
+        }      
     }
 }
