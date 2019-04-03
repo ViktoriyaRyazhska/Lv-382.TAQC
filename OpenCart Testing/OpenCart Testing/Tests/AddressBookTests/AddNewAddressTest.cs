@@ -22,16 +22,19 @@ namespace OpenCart_Testing.Tests.AddressBookTests
 
             Assert.Multiple(() =>
             {
-                Assert.AreEqual(page.GetAddressComponentsContainer().GetCount(), updatedPage.GetAddressComponentsContainer().GetCount() - 1);
+                Assert.AreEqual(page.GetAddressComponentsContainer().GetCount(), updatedPage.GetAddressComponentsContainer().GetCount()-1);
                 Assert.AreEqual(updatedPage.GetNewAddressAddedMessageText(), SuccessfullyUpdatedAddressPage.NEWADDRESSADDED);
                 Assert.That(updatedPage.GetAddressComponentsContainer().GetLastAddress().GetAddressDescription().Contains(address.Firstname));
             });
         }
 
-        [OneTimeTearDown]
-        private void AfterEachTest()
+        [TearDown]
+        public void TestTearDown()
         {
-            updatedPage.DeleteLastAddress();
+            if (updatedPage != null)
+            {
+                updatedPage.DeleteLastAddress();
+            }
         }
     }
 }

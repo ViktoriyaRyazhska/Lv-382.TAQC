@@ -1,0 +1,5 @@
+{
+  "BrowserName": "Firefox",
+  "BaseUrl": "http://192.168.183.131/opencart/upload/",
+  "ImplicitTimeOut": "5"
+}

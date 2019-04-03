@@ -15,10 +15,5 @@ namespace OpenCart_Testing
             element.Clear();
             element.SendKeys(text);
         }
-        public static void ClickExtended(this IWebElement element)
-        {
-            Application.WaitBeforeClick();
-            element.Click();
-        }
     }
 }

@@ -194,6 +194,8 @@
     <None Include="TestData\DataSourse\Products\ProductsSearchInCategory.json" />
     <None Include="TestData\DataSourse\Products\MacListProducts.json" />
     <None Include="TestData\DataSourse\Products\ProductsSearchInDescription.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Chrome.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Firefox.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldText.json" />
     <None Include="TestData\DataSourse\Reviews\NotSelectedRating.json" />
@@ -203,9 +205,9 @@
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchByDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
