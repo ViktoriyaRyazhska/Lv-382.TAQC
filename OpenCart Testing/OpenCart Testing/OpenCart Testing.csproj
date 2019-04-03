@@ -120,7 +120,6 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
-    <Compile Include="Pages\WishListPage\AWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
@@ -225,6 +224,7 @@
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
+    <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using OpenCart_Testing.Pages.UIMapping.MWishListPage;
+﻿using OpenCart_Testing.Pages.StaticParts;
+using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.WishPage
 {
-    public class WishListPage : ABreadCrumbsPart
+    public class WishListPage : ARightLoginPart
     {
         private WishProductContainer ProductContainer;
         private WishProduct Product;
@@ -18,8 +19,7 @@ namespace OpenCart_Testing.Pages.WishPage
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
-            //ProductContainer = new WishProductContainer(driver.FindElement(By.CssSelector(".table.table-bordered.table-hover tbody")));
-        }
+         }
 
         public WishProductContainer GetWishProductContainer()
         {
