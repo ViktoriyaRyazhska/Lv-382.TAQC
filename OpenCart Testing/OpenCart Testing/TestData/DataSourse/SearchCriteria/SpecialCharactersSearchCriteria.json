@@ -1,0 +1,26 @@
+[
+  {
+    "Keyword": "ma ok",
+    "Description": false,
+    "Category": "All Categories",
+    "Subcategory": false
+  },
+  {
+    "Keyword": "m%c",
+    "Description": true,
+    "Category": "Desktops",
+    "Subcategory": true
+  },
+  {
+    "Keyword": "     k",
+    "Description": true,
+    "Category": "All Categories",
+    "Subcategory": false
+  },
+  {
+    "Keyword": "mac*",
+    "Description": true,
+    "Category": "Cameras",
+    "Subcategory": true
+  }
+]

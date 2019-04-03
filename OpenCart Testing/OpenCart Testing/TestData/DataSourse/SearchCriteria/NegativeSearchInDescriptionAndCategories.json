@@ -1,0 +1,26 @@
+[
+  {
+    "Keyword": "telephone",
+    "Description": false,
+    "Category": "All Categories",
+    "Subcategory": false
+  },
+  {
+    "Keyword": "telephone",
+    "Description": true,
+    "Category": "Components",
+    "Subcategory": true
+  },
+  {
+    "Keyword": "television",
+    "Description": true,
+    "Category": "All Categories",
+    "Subcategory": false
+  },
+  {
+    "Keyword": "television",
+    "Description": true,
+    "Category": "Cameras",
+    "Subcategory": true
+  }
+]
