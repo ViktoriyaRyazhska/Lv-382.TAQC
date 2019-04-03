@@ -196,7 +196,7 @@ namespace OpenCart_Testing.Pages
         public WishListPage ClickWishList()
         {
             WishList.Click();
-            return new WishPage.WishListPage(driver);
+            return new WishListPage(driver);
         }
     }
 }

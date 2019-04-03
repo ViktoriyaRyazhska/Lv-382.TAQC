@@ -10,6 +10,7 @@ namespace OpenCart_Testing.Tests.WishListTests
     class MessageAfterRemoveOneItem : TestRunner
     {
         private UpdatedWishListPage updatedPage;
+
         public static object[] RevievAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"), ActionMessageRepository.Get().ActionMessageFromJson("RemovingOneItemMessage.json"))

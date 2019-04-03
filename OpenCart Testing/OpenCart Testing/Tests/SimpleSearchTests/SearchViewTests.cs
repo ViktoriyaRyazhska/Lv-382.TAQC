@@ -2,6 +2,7 @@
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.UIMapping;
 using OpenCart_Testing.TestData.SimpleSearchData;
+using OpenCart_Testing.Tools;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -14,39 +15,40 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
     [TestFixture]
     public class SearchViewTests : TestRunner
     {
-
-        private static readonly object[] SearchData_Case_DefaultViewActive =
-        {
-            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[0],
-            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[1],
-            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[2],
-            SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json")[3]
-        };
+        private static readonly object[] SearchData_Case_DefaultView =
+            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultViewActive.json"));
 
         [Test]
-        [TestCaseSource("SearchData_Case_DefaultViewActive"), Order(1)]
+        [TestCaseSource("SearchData_Case_DefaultView"), Order(1)]
         public void SearchDefaultView_Test(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
                 .SearchItems(searchText.Name);
-            Assert.AreEqual(true, searchCriteriaPage.hasClass(searchCriteriaPage.GridView, searchText.State));
+            Assert.IsTrue(searchCriteriaPage.isView(ViewType.Grid));
 
         }
 
+        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
+        //public void SearchSavedView_Test(SimpleSearchView searchText)
+        //{
+        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
+        //        .SearchItems(searchText.Name);
+        //    Assert.IsTrue(searchCriteriaPage.isView(ViewType.List));
+        //    searchCriteriaPage.ClickGridView();
+        //    SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
+        //        .SearchItems(searchText.Name);
+        //    Assert.IsFalse(searchCriteriaPage1.isView(ViewType.List));
 
-        private static readonly object[] SearchData_Case_DefaultView =
-        {
-            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Case_DefaultView.json"))
-        };
+        //}
 
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchSavedView_Test(SimpleSearch searchText)
+        public void SearchSavedView_Test(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
+                .SearchItems(searchText.Name);
             bool wasGrid = false;
 
-            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.isView(ViewType.Grid))
             {
                 searchCriteriaPage.ClickListView();
                 wasGrid = true;
@@ -55,22 +57,20 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
             {
                 searchCriteriaPage.ClickGridView();
             }
-
             SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
-                .SearchItems(searchText.SearchData);
-
-            Assert.AreEqual(!wasGrid, searchCriteriaPage.hasClass(searchCriteriaPage1.GridView, "active"));
-            
+                .SearchItems(searchText.Name);
+            Assert.AreEqual(!wasGrid, searchCriteriaPage.isView(ViewType.Grid));
         }
 
+
         [Test, TestCaseSource("SearchData_Case_DefaultView")]
-        public void SearchChangeViewNumberOfElements_Test(SimpleSearch searchText)
+        public void SearchChangeViewNumberOfElements_Test(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
-            
+                .SearchItems(searchText.Name);
+
             int beforeChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
-            if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
+            if (searchCriteriaPage.isView(ViewType.Grid))
             {
                 searchCriteriaPage.ClickListView();
             }
@@ -79,9 +79,70 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
                 searchCriteriaPage.ClickGridView();
             }
             int afterChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
-            searchCriteriaPage.GotoHomePage();
             Assert.AreEqual(beforeChange, afterChange);
         }
 
+        
+
+
+
+        //private static readonly object[] SearchData_Case_DefaultView =
+        //    ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Case_DefaultView.json"));
+
+        //[Test]
+        //[TestCaseSource("SearchData_Case_DefaultView"), Order(1)]
+        //public void SearchDefaultView_Test(SimpleSearch searchText)
+        //{
+        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
+        //        .SearchItems(searchText.SearchData);
+        //    Assert.AreEqual(true, searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"));
+
+        //}
+
+
+        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
+        //public void SearchSavedView_Test(SimpleSearch searchText)
+        //{
+        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
+        //        .SearchItems(searchText.SearchData);
+        //    bool wasGrid = false;
+
+        //    if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
+        //    {
+        //        searchCriteriaPage.ClickListView();
+        //        wasGrid = true;
+        //    }
+        //    else
+        //    {
+        //        searchCriteriaPage.ClickGridView();
+        //    }
+
+        //    SearchCriteriaPage searchCriteriaPage1 = LoadApplication()
+        //        .SearchItems(searchText.SearchData);
+
+        //    Assert.AreEqual(!wasGrid, searchCriteriaPage.hasClass(searchCriteriaPage1.GridView, "active"));
+
+        //}
+
+
+        //[Test, TestCaseSource("SearchData_Case_DefaultView")]
+        //public void SearchChangeViewNumberOfElements_Test(SimpleSearch searchText)
+        //{
+        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
+        //        .SearchItems(searchText.SearchData);
+
+        //    int beforeChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
+        //    if (searchCriteriaPage.hasClass(searchCriteriaPage.GridView, "active"))
+        //    {
+        //        searchCriteriaPage.ClickListView();
+        //    }
+        //    else
+        //    {
+        //        searchCriteriaPage.ClickGridView();
+        //    }
+        //    int afterChange = searchCriteriaPage.GetProductComponentsContainer().GetProductComponentsCount();
+        //    searchCriteriaPage.GotoHomePage();
+        //    Assert.AreEqual(beforeChange, afterChange);
+        //}
     }
 }

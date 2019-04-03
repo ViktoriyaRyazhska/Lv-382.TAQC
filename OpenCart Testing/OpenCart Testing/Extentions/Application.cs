@@ -24,7 +24,7 @@ namespace OpenCart_Testing
             instance.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(applicationSources.ImplicitTimeOut);
             return instance;
         }
-
+        
         public void Load()
         {
             Driver.Navigate().GoToUrl(applicationSources.BaseUrl);
@@ -65,9 +65,5 @@ namespace OpenCart_Testing
         {
             return new ChromeDriver();
         }
-
-        public static int SleepTimeClickMiliSeconds = 100;
-        public static void WaitBeforeClick() =>
-            Thread.Sleep(SleepTimeClickMiliSeconds);
     }
 }
