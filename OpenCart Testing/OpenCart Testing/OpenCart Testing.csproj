@@ -168,11 +168,9 @@
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoryAndSubcategories.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInAllCategories.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchCriteriaNegativeTest.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchCriteriaPositiveTest.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchCriteriaSpecialCharactersTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\ChangeViewNumberOfElementsTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\DefaultViewTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\SavedViewTest.cs" />
@@ -196,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\nunit_random_seed.tmp" />
-    <None Include="OpenCartClassDiagram.cd" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
@@ -208,12 +206,13 @@
     <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
     <None Include="TestData\DataSourse\Addresses\ValidAddress.json" />
     <None Include="TestData\DataSourse\Addresses\ValidFirstname.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInDescriptionWord.json" />
     <None Include="TestData\DataSourse\Products\ProductsSearchInSubcategoryAndDescription.json" />
     <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndSubcategory.json" />
     <None Include="TestData\DataSourse\Products\ProductsSearchInCategory.json" />
     <None Include="TestData\DataSourse\Products\MacListProducts.json" />
-    <None Include="TestData\DataSourse\Products\ProductsSearchInDescription.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInDescriptionNumber.json" />
     <None Include="TestData\DataSourse\ApplicationSources\Chrome.json" />
     <None Include="TestData\DataSourse\ApplicationSources\Firefox.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
@@ -225,12 +224,14 @@
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchByDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SpecialCharactersSearchCriteria.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\NegativeSearchInDescriptionAndCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInAllCategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInDescriptionWord.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInDescriptionNumber.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />

@@ -52,7 +52,6 @@ namespace OpenCart_Testing.Pages.AddressBookPages
             }
             if (result == null)
             {
-                // TODO Develop Custom Exception 
                 throw new Exception("AddressName: " + addressName + " not Found.");
             }
             return result;
