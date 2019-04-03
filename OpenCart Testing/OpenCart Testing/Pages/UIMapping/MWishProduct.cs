@@ -9,12 +9,13 @@ namespace OpenCart_Testing.Pages.UIMapping.MWishPoduct
 {
     class MWishProduct
     {
-        public static By locatorImg => By.CssSelector("td:nth-child(1)");
-        public static By locatorProductName => By.CssSelector("td:nth-child(2)");
-        public static By locatorModel => By.CssSelector("td:nth-child(3)");
+        public static By locatorImg => By.XPath("//tbody//td[@class='text-center']");
+        //public static By locatorProductName => By.CssSelector("td:nth-child(2)"); #content > div.table-responsive td.text-left > a
+        public static By locatorProductName => By.CssSelector("#content > div.table-responsive td.text-left > a");
+        public static By locatorModel => By.XPath("//tbody//td[@class='text-left']/text()");
         public static By locatorStock => By.CssSelector("td:nth-child(4)");
-        public static By locatorUnitPrice => By.CssSelector("td:nth-child(5)");
-        public static By locatorAddToCart => By.CssSelector("td:nth-child(6) button");
-        public static By locatorRemove => By.CssSelector("td:nth-child(6) a");
+        public static By locatorUnitPrice => By.XPath("//tbody//td[@class='text-right']/div[@class='price']");
+        public static By locatorAddToCart => By.XPath("//div[@class='table-responsive']//tbody//button");
+        public static By locatorRemove => By.XPath("//div[@class='table-responsive']//tbody//a[@class='btn btn-danger']");
     }
 }

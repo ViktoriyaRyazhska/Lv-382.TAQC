@@ -1,14 +1,10 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenCart_Testing.UIMapping.MProductComponentsContainer;
-using OpenCart_Testing.TestData;
-using System.Threading;
 using OpenCart_Testing.TestData.WishListData;
 using OpenQA.Selenium.Support.UI;
+using OpenCart_Testing.Pages.UIMapping.MUpdatedHomePage;
 
 namespace OpenCart_Testing.Pages
 {
@@ -18,14 +14,13 @@ namespace OpenCart_Testing.Pages
         private const string PRODUCT_COMPONENT_CSSSELECTOR = ".product-layout";
 
         private IWebDriver driver;
-        //
+        
         public IWebElement EmptyListMessage
         {
             get
             {
                 if (GetProductComponentsCount() > 0)
                 {
-                    // TODO Develop Custom Exception 
                     throw new Exception("Message not Found.");
                 }
                 return driver.FindElement(MProductComponentsContainer.locatorEmptyListMessage);
@@ -54,13 +49,10 @@ namespace OpenCart_Testing.Pages
             }
         }
 
-        // Page Object
         public IList<ProductComponent> GetProductComponents()
         {
             return productComponents;
         }
-
-        // Functional
 
         public IList<string> GetProductComponentNames()
         {
@@ -86,7 +78,6 @@ namespace OpenCart_Testing.Pages
             }
             if (result == null)
             {
-                // TODO Develop Custom Exception 
                 throw new Exception("ProductName: " + productName + " not Found.");
             }
             return result;
@@ -121,8 +112,8 @@ namespace OpenCart_Testing.Pages
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             foreach (WishListItem item in items)
             {
-                GetProductComponentByName(item.Name).ClickAddToWishButton();             
-                IWebElement myDynamicElement = wait.Until<IWebElement>(driver => driver.FindElement(By.CssSelector(".alert.alert-success"))); //    
+                GetProductComponentByName(item.Name).ClickAddToWishButton();
+                IWebElement myDynamicElement = wait.Until(driver => driver.FindElement(MUpdatedHomePage.locatorMessageSuccessAddingToWishList));
             }
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }

@@ -5,13 +5,15 @@ using OpenCart_Testing.TestData;
 using System.Threading;
 using System.Collections.Generic;
 using OpenCart_Testing.TestData.WishListData;
+using OpenCart_Testing.Pages.AccountPages;
+using OpenCart_Testing.TestData.LoginData;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
     [TestFixture]
     class RemovingAllFromWishList : TestRunner
     {
-
+        private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
         public static object[] RevievAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
@@ -20,7 +22,7 @@ namespace OpenCart_Testing.Tests.WishListTests
         [Test, TestCaseSource("RevievAddingToWishList")]
         public void CheckAddingFromHomePage(List<WishListItem> names)
         {
-            LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
+            LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
             WishListPage wishlist = LoadApplication().ClickWishList();
             wishlist.ClickOnRemoveAll();

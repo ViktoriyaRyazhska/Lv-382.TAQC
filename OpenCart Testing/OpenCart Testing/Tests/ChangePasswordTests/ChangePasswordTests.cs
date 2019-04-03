@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenCart_Testing.Pages.ChangePasswordPages;
 using OpenCart_Testing.Pages.AccountPages;
+using OpenCart_Testing.TestData;
 using OpenCart_Testing.TestData.LoginData;
 using OpenCart_Testing.TestData.ChangePassData;
 using System.Threading;
@@ -11,6 +12,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
     [TestFixture]
     class ChangePasswordTests : TestRunner
     {
+
         public static object[] PositiveTestUserLoginData =
         {
            new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswords_PasswordChangingPositiveTest.json") )
@@ -36,6 +38,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
 
             Thread.Sleep(3000);
         }
+
 
         public static object[] NegativeTestUserLoginData =
         {

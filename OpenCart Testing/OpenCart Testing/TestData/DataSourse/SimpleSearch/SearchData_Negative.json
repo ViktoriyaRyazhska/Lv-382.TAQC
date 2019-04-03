@@ -1,7 +1,11 @@
-{
-  "SearchData": "nonexistent"
-}
-        //    "",
-        //   "nonexistent",
-        //   "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe"
-        
+[
+	{
+		"Name": "nonexistent",
+	},
+	{
+		"Name": "",
+	},
+	{
+		"Name": "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe",
+	}
+] 

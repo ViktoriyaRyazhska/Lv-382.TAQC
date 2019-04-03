@@ -24,7 +24,7 @@
   <Class Name="OpenCart_Testing.Pages.UpdatedHomePage" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAACAAAACAABAAAAAAAAA=</HashCode>
       <FileName>Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="OpenCart_Testing.Pages.SearchCriteriaPage" Collapsed="true">
     <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IJAgAAUAAAAAAAgEAwBDEgABgJAAECgEwEAIAAAgCAA=</HashCode>
+      <HashCode>IJAgAAUAAAAAAAgEAwBDAgABgJAAECgEwEAIAAAgCBA=</HashCode>
       <FileName>Pages\SearchPage\SearchCriteriaPage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -85,10 +85,70 @@
     </TypeIdentifier>
   </Class>
   <Class Name="OpenCart_Testing.Pages.WishPage.WishListPage" Collapsed="true">
+<<<<<<< HEAD
     <Position X="5" Y="3.25" Width="1.5" />
+=======
+    <Position X="5" Y="6" Width="1.5" />
+>>>>>>> 5694150c33832268e3d13cdc5f61b68fc21f5840
     <TypeIdentifier>
       <HashCode>AAACCAAAAAgAAAAAAAIAAAACABQEAAAAAAQAAAAAgAA=</HashCode>
       <FileName>Pages\WishListPage\WishListPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.AddressBookPages.AddNewAddressPage" Collapsed="true">
+    <Position X="8.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADgAIEAAooQAoAAIkgAUgAAAAEIAACAQEALABAQAASA=</HashCode>
+      <FileName>Pages\AddressBookPages\AddNewAddressPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.AddressBookPages.EditAddressPage" Collapsed="true">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADgAAEAAooQAoAAIkgAUgAAAAEIAACAQEALADAQAASA=</HashCode>
+      <FileName>Pages\AddressBookPages\EditAddressPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.AddressBookPages.SuccessfullyUpdatedAddressPage" Collapsed="true">
+    <Position X="9.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAEiAAAAAAAAAAAEAABAAIAAAAAAAAAM=</HashCode>
+      <FileName>Pages\AddressBookPages\SuccessfullyUpdatedAddressPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.ChangePasswordPages.SuccessfulPassChangeAccountPage" Collapsed="true">
+    <Position X="13.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAIAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\ChangePasswordPages\SuccessfulPassChangeAccountPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.ChangePasswordPages.UnsuccessfulPasswordChangePage" Collapsed="true">
+    <Position X="11.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Pages\ChangePasswordPages\UnsuccessfulPasswordChangePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.LoginPages.LoginPage" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAAAAAAAAAAAAAEAAAAAAiAAAAgAAAAAE=</HashCode>
+      <FileName>Pages\LoginPages\LoginPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.WishPage.EmptyWishListPage" Collapsed="true">
+    <Position X="4" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCart_Testing.Pages.WishPage.UpdatedWishListPage" Collapsed="true">
+    <Position X="5.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

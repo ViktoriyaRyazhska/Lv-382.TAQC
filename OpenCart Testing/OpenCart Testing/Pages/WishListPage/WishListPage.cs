@@ -1,15 +1,11 @@
-﻿using OpenCart_Testing.Pages.UIMapping.MWishListPage;
+﻿using OpenCart_Testing.Pages.StaticParts;
+using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OpenCart_Testing.Pages.WishPage
 {
-    public class WishListPage : ABreadCrumbsPart
+    public class WishListPage : ARightLoginPart
     {
         private WishProductContainer ProductContainer;
         private WishProduct Product;
@@ -18,8 +14,7 @@ namespace OpenCart_Testing.Pages.WishPage
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
-            //ProductContainer = new WishProductContainer(driver.FindElement(By.CssSelector(".table.table-bordered.table-hover tbody")));
-        }
+         }
 
         public WishProductContainer GetWishProductContainer()
         {
@@ -45,7 +40,6 @@ namespace OpenCart_Testing.Pages.WishPage
             {
                 ProductContainer.GetWishedItems()[0].ClickOnRemove();
                 ProductContainer.GetWishedItems().RemoveAt(0);
-                //Thread.Sleep(2000);
                 RefreshContainer();
             }
             return Product;
@@ -62,9 +56,9 @@ namespace OpenCart_Testing.Pages.WishPage
             return Product;
         }
 
-        public string GetEmptyMessage()
-        {
-            return emptyMessage.Text;
-        }
+        //public string GetEmptyMessage()
+        //{
+        //    return emptyMessage.Text;
+        //}
     }
 }
