@@ -1,12 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System;
 using OpenCart_Testing.TestData.WishListData;
-using System.Threading;
 
 namespace OpenCart_Testing.Pages.WishPage
 {
@@ -16,7 +12,7 @@ namespace OpenCart_Testing.Pages.WishPage
 
         private IList<WishProduct> wishProducts;
 
-        public WishProductContainer(IWebElement withProdContainer)// : base(withProdContainer)
+        public WishProductContainer(IWebElement withProdContainer)
         {
             this.withProdContainer = withProdContainer;
             InitElements();
