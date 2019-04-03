@@ -1,5 +1,4 @@
-﻿
-namespace OpenCart_Testing.Pages.UIMapping
+﻿namespace OpenCart_Testing.Pages.UIMapping
 {
     class MAddressComponent
     {

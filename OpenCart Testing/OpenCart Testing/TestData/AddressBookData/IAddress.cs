@@ -1,5 +1,4 @@
-﻿
-namespace OpenCart_Testing.TestData.AddressBookData
+﻿namespace OpenCart_Testing.TestData.AddressBookData
 {
     public interface IAddress
     {

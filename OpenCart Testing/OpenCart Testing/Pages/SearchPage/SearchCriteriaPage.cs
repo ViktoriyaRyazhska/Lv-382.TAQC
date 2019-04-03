@@ -9,7 +9,6 @@ namespace OpenCart_Testing.Pages
     {
         Grid = 1,
         List
-
     }
 
     public class SearchCriteriaPage : ASearchResultPart
