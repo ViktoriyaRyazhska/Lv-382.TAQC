@@ -1,10 +1,11 @@
-﻿using OpenCart_Testing.Pages.UIMapping;
+﻿using OpenCart_Testing.Pages.LoginPages;
+using OpenCart_Testing.Pages.UIMapping;
 using OpenCart_Testing.Pages.UkrnetPage;
 using OpenQA.Selenium;
 
 namespace OpenCart_Testing.Pages.ForgottenPasswordPages
 {
-    public class RestorePasswordPage : NewLetterPage
+    public class RestorePasswordPage : ABreadCrumbsPart
     {
         private IWebElement NewPasswordField => driver.FindElement(MChangePasswordPage.locatorNewPasswordField);
         private IWebElement ConfirmNewPasswordField => driver.FindElement(MChangePasswordPage.locatorConfirmNewPasswordField);
@@ -23,10 +24,11 @@ namespace OpenCart_Testing.Pages.ForgottenPasswordPages
             ConfirmNewPasswordField.SendKeys(passwordConfirmation + Keys.Enter);
         }
 
-        public void RestorePassword(string newPassword, string passwordConfirmation)
+        public LoginPage RestorePassword(string newPassword, string passwordConfirmation)
         {
             SetNewPassword(newPassword);
             ConfirmNewPassword(passwordConfirmation);
+            return new LoginPage(driver);
         }
 
     }

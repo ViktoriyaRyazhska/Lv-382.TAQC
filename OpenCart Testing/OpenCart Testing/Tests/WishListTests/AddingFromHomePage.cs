@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using OpenCart_Testing.TestData.WishListData;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.TestData.LoginData;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
@@ -24,16 +25,16 @@ namespace OpenCart_Testing.Tests.WishListTests
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
             wishlist = LoadApplication().ClickWishList();
-            CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
+         CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
         }
-        
-        [TearDown]
-        public void AfterTest()
-        {
-            if (wishlist != null)
-            {
-                wishlist.ClickOnRemoveAll();
-            }
-        }
+
+        //[TearDown]
+        //public void AfterTest()
+        //{
+        //    if (wishlist != null)
+        //    {
+        //        wishlist.ClickOnRemoveAll();
+        //    }
+        //}
     }
 }

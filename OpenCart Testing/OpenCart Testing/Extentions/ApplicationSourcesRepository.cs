@@ -8,8 +8,8 @@ namespace OpenCart_Testing.Extentions
         public static ApplicationSources Default()
         {
             return new ApplicationSources("Chrome",
-                "http://192.168.183.131/opencart/upload/",
-                10L);
+                "http://192.168.19.134/opencart/upload/",
+                5L);
         }
 
         public static ApplicationSources ApplicationSourceFromJson(string fileName)

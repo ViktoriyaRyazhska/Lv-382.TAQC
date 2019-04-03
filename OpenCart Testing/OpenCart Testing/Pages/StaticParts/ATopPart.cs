@@ -178,6 +178,7 @@ namespace OpenCart_Testing.Pages
         public WishListPage ClickWishList()
         {
             WishList.Click();
+            Thread.Sleep(1000);
             return new WishListPage(driver);
         }
     }
