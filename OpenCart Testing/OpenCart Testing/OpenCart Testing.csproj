@@ -130,11 +130,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
-    <Compile Include="Pages\UkrnetPage\AUkrnetLeftMenuPart.cs" />
-    <Compile Include="Pages\UkrnetPage\NewLetterPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UkrnetLoginPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UkrnetMainPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UnreadPage.cs" />
+    <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
@@ -171,8 +167,10 @@
     <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
+    <Compile Include="Tests\SimpleSearchTests\ChangeViewNumberOfElementsTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\DefaultViewTest.cs" />
+    <Compile Include="Tests\SimpleSearchTests\SavedViewTest.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchFieldTests.cs" />
-    <Compile Include="Tests\SimpleSearchTests\SearchViewTests.cs" />
     <Compile Include="Tests\TestRunner.cs" />
     <Compile Include="Pages\UIMapping\MABreadCrumPart.cs" />
     <Compile Include="Pages\UIMapping\MATopPart.cs" />
@@ -228,7 +226,6 @@
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
-    <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
@@ -239,6 +236,7 @@
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
+    <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>

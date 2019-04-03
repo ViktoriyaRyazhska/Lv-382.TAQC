@@ -24,7 +24,7 @@
   <Class Name="OpenCart_Testing.Pages.UpdatedHomePage" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAACAAAACAABAAAAAAAAA=</HashCode>
       <FileName>Pages\HomePage\UpdatedHomePage\UpdatedHomePage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="OpenCart_Testing.Pages.SearchCriteriaPage" Collapsed="true">
     <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IJAgAAUAAAAAAAgEAwBDEgABgJAAECgEwEAIAAAgCAA=</HashCode>
+      <HashCode>IJAgAAUAAAAAAAgEAwBDAgABgJAAECgEwEAIAAAgCBA=</HashCode>
       <FileName>Pages\SearchPage\SearchCriteriaPage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -84,8 +84,8 @@
       <FileName>Pages\ChangePasswordPages\ChangePasswordPage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OpenCart_Testing.Pages.WishListPage.WishListPage" Collapsed="true">
-    <Position X="5" Y="3.25" Width="1.5" />
+  <Class Name="OpenCart_Testing.Pages.WishPage.WishListPage" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAgAAAAAAAIAAAACABQEAAAAAAQAAAAAgAA=</HashCode>
       <FileName>Pages\WishListPage\WishListPage.cs</FileName>
@@ -133,15 +133,15 @@
       <FileName>Pages\LoginPages\LoginPage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OpenCart_Testing.Pages.WishListPage.EmptyWishListPage" Collapsed="true">
-    <Position X="3.75" Y="6.75" Width="1.5" />
+  <Class Name="OpenCart_Testing.Pages.WishPage.EmptyWishListPage" Collapsed="true">
+    <Position X="4" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OpenCart_Testing.Pages.WishListPage.UpdatedWishListPage" Collapsed="true">
-    <Position X="5.5" Y="6.75" Width="1.5" />
+  <Class Name="OpenCart_Testing.Pages.WishPage.UpdatedWishListPage" Collapsed="true">
+    <Position X="5.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs</FileName>

@@ -1,17 +1,11 @@
 [
-{
-  "Name": "nonexistent",
-  "State" : "active"
-},
-{
-  "Name": "",
-  "State" : "active"
-},
-{
-  "Name": "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe",
-  "State" : "active"
-}
-]        //    "",
-        //   "nonexistent",
-        //   "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe"
-        
+	{
+		"Name": "nonexistent",
+	},
+	{
+		"Name": "",
+	},
+	{
+		"Name": "TestProductWith255SymbolsTestNotnotnotnotTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe",
+	}
+] 

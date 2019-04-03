@@ -1,20 +1,20 @@
 [
 	{
-	"Name": "*"
+		"Name": "*"
 	},
 	{
-	"Name": "%"
+		"Name": "%"
 	},
 	{
-	"Name": "%mac"
+		"Name": "%mac"
 	},
 	{
-	"Name": "%r%"
+		"Name": "%r%"
 	},
 	{
-	"Name": "like '%a%'"
+		"Name": "like '%a%'"
 	},
 	{
-	"Name": " "
+		"Name": " "
 	}
 ]
