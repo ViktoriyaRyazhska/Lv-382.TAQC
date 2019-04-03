@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Extentions;
+using OpenCart_Testing.Pages.UkrnetPage;
 
 namespace OpenCart_Testing
 {
@@ -43,6 +44,11 @@ namespace OpenCart_Testing
         {
             application.Load();
             return new HomePage(application.Driver);
+        }
+
+        public UkrnetLoginPage LoadUkrnet()
+        {
+            return new UkrnetLoginPage(application.Driver);
         }
     }
 }

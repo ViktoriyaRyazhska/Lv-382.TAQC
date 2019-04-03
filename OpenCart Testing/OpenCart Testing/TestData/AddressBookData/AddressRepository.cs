@@ -15,7 +15,7 @@ namespace OpenCart_Testing.TestData.AddressBookData
 
         public static AddressRepository Get()
         {
-            if (instance == null)  //
+            if (instance == null)  
             {
                 lock (lockingObject)
                 {

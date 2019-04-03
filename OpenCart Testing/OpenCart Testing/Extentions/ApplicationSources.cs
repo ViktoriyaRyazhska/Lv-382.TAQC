@@ -1,5 +1,4 @@
-﻿
-namespace OpenCart_Testing.Extentions
+﻿namespace OpenCart_Testing.Extentions
 {
     public class ApplicationSources
     {

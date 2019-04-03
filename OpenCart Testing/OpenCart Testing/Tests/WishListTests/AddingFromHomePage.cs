@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using OpenCart_Testing.TestData.WishListData;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.TestData.LoginData;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests.WishListTests
 {
@@ -13,27 +14,27 @@ namespace OpenCart_Testing.Tests.WishListTests
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
         private WishListPage wishlist;
 
-        public static object[] RevievAddingToWishList =
+        public static object[] ReviewAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
         };
 
-        [Test, TestCaseSource("RevievAddingToWishList")]
+        [Test, TestCaseSource("ReviewAddingToWishList")]
         public void CheckAddingFromHomePage(IList<WishListItem> names)
         {
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
             wishlist = LoadApplication().ClickWishList();
-            CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
+         CollectionAssert.AreEqual(names, wishlist.GetWishProductContainer().GetWishListItemsNames());
         }
-        
-        [TearDown]
-        public void AfterTest()
-        {
-            if (wishlist != null)
-            {
-                wishlist.ClickOnRemoveAll();
-            }
-        }
+
+        //[TearDown]
+        //public void AfterTest()
+        //{
+        //    if (wishlist != null)
+        //    {
+        //        wishlist.ClickOnRemoveAll();
+        //    }
+        //}
     }
 }

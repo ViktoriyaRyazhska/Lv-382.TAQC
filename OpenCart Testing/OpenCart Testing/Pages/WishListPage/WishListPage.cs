@@ -15,7 +15,7 @@ namespace OpenCart_Testing.Pages.WishPage
         public WishListPage(IWebDriver driver) : base(driver)
         {
             RefreshContainer();
-         }
+        }
 
         public WishProductContainer GetWishProductContainer()
         {
@@ -37,7 +37,8 @@ namespace OpenCart_Testing.Pages.WishPage
 
         public WishProduct ClickOnRemoveAll()
         {
-            for (int i = 0; i <= ProductContainer.GetWishedItemCount() + 1; i++)
+            int tempCount = ProductContainer.GetWishedItemCount();
+            for (int i = 0; i < tempCount; i++)
             {
                 ProductContainer.GetWishedItems()[0].ClickOnRemove();
                 ProductContainer.GetWishedItems().RemoveAt(0);

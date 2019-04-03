@@ -161,8 +161,8 @@
     <Compile Include="TestData\WishListData\WishListItemsRepository.cs" />
     <Compile Include="Tests\AddressBookTests\AddNewAddressTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingDefaultAddressTest.cs" />
-    <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\AddressBookTests\DeletingNotDefaultAddress.cs" />
+    <Compile Include="Tests\AddressBookTests\EditFunctionalityPositiveTest.cs" />
     <Compile Include="Tests\ChangePasswordTests\ChangePasswordTests.cs" />
     <Compile Include="Tests\ForgottenPasswordTests\PasswordRestoringTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
@@ -194,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\nunit_random_seed.tmp" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
@@ -238,10 +239,9 @@
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_SpecialCharacters.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_InvalidLength.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Negative.json" />
-    <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingPositiveTest.json" />
-    <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingNegativeTest.json" />
-    <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
-    <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\PasswordsData\TestPasswordsForChanging_CorrectConfirmation.json" />
+    <None Include="TestData\DataSourse\PasswordsData\TestPasswordsForChanging_WrongConfirmation.json" />
+    <None Include="TestData\DataSourse\UsersData\UserDataForPasswordChange.json" />
     <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
     <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
