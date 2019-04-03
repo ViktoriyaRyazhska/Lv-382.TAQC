@@ -84,7 +84,7 @@
       <FileName>Pages\ChangePasswordPages\ChangePasswordPage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OpenCart_Testing.Pages.WishListPage.WishListPage" Collapsed="true">
+  <Class Name="OpenCart_Testing.Pages.WishPage.WishListPage" Collapsed="true">
     <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAgAAAAAAAIAAAACABQEAAAAAAQAAAAAgAA=</HashCode>
