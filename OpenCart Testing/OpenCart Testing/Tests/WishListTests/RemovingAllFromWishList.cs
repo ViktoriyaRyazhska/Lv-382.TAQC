@@ -14,13 +14,13 @@ namespace OpenCart_Testing.Tests.WishListTests
     class RemovingAllFromWishList : TestRunner
     {
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForWishListTests.json");
-        public static object[] RevievAddingToWishList =
+        public static object[] ReviewAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"))
         };
 
-        [Test, TestCaseSource("RevievAddingToWishList")]
-        public void CheckAddingFromHomePage(List<WishListItem> names)
+        [Test, TestCaseSource("ReviewAddingToWishList")]
+        public void CheckRemovingAllFromWishList(List<WishListItem> names)
         {
             LoadApplication().ClickLoginUserButton().LoginUser(myUser).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);

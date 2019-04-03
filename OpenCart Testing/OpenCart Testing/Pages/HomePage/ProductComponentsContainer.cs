@@ -109,7 +109,7 @@ namespace OpenCart_Testing.Pages
         public void ClickProductComponentAddToWishButtonByName(IList<WishListItem> items)
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             foreach (WishListItem item in items)
             {
                 GetProductComponentByName(item.Name).ClickAddToWishButton();
