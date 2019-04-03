@@ -9,7 +9,8 @@ namespace OpenCart_Testing.Tests.WishListTests
     [TestFixture]
     class MessageAfterRemoveOneItem : TestRunner
     {
-        private WishListPage wishlist;
+        private UpdatedWishListPage updatedPage;
+
         public static object[] RevievAddingToWishList =
         {
             new TestCaseData(WishListItemsRepository.Get().WishListItemsFromJson("ItemsFromHomePage.json"), ActionMessageRepository.Get().ActionMessageFromJson("RemovingOneItemMessage.json"))
@@ -22,14 +23,17 @@ namespace OpenCart_Testing.Tests.WishListTests
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
             WishListPage wishlist = LoadApplication().ClickWishList();
             wishlist.ClickOnRemoveOne();
-            UpdatedWishListPage updatedPage = new UpdatedWishListPage(application.Driver);
+            updatedPage = new UpdatedWishListPage(application.Driver);
             Assert.AreEqual(expectedMessage.Message, updatedPage.GetUpdatedMessage().Text);
         }
 
-        [OneTimeTearDown]
-        private void AfterEachTest()
+        [TearDown]
+        public void AfterTest()
         {
-            wishlist.ClickOnRemoveAll();
+            if (updatedPage != null)
+            {
+                updatedPage.ClickOnRemoveAll();
+            }
         }
     }
 }
