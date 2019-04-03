@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenCart_Testing.Pages.UIMapping.MWishPoduct;
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenCart_Testing.TestData.WishListData;
