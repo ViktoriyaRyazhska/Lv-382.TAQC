@@ -8,7 +8,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F470DB9A-C24E-423E-B271-ABAE983D76EA}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenCart_Testing</RootNamespace>
     <AssemblyName>OpenCart Testing</AssemblyName>
@@ -194,7 +194,7 @@
     <Compile Include="Tools\ListUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenCartClassDiagram.cd" />
+    <None Include="bin\Debug\nunit_random_seed.tmp" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
@@ -244,10 +244,18 @@
     <None Include="TestData\DataSourse\UsersData\UserForWishListTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
+    <None Include="XMLSchema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Release\" />
     <Folder Include="Exeptions\" />
     <Folder Include="Pages\WishListPage\EmptyWishListPage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\chromedriver.exe" />
+    <Content Include="bin\Debug\geckodriver.exe" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
