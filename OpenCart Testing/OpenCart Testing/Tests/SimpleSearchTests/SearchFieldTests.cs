@@ -3,6 +3,7 @@ using OpenCart_Testing.Pages;
 using OpenCart_Testing.Pages.UIMapping;
 using OpenCart_Testing.TestData;
 using OpenCart_Testing.TestData.SimpleSearchData;
+using OpenCart_Testing.Tools;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -45,34 +46,44 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
 
         private static readonly object[] SearchData_Negative =
-        {
-            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Negative.json"),
-                ProductRepository.Get().GetProductEmptyListMessage())
-        };
+            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_Negative.json"));
 
         [Test, TestCaseSource("SearchData_Negative")]
-        public void SearchTest_Negative(SimpleSearch searchText, string noexistTextMessage)
+        public void SearchTest_Negative(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
-            Assert.AreEqual(noexistTextMessage,
+                .SearchItems(searchText.Name);
+            Assert.AreEqual(ProductRepository.Get().GetProductEmptyListMessage(),
                 searchCriteriaPage.GetItemNotMatchesMessage());
         }
 
 
-        private static readonly object[] SearchData_InvalidLength =
-        {
-            new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_InvalidLength.json"),
-                ProductRepository.Get().GetProductMaxLengthMessage())
+        //private static readonly object[] SearchData_Negative =
+        //{
+        //    new TestCaseData(SimpleSearchRepository.NewSearchDataFromJson("SearchData_Negative.json"),
+        //        ProductRepository.Get().GetProductEmptyListMessage())
+        //};
 
-        };
+        //[Test, TestCaseSource("SearchData_Negative")]
+        //public void SearchTest_Negative(SimpleSearch searchText, string noexistTextMessage)
+        //{
+        //    SearchCriteriaPage searchCriteriaPage = LoadApplication()
+        //        .SearchItems(searchText.SearchData);
+        //    Assert.AreEqual(noexistTextMessage,
+        //        searchCriteriaPage.GetItemNotMatchesMessage());
+        //}
+
+
+        
+        private static readonly object[] SearchData_InvalidLength =
+            ListUtils.ToMultiArray(SimpleSearchRepository.NewDataListFromJson("SearchData_InvalidLength.json"));
 
         [Test, TestCaseSource("SearchData_InvalidLength")]
-        public void SearchTest_InvalidLength(SimpleSearch searchText, string toolongTextMessage)
+        public void SearchTest_InvalidLength(SimpleSearchView searchText)
         {
             SearchCriteriaPage searchCriteriaPage = LoadApplication()
-                .SearchItems(searchText.SearchData);
-            Assert.AreEqual(toolongTextMessage,
+                .SearchItems(searchText.Name);
+            Assert.AreEqual(ProductRepository.Get().GetProductMaxLengthMessage(),
                 searchCriteriaPage.GetSearchAlertMessage());
         }
 
@@ -115,6 +126,5 @@ namespace OpenCart_Testing.Tests.SimpleSearchTests
 
             Assert.AreEqual(lowerSearchItems, upperSearchItems);
         }
-
     }
 }
