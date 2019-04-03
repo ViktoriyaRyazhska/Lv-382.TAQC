@@ -81,6 +81,7 @@
     <Compile Include="SmokeTest.cs" />
     <Compile Include="TestRunner.cs" />
     <Compile Include="Tests\EasyTest.cs" />
+    <Compile Include="Tests\ExplicitTest.cs" />
     <Compile Include="Tests\SearchTest.cs" />
     <Compile Include="Tests\TestRunner.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
