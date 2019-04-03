@@ -124,18 +124,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
-<<<<<<< HEAD
-    <Compile Include="Pages\UIMapping\MUkrnetLoginPage.cs" />
-    <Compile Include="Pages\UkrnetPage\AUkrnetLeftMenuPart.cs" />
-    <Compile Include="Pages\UkrnetPage\NewLetterPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UkrnetLoginPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UkrnetMainPage.cs" />
-    <Compile Include="Pages\UkrnetPage\UnreadPage.cs" />
     <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
-=======
-    <Compile Include="Pages\WishListPage\AWishListPage.cs" />
-    <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
->>>>>>> 4a7b0699615f6bb2e935558e8471f4e89f4d7f12
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />

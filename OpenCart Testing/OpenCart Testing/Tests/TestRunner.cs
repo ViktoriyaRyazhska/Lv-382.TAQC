@@ -10,14 +10,6 @@ namespace OpenCart_Testing
     [TestFixture]
     public class TestRunner
     {
-<<<<<<< HEAD
-        protected IWebDriver driver;
-        //protected const int spanTime = 2;
-        //protected const int sleepTime = 2000;
-=======
-
-        protected IWebDriver driver;
->>>>>>> 4a7b0699615f6bb2e935558e8471f4e89f4d7f12
 
         public Application application;
 
@@ -31,7 +23,7 @@ namespace OpenCart_Testing
         }
 
         [OneTimeTearDown]
-        public virtual void AfterAllMethods()
+        public void AfterAllMethods()
         {
             application.Quit();
         }
@@ -43,7 +35,7 @@ namespace OpenCart_Testing
         }
 
         [TearDown]
-        public virtual void AfterAllTests()
+        public void AfterAllTests()
         {
             application.DeleteCookies();
         }
