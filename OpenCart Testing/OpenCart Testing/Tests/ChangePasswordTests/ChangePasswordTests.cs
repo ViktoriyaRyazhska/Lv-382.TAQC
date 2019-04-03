@@ -15,7 +15,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
 
         public static object[] PositiveTestUserLoginData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswords_PasswordChangingPositiveTest.json") )
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"), LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_CorrectConfirmation.json") )
         };
 
         [Test]
@@ -42,7 +42,7 @@ namespace OpenCart_Testing.Tests.ChangePasswordTests
 
         public static object[] NegativeTestUserLoginData =
         {
-           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"),LoginDataRespository.Get().GetChangePasswordData("TestPasswords_PasswordChangingNegativeTest.json"))
+           new TestCaseData(LoginDataRespository.Get().GetUserLoginData("UserData_PasswordChangingPositiveTest.json"),LoginDataRespository.Get().GetChangePasswordData("TestPasswordsForChanging_WrongConfirmation.json"))
         };
 
         [Test]

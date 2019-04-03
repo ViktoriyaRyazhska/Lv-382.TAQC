@@ -5,7 +5,7 @@ using OpenCart_Testing.TestData.LoginData;
 
 namespace OpenCart_Testing.Tests
 {
-    class DeletingNotDefaultAddress: TestRunner
+    class DeletingNotDefaultAddress : TestRunner
     {
         private User myUser = LoginDataRespository.Get().GetUserLoginData("UserForAddressBookTests.json");
 
@@ -14,7 +14,7 @@ namespace OpenCart_Testing.Tests
         {
             AddressBookPage page = LoadApplication()
                 .ClickLoginUserButton().LoginUser(myUser).GotoAddressBookPage();
-            
+
             SuccessfullyUpdatedAddressPage updatedPage = page.DeleteSecondAddress();
 
             Assert.AreEqual(updatedPage.GetDeletedAddressMessageText(), SuccessfullyUpdatedAddressPage.DELETINGNOTDEFAULT);
