@@ -124,6 +124,7 @@
     <Compile Include="Pages\UIMapping\MWishListPage.cs" />
     <Compile Include="Pages\UIMapping\MWishProduct.cs" />
     <Compile Include="Pages\UIMapping\MSuccessfulPassChangeAccountPage.cs" />
+<<<<<<< HEAD
     <Compile Include="Pages\UIMapping\MUkrnetLoginPage.cs" />
     <Compile Include="Pages\UkrnetPage\AUkrnetLeftMenuPart.cs" />
     <Compile Include="Pages\UkrnetPage\NewLetterPage.cs" />
@@ -131,7 +132,12 @@
     <Compile Include="Pages\UkrnetPage\UkrnetMainPage.cs" />
     <Compile Include="Pages\UkrnetPage\UnreadPage.cs" />
     <Compile Include="Pages\WishListPage\EmptyWishListPage\EmptyWishListPage.cs" />
+=======
+    <Compile Include="Pages\WishListPage\AWishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishListPageWithMessages\EmptyWishListPage.cs" />
+>>>>>>> 4a7b0699615f6bb2e935558e8471f4e89f4d7f12
     <Compile Include="Pages\WishListPage\WishListPage.cs" />
+    <Compile Include="Pages\WishListPage\WishListPageWithMessages\UpdatedWishListPage.cs" />
     <Compile Include="Pages\WishListPage\WishProduct.cs" />
     <Compile Include="Pages\WishListPage\WishProductContainer.cs" />
     <Compile Include="TestData\ActionMessages\ActionMessage.cs" />
@@ -162,10 +168,10 @@
     <Compile Include="Tests\ReviewTabTests\ReviewFormTests.cs" />
     <Compile Include="Tests\ReviewTabTests\ReviewListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoriesAndSubcategories.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchCriteriaDescriptionTests.cs" />
-    <Compile Include="Tests\SearchCriteriaTests\SearchInCategoriesAndDescription.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SaerchInCategoryAndSubcategories.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchInCategoryAndDescription.cs" />
     <Compile Include="Tests\SearchCriteriaTests\SearchInDescription.cs" />
+    <Compile Include="Tests\SearchCriteriaTests\SearchInSubcategoriesAndDescription.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchFieldTests.cs" />
     <Compile Include="Tests\SimpleSearchTests\SearchViewTests.cs" />
     <Compile Include="Tests\TestRunner.cs" />
@@ -179,13 +185,14 @@
     <Compile Include="Tests\WishListTests\AddingFromHomePage.cs" />
     <Compile Include="Tests\WishListTests\AddingForNotLoggedIn.cs" />
     <Compile Include="Tests\WishListTests\MessageAfterRemoveOneItem.cs" />
-    <Compile Include="Tests\WishListTests\MessageAfterRemovingOneItem.cs" />
+    <Compile Include="Tests\WishListTests\MessageForEmptyList.cs" />
     <Compile Include="Tests\WishListTests\RemovingAllFromWishList.cs" />
     <Compile Include="Tools\AExternalReader.cs" />
     <Compile Include="Tools\JsonParser.cs" />
     <Compile Include="Tools\ListUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OpenCartClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingAllMessage.json" />
     <None Include="TestData\DataSourse\ActionMessages\RemovingOneItemMessage.json" />
@@ -197,6 +204,14 @@
     <None Include="TestData\DataSourse\ActionMessages\ReviewValid.json" />
     <None Include="TestData\DataSourse\Addresses\ValidAddress.json" />
     <None Include="TestData\DataSourse\Addresses\ValidFirstname.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInSubcategoryAndDescription.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndDescription.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategoryAndSubcategory.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInCategory.json" />
+    <None Include="TestData\DataSourse\Products\MacListProducts.json" />
+    <None Include="TestData\DataSourse\Products\ProductsSearchInDescription.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Chrome.json" />
+    <None Include="TestData\DataSourse\ApplicationSources\Firefox.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldName.json" />
     <None Include="TestData\DataSourse\Reviews\EmptyFieldText.json" />
     <None Include="TestData\DataSourse\Reviews\NotSelectedRating.json" />
@@ -206,12 +221,14 @@
     <None Include="TestData\DataSourse\Reviews\TooShortText.json" />
     <None Include="TestData\DataSourse\Reviews\ValidReview.json" />
     <None Include="TestData\DataSourse\ActionMessages\NotLoggedUser.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchByDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchCriteria_Description_AllCategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategories.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoriesAndDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategory.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndDescription.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInCategoryAndSubcategories.json" />
     <None Include="TestData\DataSourse\SearchCriteria\SearchInDescription.json" />
-    <None Include="TestData\DataSourse\SearchCriteria\SearchWithoutInDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchInSubcategoriesAndDescription.json" />
+    <None Include="TestData\DataSourse\SearchCriteria\SearchNotInDescription.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultViewActive.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Case_DefaultView.json" />
     <None Include="TestData\DataSourse\SimpleSearch\SearchData_Positive.json" />
@@ -222,12 +239,12 @@
     <None Include="TestData\DataSourse\UsersData\TestPasswords_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingNegativeTest.json" />
     <None Include="TestData\DataSourse\UsersData\UserData_PasswordChangingPositiveTest.json" />
+    <None Include="TestData\DataSourse\UsersData\UserForAddressBookTests.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemForNotLogged.json" />
     <None Include="TestData\DataSourse\WishListItems\ItemsFromHomePage.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exeptions\" />
-    <Folder Include="TestData\DataSourse\Products\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

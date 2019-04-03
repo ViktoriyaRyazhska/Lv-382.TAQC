@@ -1,6 +1,6 @@
 {
   "Keyword": "mac",
-  "Description": false,
+  "Description": true,
   "Category": "Desktops",
-  "Subcategory": false
+  "Subcategory": true
 }

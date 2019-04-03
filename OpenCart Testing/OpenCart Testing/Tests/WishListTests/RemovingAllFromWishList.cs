@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using OpenCart_Testing.Pages.WishListPage;
+using OpenCart_Testing.Pages.WishPage;
 using OpenCart_Testing.Pages;
 using OpenCart_Testing.TestData;
 using System.Threading;
@@ -22,10 +22,8 @@ namespace OpenCart_Testing.Tests.WishListTests
         {
             LoadApplication().ClickLoginUserButton().LoginUser(REGISTERED).GotoHomePage()
                 .getProductComponentsContainer().ClickProductComponentAddToWishButtonByName(names);
-            HomePage page = LoadApplication();
-            WishListPage wishlist = page.ClickWishList();
+            WishListPage wishlist = LoadApplication().ClickWishList();
             wishlist.ClickOnRemoveAll();
-            Thread.Sleep(3000);
             Assert.AreEqual(0, wishlist.GetWishProductContainer().GetWishedItemCount());
         }
     }

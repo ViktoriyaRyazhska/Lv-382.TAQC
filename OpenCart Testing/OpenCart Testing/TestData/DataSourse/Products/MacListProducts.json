@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "iMac",
+    "ShortDescription": "Just when you thought iMac had everything, now there´s even more. More powerful Intel Core 2 Duo ..",
+    "PriceTax": 100.0
+  },
+  {
+    "Name": "MacBook",
+    "ShortDescription": "Intel Core 2 Duo processor Powered by an Intel Core 2 Duo processor at speeds up to 2.1..",
+    "PriceTax": 500.0
+  },
+  {
+    "Name": "MacBook Air",
+    "ShortDescription": "MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don’t lose..",
+    "PriceTax": 1000.0
+  },
+  {
+    "Name": "MacBook Pro",
+    "ShortDescription": "Latest Intel mobile architecture Powered by the most advanced mobile processors ..",
+    "PriceTax": 2000.0
+  }
+]

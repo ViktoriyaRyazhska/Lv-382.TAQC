@@ -8,7 +8,7 @@ using OpenCart_Testing.Pages.ProductPages;
 
 namespace OpenCart_Testing.Pages
 {
-    public class HomePage : ATopPart
+    public class HomePage : ABreadCrumbsPart
     {
         public const string IPHONE6 = "iPhone6";
 

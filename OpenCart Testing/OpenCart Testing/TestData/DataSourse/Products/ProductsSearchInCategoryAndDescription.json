@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Apple Cinema 30\"",
+    "ShortDescription": "The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed sp..",
+    "PriceTax": 90.0
+  },
+  {
+    "Name": "iPhone",
+    "ShortDescription": "iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a nam..",
+    "PriceTax": 101.00
+  },
+  {
+    "Name": "MacBook",
+    "ShortDescription": "Intel Core 2 Duo processor Powered by an Intel Core 2 Duo processor at speeds up to 2.1..",
+    "PriceTax": 500.0
+  },
+  {
+    "Name": "MacBook Air",
+    "ShortDescription": "MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don’t lose..",
+    "PriceTax": 1000.0
+  }
+]

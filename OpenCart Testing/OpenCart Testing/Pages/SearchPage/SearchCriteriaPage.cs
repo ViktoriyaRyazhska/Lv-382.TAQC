@@ -10,6 +10,13 @@ using OpenCart_Testing.TestData;
 
 namespace OpenCart_Testing.Pages
 {
+    public enum ViewType
+    {
+        Grid = 1,
+        List
+
+    }
+
     public class SearchCriteriaPage : ASearchResultPart
     {
         //protected IWebDriver driver;
@@ -127,15 +134,6 @@ namespace OpenCart_Testing.Pages
             return new SearchCriteriaPage(driver);
         }
 
-        //public SearchCriteriaPage SearchCriteriaItems1(string searchProduct)
-        //{
-        //    MakeSearchCriteria(searchProduct);
-        //    ClickProductDescription();
-        //    Categories.SelectDropdownItemByText("Cameras");
-        //    return new SearchCriteriaPage(driver);
-        //}
-        // Page Object
-
         //SearchItemsCount
         public string GetSearchItemsCount()
         {
@@ -169,17 +167,41 @@ namespace OpenCart_Testing.Pages
         }
 
 
-        public bool hasClass(IWebElement element, string searchedClass)
+        //public bool hasClass(IWebElement element, string searchedClass)
+        //{
+        //    string[] classes = element.GetAttribute("class").Split(' ');
+        //    foreach (string str in classes)
+        //    {
+        //        if (str.Equals(searchedClass))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+        public bool isView(ViewType type)
         {
-            string[] classes = element.GetAttribute("class").Split(' ');
-            foreach (string str in classes)
+            switch (type)
             {
-                if (str.Equals(searchedClass))
-                {
-                    return true;
-                }
+                case ViewType.Grid:
+                    return GridView.GetAttribute("class").Contains("active");
+                    break;
+                case ViewType.List:
+                    return ListView.GetAttribute("class").Contains("active");
+                    break;
+                default:
+                    return false;
+                    break;
             }
-            return false;
+            //string[] classes = GridView.GetAttribute("class").Split(' ');
+            //foreach (string str in classes)
+            //{
+            //    if (str.Equals("active"))
+            //    {
+            //        return true;
+            //    }
+            //}
+            //return false;
         }
 
         //Business Logic

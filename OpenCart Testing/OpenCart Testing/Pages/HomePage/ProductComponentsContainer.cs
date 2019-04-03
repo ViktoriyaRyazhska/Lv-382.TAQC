@@ -8,6 +8,8 @@ using OpenCart_Testing.UIMapping.MProductComponentsContainer;
 using OpenCart_Testing.TestData;
 using System.Threading;
 using OpenCart_Testing.TestData.WishListData;
+using OpenQA.Selenium.Support.UI;
+using OpenCart_Testing.Pages.UIMapping.MUpdatedHomePage;
 
 namespace OpenCart_Testing.Pages
 {
@@ -116,14 +118,16 @@ namespace OpenCart_Testing.Pages
 
         public void ClickProductComponentAddToWishButtonByName(IList<WishListItem> items)
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             foreach (WishListItem item in items)
             {
                 GetProductComponentByName(item.Name).ClickAddToWishButton();
-                Thread.Sleep(1000);
+                IWebElement myDynamicElement = wait.Until(driver => driver.FindElement(MUpdatedHomePage.locatorMessageSuccessAddingToWishList));
             }
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
          
-
     public int GetProductComponentsCount()
         {
             return GetProductComponents().Count;
@@ -136,16 +140,13 @@ namespace OpenCart_Testing.Pages
                 ClickProductComponentAddToWishButtonByName(Name);
             }
         }
-        // Business Logic
 
-        //public string GetProductComponentPriceByProduct(Product product)
-        //{
-        //    return GetProductComponentPriceByName(product.getName());
-        //}
-
-        //public String GetProductComponentDescriptionByProduct(Product product)
-        //{
-        //    return GetProductComponentDescriptionByName(product.getName());
-        //}
+        public HomePage HomePage
+        {
+            get => default(HomePage);
+            set
+            {
+            }
+        }
     }
 }

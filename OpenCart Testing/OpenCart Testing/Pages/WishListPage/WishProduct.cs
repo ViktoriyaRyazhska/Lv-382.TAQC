@@ -8,24 +8,23 @@ using OpenCart_Testing.Pages.UIMapping.MWishPoduct;
 using OpenCart_Testing.Pages.UIMapping.MWishListPage;
 using OpenCart_Testing.TestData.WishListData;
 
-namespace OpenCart_Testing.Pages.WishListPage
+namespace OpenCart_Testing.Pages.WishPage
 {
     public class WishProduct
     {
-        private IWebElement revievItem;
-        private IWebElement Image => revievItem.FindElement(MWishProduct.locatorImg);
-        //public IWebElement ProductName;
-        private IWebElement ProductName => revievItem.FindElement(MWishProduct.locatorProductName);
-        private IWebElement Model => revievItem.FindElement(MWishProduct.locatorModel);
-        private IWebElement Stock => revievItem.FindElement(MWishProduct.locatorStock);
-        private IWebElement UnitPrice => revievItem.FindElement(MWishProduct.locatorUnitPrice);
-        private IWebElement AddToCart => revievItem.FindElement(MWishProduct.locatorAddToCart);
-        private IWebElement Remove => revievItem.FindElement(MWishProduct.locatorRemove);
-        private IWebElement ModifiedMessage => revievItem.FindElement(MWishListPage.locatorModifiedListMessage);
+        private IWebElement wishItem;
+        private IWebElement Image => wishItem.FindElement(MWishProduct.locatorImg);
+        private IWebElement ProductName => wishItem.FindElement(MWishProduct.locatorProductName);
+        private IWebElement Model => wishItem.FindElement(MWishProduct.locatorModel);
+        private IWebElement Stock => wishItem.FindElement(MWishProduct.locatorStock);
+        private IWebElement UnitPrice => wishItem.FindElement(MWishProduct.locatorUnitPrice);
+        private IWebElement AddToCart => wishItem.FindElement(MWishProduct.locatorAddToCart);
+        private IWebElement Remove => wishItem.FindElement(MWishProduct.locatorRemove);
+        private IWebElement ModifiedMessage => wishItem.FindElement(MWishListPage.locatorModifiedListMessage);
 
         public WishProduct(IWebElement productLayout)
         {
-            this.revievItem = productLayout;
+            this.wishItem = productLayout;
         }
 
         private void ClickOnImg()
@@ -83,13 +82,13 @@ namespace OpenCart_Testing.Pages.WishListPage
             return ModifiedMessage.Text;
         }
 
-        public override bool Equals(object obj)
-        {
-            WishProduct compare = obj as WishProduct;
-            return (this.GetProductNameText() == compare.GetProductNameText())
-                && (this.GetModelText() == compare.GetModelText())
-                && (this.GetStockText() == compare.GetStockText())
-                && (this.GetUnitPriceText() == compare.GetUnitPriceText());
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    WishProduct compare = obj as WishProduct;
+        //    return (this.GetProductNameText() == compare.GetProductNameText())
+        //        && (this.GetModelText() == compare.GetModelText())
+        //        && (this.GetStockText() == compare.GetStockText())
+        //        && (this.GetUnitPriceText() == compare.GetUnitPriceText());
+        //}
     }
 }
