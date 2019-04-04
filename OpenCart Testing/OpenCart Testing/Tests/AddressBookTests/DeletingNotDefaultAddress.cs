@@ -2,6 +2,7 @@
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Pages.AddressBookPages;
 using OpenCart_Testing.TestData.LoginData;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests
 {
@@ -13,10 +14,12 @@ namespace OpenCart_Testing.Tests
         public void CheckDeletingOfNotDefaultAddress()
         {
             AddressBookPage page = LoadApplication()
-                .ClickLoginUserButton().LoginUser(myUser).GotoAddressBookPage();
+                .ClickLoginUserButton().LoginUser(myUser).GotoAddressBookPage().SetFirstDefault();
 
+            Thread.Sleep(1000); //FOR PRESENTATION ONLY
             SuccessfullyUpdatedAddressPage updatedPage = page.DeleteSecondAddress();
 
+            Thread.Sleep(1000); //FOR PRESENTATION ONLY
             Assert.AreEqual(updatedPage.GetDeletedAddressMessageText(), SuccessfullyUpdatedAddressPage.DELETINGNOTDEFAULT);
         }
     }

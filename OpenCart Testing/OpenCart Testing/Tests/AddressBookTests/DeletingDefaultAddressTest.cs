@@ -3,6 +3,7 @@ using OpenCart_Testing.Extentions;
 using OpenCart_Testing.Pages.AccountPages;
 using OpenCart_Testing.Pages.AddressBookPages;
 using OpenCart_Testing.TestData.LoginData;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests.AddressBookTests
 {
@@ -23,8 +24,10 @@ namespace OpenCart_Testing.Tests.AddressBookTests
                 .ClickLoginUserButton().LoginUser(myUser).GotoAddressBookPage()
                 .SetFirstDefault();
 
+            Thread.Sleep(1000); //FOR PRESENTATION ONLY
             SuccessfullyUpdatedAddressPage updatedPage = page.DeleteFirstAddress();
-           
+
+            Thread.Sleep(1000); //FOR PRESENTATION ONLY
             Assert.AreEqual(updatedPage.GetNotDeletedAddressMessageText(), SuccessfullyUpdatedAddressPage.DELETINGDEFAULT);
         }
     }

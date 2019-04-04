@@ -4,6 +4,7 @@ using OpenCart_Testing.Pages.AddressBookPages;
 using OpenCart_Testing.TestData.AddressBookData;
 using OpenCart_Testing.TestData.LoginData;
 using OpenCart_Testing.Tools;
+using System.Threading;
 
 namespace OpenCart_Testing.Tests.AddressBookTests
 {
@@ -22,6 +23,7 @@ namespace OpenCart_Testing.Tests.AddressBookTests
                .ClickLoginUserButton().LoginUser(myUser).GotoAddressBookPage()
                .EditFirstAddress().SetOnlyFirstname(data);
 
+            Thread.Sleep(1000); //FOR PRESENTATION ONLY
             Assert.IsTrue(page.GetAddressComponentsContainer().GetFirstAddress()
                 .GetAddressDescription().Contains(data));
         }
