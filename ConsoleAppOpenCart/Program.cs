@@ -1,4 +1,5 @@
 ﻿using OpenCartTestProject.Data;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,8 +117,30 @@ namespace ConsoleAppOpenCart
             //
             // 7. Singleton
             // 8. Repository
-            IUser user = UserRepository.Get().Registered();
-            Console.WriteLine("user.Lastname " + user.Lastname);
+            //IUser user = UserRepository.Get().Registered();
+            //Console.WriteLine("user.Lastname " + user.Lastname);
+            //
+            // REST
+            //
+            //string url = "https://api.github.com";
+            string url = "http://localhost:8080/";
+            var client = new RestClient(url);
+            //
+            //var request = new RestRequest("/orgs/dotnet/repos", Method.GET);
+            //var request = new RestRequest("/orgs/dotnet", Method.GET);
+            //var request = new RestRequest("/tokenlifetime", Method.GET);
+            //
+            //var request = new RestRequest("/login", Method.POST);
+            //request.AddParameter("name", "admin");
+            //request.AddParameter("password", "qwerty");
+            //
+            var request = new RestRequest("/tokenlifetime", Method.PUT);
+            request.AddParameter("token", "HNPQ9A0Q455EDPAUV8FIL232AQ7RICBT");
+            request.AddParameter("time", "700000");
+            //
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            Console.WriteLine("content: " + content);
             //
             Console.WriteLine("\nDone.");
         }
