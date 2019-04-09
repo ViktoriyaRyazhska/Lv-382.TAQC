@@ -1,5 +1,7 @@
-﻿using OpenCartTestProject.Data;
+﻿using Newtonsoft.Json;
+using OpenCartTestProject.Data;
 using RestSharp;
+using RestSharp.Serialization.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,73 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppOpenCart
 {
+    // For RestSharp
+    public class RestResult
+    {
+        public string content { get; set; }
+
+        public override string ToString()
+        {
+            return "class RestResult.ToString(): " + content;
+        }
+    }
+
+    // For Newtonsoft.Json
+    public class RestResult2
+    {
+        [JsonProperty("content")]
+        public string Answer { get; set; }
+
+        public override string ToString()
+        {
+            return "class RestResult2.ToString(): " + Answer;
+        }
+    }
+
+    public class RestResultOrgsDotnetReposArray
+    {
+        public string html_url { get; set; }
+        public string description { get; set; }
+
+        public override string ToString()
+        {
+            return "class RestResultOrgsDotnetReposArray.ToString():"
+                + "\nhtml_url: " + html_url
+                + "\ndescription: " + description;
+        }
+    }
+
+    public class RestResultOrgsDotnet2
+    {
+        [JsonProperty("login")]
+        public string Description { get; set; }
+
+        [JsonProperty("email")]
+        public string HtmlUrl { get; set; }
+
+        public string MyInfo { get; set; } = "Running";
+
+        public override string ToString()
+        {
+            return "class RestResultOrgsDotnetReposArray.ToString():"
+                + "\nlogin: " + Description
+                + "\nemail: " + HtmlUrl
+                + "\nMyInfo: " + MyInfo;
+        }
+    }
+    public class RestResultOrgsDotnet
+    {
+        public string login { get; set; }
+        public string email { get; set; }
+
+        public override string ToString()
+        {
+            return "class RestResultOrgsDotnet.ToString():"
+                + "\nlogin: " + login
+                + "\nemail: " + email;
+        }
+    }
+
     public class Program
     {
         public static void Main(string[] args)
@@ -122,25 +191,43 @@ namespace ConsoleAppOpenCart
             //
             // REST
             //
-            //string url = "https://api.github.com";
-            string url = "http://localhost:8080/";
+            string url = "https://api.github.com";
+            //string url = "http://localhost:8080";
             var client = new RestClient(url);
             //
             //var request = new RestRequest("/orgs/dotnet/repos", Method.GET);
-            //var request = new RestRequest("/orgs/dotnet", Method.GET);
+            var request = new RestRequest("/orgs/dotnet", Method.GET);
             //var request = new RestRequest("/tokenlifetime", Method.GET);
+            //var request = new RestRequest("/", Method.GET);
             //
             //var request = new RestRequest("/login", Method.POST);
             //request.AddParameter("name", "admin");
             //request.AddParameter("password", "qwerty");
             //
-            var request = new RestRequest("/tokenlifetime", Method.PUT);
-            request.AddParameter("token", "HNPQ9A0Q455EDPAUV8FIL232AQ7RICBT");
-            request.AddParameter("time", "700000");
+            //var request = new RestRequest("/tokenlifetime", Method.PUT);
+            //request.AddParameter("token", "HNPQ9A0Q455EDPAUV8FIL232AQ7RICBT");
+            //request.AddParameter("time", "700000");
             //
             IRestResponse response = client.Execute(request);
             var content = response.Content;
             Console.WriteLine("content: " + content);
+            //
+            //JsonDeserializer deserial = new JsonDeserializer();
+            //var obj = deserial.Deserialize<RestResult>(response);
+            //var obj = JsonConvert.DeserializeObject<RestResult2>(response.Content);
+            //Console.WriteLine("\nDeserialize content: " + obj);
+            //
+            //JsonDeserializer deserial = new JsonDeserializer();
+            //var obj = deserial.Deserialize<RestResultOrgsDotnet>(response);
+            var obj = JsonConvert.DeserializeObject<RestResultOrgsDotnet2>(response.Content);
+            Console.WriteLine("\nDeserialize content: " + obj);
+            //
+            //JsonDeserializer deserial = new JsonDeserializer();
+            //var obj = deserial.Deserialize <List<RestResultOrgsDotnetReposArray>>(response);
+            //foreach (RestResultOrgsDotnetReposArray current in obj)
+            //{
+            //    Console.WriteLine("\nDeserialize content: " + current);
+            //}
             //
             Console.WriteLine("\nDone.");
         }
