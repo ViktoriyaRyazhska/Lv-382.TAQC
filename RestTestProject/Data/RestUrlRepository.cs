@@ -8,7 +8,7 @@ namespace RestTestProject.Data
 {
     public sealed class RestUrlRepository
     {
-        private static string server = "http://localhost:8080/";
+        private static string server = "http://localhost:8080";
 
         public static string Server
         {
@@ -25,18 +25,18 @@ namespace RestTestProject.Data
             return new RestUrl()
                 .AddBaseUrl(Server)
                 .AddGetUrl("/login/users")
-                .AddPostUrl("login/")
+                .AddPostUrl("/login")
                 .AddPutUrl("")
-                .AddDeleteUrl("logout/");
+                .AddDeleteUrl("/logout");
         }
 
         public static RestUrl GetTokenLifetime()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("tokenlifetime/")
+                .AddGetUrl("/tokenlifetime")
                 .AddPostUrl("")
-                .AddPutUrl("tokenlifetime/")
+                .AddPutUrl("/tokenlifetime")
                 .AddDeleteUrl("");
         }
     }

@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using RestSharp.Serialization.Json;
 using RestTestProject.Data;
+using RestTestProject.Rules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +15,38 @@ namespace RestTestProject.Resources
         private const string NOT_SUPPORT_MESSAGE = "Method {0} not Support for {1} Resource";
         private const string CONVERT_OBJECT_ERROR = "ConvertToObject Error. {0}\n{1}";
         //
+        private const string URL_PARAMETERS_SEPARATOR = "?";
+        private const string NEXT_PARAMETERS_SEPARATOR = "&";
+        private const string KEY_VALUE_SEPARATOR = "=";
+        //
         private RestUrl restUrl;
         private RestClient client;
         private JsonDeserializer deserial;
+        private Dictionary<RestUrlKeys, RestSharp.Method> dictionaryMethods;
 
         public ARestCrud(RestUrl restUrl)
         {
             this.restUrl = restUrl;
             client = new RestClient(restUrl.ReadBaseUrl());
             deserial = new JsonDeserializer();
+            InitDictionaryMethods();
+        }
+
+        private void InitDictionaryMethods()
+        {
+            dictionaryMethods.Add(RestUrlKeys.GET, Method.GET);
+            dictionaryMethods.Add(RestUrlKeys.POST, Method.POST);
+            dictionaryMethods.Add(RestUrlKeys.PUT, Method.PUT);
+            dictionaryMethods.Add(RestUrlKeys.DELETE, Method.DELETE);
         }
 
         // protected - - - - - - - - - - - - - - - - - - - -
 
-        protected void ThrowException(string message, string resource)
+        protected void ThrowException(string message)
         {
             // TODO Develop Custom Exception
-            throw new Exception(string.Format(NOT_SUPPORT_MESSAGE, message, resource));
+            string resourceName = this.GetType().ToString();
+            throw new Exception(string.Format(NOT_SUPPORT_MESSAGE, message, resourceName));
         }
 
         // private - - - - - - - - - - - - - - - - - - - -
@@ -71,130 +87,145 @@ namespace RestTestProject.Resources
             return result;
         }
 
-        //++++++++++++++++++++++++++++++++++++++++++++++++
-
-        private RestRequest CreateRestRequest(string uri, RestSharp.Method method, RestParameters urlParameters)
+        private string PrepareUrlParameters(string urlTemplate, RestParameters urlParameters)
         {
             if (urlParameters != null)
             {
                 bool isFirstParameter = true;
                 foreach (KeyValuePair<string, string> current in urlParameters.Parameters)
                 {
-                    Console.WriteLine("urlParameters: " + current.Key + "   " + current.Value);
+                    Console.WriteLine("urlParameters: key = " + current.Key + " value = " + current.Value);
                     if (isFirstParameter)
                     {
-                        uri = uri + "?";
+                        urlTemplate = urlTemplate + URL_PARAMETERS_SEPARATOR;
                         isFirstParameter = false;
                     }
                     else
                     {
-                        uri = uri + "&";
+                        urlTemplate = urlTemplate + NEXT_PARAMETERS_SEPARATOR;
                     }
-                    uri = uri + current.Key + "=" + current.Value;
+                    urlTemplate = urlTemplate + current.Key + KEY_VALUE_SEPARATOR + current.Value;
                 }
             }
-            //
-            return new RestRequest(uri, method);
+            return urlTemplate;
         }
 
-        private RestRequest PrepareRequest(RestRequest request, RestParameters bodyParameters, RestParameters urlSegment)
+        private RestRequest PreparePathVariables(RestRequest request, RestParameters pathVariables)
+        {
+            if (pathVariables != null)
+            {
+                foreach (KeyValuePair<string, string> current in pathVariables.Parameters)
+                {
+                    Console.WriteLine("pathVariables: key = " + current.Key + " value = " + current.Value);
+                    request.AddUrlSegment(current.Key, current.Value);
+                }
+            }
+            return request;
+        }
+
+        private RestRequest prepareRequestBody(RestRequest request, RestParameters bodyParameters)
         {
             if (bodyParameters != null)
             {
                 foreach (KeyValuePair<string, string> current in bodyParameters.Parameters)
                 {
-                    Console.WriteLine("bodyParameters: " + current.Key + "   " + current.Value);
+                    Console.WriteLine("bodyParameters: key = " + current.Key + " value = " + current.Value);
                     request.AddParameter(current.Key, current.Value);
                 }
             }
-            //
-            if (urlSegment != null)
-            {
-                foreach (KeyValuePair<string, string> current in urlSegment.Parameters)
-                {
-                    Console.WriteLine("urlSegment: " + current.Key + "   " + current.Value);
-                    request.AddUrlSegment(current.Key, current.Value);
-                }
-            }
-            //
             return request;
         }
 
-        private IRestResponse ExecuteRequest(RestRequest request, RestParameters bodyParameters, RestParameters urlSegment)
+        private RestRequest CreateRestRequest(RestUrlKeys restUrlKeys, RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return client.Execute(PrepareRequest(request, bodyParameters, urlSegment));
+            string url = PrepareUrlParameters(restUrl.ReadBaseUrl() + restUrl.GetUrl(restUrlKeys), urlParameters);
+            RestRequest request = new RestRequest(url, dictionaryMethods[restUrlKeys]);
+            request = PreparePathVariables(request, pathVariables);
+            request = prepareRequestBody(request, bodyParameters);
+            return request;
+        }
+
+        private IRestResponse ExecuteRequest(RestRequest request)
+        {
+            return client.Execute(request);
         }
 
         // Http Get - - - - - - - - - - - - - - - - - - - -
 
-        public virtual IRestResponse HttpGetAsResponse(RestParameters urlSegment, RestParameters urlParameters)
+        public virtual IRestResponse HttpGetAsResponse(RestParameters urlParameters, RestParameters pathVariables)
         {
-            return ExecuteRequest(CreateRestRequest(restUrl.ReadGetUrl(), Method.GET, urlParameters),
-                    null, urlSegment);
+            return ExecuteRequest(CreateRestRequest(RestUrlKeys.GET, urlParameters, pathVariables, null));
         }
 
-        public string HttpGetAsString(RestParameters urlSegment, RestParameters urlParameters)
+        public string HttpGetAsString(RestParameters urlParameters, RestParameters pathVariables)
         {
-            return HttpGetAsResponse(urlSegment, urlParameters).Content;
+            return HttpGetAsResponse(urlParameters, pathVariables).Content;
         }
 
-        public T HttpGetAsObject(RestParameters urlSegment, RestParameters urlParameters)
+        public T HttpGetAsObject(RestParameters urlParameters, RestParameters pathVariables)
         {
-            return ConvertToObject(HttpGetAsResponse(urlSegment, urlParameters));
+            return ConvertToResource(HttpGetAsResponse(urlParameters, pathVariables));
         }
 
         // Http Post - - - - - - - - - - - - - - - - - - - -
 
-        public virtual IRestResponse HttpPostAsResponse(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public virtual IRestResponse HttpPostAsResponse(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ExecuteRequest(CreateRestRequest(restUrl.ReadPostUrl(), Method.POST, urlParameters),
-                    bodyParameters, urlSegment);
+            return ExecuteRequest(CreateRestRequest(RestUrlKeys.POST, urlParameters, pathVariables, bodyParameters));
         }
 
-        public string HttpPostAsString(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public string HttpPostAsString(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return HttpPostAsResponse(bodyParameters, urlSegment, urlParameters).Content;
+            return HttpPostAsResponse(urlParameters, pathVariables, bodyParameters).Content;
         }
 
-        public T HttpPostAsObject(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public T HttpPostAsObject(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToObject(HttpPostAsResponse(bodyParameters, urlSegment, urlParameters));
+            return ConvertToResource(HttpPostAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
         // Http Put - - - - - - - - - - - - - - - - - - - -
 
-        public virtual IRestResponse HttpPutAsResponse(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public virtual IRestResponse HttpPutAsResponse(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ExecuteRequest(CreateRestRequest(restUrl.ReadPutUrl(), Method.PUT, urlParameters),
-                    bodyParameters, urlSegment);
+            return ExecuteRequest(CreateRestRequest(RestUrlKeys.PUT, urlParameters, pathVariables, bodyParameters));
         }
 
-        public string HttpPutAsString(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public string HttpPutAsString(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return HttpPutAsResponse(bodyParameters, urlSegment, urlParameters).Content;
+            return HttpPutAsResponse(urlParameters, pathVariables, bodyParameters).Content;
         }
 
-        public T HttpPutAsObject(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public T HttpPutAsObject(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToObject(HttpPutAsResponse(bodyParameters, urlSegment, urlParameters));
+            return ConvertToResource(HttpPutAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
         // Http Delete - - - - - - - - - - - - - - - - - - - -
 
-        public virtual IRestResponse HttpDeleteAsResponse(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public virtual IRestResponse HttpDeleteAsResponse(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ExecuteRequest(CreateRestRequest(restUrl.ReadDeleteUrl(), Method.DELETE, urlParameters),
-                    bodyParameters, urlSegment);
+            return ExecuteRequest(CreateRestRequest(RestUrlKeys.DELETE, urlParameters, pathVariables, bodyParameters));
         }
 
-        public string HttpDeleteAsString(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public string HttpDeleteAsString(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return HttpDeleteAsResponse(bodyParameters, urlSegment, urlParameters).Content;
+            return HttpDeleteAsResponse(urlParameters, pathVariables, bodyParameters).Content;
         }
 
-        public T HttpDeleteAsObject(RestParameters bodyParameters, RestParameters urlSegment, RestParameters urlParameters)
+        public T HttpDeleteAsObject(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToObject(HttpDeleteAsResponse(bodyParameters, urlSegment, urlParameters));
+            return ConvertToResource(HttpDeleteAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
     }
