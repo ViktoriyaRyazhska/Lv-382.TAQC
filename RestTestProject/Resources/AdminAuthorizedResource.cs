@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class AuthorizedResource : ARestCrud<SimpleEntity>
+    public class AdminAuthorizedResource : ARestCrud<SimpleEntity>
     {
-        public AuthorizedResource() : base(RestUrlRepository.GetAuthorized())
+        public AdminAuthorizedResource() : base(RestUrlRepository.GetAdminAuthorized())
         {
         }
 
@@ -20,6 +20,13 @@ namespace RestTestProject.Resources
                     RestParameters pathVariables, RestParameters bodyParameters)
         {
             ThrowException(RestUrlKeys.PUT.ToString());
+            return null;
+        }
+
+        public override IRestResponse HttpDeleteAsResponse(RestParameters urlParameters,
+            RestParameters pathVariables, RestParameters bodyParameters)
+        {
+            ThrowException(RestUrlKeys.DELETE.ToString());
             return null;
         }
 

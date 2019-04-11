@@ -7,16 +7,18 @@ namespace RestTestProject.Services
 {
     public class GuestService
     {
-        protected AuthorizedResource authorizedResource;
+        protected AdminAuthorizedResource adminAuthorizedResource;
+        protected UserAuthorizedResource userAuthorizedResource;
         protected TokenLifetimeResource tokenLifetimeResource;
 
         public GuestService()
         {
-            authorizedResource = new AuthorizedResource();
+            adminAuthorizedResource = new AdminAuthorizedResource();
+            userAuthorizedResource = new UserAuthorizedResource();
             tokenLifetimeResource = new TokenLifetimeResource();
         }
 
-        public Lifetime GetCurrentTokenlifetime()
+        public Lifetime GetCurrentTokenLifetime()
         {
             Lifetime lifetime = new Lifetime();
             SimpleEntity simpleEntity = tokenLifetimeResource.HttpGetAsObject(null, null);
@@ -29,9 +31,14 @@ namespace RestTestProject.Services
             // TODO
         }
 
-        public void SuccessfulUserLogin(IUser user)
+        public UserService SuccessfulUserLogin(IUser user)
         {
-            // TODO
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters("name", user.Name)
+                .AddParameters("password", user.Password);
+            SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
+            user.Token = simpleEntity.content;
+            return new UserService(user);
         }
 
         public AdminService SuccessfulAdminLogin(IUser adminUser)
@@ -39,7 +46,7 @@ namespace RestTestProject.Services
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters("name", adminUser.Name)
                 .AddParameters("password", adminUser.Password);
-            SimpleEntity simpleEntity = authorizedResource.HttpPostAsObject(null, null, bodyParameters);
+            SimpleEntity simpleEntity = adminAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
             adminUser.Token = simpleEntity.content;
             return new AdminService(adminUser);
         }
