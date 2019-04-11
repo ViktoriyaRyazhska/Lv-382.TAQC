@@ -12,7 +12,7 @@ namespace RestTestProject.Data
 
         public Lifetime()
         {
-            Time = String.Empty;
+            Time = string.Empty;
         }
 
         public Lifetime(string time)

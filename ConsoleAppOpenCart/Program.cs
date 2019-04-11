@@ -1,12 +1,8 @@
 ﻿using Newtonsoft.Json;
-using OpenCartTestProject.Data;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleAppOpenCart
 {
@@ -191,18 +187,18 @@ namespace ConsoleAppOpenCart
             //
             // REST
             //
-            string url = "https://api.github.com";
-            //string url = "http://localhost:8080";
+            //string url = "https://api.github.com";
+            string url = "http://localhost:8080";
             var client = new RestClient(url);
             //
             //var request = new RestRequest("/orgs/dotnet/repos", Method.GET);
-            var request = new RestRequest("/orgs/dotnet", Method.GET);
+            //var request = new RestRequest("/orgs/dotnet", Method.GET);
             //var request = new RestRequest("/tokenlifetime", Method.GET);
             //var request = new RestRequest("/", Method.GET);
             //
-            //var request = new RestRequest("/login", Method.POST);
-            //request.AddParameter("name", "admin");
-            //request.AddParameter("password", "qwerty");
+            var request = new RestRequest("/login", Method.POST);
+            request.AddParameter("name", "admin");
+            request.AddParameter("password", "qwerty");
             //
             //var request = new RestRequest("/tokenlifetime", Method.PUT);
             //request.AddParameter("token", "HNPQ9A0Q455EDPAUV8FIL232AQ7RICBT");

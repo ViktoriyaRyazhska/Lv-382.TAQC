@@ -3,6 +3,8 @@
 using NUnit.Framework;
 using RestSharp;
 using RestSharp.Serialization.Json;
+using RestTestProject.Data;
+using RestTestProject.Services;
 
 namespace RestTestProject
 {
@@ -138,7 +140,7 @@ namespace RestTestProject
             Assert.AreEqual("800000", time, "Time Error");
         }
 
-        //[Test, Order(1)]
+        //[Test]
         public void VerifyLogin()
         {
             var client = new RestClient("http://localhost:8080/login");
@@ -150,6 +152,15 @@ namespace RestTestProject
             JsonDeserializer deserial = new JsonDeserializer();
             tokenAdmin = deserial.Deserialize<RestResult>(response).content;
             Assert.IsTrue(tokenAdmin.Length > 0, "Login Error");
+        }
+
+        [Test]
+        public void CheckTimeChange()
+        {
+            IUser admin = UserRepository.Get().Admin();
+            AdminService loggedAdmin = new GuestService().SuccessfulAdminLogin(admin);
+            string newTime = loggedAdmin.UpdateTokenlifetime(new Lifetime("800000"));
+            Assert.AreEqual("800000", newTime, "Time Error");
         }
 
         //[Test, Order(2)]

@@ -13,7 +13,7 @@ namespace RestTestProject.Data
         public static string Server
         {
             get { return server; }
-            set { server = value; }
+            //set { server = value; }
         }
 
         private RestUrlRepository()
