@@ -15,14 +15,14 @@ namespace RestTestProject.Services
         {
         }
 
-        public string UpdateTokenlifetime(Lifetime lifetime)
+        public bool UpdateTokenlifetime(Lifetime lifetime)
         {
-            Console.WriteLine("lifetime = " + lifetime.Time + "   User = " + user);
+            //Console.WriteLine("lifetime = " + lifetime.Time + "   User = " + user);
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters("token", user.Token)
                 .AddParameters("time", lifetime.Time);
             SimpleEntity simpleEntity = tokenLifetimeResource.HttpPutAsObject(null, null, bodyParameters);
-            return simpleEntity.content;
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
     }
 }

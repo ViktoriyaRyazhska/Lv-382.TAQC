@@ -20,14 +20,36 @@ namespace RestTestProject.Data
         {
         }
 
-        public static RestUrl GetAuthorized()
+        public static RestUrl GetAdminAuthorized()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
                 .AddGetUrl("/login/users")
                 .AddPostUrl("/login")
                 .AddPutUrl("")
-                .AddDeleteUrl("/logout");
+                .AddDeleteUrl("");
+            //.AddDeleteUrl("/logout");
+        }
+
+        public static RestUrl GetUserAuthorized()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("")
+                .AddPostUrl("/login")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+            //.AddDeleteUrl("/logout");
+        }
+
+        public static RestUrl GetLogout()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("")
+                .AddPostUrl("/logout")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
         }
 
         public static RestUrl GetTokenLifetime()
