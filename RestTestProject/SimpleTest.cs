@@ -154,14 +154,16 @@ namespace RestTestProject
             Assert.IsTrue(tokenAdmin.Length > 0, "Login Error");
         }
 
-        [Test]
-        public void CheckTimeChange()
-        {
-            IUser admin = UserRepository.Get().Admin();
-            AdminService loggedAdmin = new GuestService().SuccessfulAdminLogin(admin);
-            string newTime = loggedAdmin.UpdateTokenlifetime(new Lifetime("800000"));
-            Assert.AreEqual("800000", newTime, "Time Error");
-        }
+        //
+        //[Test]
+        //public void CheckTimeChange()
+        //{
+        //    IUser admin = UserRepository.Get().Admin();
+        //    AdminService loggedAdmin = new GuestService().SuccessfulAdminLogin(admin);
+        //    string newTime = loggedAdmin.UpdateTokenlifetime(new Lifetime("800000"));
+ 
+        //     Assert.AreEqual("800000", newTime, "Time Error");
+        //}
 
         //[Test, Order(2)]
         public void VerifyTime()

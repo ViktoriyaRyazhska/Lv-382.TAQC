@@ -13,18 +13,43 @@ namespace RestTestProject.Services
     public class UserService : GuestService
     {
         protected IUser user;
+        protected UserResource userResorce;
         protected LogoutResource logoutResource;
 
         public UserService(IUser user) : base()
         {
             this.user = user;
             logoutResource = new LogoutResource();
+            userResorce = new UserResource();
         }
 
         public bool IsLoggined()
         {
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
+
+        //--------------User functionality----------------------------
+        public SimpleEntity GetUserName()
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            SimpleEntity simpleEntity = userResorce.HttpGetAsObject(null, bodyParameters);
+            return simpleEntity;
+        }
+
+        public void ChangePassword()
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token)
+               .AddParameters("oldPassword", user.Password)
+               .AddParameters("newPassword", "SomeNewPassword");
+            SimpleEntity simpleEntity = userResorce.HttpPutAsObject(null, null, bodyParameters);
+            //TODO
+            //Check the correctness of password change
+        }
+        //------------------------------------------------------------
+
+
 
         public GuestService Logout()
         {
