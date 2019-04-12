@@ -41,7 +41,7 @@ namespace RestTestProject.Data
         public IUser NewUser()
         {
             return User.Get()
-               .SetName("ivan")
+               .SetName("akimatc")
                .SetPassword("qwerty")
                .Build();
         }
