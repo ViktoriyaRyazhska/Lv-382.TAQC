@@ -174,5 +174,55 @@ namespace RestTestProject.Tests
             Console.WriteLine(userService.GetUserName());
         }
 
+
+        //  <<<SERHII
+        [Test]
+        public void GetAllItemsTest()
+        {
+            Console.WriteLine(userService.GetAllItems());
+        }
+
+        [Test]
+        public void GetAllItemsIndexesTest()
+        {
+            Console.WriteLine(userService.GetAllItemsIndexes());
+        }
+
+        [Test]
+        public void GetItemTest()
+        {
+            Console.WriteLine(userService.GetItem());
+        }
+
+        [Test]
+        public void GetUserItemsTest()
+        {
+            Console.WriteLine(userService.GetUserItems());
+        }
+
+        [Test]
+        public void GetUserItemTest()
+        {
+            Console.WriteLine(userService.GetUserItem());
+        }
+
+        [Test]
+        public void AddUserItemTest()
+        {
+            Console.WriteLine(userService.AddUserItem());
+        }
+
+        [Test]
+        public void DeleteUserItemTest()
+        {
+            Console.WriteLine(userService.DeleteUserItem());
+        }
+
+        [Test]
+        public void UpdateUserItemTest()
+        {
+            Console.WriteLine(userService.UpdateUserItem());
+        }
+        //  SERHII>>>
     }
 }

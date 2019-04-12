@@ -80,6 +80,7 @@
     <Compile Include="Resources\TokenLifetimeResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
     <Compile Include="Resources\UserItemsResource.cs" />
+    <Compile Include="Resources\UserResource.cs" />
     <Compile Include="Rules\RestParameters.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\GuestService.cs" />

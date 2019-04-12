@@ -61,7 +61,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("/tokenlifetime")
                 .AddDeleteUrl("");
         }
-        ////////////////////////////
+        //  <<<SERHII
         public static RestUrl UserItem()
         {
             return new RestUrl()
@@ -111,6 +111,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
+        //  SERHII>>>
 
         public static RestUrl GetUser()
         {

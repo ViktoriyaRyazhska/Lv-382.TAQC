@@ -46,7 +46,7 @@ namespace RestTestProject.Services
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = userResorce.HttpGetAsObject(null, bodyParameters);
+            SimpleEntity simpleEntity = userResorce.HttpGetAsObject(bodyParameters, null);
             return simpleEntity;
         }
 
@@ -62,6 +62,81 @@ namespace RestTestProject.Services
         }
         //------------------------------------------------------------
 
+        //  <<<SERHII
+        public SimpleEntity GetAllItems()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            SimpleEntity simpleEntity = allItemsResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
+        }
+
+        public SimpleEntity GetAllItemsIndexes()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            SimpleEntity simpleEntity = allItemsIndexesResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
+        }
+
+        public SimpleEntity GetItem()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+               //.AddParameters("index", user.Token);
+            SimpleEntity simpleEntity = itemResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
+        }
+
+        public SimpleEntity GetUserItems()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token)
+               .AddParameters("name", user.Name);
+            SimpleEntity simpleEntity = userItemsResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
+        }
+
+        public SimpleEntity GetUserItem()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token)
+               .AddParameters("name", user.Name);
+            //.AddParameters("index", user.Token);
+            SimpleEntity simpleEntity = userItemResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
+        }
+
+        public SimpleEntity AddUserItem()
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            //.AddParameters("item", user.Token);
+            //.AddParameters("index", user.Token);
+            SimpleEntity simpleEntity = userItemResource.HttpPostAsObject(null, null, bodyParameters);
+            return simpleEntity;
+        }
+
+        public SimpleEntity DeleteUserItem()
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            //.AddParameters("index", user.Token);
+            SimpleEntity simpleEntity = userItemResource.HttpDeleteAsObject(null, null, bodyParameters);
+            return simpleEntity;
+        }
+
+        public SimpleEntity UpdateUserItem()
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            //.AddParameters("item", user.Token);
+            //.AddParameters("index", user.Token);
+            SimpleEntity simpleEntity = userItemResource.HttpPutAsObject(null, null, bodyParameters);
+            return simpleEntity;
+        }
+
+        //  SERHII>>>
 
 
         public GuestService Logout()
