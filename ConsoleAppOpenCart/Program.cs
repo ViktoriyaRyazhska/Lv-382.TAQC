@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using log4net;
+using log4net.Config;
+using log4net.Repository.Hierarchy;
+using Newtonsoft.Json;
 using OpenCartTestProject.Data;
 using RestSharp;
 using RestSharp.Serialization.Json;
@@ -79,6 +82,13 @@ namespace ConsoleAppOpenCart
 
     public class Program
     {
+        //private static ILog log = LogManager.GetLogger("Program");
+        //private static Logger log = LogManager.GetLogger("Program");
+        //private static Logger log = LogManager.GetCurrentClassLogger();
+        //
+        public static ILog log = LogManager.GetLogger(typeof(Program));
+        //public static Logger log = LogManager.GetCurrentClassLogger();
+
         public static void Main(string[] args)
         {
             // 1. Use Constructor
@@ -191,6 +201,7 @@ namespace ConsoleAppOpenCart
             //
             // REST
             //
+            /*
             string url = "https://api.github.com";
             //string url = "http://localhost:8080";
             var client = new RestClient(url);
@@ -228,6 +239,18 @@ namespace ConsoleAppOpenCart
             //{
             //    Console.WriteLine("\nDeserialize content: " + current);
             //}
+            */
+            //
+            //BasicConfigurator.Configure();
+            XmlConfigurator.Configure();
+            //
+            //log.Trace("NLOG: Trace Level test");
+            log.Debug("2*Debug Level test");
+            log.Info("2*Info Level");
+            log.Warn("2*Warn Level");
+            log.Error("2*Error Level1");
+            log.Error("2*Error Level2 test");
+            //log.Fatal("2*Fatal Level");
             //
             Console.WriteLine("\nDone.");
         }
