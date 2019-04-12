@@ -14,11 +14,24 @@ namespace RestTestProject.Services
     {
         protected IUser user;
         protected LogoutResource logoutResource;
+        //
+        protected ALLItemsIndexesResource allItemsIndexesResource;
+        protected ALLItemsResource allItemsResource;
+        protected ItemResource itemResource;
+        protected UserItemResource userItemResource;
+        protected UserItemsResource userItemsResource;
+
 
         public UserService(IUser user) : base()
         {
             this.user = user;
             logoutResource = new LogoutResource();
+            //
+            allItemsIndexesResource = new ALLItemsIndexesResource();
+            allItemsResource = new ALLItemsResource();
+            itemResource = new ItemResource();
+            userItemResource = new UserItemResource();
+            userItemsResource = new UserItemsResource();
         }
 
         public bool IsLoggined()
@@ -42,5 +55,6 @@ namespace RestTestProject.Services
             //Console.WriteLine("\t***Logout(): DONE ");
             return new GuestService();
         }
+        
     }
 }

@@ -23,14 +23,14 @@ namespace RestTestProject.Tests
         // DataProvider
         private static readonly object[] Admins =
         {
-            new object[] { UserRepository.Get().Admin() }
-        };
+                new object[] { UserRepository.Get().Admin() }
+            };
 
         // DataProvider
         private static readonly object[] TokenLifeTimes =
         {
-            new object[] { LifetimeRepository.GetLongTime() }
-        };
+                new object[] { LifetimeRepository.GetLongTime() }
+            };
 
 
         [OneTimeSetUp]
@@ -98,37 +98,37 @@ namespace RestTestProject.Tests
         //};
 
         //[Test, TestCaseSource("AdminUsers")]
-        public void ExamineTime(IUser adminUser, Lifetime newTokenlifetime)
-        {
-            GuestService guestService = new GuestService();
-            Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Current Time Error");
-            //
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
-            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
-            //
-            currentTokenlifetime = adminService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Long Time Error");
-            //
-            guestService = adminService.Logout();
-            Assert.IsEmpty(adminUser.Token, "Logout Error"); // TODO
-            //
-            // Return to Previous State
-            currentTokenlifetime.Time = LifetimeRepository.DEFAULT_TOKEN_LIFETIME;
-            adminService = guestService.SuccessfulAdminLogin(adminUser);
-            responseStatus = adminService.UpdateTokenlifetime(currentTokenlifetime);
-            //Console.WriteLine("true.ToString() = " + true.ToString());
-            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
-            //
-            guestService = adminService.Logout();
-            currentTokenlifetime = guestService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Current Time Error");
-        }
+        //public void ExamineTime(IUser adminUser, Lifetime newTokenlifetime)
+        //{
+        //    GuestService guestService = new GuestService();
+        //    Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
+        //    //
+        //    AdminService adminService = guestService
+        //        .SuccessfulAdminLogin(adminUser);
+        //    bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    currentTokenlifetime = adminService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Long Time Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    Assert.IsEmpty(adminUser.Token, "Logout Error"); // TODO
+        //    //
+        //    // Return to Previous State
+        //    currentTokenlifetime.Time = LifetimeRepository.DEFAULT_TOKEN_LIFETIME;
+        //    adminService = guestService.SuccessfulAdminLogin(adminUser);
+        //    responseStatus = adminService.UpdateTokenlifetime(currentTokenlifetime);
+        //    //Console.WriteLine("true.ToString() = " + true.ToString());
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
+        //}
 
     }
 }

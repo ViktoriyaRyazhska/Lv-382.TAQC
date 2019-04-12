@@ -70,11 +70,16 @@
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Entity\SimpleEntity.cs" />
+    <Compile Include="Resources\ALLItemsResource.cs" />
+    <Compile Include="Resources\ALLItemsIndexesResource.cs" />
     <Compile Include="Resources\ARestCrud.cs" />
     <Compile Include="Resources\AdminAuthorizedResource.cs" />
+    <Compile Include="Resources\ItemResource.cs" />
+    <Compile Include="Resources\UserItemResource.cs" />
     <Compile Include="Resources\LogoutResource.cs" />
     <Compile Include="Resources\TokenLifetimeResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
+    <Compile Include="Resources\UserItemsResource.cs" />
     <Compile Include="Rules\RestParameters.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\GuestService.cs" />

@@ -154,16 +154,6 @@
 //            Assert.IsTrue(tokenAdmin.Length > 0, "Login Error");
 //        }
 
-<<<<<<< HEAD
-//        [Test]
-//        public void CheckTimeChange()
-//        {
-//            IUser admin = UserRepository.Get().Admin();
-//            AdminService loggedAdmin = new GuestService().SuccessfulAdminLogin(admin);
-//            string newTime = loggedAdmin.UpdateTokenlifetime(new Lifetime("800000"));
-//            Assert.AreEqual("800000", newTime, "Time Error");
-//        }
-=======
         //[Test]
         //public void CheckTimeChange()
         //{
@@ -172,7 +162,6 @@
         //    string newTime = loggedAdmin.UpdateTokenlifetime(new Lifetime("800000"));
         //    Assert.AreEqual("800000", newTime, "Time Error");
         //}
->>>>>>> efab833bc47438219971a6c3655cc8b451417aad
 
 //        //[Test, Order(2)]
 //        public void VerifyTime()
