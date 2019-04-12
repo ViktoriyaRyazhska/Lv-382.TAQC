@@ -128,8 +128,6 @@ namespace RestTestProject.Tests
             currentTokenlifetime = guestService.GetCurrentTokenLifetime();
             Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
                         currentTokenlifetime.Time, "Current Time Error");
-            string changedLifetime = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin()).UpdateTokenlifetime(new Lifetime("800000"));
-            Assert.AreEqual("800000", changedLifetime, "Time Error");
         }
 
     }
