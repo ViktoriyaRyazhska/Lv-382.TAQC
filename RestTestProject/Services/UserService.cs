@@ -2,32 +2,28 @@
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Services
 {
     public class UserService : GuestService
     {
+        //------------------ User ------------------------
         protected IUser user;
         protected UserResource userResorce;
-        protected LogoutResource logoutResource;
-        //
+        //------------------ Items ------------------------
         protected ALLItemsIndexesResource allItemsIndexesResource;
         protected ALLItemsResource allItemsResource;
         protected ItemResource itemResource;
         protected UserItemResource userItemResource;
         protected UserItemsResource userItemsResource;
+        //-------------------------------------------------
+        protected LogoutResource logoutResource;
 
 
         public UserService(IUser user) : base()
         {
             this.user = user;
             logoutResource = new LogoutResource();
-            //
             allItemsIndexesResource = new ALLItemsIndexesResource();
             allItemsResource = new ALLItemsResource();
             itemResource = new ItemResource();
@@ -44,21 +40,18 @@ namespace RestTestProject.Services
         //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {
-            RestParameters bodyParameters = new RestParameters()
+            RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = userResorce.HttpGetAsObject(bodyParameters, null);
-            return simpleEntity;
+            return userResorce.HttpGetAsObject(urlParameters, null);
         }
 
-        public void ChangePassword()
+        public SimpleEntity ChangePassword()
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token)
                .AddParameters("oldPassword", user.Password)
                .AddParameters("newPassword", "SomeNewPassword");
-            SimpleEntity simpleEntity = userResorce.HttpPutAsObject(null, null, bodyParameters);
-            //TODO
-            //Check the correctness of password change
+            return userResorce.HttpPutAsObject(null, null, bodyParameters);
         }
         //------------------------------------------------------------
 
@@ -141,18 +134,16 @@ namespace RestTestProject.Services
 
         public GuestService Logout()
         {
-            //Console.WriteLine("\t***Logout(): user = " + user);
-            //
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters("token", user.Token)
                 .AddParameters("name", user.Name);
             SimpleEntity simpleEntity = logoutResource.HttpPostAsObject(null, null, bodyParameters);
-            //Console.WriteLine("\t***Logout(): simpleEntity = " + simpleEntity);
+            //Checking for successful logout
             if (simpleEntity.content.ToLower().Equals(true.ToString().ToLower()))
             {
+                //TODO exeption
                 user.Token = string.Empty;
             }
-            //Console.WriteLine("\t***Logout(): DONE ");
             return new GuestService();
         }
         

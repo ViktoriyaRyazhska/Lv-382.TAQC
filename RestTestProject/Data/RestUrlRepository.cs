@@ -28,7 +28,6 @@ namespace RestTestProject.Data
                 .AddPostUrl("/login")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
-            //.AddDeleteUrl("/logout");
         }
 
         public static RestUrl GetUserAuthorized()
