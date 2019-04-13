@@ -61,6 +61,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CoolDowntime.cs" />
+    <Compile Include="Data\CoolDowntimeRepository.cs" />
     <Compile Include="Data\IUser.cs" />
     <Compile Include="Data\Lifetime.cs" />
     <Compile Include="Data\LifetimeRepository.cs" />
@@ -70,14 +72,18 @@
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Entity\SimpleEntity.cs" />
+    <Compile Include="Resources\AliveTockensResource.cs" />
     <Compile Include="Resources\ALLItemsResource.cs" />
     <Compile Include="Resources\ALLItemsIndexesResource.cs" />
     <Compile Include="Resources\ARestCrud.cs" />
     <Compile Include="Resources\AdminAuthorizedResource.cs" />
+    <Compile Include="Resources\CoolDownTimeResource.cs" />
+    <Compile Include="Resources\LoginedAdminsResourse.cs" />
     <Compile Include="Resources\ItemResource.cs" />
     <Compile Include="Resources\UserItemResource.cs" />
     <Compile Include="Resources\LogoutResource.cs" />
     <Compile Include="Resources\TokenLifetimeResource.cs" />
+    <Compile Include="Resources\UnsuccessfulLoginMessageResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
     <Compile Include="Resources\UserItemsResource.cs" />
     <Compile Include="Resources\UserResource.cs" />
@@ -89,6 +95,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\CreationTests.cs" />
     <Compile Include="Tests\LifeTimeTest.cs" />
+    <Compile Include="Tests\UnsuccessfulLoginTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
