@@ -191,13 +191,13 @@ namespace RestTestProject.Tests
         [Test]
         public void GetItemTest()
         {
-            Console.WriteLine(userService.GetItem());
+            Console.WriteLine(adminService.GetItem());
         }
 
         [Test]
         public void GetUserItemsTest()
         {
-            Console.WriteLine(userService.GetUserItems());
+            Console.WriteLine(adminService.GetUserItems());
         }
 
         [Test]
@@ -206,10 +206,10 @@ namespace RestTestProject.Tests
             Console.WriteLine(userService.GetUserItem());
         }
 
-        [Test]
+        //[Test]
         public void AddUserItemTest()
         {
-            Console.WriteLine(userService.AddUserItem());
+            //Console.WriteLine(userService.AddUserItem());
         }
 
         [Test]

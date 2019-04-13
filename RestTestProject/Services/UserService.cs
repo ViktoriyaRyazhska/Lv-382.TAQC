@@ -83,8 +83,8 @@ namespace RestTestProject.Services
         public SimpleEntity GetUserItems()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("name", user.Name);
+               .AddParameters("token", user.Token);
+               //.AddParameters("name", user.Name);
             SimpleEntity simpleEntity = userItemsResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
@@ -94,25 +94,23 @@ namespace RestTestProject.Services
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token)
                .AddParameters("name", user.Name);
-            //.AddParameters("index", user.Token);
             SimpleEntity simpleEntity = userItemResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
-        public string AddUserItem()
+        public SimpleEntity AddUserItem(string item)
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token)
-               .AddParameters("item", "city");
+               .AddParameters("item", item);
             SimpleEntity simpleEntity = userItemResource.HttpPostAsObject(urlParameters, null, null);
-            return simpleEntity.content;
+            return simpleEntity;
         }
 
         public SimpleEntity DeleteUserItem()
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            //.AddParameters("index", user.Token);
             SimpleEntity simpleEntity = userItemResource.HttpDeleteAsObject(null, null, bodyParameters);
             return simpleEntity;
         }
@@ -120,10 +118,9 @@ namespace RestTestProject.Services
         public SimpleEntity UpdateUserItem()
         {
             RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token);
-            //.AddParameters("item", user.Token);
-            //.AddParameters("index", user.Token);
-            SimpleEntity simpleEntity = userItemResource.HttpPutAsObject(null, null, bodyParameters);
+               .AddParameters("token", user.Token)
+               .AddParameters("item", "bla");
+            SimpleEntity simpleEntity = userItemResource.HttpPutAsObject(bodyParameters, null, null);
             return simpleEntity;
         }
 
