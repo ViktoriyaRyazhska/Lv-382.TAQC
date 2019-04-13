@@ -80,10 +80,11 @@
     <Compile Include="Resources\CoolDownTimeResource.cs" />
     <Compile Include="Resources\LoginedAdminsResourse.cs" />
     <Compile Include="Resources\ItemResource.cs" />
+    <Compile Include="Resources\LoginedUsersResourse.cs" />
     <Compile Include="Resources\UserItemResource.cs" />
     <Compile Include="Resources\LogoutResource.cs" />
     <Compile Include="Resources\TokenLifetimeResource.cs" />
-    <Compile Include="Resources\UnsuccessfulLoginMessageResource.cs" />
+    <Compile Include="Resources\UnsuccessfulLoginResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
     <Compile Include="Resources\UserItemsResource.cs" />
     <Compile Include="Resources\UserResource.cs" />

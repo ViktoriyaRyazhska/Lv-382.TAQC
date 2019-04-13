@@ -61,7 +61,7 @@ namespace RestTestProject.Data
                 .AddDeleteUrl("");
         }
         //Roman
-        public static RestUrl GetUnsuccessfulLoginMessage()
+        public static RestUrl UnsuccessfulLogin()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
@@ -86,6 +86,16 @@ namespace RestTestProject.Data
             return new RestUrl()
                 .AddBaseUrl(Server)
                 .AddGetUrl("/login/admins")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetLoginedUsers()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/login/users")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
