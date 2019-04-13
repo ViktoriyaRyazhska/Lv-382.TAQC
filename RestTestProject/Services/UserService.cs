@@ -49,8 +49,8 @@ namespace RestTestProject.Services
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token)
-               .AddParameters("oldPassword", user.Password)
-               .AddParameters("newPassword", "SomeNewPassword");
+               .AddParameters("oldpassword", user.Password)
+               .AddParameters("newpassword", "SomeNewPassword");
             return userResorce.HttpPutAsObject(null, null, bodyParameters);
         }
         //------------------------------------------------------------

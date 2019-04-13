@@ -41,6 +41,8 @@ namespace RestTestProject.Services
         }
 
         public string UnsuccessfulLogin(IUser user)
+        //--------------Login functionality----------------------------
+        public string UnsuccessfulUserLogin(IUser user)
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("name", user.Name)
@@ -48,7 +50,7 @@ namespace RestTestProject.Services
                SimpleEntity simpleEntity = unsuccessfulLoginResource.HttpPostAsObject(null, null, bodyParameters);
             return simpleEntity.content;
         }
-        //
+       
         public UserService SuccessfulUserLogin(IUser user)
         {
             RestParameters bodyParameters = new RestParameters()
@@ -68,6 +70,6 @@ namespace RestTestProject.Services
             adminUser.Token = simpleEntity.content;
             return new AdminService(adminUser);
         }
-
+        ////-----------------------------------------------------------
     }
 }

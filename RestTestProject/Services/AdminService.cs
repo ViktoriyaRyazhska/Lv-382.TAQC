@@ -23,6 +23,26 @@ namespace RestTestProject.Services
             aliveTockensResource = new AliveTockensResource();
         }
 
+        public SimpleEntity RemoveUser(string userName)
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token)
+               .AddParameters("name", userName);
+            return userResorce.HttpDeleteAsObject(null,null, bodyParameters);
+        }
+
+        public bool CreateUser(string newUserName, string newUserPassword, string newUserRights)
+        {
+            RestParameters bodyParameters = new RestParameters()
+               .AddParameters("token", user.Token)
+               .AddParameters("name", newUserName)
+               .AddParameters("password", newUserPassword)
+               .AddParameters("rights", newUserRights);
+            SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);
+            //TODO
+            return entity.content.ToLower().Equals(true.ToString().ToLower());
+        }
+
         public bool UpdateTokenlifetime(Lifetime lifetime)
         {
             //Console.WriteLine("lifetime = " + lifetime.Time + "   User = " + user);
