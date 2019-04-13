@@ -10,9 +10,10 @@ namespace RestTestProject.Resources
 {
     public abstract class ARestCrud<T>
     {
+        //----------------------------Error messages--------------------------------
         private const string NOT_SUPPORT_MESSAGE = "Method {0} not Support for {1} Resource";
         private const string CONVERT_OBJECT_ERROR = "ConvertToObject Error. {0}\n{1}";
-        //
+        //---------------------------------------------------------------------------
         private const string URL_PARAMETERS_SEPARATOR = "?";
         private const string NEXT_PARAMETERS_SEPARATOR = "&";
         private const string KEY_VALUE_SEPARATOR = "=";
@@ -93,7 +94,6 @@ namespace RestTestProject.Resources
                 bool isFirstParameter = true;
                 foreach (KeyValuePair<string, string> current in urlParameters.Parameters)
                 {
-                    //Console.WriteLine("urlParameters: key = " + current.Key + " value = " + current.Value);
                     if (isFirstParameter)
                     {
                         urlTemplate = urlTemplate + URL_PARAMETERS_SEPARATOR;
@@ -115,7 +115,6 @@ namespace RestTestProject.Resources
             {
                 foreach (KeyValuePair<string, string> current in pathVariables.Parameters)
                 {
-                    //Console.WriteLine("pathVariables: key = " + current.Key + " value = " + current.Value);
                     request.AddUrlSegment(current.Key, current.Value);
                 }
             }
@@ -128,7 +127,6 @@ namespace RestTestProject.Resources
             {
                 foreach (KeyValuePair<string, string> current in bodyParameters.Parameters)
                 {
-                    //Console.WriteLine("bodyParameters: key = " + current.Key + " value = " + current.Value);
                     request.AddParameter(current.Key, current.Value);
                 }
             }
@@ -139,7 +137,6 @@ namespace RestTestProject.Resources
                     RestParameters pathVariables, RestParameters bodyParameters)
         {
             string url = PrepareUrlParameters(restUrl.ReadBaseUrl() + restUrl.GetUrl(restUrlKeys), urlParameters);
-            //Console.WriteLine("\t\t+++url = " + url + "METOD = " + dictionaryMethods[restUrlKeys].ToString());
             RestRequest request = new RestRequest(url, dictionaryMethods[restUrlKeys]);
             request = PreparePathVariables(request, pathVariables);
             request = prepareRequestBody(request, bodyParameters);
