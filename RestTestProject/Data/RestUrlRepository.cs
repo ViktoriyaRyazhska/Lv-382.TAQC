@@ -102,5 +102,66 @@ namespace RestTestProject.Data
                 .AddDeleteUrl("");
         }
         //////////////////////////////////////
+        //  <<<SERHII
+        public static RestUrl UserItem()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/item")
+                .AddPostUrl("/item")
+                .AddPutUrl("/item")
+                .AddDeleteUrl("/item");
+        }
+
+        public static RestUrl GetUserItems()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/item/user")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetItem()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/item")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetALLItems()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/items")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetALLItemsIndexes()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/itemindexes")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+        //  SERHII>>>
+
+        public static RestUrl GetUser()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/user")
+                .AddPostUrl("/user")
+                .AddPutUrl("/user")
+                .AddDeleteUrl("/user");
+        }
     }
 }

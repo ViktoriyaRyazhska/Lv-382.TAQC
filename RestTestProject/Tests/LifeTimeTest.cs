@@ -3,13 +3,12 @@ using RestTestProject.Data;
 using RestTestProject.Resources;
 using RestTestProject.Services;
 using NUnit.Framework.Interfaces;
-using RestTestProject.Data;
-using RestTestProject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace RestTestProject.Tests
 {
@@ -17,20 +16,21 @@ namespace RestTestProject.Tests
     public class LifeTimeTest
     {
         private GuestService guestService;
-        //private AdminService userService;
+        private UserService userService;
         private AdminService adminService;
+
 
         // DataProvider
         private static readonly object[] Admins =
         {
-            new object[] { UserRepository.Get().Admin() }
-        };
+                new object[] { UserRepository.Get().Admin() }
+            };
 
         // DataProvider
         private static readonly object[] TokenLifeTimes =
         {
-            new object[] { LifetimeRepository.GetLongTime() }
-        };
+                new object[] { LifetimeRepository.GetLongTime() }
+            };
 
 
         [OneTimeSetUp]
@@ -51,6 +51,7 @@ namespace RestTestProject.Tests
         {
             //adminService = guestService.SuccessfulAdminLogin(adminUser);
             adminService = guestService.SuccessfulAdminLogin(UserRepository.Get().Admin());
+            userService = guestService.SuccessfulUserLogin(UserRepository.Get().NewUser());
         }
 
         [TearDown]
@@ -77,58 +78,151 @@ namespace RestTestProject.Tests
             }
         }
 
-        [Test, TestCaseSource("TokenLifeTimes")]
-        public void CheckTimeChange(Lifetime newTokenlifetime)
-        {
-            // Steps
-            bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
-            //
-            // Check
-            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
-            //
-            Lifetime currentTokenlifetime = adminService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Long Time Error");
-        }
-
-        //private static readonly object[] AdminUsers =
+        //[Test, TestCaseSource("TokenLifeTimes")]
+        //public void CheckTimeChange(Lifetime newTokenlifetime)
         //{
-        //    //new object[] { UserRepository.Get().Registered() },
-        //    new object[] { UserRepository.Get().Admin(), LifetimeRepository.GetLongTime() }
-        //};
+        //    // Steps
+        //    bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
+        //    //
+        //    // Check
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    Lifetime currentTokenlifetime = adminService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Long Time Error");
+        //}
+
+        ////private static readonly object[] AdminUsers =
+        ////{
+        ////    //new object[] { UserRepository.Get().Registered() },
+        ////    new object[] { UserRepository.Get().Admin(), LifetimeRepository.GetLongTime() }
+        ////};
+
+        ////[Test, TestCaseSource("AdminUsers")]
+        //public void ExamineTime(IUser adminUser, Lifetime newTokenlifetime)
+        //{
+        //    GuestService guestService = new GuestService();
+        //    Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
+        //    //
+        //    AdminService adminService = guestService
+        //        .SuccessfulAdminLogin(adminUser);
+        //    bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    currentTokenlifetime = adminService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Long Time Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    Assert.IsEmpty(adminUser.Token, "Logout Error"); // TODO
+        //    //
+        //    // Return to Previous State
+        //    currentTokenlifetime.Time = LifetimeRepository.DEFAULT_TOKEN_LIFETIME;
+        //    adminService = guestService.SuccessfulAdminLogin(adminUser);
+        //    responseStatus = adminService.UpdateTokenlifetime(currentTokenlifetime);
+        //    //Console.WriteLine("true.ToString() = " + true.ToString());
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
 
         //[Test, TestCaseSource("AdminUsers")]
-        public void ExamineTime(IUser adminUser, Lifetime newTokenlifetime)
+        //public void ExamineTime(IUser adminUser, Lifetime newTokenlifetime)
+        //{
+        //    GuestService guestService = new GuestService();
+        //    Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
+        //    //
+        //    AdminService adminService = guestService
+        //        .SuccessfulAdminLogin(adminUser);
+        //    bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    currentTokenlifetime = adminService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Long Time Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    Assert.IsEmpty(adminUser.Token, "Logout Error"); // TODO
+        //    //
+        //    // Return to Previous State
+        //    currentTokenlifetime.Time = LifetimeRepository.DEFAULT_TOKEN_LIFETIME;
+        //    adminService = guestService.SuccessfulAdminLogin(adminUser);
+        //    responseStatus = adminService.UpdateTokenlifetime(currentTokenlifetime);
+        //    //Console.WriteLine("true.ToString() = " + true.ToString());
+        //    Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
+        //    //
+        //    guestService = adminService.Logout();
+        //    currentTokenlifetime = guestService.GetCurrentTokenLifetime();
+        //    Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
+        //                currentTokenlifetime.Time, "Current Time Error");
+        //}
+        //}
+        ///Ihor`s FirstTest
+        //{
+        //string changedLifetime = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin()).UpdateTokenlifetime(new Lifetime("800000"));
+        //Assert.AreEqual("800000", changedLifetime, "Time Error");
+        //}
+        [Test]
+        public void GetUserNameTest()
         {
-            GuestService guestService = new GuestService();
-            Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Current Time Error");
-            //
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            bool responseStatus = adminService.UpdateTokenlifetime(newTokenlifetime);
-            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
-            //
-            currentTokenlifetime = adminService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.LONG_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Long Time Error");
-            //
-            guestService = adminService.Logout();
-            Assert.IsEmpty(adminUser.Token, "Logout Error"); // TODO
-            //
-            // Return to Previous State
-            currentTokenlifetime.Time = LifetimeRepository.DEFAULT_TOKEN_LIFETIME;
-            adminService = guestService.SuccessfulAdminLogin(adminUser);
-            responseStatus = adminService.UpdateTokenlifetime(currentTokenlifetime);
-            //Console.WriteLine("true.ToString() = " + true.ToString());
-            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
-            //
-            guestService = adminService.Logout();
-            currentTokenlifetime = guestService.GetCurrentTokenLifetime();
-            Assert.AreEqual(LifetimeRepository.DEFAULT_TOKEN_LIFETIME,
-                        currentTokenlifetime.Time, "Current Time Error");
+            Console.WriteLine(userService.GetUserName());
         }
 
+
+        //  <<<SERHII
+        [Test]
+        public void GetAllItemsTest()
+        {
+            Console.WriteLine(userService.GetAllItems());
+        }
+
+        [Test]
+        public void GetAllItemsIndexesTest()
+        {
+            Console.WriteLine(userService.GetAllItemsIndexes());
+        }
+
+        [Test]
+        public void GetItemTest()
+        {
+            Console.WriteLine(userService.GetItem());
+        }
+
+        [Test]
+        public void GetUserItemsTest()
+        {
+            Console.WriteLine(userService.GetUserItems());
+        }
+
+        [Test]
+        public void GetUserItemTest()
+        {
+            Console.WriteLine(userService.GetUserItem());
+        }
+
+        [Test]
+        public void AddUserItemTest()
+        {
+            Console.WriteLine(userService.AddUserItem());
+        }
+
+        [Test]
+        public void DeleteUserItemTest()
+        {
+            Console.WriteLine(userService.DeleteUserItem());
+        }
+
+        [Test]
+        public void UpdateUserItemTest()
+        {
+            Console.WriteLine(userService.UpdateUserItem());
+        }
+        //  SERHII>>>
     }
 }
