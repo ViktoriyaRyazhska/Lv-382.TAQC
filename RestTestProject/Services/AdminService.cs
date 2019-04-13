@@ -24,5 +24,7 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = tokenLifetimeResource.HttpPutAsObject(null, null, bodyParameters);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
+
+
     }
 }
