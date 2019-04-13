@@ -24,7 +24,7 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/login/users")
+                .AddGetUrl("/login/users") //Ask Jaroslav
                 .AddPostUrl("/login")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
