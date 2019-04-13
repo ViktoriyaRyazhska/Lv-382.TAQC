@@ -66,17 +66,17 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item")
-                .AddPostUrl("/item")
-                .AddPutUrl("/item")
-                .AddDeleteUrl("/item");
+                .AddGetUrl("/item/1")
+                .AddPostUrl("/item/1")
+                .AddPutUrl("/item/1")
+                .AddDeleteUrl("/item/1");
         }
 
         public static RestUrl GetUserItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/user")
+                .AddGetUrl("/user/item")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
@@ -86,7 +86,7 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item")
+                .AddGetUrl("/item/1")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
