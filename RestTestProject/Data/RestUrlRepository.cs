@@ -28,7 +28,6 @@ namespace RestTestProject.Data
                 .AddPostUrl("/login")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
-            //.AddDeleteUrl("/logout");
         }
 
         public static RestUrl GetUserAuthorized()
@@ -61,6 +60,47 @@ namespace RestTestProject.Data
                 .AddPutUrl("/tokenlifetime")
                 .AddDeleteUrl("");
         }
+        //Roman
+        public static RestUrl GetUnsuccessfulLoginMessage()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("")
+                .AddPostUrl("/login")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetCoolDownTime()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/cooldowntime")
+                .AddPostUrl("")
+                .AddPutUrl("/cooldowntime")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetLoginedAdmins()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/login/admins")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetAliveTockens()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/login/tockens")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+        //////////////////////////////////////
         //  <<<SERHII
         public static RestUrl UserItem()
         {

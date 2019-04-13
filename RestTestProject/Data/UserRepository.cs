@@ -46,5 +46,13 @@ namespace RestTestProject.Data
                .Build();
         }
 
+        //Roman
+        public IUser UnsuccessfulUser()
+        {
+            return User.Get()
+               .SetName("ivan")
+               .SetPassword("qwerty")
+               .Build();
+        }
     }
 }
