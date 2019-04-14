@@ -12,7 +12,7 @@ namespace RestTestProject.Tests
         [TestFixture]
         public class LifeTimeTest
         {
-            //private GuestService guestService;
+            private GuestService guestService;
             private UserService userService;
             private AdminService adminService;
 
@@ -33,7 +33,7 @@ namespace RestTestProject.Tests
             [OneTimeSetUp]
             public void BeforeAllMethods()
             {
-                //guestService = new GuestService();
+     
             }
 
             [OneTimeTearDown]
@@ -46,9 +46,10 @@ namespace RestTestProject.Tests
             //public void SetUp(IUser adminUser)
             public void SetUp()
             {
-                //adminService = guestService.SuccessfulAdminLogin(adminUser);
-                adminService.SuccessfulAdminLogin(UserRepository.Get().Admin());
-                userService.SuccessfulUserLogin(UserRepository.Get().NewUser());
+                adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
+                userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().NewUser());
+                //adminService.SuccessfulAdminLogin(UserRepository.Get().Admin());
+                //userService.SuccessfulUserLogin(UserRepository.Get().NewUser());
             }
 
             [TearDown]
@@ -167,15 +168,13 @@ namespace RestTestProject.Tests
 
             private static readonly object[] NewItem =
             {
-                new object[] { "abracadabra" }
+                new string[] { "abracadabra" }
             };
 
             [Test, TestCaseSource("NewItem")]
             public void AddUserItemTest(string newItem)
-            {
-                
+            { 
                 Assert.AreEqual(userService.AddUserItem(newItem).content, "True");
-
             }
 
             
