@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class UnsuccessfulLoginMessageResource : ARestCrud<SimpleEntity>
+    public class UnsuccessfulLoginResource : ARestCrud<SimpleEntity>
     {
-        public UnsuccessfulLoginMessageResource() : base(RestUrlRepository.GetUnsuccessfulLoginMessage())
+        public UnsuccessfulLoginResource() : base(RestUrlRepository.UnsuccessfulLogin())
         {
         }
 
