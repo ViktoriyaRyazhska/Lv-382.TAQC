@@ -27,28 +27,15 @@ namespace RestTestProject.Tests
 
         //----------------------------------------------------- Creation block -------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
-        //?????
-        //private static readonly object[] NewUserData =
-        //{
-        //    new string[] { "TestUser", "qwerty", "false" }
-        //};
-
-        //[Test, TestCaseSource("NewUserData")]
-        //public void CreateNewUserTest(string newUserName, string newUserPassword, string newUserRights)
-        //{
-        //    Assert.IsTrue(adminService.CreateUser(newUserName, newUserPassword, newUserRights));
-        //    Assert.IsTrue(new GuestService().SuccessfulUserLogin(UserRepository.Get().LoginUser(newUserName, newUserPassword)).IsLoggined());
-        //}
-
         private static readonly object[] NewUserData =
         {
-            new object[] { UserRepository.Get().LoginUser("TestUser", "qwerty"), false.ToString() }
+            new object[] { UserRepository.Get().("TestUser", "qwerty"), false.ToString() }
         };
 
         [Test, TestCaseSource("NewUserData")]
-        public void CreateNewUserTest(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
+        public void CreateNewUserTest(IUser newUser, string newUserRights)
         {
-            Assert.IsTrue(adminService.CreateUser(newUser, newUserRights));//(newUserName, newUserPassword, newUserRights));
+            Assert.IsTrue(adminService.CreateUser(newUser, newUserRights));
             Assert.IsTrue(guestService.SuccessfulUserLogin(newUser).IsLoggined());
 
         }
@@ -58,8 +45,6 @@ namespace RestTestProject.Tests
         public void DeleteUserTest(IUser userForDelete, string someStr)
         {
             Assert.IsTrue(adminService.DeleteUser(userForDelete));
-            //System.Console.WriteLine(guestService.SuccessfulUserLogin(userForDelete).GetUserName());
-            //Assert.IsFalse(guestService.SuccessfulUserLogin(userForDelete).IsLoggined());   ???
             Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), "ERROR, user not found");
         }
         //------------------------------------------------- Change Password block ----------------------------------------------------------

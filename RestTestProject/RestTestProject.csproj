@@ -86,7 +86,6 @@
     <Compile Include="Resources\Item resources\ManageItemResource.cs" />
     <Compile Include="Resources\LogoutResource.cs" />
     <Compile Include="Resources\TokenLifetimeResource.cs" />
-    <Compile Include="Resources\UnsuccessfulLoginResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
     <Compile Include="Resources\Item resources\GetUserItemsResource.cs" />
     <Compile Include="Resources\UserResource.cs" />

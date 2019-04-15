@@ -27,7 +27,7 @@ namespace RestTestProject.Services
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token)
-               .AddParameters("name", newUser.Name)//newUserName)
+               .AddParameters("name", newUser.Name)
                .AddParameters("password", newUser.Password)//newUserPassword)
                .AddParameters("rights", newUserRights);
             SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);

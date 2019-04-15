@@ -46,7 +46,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] UnsuccessfulUser =
         {
-            new object[] { UserRepository.Get().UnsuccessfulUser() },
+            new object[] { UserRepository.Get().NonExistentUser() },
         };
 
         [Test, TestCaseSource("UnsuccessfulUser")]
