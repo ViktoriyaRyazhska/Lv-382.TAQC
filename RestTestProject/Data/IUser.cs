@@ -10,6 +10,7 @@ namespace RestTestProject.Data
     {
         string Name { get; }        // Required
         string Password { get; }    // Required
+        string Rights { get; set; }
         string Token { get; set; }
     }
 }

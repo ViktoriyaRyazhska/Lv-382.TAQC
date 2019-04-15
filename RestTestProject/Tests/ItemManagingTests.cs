@@ -18,8 +18,8 @@ namespace RestTestProject.Tests
             [SetUp]
             public void SetUp()
             {
-                adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
-                userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().NewUser());
+                adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
+                userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().ExistingUser());
             }
 
             [TearDown]

@@ -18,6 +18,7 @@ namespace RestTestProject.Data
 
     public interface IUserBuild
     {
+        IUserBuild SetRigths(string rights);
         IUserBuild SetToken(string token);
         IUser Build();
     }
@@ -26,10 +27,12 @@ namespace RestTestProject.Data
     {
         public string Name { get; private set; }            // Required
         public string Password { get; private set; }        // Required
+        public string Rights { get; set; }
         public string Token { get; set; }
 
         private User()
         {
+            Rights = false.ToString();
             Token = string.Empty;
         }
 
@@ -50,6 +53,12 @@ namespace RestTestProject.Data
             return this;
         }
 
+        public IUserBuild SetRigths(string rights)
+        {
+            Rights = rights;
+            return this;
+        }
+
         public IUserBuild SetToken(string token)
         {
             Token = token;
@@ -63,7 +72,7 @@ namespace RestTestProject.Data
 
         public override string ToString()
         {
-            return "[Name: " + Name + ", Password: " + Password + ", Token: " + Token + "]";
+            return "[Name: " + Name + ", Password: " + Password + ", Rights: " + Rights + ", Token: " + Token + "]";
         }
 
     }

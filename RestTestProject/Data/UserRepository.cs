@@ -35,6 +35,7 @@ namespace RestTestProject.Data
             return User.Get()
                .SetName("admin")
                .SetPassword("qwerty")
+               .SetRigths(true.ToString())
                .Build();
         }
 
@@ -49,7 +50,7 @@ namespace RestTestProject.Data
         public IUser NonExistentUser()
         {
             return User.Get()
-               .SetName("ivan")
+               .SetName("SomeUser")
                .SetPassword("qwerty")
                .Build();
         }
