@@ -1,4 +1,5 @@
-﻿using RestTestProject.Data;
+﻿using RestSharp;
+using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
@@ -11,11 +12,11 @@ namespace RestTestProject.Services
         protected IUser user;
         protected UserResource userResorce;
         //------------------ Items ------------------------
-        protected ALLItemsIndexesResource allItemsIndexesResource;
-        protected ALLItemsResource allItemsResource;
-        protected ItemResource itemResource;
-        protected UserItemResource userItemResource;
-        protected UserItemsResource userItemsResource;
+        protected GetAllItemsIndexesResource getAllItemsIndexesResource;
+        protected GetAllItemsResource getAllItemsResource;
+        protected GetUserItemResource getUserItemResource;
+        protected ManageItemResource manageItemResource;
+        protected GetUserItemsResource getUserItemsResource;
         //-------------------------------------------------
         protected LogoutResource logoutResource;
 
@@ -24,11 +25,11 @@ namespace RestTestProject.Services
         {
             this.user = user;
             logoutResource = new LogoutResource();
-            allItemsIndexesResource = new ALLItemsIndexesResource();
-            allItemsResource = new ALLItemsResource();
-            itemResource = new ItemResource();
-            userItemResource = new UserItemResource();
-            userItemsResource = new UserItemsResource();
+            getAllItemsIndexesResource = new GetAllItemsIndexesResource();
+            getAllItemsResource = new GetAllItemsResource();
+            getUserItemResource = new GetUserItemResource();
+            manageItemResource = new ManageItemResource();
+            getUserItemsResource = new GetUserItemsResource();
             userResorce = new UserResource();
         }
 
@@ -60,7 +61,7 @@ namespace RestTestProject.Services
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = allItemsResource.HttpGetAsObject(urlParameters, null);
+            SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
@@ -68,15 +69,17 @@ namespace RestTestProject.Services
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = allItemsIndexesResource.HttpGetAsObject(urlParameters, null);
+            SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
-        public SimpleEntity GetItem()
+        public SimpleEntity GetUserItem()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = itemResource.HttpGetAsObject(urlParameters, null);
+            //.AddParameters("name", user.Name);?????????????????????????????????????????
+            //.AddParameters("index", user.Name);?????????????????????????????????????????
+            SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
@@ -84,46 +87,58 @@ namespace RestTestProject.Services
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-               //.AddParameters("name", user.Name);
-            SimpleEntity simpleEntity = userItemsResource.HttpGetAsObject(urlParameters, null);
+            //.AddParameters("name", user.Name);????????????????? AS Admin ????????????????
+            SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
-        public SimpleEntity GetUserItem()
+        public SimpleEntity GetItem()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("name", user.Name);
-            SimpleEntity simpleEntity = userItemResource.HttpGetAsObject(urlParameters, null);
+               .AddParameters("token", user.Token);
+            //.AddParameters("index", user.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 
-        public SimpleEntity AddUserItem(string item)
+        public SimpleEntity AddItem(string item)
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token)
                .AddParameters("item", item);
-            SimpleEntity simpleEntity = userItemResource.HttpPostAsObject(urlParameters, null, null);
+            //.AddParameters("index", user.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(urlParameters, null, null);
             return simpleEntity;
         }
+        //public IRestRequest AddItem(string item) //, string index
+        //{
+        //    RestParameters urlParameters = new RestParameters()
+        //       .AddParameters("token", user.Token)
+        //    .AddParameters("item", item);
+        //    SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(urlParameters, null, null);
+        //    IRestRequest restRequest = new RestRequest(simpleEntity.ToString(), Method.POST)
+        //        .AddUrlSegment("index", "222");
+        //    return restRequest;
+        //}
 
-        public SimpleEntity DeleteUserItem()
+        public SimpleEntity UpdateItem(string item)
         {
-            RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = userItemResource.HttpDeleteAsObject(null, null, bodyParameters);
-            return simpleEntity;
-        }
-
-        public SimpleEntity UpdateUserItem()
-        {
-            RestParameters bodyParameters = new RestParameters()
+            RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token)
-               .AddParameters("item", "bla");
-            SimpleEntity simpleEntity = userItemResource.HttpPutAsObject(bodyParameters, null, null);
+               .AddParameters("item", item);
+            //.AddParameters("index", user.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpPutAsObject(urlParameters, null, null);
             return simpleEntity;
         }
 
+        public SimpleEntity DeleteItem()
+        {
+            RestParameters urlParameters = new RestParameters()
+               .AddParameters("token", user.Token);
+            //.AddParameters("index", user.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, null, null);
+            return simpleEntity;
+        }
         //  SERHII>>>
 
 
@@ -141,6 +156,5 @@ namespace RestTestProject.Services
             }
             return new GuestService();
         }
-        
     }
 }

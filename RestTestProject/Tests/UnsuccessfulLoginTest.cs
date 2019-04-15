@@ -17,13 +17,13 @@ namespace RestTestProject.Tests
             new object[] { UserRepository.Get().UnsuccessfulUser() },
         };
 
-        [Test, TestCaseSource("UnsuccessfulUser")]
-        public void UnsuccessfulLoginUser(IUser user)
-        {
-            GuestService guestService = new GuestService();
-            string unsuccessfulMessage = guestService.UnsuccessfulLogin(user);
-            Assert.AreEqual(unsuccessfulMessage, "ERROR, user not found");
-        }
+        //[Test, TestCaseSource("UnsuccessfulUser")]
+        //public void UnsuccessfulLoginUser(IUser user)
+        //{
+        //    GuestService guestService = new GuestService();
+        //    string unsuccessfulMessage = guestService.UnsuccessfulLogin(user);
+        //    Assert.AreEqual(unsuccessfulMessage, "ERROR, user not found");
+        //}
 
 
         [Test]

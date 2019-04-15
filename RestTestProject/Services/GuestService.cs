@@ -40,7 +40,7 @@ namespace RestTestProject.Services
             return cooldowntime;
         }
 
-        public string UnsuccessfulLogin(IUser user)
+        //public string UnsuccessfulLogin(IUser user)
         //--------------Login functionality----------------------------
         public string UnsuccessfulUserLogin(IUser user)
         {

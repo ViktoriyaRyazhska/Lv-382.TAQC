@@ -112,7 +112,7 @@ namespace RestTestProject.Data
         }
         //////////////////////////////////////
         //  <<<SERHII
-        public static RestUrl UserItem()
+        public static RestUrl ManageItem()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
@@ -121,40 +121,48 @@ namespace RestTestProject.Data
                 .AddPutUrl("/item/111")
                 .AddDeleteUrl("/item/111");
         }
+        //public static RestUrl ManageItem()
+        //{
+        //    return new RestUrl()
+        //        .AddBaseUrl(Server)
+        //        .AddGetUrl("/item/")
+        //        .AddPostUrl("/item/")
+        //        .AddPutUrl("/item/")
+        //        .AddDeleteUrl("/item/");
+        //}
 
         public static RestUrl GetUserItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
                 .AddGetUrl("/item/user/akimatc")
-                //.AddGetUrl("/items/user")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetItem()
+        public static RestUrl GetUserItem()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
                 .AddGetUrl("/item/user/OKonokhtc")
+                //.AddGetUrl("/item/users")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetALLItems()
+        public static RestUrl GetAllItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                //.AddGetUrl("/items")
-                .AddGetUrl("/item/users") 
+                .AddGetUrl("/items") 
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetALLItemsIndexes()
+        public static RestUrl GetAllItemsIndexes()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
