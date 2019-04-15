@@ -61,5 +61,26 @@ namespace RestTestProject.Data
                 .AddPutUrl("/tokenlifetime")
                 .AddDeleteUrl("");
         }
+
+        public static RestUrl GetUserItem()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/item/{index}/user/{name}")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
+
+        public static RestUrl GetItem()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/item/{index}")
+                .AddPostUrl("/item/{index}")
+                .AddPutUrl("/item/{index}")
+                .AddDeleteUrl("/item/{index}");
+        }
+
     }
 }

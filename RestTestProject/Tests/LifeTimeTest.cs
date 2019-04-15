@@ -74,7 +74,7 @@ namespace RestTestProject.Tests
             }
         }
 
-        [Test, TestCaseSource("TokenLifeTimes")]
+        //[Test, TestCaseSource("TokenLifeTimes")]
         public void CheckTimeChange(Lifetime newTokenlifetime)
         {
             // Steps

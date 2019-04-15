@@ -24,5 +24,18 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = tokenLifetimeResource.HttpPutAsObject(null, null, bodyParameters);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
+
+        public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
+        {
+            RestParameters urlParameters = new RestParameters()
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index)
+                .AddParameters("name", userWithItem.Name);
+            SimpleEntity simpleEntity = itemResource.HttpGetAsObject(urlParameters, pathParameters);
+            //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        }
+
     }
 }

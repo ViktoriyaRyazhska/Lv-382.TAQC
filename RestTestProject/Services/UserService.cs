@@ -14,11 +14,13 @@ namespace RestTestProject.Services
     {
         protected IUser user;
         protected LogoutResource logoutResource;
+        protected ItemResource itemResource;
 
         public UserService(IUser user) : base()
         {
             this.user = user;
             logoutResource = new LogoutResource();
+            itemResource = new ItemResource();
         }
 
         public bool IsLoggined()
@@ -41,6 +43,19 @@ namespace RestTestProject.Services
             }
             //Console.WriteLine("\t***Logout(): DONE ");
             return new GuestService();
+        }
+
+        public bool AddItem(ItemTemplate itemTemplate)
+        {
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index);
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters("token", user.Token)
+                .AddParameters("item", itemTemplate.Item);
+            SimpleEntity simpleEntity = itemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
+            // TODO if ...
+            //Console.WriteLine("\t***AddItem(): simpleEntity = " + simpleEntity);
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
     }
 }
