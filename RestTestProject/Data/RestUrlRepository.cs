@@ -61,15 +61,15 @@ namespace RestTestProject.Data
                 .AddDeleteUrl("");
         }
         //Roman
-        public static RestUrl UnsuccessfulLogin()
-        {
-            return new RestUrl()
-                .AddBaseUrl(Server)
-                .AddGetUrl("")
-                .AddPostUrl("/login")
-                .AddPutUrl("")
-                .AddDeleteUrl("");
-        }
+        //public static RestUrl UnsuccessfulLogin()
+        //{
+        //    return new RestUrl()
+        //        .AddBaseUrl(Server)
+        //        .AddGetUrl("")
+        //        .AddPostUrl("/login")
+        //        .AddPutUrl("")
+        //        .AddDeleteUrl("");
+        //}
 
         public static RestUrl GetCoolDownTime()
         {
