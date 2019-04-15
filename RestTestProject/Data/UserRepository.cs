@@ -30,7 +30,7 @@ namespace RestTestProject.Data
             return instance;
         }
 
-        public IUser Admin()
+        public IUser ExistingAdmin()
         {
             return User.Get()
                .SetName("admin")
@@ -38,25 +38,15 @@ namespace RestTestProject.Data
                .Build();
         }
 
-        public IUser NewUser()
+        public IUser ExistingUser()
         {
             return User.Get()
                .SetName("akimatc")
                .SetPassword("qwerty")
                .Build();
         }
-        
-        public IUser LoginUser(string newName, string newPassword)
-        {
-            return User.Get()
-               .SetName(newName)
-               .SetPassword(newPassword)
-               .Build();
-        }
-
-
-        //Roman
-        public IUser UnsuccessfulUser()
+ 
+        public IUser NonExistentUser()
         {
             return User.Get()
                .SetName("ivan")
