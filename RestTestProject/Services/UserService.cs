@@ -46,13 +46,14 @@ namespace RestTestProject.Services
             return userResorce.HttpGetAsObject(urlParameters, null);
         }
 
-        public SimpleEntity ChangePassword()
+        public bool ChangePassword(string newUserPassword)
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token)
                .AddParameters("oldpassword", user.Password)
-               .AddParameters("newpassword", "SomeNewPassword");
-            return userResorce.HttpPutAsObject(null, null, bodyParameters);
+               .AddParameters("newpassword", newUserPassword);
+            return userResorce.HttpPutAsObject(null, null, bodyParameters)
+                .content.ToLower().Equals(true.ToString().ToLower());
         }
         //------------------------------------------------------------
 

@@ -2,10 +2,6 @@
 using RestTestProject.Data;
 using RestTestProject.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Tests
 {
@@ -17,13 +13,13 @@ namespace RestTestProject.Tests
             new object[] { UserRepository.Get().UnsuccessfulUser() },
         };
 
-        //[Test, TestCaseSource("UnsuccessfulUser")]
-        //public void UnsuccessfulLoginUser(IUser user)
-        //{
-        //    GuestService guestService = new GuestService();
-        //    string unsuccessfulMessage = guestService.UnsuccessfulLogin(user);
-        //    Assert.AreEqual(unsuccessfulMessage, "ERROR, user not found");
-        //}
+        [Test, TestCaseSource("UnsuccessfulUser")]
+        public void UnsuccessfulLoginUser(IUser user)
+        {
+            GuestService guestService = new GuestService();
+            string unsuccessfulMessage = guestService.UnsuccessfulUserLogin(user);
+            Assert.AreEqual(unsuccessfulMessage, "ERROR, user not found");
+        }
 
 
         [Test]
