@@ -1,7 +1,8 @@
-﻿using log4net;
-using log4net.Config;
-using log4net.Repository.Hierarchy;
+﻿//using log4net;
+//using log4net.Config;
+//using log4net.Repository.Hierarchy;
 using Newtonsoft.Json;
+using NLog;
 using OpenCartTestProject.Data;
 using RestSharp;
 using RestSharp.Serialization.Json;
@@ -86,8 +87,9 @@ namespace ConsoleAppOpenCart
         //private static Logger log = LogManager.GetLogger("Program");
         //private static Logger log = LogManager.GetCurrentClassLogger();
         //
-        public static ILog log = LogManager.GetLogger(typeof(Program));
-        //public static Logger log = LogManager.GetCurrentClassLogger();
+        //public static ILog log = LogManager.GetLogger(typeof(Program));   // log4net
+        //public static Logger log = LogManager.GetCurrentClassLogger();    // nlog
+        public static Logger log = LogManager.GetLogger("rolling0");        // nlog
 
         public static void Main(string[] args)
         {
@@ -242,9 +244,9 @@ namespace ConsoleAppOpenCart
             */
             //
             //BasicConfigurator.Configure();
-            XmlConfigurator.Configure();
+            //XmlConfigurator.Configure();  // log4net
             //
-            //log.Trace("NLOG: Trace Level test");
+            log.Trace("NLOG: Trace Level test"); // nlog
             log.Debug("2*Debug Level test");
             log.Info("2*Info Level");
             log.Warn("2*Warn Level");
