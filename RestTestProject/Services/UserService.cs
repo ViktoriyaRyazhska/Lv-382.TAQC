@@ -38,6 +38,11 @@ namespace RestTestProject.Services
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
 
+        //Roman
+        public bool IsLoggout() 
+        {
+            return string.IsNullOrEmpty(user.Token);
+        }
         //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {
@@ -132,7 +137,7 @@ namespace RestTestProject.Services
             return simpleEntity;
         }
       
-        public SimpleEntity UpdateUserItem()
+        //public SimpleEntity UpdateUserItem()
 
         public SimpleEntity DeleteItem()
         {
