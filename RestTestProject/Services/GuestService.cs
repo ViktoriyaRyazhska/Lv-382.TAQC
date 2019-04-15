@@ -40,9 +40,8 @@ namespace RestTestProject.Services
             return cooldowntime;
         }
 
-        public string UnsuccessfulLogin(IUser user)
         //--------------Login functionality----------------------------
-        public string UnsuccessfulUserLogin(IUser user)
+        public string UnsuccessfulUserLogin(IUser user)   // Do we need this?
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("name", user.Name)

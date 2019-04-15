@@ -23,29 +23,28 @@ namespace RestTestProject.Services
             aliveTockensResource = new AliveTockensResource();
         }
 
-        public SimpleEntity RemoveUser(string userName)
+        public bool CreateUser(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("token", user.Token)
-               .AddParameters("name", userName);
-            return userResorce.HttpDeleteAsObject(null,null, bodyParameters);
-        }
-
-        public bool CreateUser(string newUserName, string newUserPassword, string newUserRights)
-        {
-            RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("name", newUserName)
-               .AddParameters("password", newUserPassword)
+               .AddParameters("name", newUser.Name)//newUserName)
+               .AddParameters("password", newUser.Password)//newUserPassword)
                .AddParameters("rights", newUserRights);
             SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);
-            //TODO
+            return entity.content.ToLower().Equals(true.ToString().ToLower());
+        }
+
+        public bool DeleteUser(IUser userForDelete)
+        {
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters("token", user.Token)
+                .AddParameters("name", userForDelete.Name);
+            SimpleEntity entity = userResorce.HttpDeleteAsObject(null, null, bodyParameters);
             return entity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
         public bool UpdateTokenlifetime(Lifetime lifetime)
         {
-            //Console.WriteLine("lifetime = " + lifetime.Time + "   User = " + user);
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters("token", user.Token)
                 .AddParameters("time", lifetime.Time);
@@ -55,7 +54,6 @@ namespace RestTestProject.Services
 
         public bool UpdateCoolDowntime(CoolDowntime cooldowntime)
         {
-            //Console.WriteLine("lifetime = " + lifetime.Time + "   User = " + user);
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters("token", user.Token)
                 .AddParameters("time", cooldowntime.Time);
