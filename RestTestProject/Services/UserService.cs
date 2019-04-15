@@ -107,7 +107,7 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = userItemResource.HttpPostAsObject(urlParameters, null, null);
             return simpleEntity.content;
         }
-
+       
         public SimpleEntity DeleteUserItem()
         {
             RestParameters bodyParameters = new RestParameters()
@@ -116,7 +116,7 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = userItemResource.HttpDeleteAsObject(null, null, bodyParameters);
             return simpleEntity;
         }
-
+      
         public SimpleEntity UpdateUserItem()
         {
             RestParameters bodyParameters = new RestParameters()
@@ -128,6 +128,7 @@ namespace RestTestProject.Services
         }
 
         //  SERHII>>>
+        //Roman
 
 
         public GuestService Logout()
