@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="Data\CoolDowntime.cs" />
     <Compile Include="Data\CoolDowntimeRepository.cs" />
+    <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\ItemRepository.cs" />
     <Compile Include="Data\IUser.cs" />
     <Compile Include="Data\Lifetime.cs" />
     <Compile Include="Data\LifetimeRepository.cs" />
@@ -73,20 +75,20 @@
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Entity\SimpleEntity.cs" />
     <Compile Include="Resources\AliveTockensResource.cs" />
-    <Compile Include="Resources\ALLItemsResource.cs" />
-    <Compile Include="Resources\ALLItemsIndexesResource.cs" />
+    <Compile Include="Resources\Item resources\GetAllItemsResource.cs" />
+    <Compile Include="Resources\Item resources\GetAllItemsIndexesResource.cs" />
     <Compile Include="Resources\ARestCrud.cs" />
     <Compile Include="Resources\AdminAuthorizedResource.cs" />
     <Compile Include="Resources\CoolDownTimeResource.cs" />
     <Compile Include="Resources\LoginedAdminsResourse.cs" />
-    <Compile Include="Resources\ItemResource.cs" />
+    <Compile Include="Resources\Item resources\GetUserItemResource.cs" />
     <Compile Include="Resources\LoginedUsersResourse.cs" />
-    <Compile Include="Resources\UserItemResource.cs" />
+    <Compile Include="Resources\Item resources\ManageItemResource.cs" />
     <Compile Include="Resources\LogoutResource.cs" />
     <Compile Include="Resources\TokenLifetimeResource.cs" />
     <Compile Include="Resources\UnsuccessfulLoginResource.cs" />
     <Compile Include="Resources\UserAuthorizedResource.cs" />
-    <Compile Include="Resources\UserItemsResource.cs" />
+    <Compile Include="Resources\Item resources\GetUserItemsResource.cs" />
     <Compile Include="Resources\UserResource.cs" />
     <Compile Include="Rules\RestParameters.cs" />
     <Compile Include="Services\AdminService.cs" />
@@ -94,7 +96,9 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SimpleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\UserTests.cs" />
     <Compile Include="Tests\CreationTests.cs" />
+    <Compile Include="Tests\ItemManagingTests.cs" />
     <Compile Include="Tests\LifeTimeTest.cs" />
     <Compile Include="Tests\UnsuccessfulLoginTest.cs" />
   </ItemGroup>

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class UserItemsResource : ARestCrud<SimpleEntity>
+    public class GetUserItemResource : ARestCrud<SimpleEntity>
     {
-        public UserItemsResource() : base(RestUrlRepository.GetUserItems())
+        public GetUserItemResource() : base(RestUrlRepository.GetUserItem())
         {
         }
 
@@ -36,6 +36,5 @@ namespace RestTestProject.Resources
             ThrowException(RestUrlKeys.DELETE.ToString());
             return null;
         }
-
     }
 }

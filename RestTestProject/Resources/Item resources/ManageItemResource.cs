@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class UserItemResource : ARestCrud<SimpleEntity>
+    public class ManageItemResource : ARestCrud<SimpleEntity>
     {
-        public UserItemResource() : base(RestUrlRepository.UserItem())
+        public ManageItemResource() : base(RestUrlRepository.ManageItem())
         {
         }
 

@@ -113,47 +113,57 @@ namespace RestTestProject.Data
 
         //////////////////////////////////////
         //  <<<SERHII
-        public static RestUrl UserItem()
+        public static RestUrl ManageItem()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/1")
-                .AddPostUrl("/item/1")
-                .AddPutUrl("/item/1")
-                .AddDeleteUrl("/item/1");
+                .AddGetUrl("/item/111")
+                .AddPostUrl("/item/111")
+                .AddPutUrl("/item/111")
+                .AddDeleteUrl("/item/111");
         }
+        //public static RestUrl ManageItem()
+        //{
+        //    return new RestUrl()
+        //        .AddBaseUrl(Server)
+        //        .AddGetUrl("/item/")
+        //        .AddPostUrl("/item/")
+        //        .AddPutUrl("/item/")
+        //        .AddDeleteUrl("/item/");
+        //}
 
         public static RestUrl GetUserItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/user/item")
+                .AddGetUrl("/item/user/akimatc")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetItem()
+        public static RestUrl GetUserItem()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/1")
+                .AddGetUrl("/item/user/OKonokhtc")
+                //.AddGetUrl("/item/users")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetALLItems()
+        public static RestUrl GetAllItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/items")
+                .AddGetUrl("/items") 
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
-        public static RestUrl GetALLItemsIndexes()
+        public static RestUrl GetAllItemsIndexes()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)

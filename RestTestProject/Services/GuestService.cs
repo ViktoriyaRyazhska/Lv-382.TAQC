@@ -42,6 +42,7 @@ namespace RestTestProject.Services
 
         //--------------Login functionality----------------------------
         public string UnsuccessfulLogin(IUser user)               
+        public string UnsuccessfulUserLogin(IUser user)   // Do we need this?
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("name", user.Name)
