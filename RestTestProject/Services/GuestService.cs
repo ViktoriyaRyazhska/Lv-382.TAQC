@@ -7,7 +7,6 @@ namespace RestTestProject.Services
 {
     public class GuestService
     {
-        private string UNSUCCESSFUL_LOGIN_ERROR_MESSAGE;
         protected AdminAuthorizedResource adminAuthorizedResource;
         protected UserAuthorizedResource userAuthorizedResource;
         protected TokenLifetimeResource tokenLifetimeResource;
@@ -16,7 +15,6 @@ namespace RestTestProject.Services
 
         public GuestService()
         {
-            UNSUCCESSFUL_LOGIN_ERROR_MESSAGE = string.Empty;
             adminAuthorizedResource = new AdminAuthorizedResource();
             userAuthorizedResource = new UserAuthorizedResource();
             tokenLifetimeResource = new TokenLifetimeResource();
