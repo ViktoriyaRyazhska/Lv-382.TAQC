@@ -56,7 +56,7 @@ namespace RestTestProject.Tests
                     .SuccessfulAdminLogin(adminUser);
                 UserService userService = guestService
                     .SuccessfulUserLogin(user);
-                ItemTemplate existItem = ItemRepository.GetSecond();
+                ItemTemplate existItem = ItemRepository.GetForUpdate();
                 //adminService.AddItem(existItem);
                 userService.AddItem(existItem);
                 ItemTemplate itemResult = userService.GetItem(existItem);
@@ -100,11 +100,12 @@ namespace RestTestProject.Tests
                     .SuccessfulUserLogin(user);
                 //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
                 List<SimpleEntity> list = userService.GetAllItems();
-                Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-                foreach (var element in list)
-                {
-                    Console.WriteLine(element.content);
-                }
+                //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
+                
+                //foreach (var element in list)
+                //{
+                //    Console.WriteLine(element.content);
+                //}
 
             }
 

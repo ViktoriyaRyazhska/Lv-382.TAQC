@@ -40,14 +40,14 @@ namespace RestTestProject.Tests
         public void CheckUserIsLogout()
         {
             userService.Logout();
-            Assert.IsTrue(userService.IsLoggout());
+            Assert.IsFalse(userService.IsLoggined());
         }
 
         [Test]
         public void CheckAdminUserIsLogout()
         {
             adminService.Logout();
-            Assert.IsTrue(adminService.IsLoggout());
+            Assert.IsFalse(adminService.IsLoggined());
         }
     }
 }
