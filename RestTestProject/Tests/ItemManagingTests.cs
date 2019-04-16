@@ -14,80 +14,84 @@ namespace RestTestProject.Tests
         [TestFixture]
         public class LifeTimeTest
         {
-            private UserService userService;
-            private AdminService adminService;
+            //private UserService userService;
+            //private AdminService adminService;
 
-            [SetUp]
-            public void SetUp()
-            {
-                adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
-                userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().ExistingUser());
-            }
-
-            [TearDown]
-            public void TearDown()
-            {
-                if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-                {
-                    // TODO Save to Log File
-                    Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-                    // Clear Cache
-                }
-
-                if ((adminService != null) && (adminService.IsLoggined()))
-                {
-                    adminService.Logout();
-                }
-
-                if ((userService != null) && (userService.IsLoggined()))
-                {
-                    userService.Logout();
-                }
-            }
-
-            private static readonly object[] NewItem =
-            {
-                new string[] { ItemRepository.AGE }
-            };
-
-            [Test, TestCaseSource("NewItem")]
-            public void AddItemTest(string newItem)
-            {
-                Assert.AreEqual("True", userService.AddItem(newItem).content);
-                Assert.AreEqual(ItemRepository.AGE, userService.GetItem().content);
-                //Console.WriteLine();
-            }
-            //[Test, TestCaseSource("NewItem")]
-            //public void AddItemTest(string newItem)
+            //[SetUp]
+            //public void SetUp()
             //{
-            //    //Assert.AreEqual(userService.AddUserItem(newItem, "111").content, "True");
-            //    //Assert.AreEqual(userService.GetUserItem().content, ItemRepository.AGE);
-            //    Console.WriteLine(userService.AddItem(newItem).content);
+            //    userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().NewUser());
+            //    adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
             //}
 
-            private static readonly object[] UpdateItem =
-            {
-                new string[] { ItemRepository.CITY }
-            };
+            //[TearDown]
+            //public void TearDown()
+            //{
+            //    if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            //    {
+            //        // TODO Save to Log File
+            //        Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
+            //        // Clear Cache
+            //    }
 
-            [Test, TestCaseSource("UpdateItem")]
-            public void UpdateItemTest(string updateItem)
+            //    if ((adminService != null) && (adminService.IsLoggined()))
+            //    {
+            //        adminService.Logout();
+            //    }
+
+            //    if ((userService != null) && (userService.IsLoggined()))
+            //    {
+            //        userService.Logout();
+            //    }
+            //}
+
+            IUser adminUser = UserRepository.Get().Admin();
+            IUser user = UserRepository.Get().NewUser();
+            GuestService guestService = new GuestService();
+
+            [Test]
+            public void AddItemTest()
             {
-                Assert.AreEqual(userService.UpdateItem(updateItem).content, "True");
-                Assert.AreEqual(ItemRepository.CITY, userService.GetItem().content);
-                //Console.WriteLine();
+                AdminService adminService = guestService
+                    .SuccessfulAdminLogin(adminUser);
+                UserService userService = guestService
+                    .SuccessfulUserLogin(user);
+                ItemTemplate existItem = ItemRepository.GetFirst();
+                //adminService.AddItem(existItem);
+                userService.AddItem(existItem);
+                ItemTemplate itemResult = userService.GetItem(existItem);
+                Assert.AreEqual(existItem.Item, itemResult.Item);
+            }
+
+            [Test]
+            public void UpdateItemTest()
+            {
+                AdminService adminService = guestService
+                    .SuccessfulAdminLogin(adminUser);
+                UserService userService = guestService
+                    .SuccessfulUserLogin(user);
+                ItemTemplate forUpdateItem = ItemRepository.GetForUpdate();
+                //adminService.UpdateItem(forUpdateItem);
+                userService.UpdateItem(forUpdateItem);
+                ItemTemplate itemResult = userService.GetItem(forUpdateItem);
+                Assert.AreEqual(forUpdateItem.Item, itemResult.Item);
             }
 
             [Test]
             public void DeleteItemTest()
             {
-
-                Assert.AreEqual(userService.DeleteItem().content, "True");
-                Assert.AreNotEqual(userService.GetUserItem().content, ItemRepository.CITY);
-                //Console.WriteLine();
+                AdminService adminService = guestService
+                    .SuccessfulAdminLogin(adminUser);
+                UserService userService = guestService
+                    .SuccessfulUserLogin(user);
+                ItemTemplate forDeleteItem = ItemRepository.GetFirst();
+                //adminService.DeleteItem(forDeleteItem);
+                userService.DeleteItem(forDeleteItem);
+                ItemTemplate itemResult = userService.GetItem(forDeleteItem);
+                Assert.AreNotEqual(forDeleteItem.Item, itemResult.Item);
             }
 
-            [Test]
+            //[Test]
             public void GetAllItemsTest()
             {
                 //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
@@ -99,24 +103,38 @@ namespace RestTestProject.Tests
   
             }
 
-            [Test]
-            public void GetAllItemsIndexesTest() //для кількох не паше
-            {
-                //Assert.IsTrue(adminService.GetUserItems().content.Contains(userService.GetAllItemsIndexes().content));
-                Console.WriteLine(userService.GetAllItemsIndexes());
-            }
+            //[Test, TestCaseSource("NewItem")]
+            //public void GetAllItemsIndexesTest(string testItem) //для кількох айтемів не працює
+            //{
+            //    //Preconditions
+            //    Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
+            //    //Steps
+            //    Assert.IsTrue(adminService.GetUserItems().content.Contains(userService.GetAllItemsIndexes().content));
+            //    //Postconditions
+            //    //Console.WriteLine(userService.GetAllItemsIndexes());
+            //    Assert.AreEqual("True", userService.DeleteItem().content, "Item isn`t deleted");
+            //    Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
+            //}
 
-            [Test]
-            public void GetUserItemTest()
-            {
-                Console.WriteLine(adminService.GetUserItem());
-            }
+            //[Test]
+            //public void GetUserItemTest()
+            //{
+            //    Console.WriteLine(adminService.GetUserItem());
+            //}
 
-            [Test]
-            public void GetUserItemsTest()
-            {
-                Console.WriteLine(adminService.GetUserItems());
-            }
+            //[Test, TestCaseSource("NewItem")]
+            //public void GetUserItemsTest(string testItem)
+            //{
+            //    //Preconditions
+            //    Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
+            //    //Steps
+            //    Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+            //    //Console.WriteLine(adminService.GetUserItems());
+            //    //Postconditions
+            //    Assert.AreEqual("True", userService.DeleteItem().content, "Item isn`t deleted");
+            //    Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
+            //    //Console.WriteLine(adminService.GetUserItems());
+            //}
         }
     }
 }

@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Data
 {
-    
+
     public sealed class ItemRepository
     {
-        public const string AGE = "Age";
-        public const string CITY = "City";
-        public const string COUNTRY = "Country";
-
         private ItemRepository()
         {
         }
 
-        public static Item GetAge()
+        public static ItemTemplate GetFirst()
         {
-            return new Item(AGE);
+            return new ItemTemplate("my information", "1");
+        }
+        public static ItemTemplate GetSecond()
+        {
+            return new ItemTemplate("more information ", "2");
+        }
+        public static ItemTemplate GetForUpdate()
+        {
+            return new ItemTemplate("MY INFO ", "1");
         }
 
-        public static Item GetCity()
+        public static IList<ItemTemplate> GetAllItems()
         {
-            return new Item(CITY);
+            return new List<ItemTemplate>() { GetFirst(), GetSecond(), GetForUpdate()};
         }
 
-        public static Item GetCountry()
-        {
-            return new Item(COUNTRY);
-        }
     }
 }

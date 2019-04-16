@@ -68,85 +68,61 @@ namespace RestTestProject.Services
             return simpleEntity;
         }
 
-        public SimpleEntity GetAllItemsIndexes()
+        public bool GetAllItemsIndexes()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        public SimpleEntity GetUserItem()
+        public ItemTemplate GetItem(ItemTemplate itemTemplate)
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            //.AddParameters("name", user.Name);?????????????????????????????????????????
-            //.AddParameters("index", user.Name);?????????????????????????????????????????
-            SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index);
+            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            Console.WriteLine("\t***GetItem()UserService: simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
-        public SimpleEntity GetUserItems()
+        public bool AddItem(ItemTemplate itemTemplate)
         {
-            RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            //.AddParameters("name", user.Name);????????????????? AS Admin ????????????????
-            SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index);
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters("token", user.Token)
+                .AddParameters("item", itemTemplate.Item);
+            SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
+            Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        public SimpleEntity GetItem()
+        public bool UpdateItem(ItemTemplate itemTemplate)
         {
-            RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            //.AddParameters("index", user.Name);
-            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            RestParameters pathParameters = new RestParameters()
+               .AddParameters("index", itemTemplate.Index);
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters("token", user.Token)
+                .AddParameters("item", itemTemplate.Item);
+            SimpleEntity simpleEntity = manageItemResource.HttpPutAsObject(null, pathParameters, bodyParameters);
+            Console.WriteLine("\t***UpdItem()UserService: simpleEntity = " + simpleEntity);
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        public SimpleEntity AddItem(string item)
+        public bool DeleteItem(ItemTemplate itemTemplate)
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
-               .AddParameters(RequestParametersKeys.item.ToString(), item);
-            //.AddParameters("index", user.Name);
-            SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(urlParameters, null, null);
-            return simpleEntity;
-        }
-        //public IRestRequest AddItem(string item) //, string index
-        //{
-        //    RestParameters urlParameters = new RestParameters()
-        //       .AddParameters("token", user.Token)
-        //    .AddParameters("item", item);
-        //    SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(urlParameters, null, null);
-        //    IRestRequest restRequest = new RestRequest(simpleEntity.ToString(), Method.POST)
-        //        .AddUrlSegment("index", "222");
-        //    return restRequest;
-        //}
-
-        public SimpleEntity UpdateItem(string item)
-        {
-            RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
-               .AddParameters(RequestParametersKeys.item.ToString(), item);
-            //.AddParameters("index", user.Name);
-            SimpleEntity simpleEntity = manageItemResource.HttpPutAsObject(urlParameters, null, null);
-            return simpleEntity;
-        }
-      
-        //public SimpleEntity UpdateUserItem()
-
-        public SimpleEntity DeleteItem()
-        {
-            RestParameters urlParameters = new RestParameters()
-               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            //.AddParameters("index", user.Name);
-            SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, null, null);
-            return simpleEntity;
+               .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index);
+            SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, pathParameters, null);
+            Console.WriteLine("\t***DelItem()UserService: simpleEntity = " + simpleEntity);
+            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
         //  SERHII>>>
         //Roman
-
 
         public GuestService Logout()
         {
