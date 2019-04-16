@@ -15,12 +15,14 @@ namespace RestTestProject.Services
         protected LoginedAdminsResourse loginedAdminsResourse;
         protected LoginedUsersResourse loginedUsersResourse;
         protected AliveTockensResource aliveTockensResource;
+        protected GetUserItemResource getUserItemResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {
             loginedAdminsResourse = new LoginedAdminsResourse();
             loginedUsersResourse = new LoginedUsersResourse();
             aliveTockensResource = new AliveTockensResource();
+            getUserItemResource = new GetUserItemResource();
         }
 
         public bool CreateUser(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
@@ -85,5 +87,30 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = aliveTockensResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
+
+        public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
+        {
+            RestParameters urlParameters = new RestParameters()
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index)
+                .AddParameters("name", userWithItem.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        }
+
+        //public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
+        //{
+        //    RestParameters urlParameters = new RestParameters()
+        //        .AddParameters("token", user.Token);
+        //    RestParameters pathParameters = new RestParameters()
+        //        .AddParameters("name", userWithItem.Name);
+        //    SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
+        //    //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
+        //    //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+        //    return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        //}
     }
 }

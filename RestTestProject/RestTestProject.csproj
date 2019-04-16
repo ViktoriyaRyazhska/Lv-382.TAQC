@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Data\CoolDowntime.cs" />
     <Compile Include="Data\CoolDowntimeRepository.cs" />
-    <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\ItemTemplate.cs" />
     <Compile Include="Data\ItemRepository.cs" />
     <Compile Include="Data\IUser.cs" />
     <Compile Include="Data\Lifetime.cs" />
@@ -97,7 +97,6 @@
     <Compile Include="SimpleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\UserTests.cs" />
-    <Compile Include="Tests\CreationTests.cs" />
     <Compile Include="Tests\ItemManagingTests.cs" />
     <Compile Include="Tests\LifeTimeTest.cs" />
     <Compile Include="Tests\UnsuccessfulLoginTest.cs" />
