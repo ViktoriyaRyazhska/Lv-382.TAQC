@@ -50,6 +50,10 @@ namespace RestTestProject.Tests
         //------------------------------------------------- Change Password block ----------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
 
+        private static readonly object[] ChangePasswordData =
+        {
+            new object[] { UserRepository.Get().ExistingUser(), "SomeNewPassword" }
+        };
         //private static readonly object[] ChangePasswordData =
         //{
         //    new object[] { UserRepository.Get().NewUser(), "SomeNewPassword" }

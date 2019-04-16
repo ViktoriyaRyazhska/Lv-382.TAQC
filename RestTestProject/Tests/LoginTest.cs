@@ -96,6 +96,7 @@ namespace RestTestProject.Tests
             currentCoolDownlifetime = CoolDowntimeRepository.GetDefault();
             responseStatus = adminService.UpdateCoolDowntime(currentCoolDownlifetime);
             guestService = adminService.Logout();
+            Assert.IsFalse(adminService.IsLoggined());
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
