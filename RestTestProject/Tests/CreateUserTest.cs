@@ -26,7 +26,6 @@ namespace RestTestProject.Tests
         [Test, TestCaseSource("NewUserData")]
         public void CreatingNewUserTest(IUser newUser)
         {
-            //IUser newUser = UserRepository.Get().NonExistentUser();
             Assert.IsTrue(adminService.CreateUser(newUser));
             userService = guestService.SuccessfulUserLogin(newUser);
             Assert.IsTrue(userService.IsLoggined());

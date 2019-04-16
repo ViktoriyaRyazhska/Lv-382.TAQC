@@ -33,8 +33,8 @@ namespace RestTestProject.Services
         public bool DeleteUser(IUser userForDelete)
         {
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("name", userForDelete.Name);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.name.ToString(), userForDelete.Name);
             SimpleEntity entity = userResorce.HttpDeleteAsObject(null, null, bodyParameters);
             return entity.content.ToLower().Equals(true.ToString().ToLower());
         }
@@ -42,8 +42,8 @@ namespace RestTestProject.Services
         public bool UpdateTokenlifetime(Lifetime lifetime)
         {
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("time", lifetime.Time);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.time.ToString(), lifetime.Time);
             SimpleEntity simpleEntity = tokenLifetimeResource.HttpPutAsObject(null, null, bodyParameters);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
@@ -51,8 +51,8 @@ namespace RestTestProject.Services
         public bool UpdateCoolDowntime(CoolDowntime cooldowntime)
         {
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("time", cooldowntime.Time);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.time.ToString(), cooldowntime.Time);
             SimpleEntity simpleEntity = coolDownTimeResource.HttpPutAsObject(null, null, bodyParameters);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
@@ -61,7 +61,7 @@ namespace RestTestProject.Services
         public SimpleEntity GetLoginedAdmins()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = loginedAdminsResourse.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
@@ -69,7 +69,7 @@ namespace RestTestProject.Services
         public SimpleEntity GetLoginedUsers()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = loginedUsersResourse.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
@@ -77,7 +77,7 @@ namespace RestTestProject.Services
         public SimpleEntity GetAliveTockens()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = aliveTockensResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
