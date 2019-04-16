@@ -13,7 +13,7 @@ namespace RestTestProject.Data
         public static string Server
         {
             get { return server; }
-            //set { server = value; }
+            set { server = value; }
         }
 
         private RestUrlRepository()
@@ -24,7 +24,7 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/login/users") //Ask Jaroslav
+                .AddGetUrl("/login/users")
                 .AddPostUrl("/login")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
@@ -38,7 +38,6 @@ namespace RestTestProject.Data
                 .AddPostUrl("/login")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
-            //.AddDeleteUrl("/logout");
         }
 
         public static RestUrl GetLogout()
@@ -58,16 +57,6 @@ namespace RestTestProject.Data
                 .AddGetUrl("/tokenlifetime")
                 .AddPostUrl("")
                 .AddPutUrl("/tokenlifetime")
-                .AddDeleteUrl("");
-        }
-        //Roman
-        public static RestUrl UnsuccessfulLogin()
-        {
-            return new RestUrl()
-                .AddBaseUrl(Server)
-                .AddGetUrl("")
-                .AddPostUrl("/login")
-                .AddPutUrl("")
                 .AddDeleteUrl("");
         }
 
@@ -90,7 +79,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-
+        //TODO ROMAN
         public static RestUrl GetLoginedUsers()
         {
             return new RestUrl()
@@ -100,7 +89,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-
+        //
         public static RestUrl GetAliveTockens()
         {
             return new RestUrl()
@@ -110,6 +99,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
+
         //////////////////////////////////////
         //  <<<SERHII
         public static RestUrl ManageItem()

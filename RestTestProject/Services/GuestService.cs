@@ -11,7 +11,6 @@ namespace RestTestProject.Services
         protected UserAuthorizedResource userAuthorizedResource;
         protected TokenLifetimeResource tokenLifetimeResource;
         //
-        protected UnsuccessfulLoginResource unsuccessfulLoginResource;
         protected CoolDownTimeResource coolDownTimeResource;
 
         public GuestService()
@@ -19,7 +18,6 @@ namespace RestTestProject.Services
             adminAuthorizedResource = new AdminAuthorizedResource();
             userAuthorizedResource = new UserAuthorizedResource();
             tokenLifetimeResource = new TokenLifetimeResource();
-            unsuccessfulLoginResource = new UnsuccessfulLoginResource();
             coolDownTimeResource = new CoolDownTimeResource();
         }
 
@@ -31,7 +29,6 @@ namespace RestTestProject.Services
             return lifetime;
         }
 
-        //Roman
         public CoolDowntime GetCurrentCoolDowntime()
         {
             CoolDowntime cooldowntime = new CoolDowntime();
@@ -41,12 +38,12 @@ namespace RestTestProject.Services
         }
 
         //--------------Login functionality----------------------------
-        public string UnsuccessfulUserLogin(IUser user)   // Do we need this?
+        public string UnsuccessfulUserLogin(IUser user)  
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters("name", user.Name)
                .AddParameters("password", user.Password);
-               SimpleEntity simpleEntity = unsuccessfulLoginResource.HttpPostAsObject(null, null, bodyParameters);
+            SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
             return simpleEntity.content;
         }
        

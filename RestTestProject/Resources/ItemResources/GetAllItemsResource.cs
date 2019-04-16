@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class UnsuccessfulLoginResource : ARestCrud<SimpleEntity>
+    public class GetAllItemsResource : ARestCrud<List<SimpleEntity>>
     {
-        public UnsuccessfulLoginResource() : base(RestUrlRepository.UnsuccessfulLogin())
+        public GetAllItemsResource() : base(RestUrlRepository.GetAllItems())
         {
         }
 
-        public override IRestResponse HttpGetAsResponse(RestParameters urlParameters,
-                    RestParameters pathVariables)
+        public override IRestResponse HttpPostAsResponse(RestParameters urlParameters,
+                    RestParameters pathVariables, RestParameters bodyParameters)
         {
-            ThrowException(RestUrlKeys.GET.ToString());
+            ThrowException(RestUrlKeys.POST.ToString());
             return null;
         }
 

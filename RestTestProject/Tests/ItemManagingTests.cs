@@ -5,6 +5,7 @@ using RestTestProject.Services;
 using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
+using RestTestProject.Entity;
 
 namespace RestTestProject.Tests
 {
@@ -93,11 +94,13 @@ namespace RestTestProject.Tests
             //[Test]
             public void GetAllItemsTest()
             {
-                AdminService adminService = guestService
-                    .SuccessfulAdminLogin(adminUser);
-                UserService userService = guestService
-                    .SuccessfulUserLogin(user);
-                IList<ItemTemplate> getAllItems = ItemRepository.GetAllItems();
+                //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+                List<SimpleEntity> list = userService.GetAllItems();
+                foreach(var element in list)
+                {
+                    Console.WriteLine(element.content);
+                }
+  
             }
 
             //[Test, TestCaseSource("NewItem")]

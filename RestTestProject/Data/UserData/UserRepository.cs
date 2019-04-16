@@ -30,36 +30,27 @@ namespace RestTestProject.Data
             return instance;
         }
 
-        public IUser Admin()
+        public IUser ExistingAdmin()
         {
             return User.Get()
                .SetName("admin")
                .SetPassword("qwerty")
+               .SetRigths(true.ToString())
                .Build();
         }
 
-        public IUser NewUser()
+        public IUser ExistingUser()
         {
             return User.Get()
                .SetName("OKonokhtc")  //akimatc OKonokhtc
                .SetPassword("qwerty")
                .Build();
         }
-        
-        public IUser LoginUser(string newName, string newPassword)
+ 
+        public IUser NonExistentUser()
         {
             return User.Get()
-               .SetName(newName)
-               .SetPassword(newPassword)
-               .Build();
-        }
-
-
-        //Roman
-        public IUser UnsuccessfulUser()
-        {
-            return User.Get()
-               .SetName("ivan")
+               .SetName("SomeUser")
                .SetPassword("qwerty")
                .Build();
         }

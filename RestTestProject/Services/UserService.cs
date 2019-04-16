@@ -1,9 +1,10 @@
-﻿using RestSharp;
+﻿using NUnit.Framework;
+using RestSharp;
 using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
-using System;
+using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
@@ -39,6 +40,11 @@ namespace RestTestProject.Services
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
 
+        //Roman
+        public bool IsLoggout() 
+        {
+            return string.IsNullOrEmpty(user.Token);
+        }
         //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {
@@ -59,12 +65,12 @@ namespace RestTestProject.Services
         //------------------------------------------------------------
 
         //  <<<SERHII
-        public bool GetAllItems()
+        public List<SimpleEntity> GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
+            List<SimpleEntity> simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
+            return simpleEntity;
         }
 
         public bool GetAllItemsIndexes()
@@ -121,6 +127,7 @@ namespace RestTestProject.Services
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
         //  SERHII>>>
+        //Roman
 
         public GuestService Logout()
         {

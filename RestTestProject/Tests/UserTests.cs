@@ -16,7 +16,7 @@ namespace RestTestProject.Tests
         public void BeforeTest()
         {
             guestService = new GuestService();
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
+            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
         }
 
         [TearDown]
@@ -27,28 +27,15 @@ namespace RestTestProject.Tests
 
         //----------------------------------------------------- Creation block -------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
-        //?????
-        //private static readonly object[] NewUserData =
-        //{
-        //    new string[] { "TestUser", "qwerty", "false" }
-        //};
-
-        //[Test, TestCaseSource("NewUserData")]
-        //public void CreateNewUserTest(string newUserName, string newUserPassword, string newUserRights)
-        //{
-        //    Assert.IsTrue(adminService.CreateUser(newUserName, newUserPassword, newUserRights));
-        //    Assert.IsTrue(new GuestService().SuccessfulUserLogin(UserRepository.Get().LoginUser(newUserName, newUserPassword)).IsLoggined());
-        //}
-
         private static readonly object[] NewUserData =
         {
-            new object[] { UserRepository.Get().LoginUser("TestUser", "qwerty"), false.ToString() }
+            new object[] { UserRepository.Get().NonExistentUser() }
         };
 
         [Test, TestCaseSource("NewUserData")]
-        public void CreateNewUserTest(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
+        public void CreateNewUserTest(IUser newUser)
         {
-            Assert.IsTrue(adminService.CreateUser(newUser, newUserRights));//(newUserName, newUserPassword, newUserRights));
+            Assert.IsTrue(adminService.CreateUser(newUser));
             Assert.IsTrue(guestService.SuccessfulUserLogin(newUser).IsLoggined());
 
         }
@@ -58,26 +45,25 @@ namespace RestTestProject.Tests
         public void DeleteUserTest(IUser userForDelete, string someStr)
         {
             Assert.IsTrue(adminService.DeleteUser(userForDelete));
-            //System.Console.WriteLine(guestService.SuccessfulUserLogin(userForDelete).GetUserName());
-            //Assert.IsFalse(guestService.SuccessfulUserLogin(userForDelete).IsLoggined());   ???
+            Assert.IsTrue(guestService.SuccessfulUserLogin(userForDelete).IsLoggout());
             Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), "ERROR, user not found");
         }
         //------------------------------------------------- Change Password block ----------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
 
-        private static readonly object[] ChangePasswordData =
-        {
-            new object[] { UserRepository.Get().NewUser(), "SomeNewPassword" }
-        };
+        //private static readonly object[] ChangePasswordData =
+        //{
+        //    new object[] { UserRepository.Get().NewUser(), "SomeNewPassword" }
+        //};
 
-        [Test, TestCaseSource("ChangePasswordData")]
-        public void ChangeUserPasswordTest(IUser userForPasswordChanging, string newUserPassword)
-        {
-            Assert.IsTrue(guestService.SuccessfulUserLogin(userForPasswordChanging).ChangePassword(newUserPassword));
-            userService = guestService.SuccessfulUserLogin(UserRepository.Get().LoginUser(userForPasswordChanging.Name, newUserPassword));
-            Assert.IsTrue(userService.IsLoggined());
-            userService.ChangePassword(userForPasswordChanging.Password);
-        }
+        //[Test, TestCaseSource("ChangePasswordData")]
+        //public void ChangeUserPasswordTest(IUser userForPasswordChanging, string newUserPassword)
+        //{
+        //    Assert.IsTrue(guestService.SuccessfulUserLogin(userForPasswordChanging).ChangePassword(newUserPassword));
+        //    userService = guestService.SuccessfulUserLogin(UserRepository.Get().LoginUser(userForPasswordChanging.Name, newUserPassword));
+        //    Assert.IsTrue(userService.IsLoggined());
+        //    userService.ChangePassword(userForPasswordChanging.Password);
+        //}
         //----------------------------------------------------------------------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
 
