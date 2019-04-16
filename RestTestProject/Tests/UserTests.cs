@@ -45,12 +45,15 @@ namespace RestTestProject.Tests
         public void DeleteUserTest(IUser userForDelete, string someStr)
         {
             Assert.IsTrue(adminService.DeleteUser(userForDelete));
-            Assert.IsTrue(guestService.SuccessfulUserLogin(userForDelete).IsLoggout());
             Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), "ERROR, user not found");
         }
         //------------------------------------------------- Change Password block ----------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------------------
 
+        private static readonly object[] ChangePasswordData =
+        {
+            new object[] { UserRepository.Get().ExistingUser(), "SomeNewPassword" }
+        };
         //private static readonly object[] ChangePasswordData =
         //{
         //    new object[] { UserRepository.Get().NewUser(), "SomeNewPassword" }

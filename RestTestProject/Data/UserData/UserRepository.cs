@@ -11,9 +11,7 @@ namespace RestTestProject.Data
         private volatile static UserRepository instance;
         private static object lockingObject = new object();
 
-        private UserRepository()
-        {
-        }
+        private UserRepository(){ }
 
         public static UserRepository Get()
         {
@@ -42,11 +40,19 @@ namespace RestTestProject.Data
         public IUser ExistingUser()
         {
             return User.Get()
-               .SetName("OKonokhtc")  //akimatc OKonokhtc
+               .SetName("akimatc")
                .SetPassword("qwerty")
                .Build();
         }
- 
+
+        public IUser UserWithNewPassword()
+        {
+            return User.Get()
+                .SetName("akimatc")
+                .SetPassword("NewPassword")
+                .Build();
+        }
+
         public IUser NonExistentUser()
         {
             return User.Get()
@@ -54,5 +60,6 @@ namespace RestTestProject.Data
                .SetPassword("qwerty")
                .Build();
         }
+
     }
 }

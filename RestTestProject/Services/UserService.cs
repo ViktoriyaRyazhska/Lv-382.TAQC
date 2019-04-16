@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using RestSharp;
 using RestTestProject.Data;
+using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
@@ -23,7 +24,6 @@ namespace RestTestProject.Services
         //-------------------------------------------------
         protected LogoutResource logoutResource;
 
-
         public UserService(IUser user) : base()
         {
             this.user = user;
@@ -41,25 +41,20 @@ namespace RestTestProject.Services
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
 
-        //Roman
-        public bool IsLoggout()
-        {
-            return string.IsNullOrEmpty(user.Token);
-        }
         //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             return userResorce.HttpGetAsObject(urlParameters, null);
         }
 
         public bool ChangePassword(string newUserPassword)
         {
             RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("oldpassword", user.Password)
-               .AddParameters("newpassword", newUserPassword);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+               .AddParameters(RequestParametersKeys.oldpassword.ToString(), user.Password)
+               .AddParameters(RequestParametersKeys.newpassword.ToString(), newUserPassword);
             return userResorce.HttpPutAsObject(null, null, bodyParameters)
                 .content.ToLower().Equals(true.ToString().ToLower());
         }
@@ -69,7 +64,7 @@ namespace RestTestProject.Services
         public List<SimpleEntity> GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             List<SimpleEntity> simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
@@ -77,7 +72,7 @@ namespace RestTestProject.Services
         public SimpleEntity GetAllItemsIndexes()
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
@@ -150,8 +145,8 @@ namespace RestTestProject.Services
         public GuestService Logout()
         {
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("name", user.Name);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.name.ToString(), user.Name);
             SimpleEntity simpleEntity = logoutResource.HttpPostAsObject(null, null, bodyParameters);
             //Checking for successful logout
             if (simpleEntity.content.ToLower().Equals(true.ToString().ToLower()))
