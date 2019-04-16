@@ -10,7 +10,7 @@ namespace RestTestProject.Tests
     {
         private static readonly object[] User =
            {
-            new object[] { UserRepository.Get().NewUser() },
+            new object[] { UserRepository.Get().ExistingUser() },
         };
 
         [Test, TestCaseSource("User")]
@@ -28,7 +28,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] AdminUser =
            {
-            new object[] { UserRepository.Get().Admin() },
+            new object[] { UserRepository.Get().ExistingAdmin() },
         };
 
         [Test, TestCaseSource("AdminUser")]
@@ -77,7 +77,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] AdminUsers =
         {
-            new object[] { UserRepository.Get().Admin(), CoolDowntimeRepository.GetLongTime() }
+            new object[] { UserRepository.Get().ExistingAdmin(), CoolDowntimeRepository.GetLongTime() }
         };
 
         [Test, TestCaseSource("AdminUsers")]
@@ -96,12 +96,13 @@ namespace RestTestProject.Tests
             currentCoolDownlifetime = CoolDowntimeRepository.GetDefault();
             responseStatus = adminService.UpdateCoolDowntime(currentCoolDownlifetime);
             guestService = adminService.Logout();
+            Assert.IsFalse(adminService.IsLoggined());
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         private static readonly object[] Admin =
         {
-            new object[] { UserRepository.Get().Admin() }
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("Admin")]
@@ -115,7 +116,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] Admin1 =
         {
-            new object[] { UserRepository.Get().Admin() }
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("Admin1")]
@@ -129,7 +130,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] Admin2 =
         {
-            new object[] { UserRepository.Get().Admin() }
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("Admin2")]

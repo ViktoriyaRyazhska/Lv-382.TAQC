@@ -16,7 +16,7 @@ namespace RestTestProject.Tests
         public void BeforeTest()
         {
             guestService = new GuestService();
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
+            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
         }
 
         [TearDown]
@@ -52,7 +52,7 @@ namespace RestTestProject.Tests
 
         private static readonly object[] ChangePasswordData =
         {
-            new object[] { UserRepository.Get().NewUser(), "SomeNewPassword" }
+            new object[] { UserRepository.Get().ExistingUser(), "SomeNewPassword" }
         };
 
         [Test, TestCaseSource("ChangePasswordData")]

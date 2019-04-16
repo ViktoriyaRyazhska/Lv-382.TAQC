@@ -19,7 +19,7 @@ namespace RestTestProject.Tests
         // DataProvider
         private static readonly object[] Admins =
         {
-                new object[] { UserRepository.Get().Admin() }
+                new object[] { UserRepository.Get().ExistingAdmin() }
             };
 
         // DataProvider
@@ -46,8 +46,8 @@ namespace RestTestProject.Tests
         public void SetUp()
         {
             //adminService = guestService.SuccessfulAdminLogin(adminUser);
-            adminService = guestService.SuccessfulAdminLogin(UserRepository.Get().Admin());
-            userService = guestService.SuccessfulUserLogin(UserRepository.Get().NewUser());
+            adminService = guestService.SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
+            userService = guestService.SuccessfulUserLogin(UserRepository.Get().ExistingUser());
         }
 
         [TearDown]
