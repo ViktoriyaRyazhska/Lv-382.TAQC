@@ -8,8 +8,6 @@ namespace RestTestProject.Data
 {
     public sealed class UserRepository
     {
-        public static string passwordForChange = "SomeNewPassword";
-        public static string basicPassword = "qwerty";
         private volatile static UserRepository instance;
         private static object lockingObject = new object();
 
@@ -51,7 +49,7 @@ namespace RestTestProject.Data
         {
             return User.Get()
                 .SetName("akimatc")
-                .SetPassword(passwordForChange)
+                .SetPassword("NewPassword")
                 .Build();
         }
 
