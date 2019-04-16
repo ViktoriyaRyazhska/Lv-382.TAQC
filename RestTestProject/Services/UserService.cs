@@ -1,8 +1,10 @@
-﻿using RestSharp;
+﻿using NUnit.Framework;
+using RestSharp;
 using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
+using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
@@ -63,11 +65,11 @@ namespace RestTestProject.Services
         //------------------------------------------------------------
 
         //  <<<SERHII
-        public SimpleEntity GetAllItems()
+        public List<SimpleEntity> GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
-            SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
+            List<SimpleEntity> simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 

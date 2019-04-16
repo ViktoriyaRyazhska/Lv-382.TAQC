@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestTestProject.Resources
 {
-    public class CoolDownTimeResource : ARestCrud<SimpleEntity>
+    public class GetAllItemsResource : ARestCrud<List<SimpleEntity>>
     {
-        public CoolDownTimeResource() : base(RestUrlRepository.GetCoolDownTime())
+        public GetAllItemsResource() : base(RestUrlRepository.GetAllItems())
         {
         }
 
@@ -23,8 +23,15 @@ namespace RestTestProject.Resources
             return null;
         }
 
-        public override IRestResponse HttpDeleteAsResponse(RestParameters urlParameters,
+        public override IRestResponse HttpPutAsResponse(RestParameters urlParameters,
                     RestParameters pathVariables, RestParameters bodyParameters)
+        {
+            ThrowException(RestUrlKeys.PUT.ToString());
+            return null;
+        }
+
+        public override IRestResponse HttpDeleteAsResponse(RestParameters urlParameters,
+            RestParameters pathVariables, RestParameters bodyParameters)
         {
             ThrowException(RestUrlKeys.DELETE.ToString());
             return null;

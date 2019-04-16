@@ -1,12 +1,8 @@
 ﻿using RestTestProject.Data;
+using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Services
 {
@@ -23,13 +19,13 @@ namespace RestTestProject.Services
             aliveTockensResource = new AliveTockensResource();
         }
 
-        public bool CreateUser(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
+        public bool CreateUser(IUser newUser)
         {
             RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("name", newUser.Name)
-               .AddParameters("password", newUser.Password)//newUserPassword)
-               .AddParameters("rights", newUserRights);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+               .AddParameters(RequestParametersKeys.name.ToString(), newUser.Name)
+               .AddParameters(RequestParametersKeys.password.ToString(), newUser.Password)
+               .AddParameters(RequestParametersKeys.rights.ToString(), newUser.Rights);
             SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);
             return entity.content.ToLower().Equals(true.ToString().ToLower());
         }
