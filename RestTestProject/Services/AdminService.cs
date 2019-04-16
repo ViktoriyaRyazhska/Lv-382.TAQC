@@ -9,10 +9,10 @@ namespace RestTestProject.Services
 {
     public class AdminService : UserService
     {
-        protected LoginedAdminsResourse loginedAdminsResourse;
-        protected LoginedUsersResourse loginedUsersResourse;
-        protected AliveTockensResource aliveTockensResource;
-        protected GetUserItemResource getUserItemResource;
+        LoginedAdminsResourse loginedAdminsResourse;
+        LoginedUsersResourse loginedUsersResourse;
+        AliveTockensResource aliveTockensResource;
+        GetUserItemResource getUserItemResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {

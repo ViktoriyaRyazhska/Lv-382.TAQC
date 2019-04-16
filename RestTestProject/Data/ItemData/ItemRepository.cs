@@ -23,7 +23,7 @@ namespace RestTestProject.Data
         }
         public static ItemTemplate GetForUpdate()
         {
-            return new ItemTemplate("MY INFO ", "1");
+            return new ItemTemplate("MY INFO ", "3");
         }
 
         public static IList<ItemTemplate> GetAllItems()
