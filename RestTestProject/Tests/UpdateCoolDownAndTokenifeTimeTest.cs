@@ -14,7 +14,6 @@ namespace RestTestProject.Tests
     public class UpdateCoolDownAndTokenifeTimeTest
     {
         private GuestService guestService;
-        private UserService userService;
         private AdminService adminService;
             
         private static readonly object[] TokenLifetime =
