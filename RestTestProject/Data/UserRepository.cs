@@ -54,5 +54,6 @@ namespace RestTestProject.Data
                .SetPassword("qwerty")
                .Build();
         }
+
     }
 }
