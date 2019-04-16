@@ -1,12 +1,8 @@
 ﻿using RestTestProject.Data;
+using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Services
 {
@@ -15,21 +11,23 @@ namespace RestTestProject.Services
         protected LoginedAdminsResourse loginedAdminsResourse;
         protected LoginedUsersResourse loginedUsersResourse;
         protected AliveTockensResource aliveTockensResource;
+        protected GetUserItemResource getUserItemResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {
             loginedAdminsResourse = new LoginedAdminsResourse();
             loginedUsersResourse = new LoginedUsersResourse();
             aliveTockensResource = new AliveTockensResource();
+            getUserItemResource = new GetUserItemResource();
         }
 
-        public bool CreateUser(IUser newUser, string newUserRights)//(string newUserName, string newUserPassword, string newUserRights)
+        public bool CreateUser(IUser newUser)
         {
             RestParameters bodyParameters = new RestParameters()
-               .AddParameters("token", user.Token)
-               .AddParameters("name", newUser.Name)
-               .AddParameters("password", newUser.Password)//newUserPassword)
-               .AddParameters("rights", newUserRights);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+               .AddParameters(RequestParametersKeys.name.ToString(), newUser.Name)
+               .AddParameters(RequestParametersKeys.password.ToString(), newUser.Password)
+               .AddParameters(RequestParametersKeys.rights.ToString(), newUser.Rights);
             SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);
             return entity.content.ToLower().Equals(true.ToString().ToLower());
         }
@@ -85,5 +83,30 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = aliveTockensResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
+
+        public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
+        {
+            RestParameters urlParameters = new RestParameters()
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index)
+                .AddParameters("name", userWithItem.Name);
+            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        }
+
+        //public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
+        //{
+        //    RestParameters urlParameters = new RestParameters()
+        //        .AddParameters("token", user.Token);
+        //    RestParameters pathParameters = new RestParameters()
+        //        .AddParameters("name", userWithItem.Name);
+        //    SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
+        //    //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
+        //    //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+        //    return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        //}
     }
 }

@@ -29,13 +29,13 @@ namespace RestTestProject.Tests
         //----------------------------------------------------------------------------------------------------------------------------------
         private static readonly object[] NewUserData =
         {
-            new object[] { UserRepository.Get(), false.ToString() }
+            new object[] { UserRepository.Get().NonExistentUser() }
         };
 
         [Test, TestCaseSource("NewUserData")]
-        public void CreateNewUserTest(IUser newUser, string newUserRights)
+        public void CreateNewUserTest(IUser newUser)
         {
-            Assert.IsTrue(adminService.CreateUser(newUser, newUserRights));
+            Assert.IsTrue(adminService.CreateUser(newUser));
             Assert.IsTrue(guestService.SuccessfulUserLogin(newUser).IsLoggined());
 
         }

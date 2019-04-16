@@ -106,26 +106,17 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/111")
-                .AddPostUrl("/item/111")
-                .AddPutUrl("/item/111")
-                .AddDeleteUrl("/item/111");
+                .AddGetUrl("/item/{index}")
+                .AddPostUrl("/item/{index}")
+                .AddPutUrl("/item/{index}")
+                .AddDeleteUrl("/item/{index}");
         }
-        //public static RestUrl ManageItem()
-        //{
-        //    return new RestUrl()
-        //        .AddBaseUrl(Server)
-        //        .AddGetUrl("/item/")
-        //        .AddPostUrl("/item/")
-        //        .AddPutUrl("/item/")
-        //        .AddDeleteUrl("/item/");
-        //}
 
         public static RestUrl GetUserItems()
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/user/akimatc")
+                .AddGetUrl("/item/user/")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
@@ -135,8 +126,7 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/user/OKonokhtc")
-                //.AddGetUrl("/item/users")
+                .AddGetUrl("/item/{index}/user/{name}")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
