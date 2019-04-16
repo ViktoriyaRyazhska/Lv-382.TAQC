@@ -64,7 +64,7 @@
     <Compile Include="Data\RequestData\RequestParametersKeys.cs" />
     <Compile Include="Data\TimeData\CoolDowntime.cs" />
     <Compile Include="Data\TimeData\CoolDowntimeRepository.cs" />
-    <Compile Include="Data\ItemData\Item.cs" />
+    <Compile Include="Data\ItemData\ItemTemplate.cs" />
     <Compile Include="Data\ItemData\ItemRepository.cs" />
     <Compile Include="Data\UserData\IUser.cs" />
     <Compile Include="Data\TimeData\Lifetime.cs" />

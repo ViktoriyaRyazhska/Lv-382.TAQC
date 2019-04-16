@@ -3,15 +3,16 @@ using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
+using System;
 
 namespace RestTestProject.Services
 {
     public class AdminService : UserService
     {
-        protected LoginedAdminsResourse loginedAdminsResourse;
-        protected LoginedUsersResourse loginedUsersResourse;
-        protected AliveTockensResource aliveTockensResource;
-        protected GetUserItemResource getUserItemResource;
+        LoginedAdminsResourse loginedAdminsResourse;
+        LoginedUsersResourse loginedUsersResourse;
+        AliveTockensResource aliveTockensResource;
+        GetUserItemResource getUserItemResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {

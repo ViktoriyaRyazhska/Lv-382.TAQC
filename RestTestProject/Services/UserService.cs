@@ -4,6 +4,7 @@ using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
+using System;
 using System.Collections.Generic;
 
 namespace RestTestProject.Services
@@ -41,7 +42,7 @@ namespace RestTestProject.Services
         }
 
         //Roman
-        public bool IsLoggout() 
+        public bool IsLoggout()
         {
             return string.IsNullOrEmpty(user.Token);
         }
@@ -73,12 +74,12 @@ namespace RestTestProject.Services
             return simpleEntity;
         }
 
-        public bool GetAllItemsIndexes()
+        public SimpleEntity GetAllItemsIndexes()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters("token", user.Token);
             SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
+            return simpleEntity;
         }
 
         public ItemTemplate GetItem(ItemTemplate itemTemplate)
@@ -102,6 +103,23 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
             Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
+        }
+        public bool AddItems(List<ItemTemplate> itemTemplateList)
+        {
+            string successfulResponse = string.Empty;
+            foreach (var current in itemTemplateList)
+            {
+                RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", current.Index);
+                RestParameters bodyParameters = new RestParameters()
+                    .AddParameters("token", user.Token)
+                    .AddParameters("item", current.Item);
+                SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
+                Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
+                successfulResponse = simpleEntity.content.ToLower();
+            }
+
+            return successfulResponse.Equals(true.ToString().ToLower());
         }
 
         public bool UpdateItem(ItemTemplate itemTemplate)
