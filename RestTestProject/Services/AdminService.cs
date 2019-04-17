@@ -92,22 +92,20 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters("index", itemTemplate.Index)
                 .AddParameters("name", userWithItem.Name);
-            SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
-            //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
+            SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
             Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
-        //public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
-        //{
-        //    RestParameters urlParameters = new RestParameters()
-        //        .AddParameters("token", user.Token);
-        //    RestParameters pathParameters = new RestParameters()
-        //        .AddParameters("name", userWithItem.Name);
-        //    SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
-        //    //SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
-        //    //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
-        //    return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
-        //}
+        public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
+        {
+            RestParameters urlParameters = new RestParameters()
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("name", userWithItem.Name);
+            SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
+            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        }
     }
 }

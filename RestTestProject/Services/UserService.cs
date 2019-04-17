@@ -61,12 +61,12 @@ namespace RestTestProject.Services
         //------------------------------------------------------------
 
         //  <<<SERHII
-        public List<SimpleEntity> GetAllItems()
+        public List<string> GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            List<SimpleEntity> simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
+            return new List<string>(simpleEntity.content.Split('\n'));
         }
 
         public SimpleEntity GetAllItemsIndexes()
@@ -99,23 +99,22 @@ namespace RestTestProject.Services
             Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
-        public bool AddItems(List<ItemTemplate> itemTemplateList)
-        {
-            string successfulResponse = string.Empty;
-            foreach (var current in itemTemplateList)
-            {
-                RestParameters pathParameters = new RestParameters()
-                .AddParameters("index", current.Index);
-                RestParameters bodyParameters = new RestParameters()
-                    .AddParameters("token", user.Token)
-                    .AddParameters("item", current.Item);
-                SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
-                Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
-                successfulResponse = simpleEntity.content.ToLower();
-            }
-
-            return successfulResponse.Equals(true.ToString().ToLower());
-        }
+        //public bool AddItems(List<ItemTemplate> itemTemplateList)
+        //{
+        //    string successfulResponse = string.Empty;
+        //    foreach (var current in itemTemplateList)
+        //    {
+        //        RestParameters pathParameters = new RestParameters()
+        //        .AddParameters("index", current.Index);
+        //        RestParameters bodyParameters = new RestParameters()
+        //            .AddParameters("token", user.Token)
+        //            .AddParameters("item", current.Item);
+        //        SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
+        //        Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
+        //        successfulResponse = simpleEntity.content.ToLower();
+        //    }
+        //    return successfulResponse.Equals(true.ToString().ToLower());
+        //}
 
         public bool UpdateItem(ItemTemplate itemTemplate)
         {

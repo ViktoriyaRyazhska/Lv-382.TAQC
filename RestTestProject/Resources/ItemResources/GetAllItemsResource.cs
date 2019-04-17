@@ -2,15 +2,12 @@
 using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Rules;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RestTestProject.Resources
 {
-    public class GetAllItemsResource : ARestCrud<List<SimpleEntity>>
+    public class GetAllItemsResource : ARestCrud<SimpleEntity>
     {
         public GetAllItemsResource() : base(RestUrlRepository.GetAllItems())
         {
