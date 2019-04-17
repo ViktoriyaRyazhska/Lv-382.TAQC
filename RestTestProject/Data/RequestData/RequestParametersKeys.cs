@@ -11,6 +11,7 @@ namespace RestTestProject.Data.RequestData
         token,
         time,
         item,
+        index,
         name,
         password,
         newpassword,

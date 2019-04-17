@@ -88,10 +88,10 @@ namespace RestTestProject.Services
         public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
         {
             RestParameters urlParameters = new RestParameters()
-                .AddParameters("token", user.Token);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             RestParameters pathParameters = new RestParameters()
-                .AddParameters("index", itemTemplate.Index)
-                .AddParameters("name", userWithItem.Name);
+                .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index)
+                .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
             Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
@@ -100,9 +100,9 @@ namespace RestTestProject.Services
         public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
         {
             RestParameters urlParameters = new RestParameters()
-                .AddParameters("token", user.Token);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             RestParameters pathParameters = new RestParameters()
-                .AddParameters("name", userWithItem.Name);
+                .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
             Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);

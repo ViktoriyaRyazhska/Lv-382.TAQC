@@ -80,9 +80,9 @@ namespace RestTestProject.Services
         public ItemTemplate GetItem(ItemTemplate itemTemplate)
         {
             RestParameters urlParameters = new RestParameters()
-                .AddParameters("token", user.Token);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             RestParameters pathParameters = new RestParameters()
-                .AddParameters("index", itemTemplate.Index);
+                .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
             Console.WriteLine("\t***GetItem()UserService: simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
@@ -91,10 +91,10 @@ namespace RestTestProject.Services
         public bool AddItem(ItemTemplate itemTemplate)
         {
             RestParameters pathParameters = new RestParameters()
-                .AddParameters("index", itemTemplate.Index);
+                .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("item", itemTemplate.Item);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.item.ToString(), itemTemplate.Item);
             SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
             Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
@@ -119,10 +119,10 @@ namespace RestTestProject.Services
         public bool UpdateItem(ItemTemplate itemTemplate)
         {
             RestParameters pathParameters = new RestParameters()
-               .AddParameters("index", itemTemplate.Index);
+               .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             RestParameters bodyParameters = new RestParameters()
-                .AddParameters("token", user.Token)
-                .AddParameters("item", itemTemplate.Item);
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
+                .AddParameters(RequestParametersKeys.item.ToString(), itemTemplate.Item);
             SimpleEntity simpleEntity = manageItemResource.HttpPutAsObject(null, pathParameters, bodyParameters);
             Console.WriteLine("\t***UpdItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
@@ -131,9 +131,9 @@ namespace RestTestProject.Services
         public bool DeleteItem(ItemTemplate itemTemplate)
         {
             RestParameters urlParameters = new RestParameters()
-               .AddParameters("token", user.Token);
+               .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             RestParameters pathParameters = new RestParameters()
-                .AddParameters("index", itemTemplate.Index);
+                .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, pathParameters, null);
             Console.WriteLine("\t***DelItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
