@@ -12,78 +12,45 @@ namespace RestTestProject.Tests
     [TestFixture]
     public class ItemManagingTests
     {
-        //private UserService userService;
-        //private AdminService adminService;
+        private GuestService guestService;
+        private UserService userService;
+        private AdminService adminService;
 
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().NewUser());
-        //    adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
-        //}
-
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-        //    {
-        //        // TODO Save to Log File
-        //        Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-        //        // Clear Cache
-        //    }
-
-        //    if ((adminService != null) && (adminService.IsLoggined()))
-        //    {
-        //        adminService.Logout();
-        //    }
-
-        //    if ((userService != null) && (userService.IsLoggined()))
-        //    {
-        //        userService.Logout();
-        //    }
-        //}
-
-        IUser adminUser = UserRepository.Get().ExistingAdmin();
-        IUser user = UserRepository.Get().ExistingUser();
-        GuestService guestService = new GuestService();
-
-        [Test]
-        public void AddItemTest()
+        [SetUp]
+        public void BeforeTest()
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate existItem = ItemRepository.GetForUpdate();
-            //adminService.AddItem(existItem);
+            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
+            userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().ExistingUser());
+            //estService = new GuestService();
+        }
+
+        private static readonly object[] ItemData =
+        {
+            new object[] { ItemRepository.GetThird() }
+        };
+
+        [Test, TestCaseSource(nameof(ItemData))]
+        public void AddItemTest(ItemTemplate item)
+        {
+            ItemTemplate existItem = item;
             userService.AddItem(existItem);
             ItemTemplate itemResult = userService.GetItem(existItem);
             Assert.AreEqual(existItem.Item, itemResult.Item);
         }
 
-        [Test]
-        public void UpdateItemTest()
+        [Test, TestCaseSource(nameof(ItemData))]
+        public void UpdateItemTest(ItemTemplate item)
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate forUpdateItem = ItemRepository.GetForUpdate();
-            //adminService.UpdateItem(forUpdateItem);
+            ItemTemplate forUpdateItem = item;
             userService.UpdateItem(forUpdateItem);
             ItemTemplate itemResult = userService.GetItem(forUpdateItem);
             Assert.AreEqual(forUpdateItem.Item, itemResult.Item);
         }
 
-        [Test]
-        public void DeleteItemTest()
+        [Test, TestCaseSource(nameof(ItemData))]
+        public void DeleteItemTest(ItemTemplate item)
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate forDeleteItem = ItemRepository.GetForUpdate();
-            //adminService.DeleteItem(forDeleteItem);
+            ItemTemplate forDeleteItem = item;
             userService.DeleteItem(forDeleteItem);
             ItemTemplate itemResult = userService.GetItem(forDeleteItem);
             Assert.AreNotEqual(forDeleteItem.Item, itemResult.Item);
@@ -92,49 +59,42 @@ namespace RestTestProject.Tests
         [Test]
         public void GetAllItemsTest()
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-            List<string> list = userService.GetAllItems();
-            Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-            //foreach (string element in list)
-            //{
-            //    Console.WriteLine(element);
-            //    Console.WriteLine("----------------");
-            //}
-            //Console.WriteLine("///////////////////");
-            //foreach (ItemTemplate element in ItemRepository.GetAllItems())
-            //{
-            //    Console.WriteLine(element);
-            //}
-        }
-        [Test]
-        public void GetAllItemsTest1()
-        {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
             List<string> list = userService.GetAllItems();
             //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-
-            //foreach (var element in list)
-            //{
-            //    Console.WriteLine(element.content);
-            //}
-
+            foreach (string element in list)
+            {
+                Console.WriteLine(element);
+                Console.WriteLine("----------------");
+            }
         }
 
         //[Test]
+        //public void GetAllItemsTest1()
+        //{
+        //    AdminService adminService = guestService
+        //        .SuccessfulAdminLogin(adminUser);
+        //    UserService userService = guestService
+        //        .SuccessfulUserLogin(simpleUser);
+        //    //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+        //    List<string> list = userService.GetAllItems();
+        //    //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
+
+        //    //foreach (var element in list)
+        //    //{
+        //    //    Console.WriteLine(element.content);
+        //    //}
+
+        //}
+
+        //[Test]
+
         public void GetAllItemsIndexesTest()
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
+            //AdminService adminService = guestService
+            //    .SuccessfulAdminLogin(adminUser);
+            //UserService userService = guestService
+            //    .SuccessfulUserLogin(simpleUser);
+
             //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
             List<string> list = userService.GetAllItems();
             Assert.AreEqual(ItemRepository.GetAllItems(), list, "Item isn`t deleted");

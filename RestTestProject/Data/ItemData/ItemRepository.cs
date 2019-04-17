@@ -15,20 +15,24 @@ namespace RestTestProject.Data
 
         public static ItemTemplate GetFirst()
         {
-            return new ItemTemplate("my information", "1");
+            return new ItemTemplate("FirstItem", "1");
         }
         public static ItemTemplate GetSecond()
         {
-            return new ItemTemplate("more information ", "2");
+            return new ItemTemplate("SecondItem", "2");
+        }
+        public static ItemTemplate GetThird()
+        {
+            return new ItemTemplate("ThirdItem", "3");
         }
         public static ItemTemplate GetForUpdate()
         {
-            return new ItemTemplate("MY INFO ", "3");
+            return new ItemTemplate("UpdatedItem", "3");
         }
 
         public static IList<ItemTemplate> GetAllItems()
         {
-            return new List<ItemTemplate>() { GetFirst(), GetSecond(), GetForUpdate()};
+            return new List<ItemTemplate>() { GetFirst(), GetSecond(), GetThird()};
         }
 
     }
