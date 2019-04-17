@@ -19,7 +19,7 @@ namespace RestTestProject.Data
 
         public override string ToString()
         {
-            return "[Item: " + Item + ", Index: " + Index + "]";
+            return Index + "       " + Item;
         }
     }
 }

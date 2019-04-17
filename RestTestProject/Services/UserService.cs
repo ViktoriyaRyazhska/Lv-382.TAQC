@@ -61,12 +61,12 @@ namespace RestTestProject.Services
         //------------------------------------------------------------
 
         //  <<<SERHII
-        public List<SimpleEntity> GetAllItems()
+        public List<string> GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            List<SimpleEntity> simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
+            return new List<string>(simpleEntity.content.Split('\n'));
         }
 
         public SimpleEntity GetAllItemsIndexes()

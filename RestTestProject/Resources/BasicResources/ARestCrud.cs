@@ -69,23 +69,6 @@ namespace RestTestProject.Resources
             return result;
         }
 
-        private IList<T> ConvertToResources(IRestResponse response)
-        {
-            IList<T> result = new List<T>();
-            try
-            {
-                result = deserial.Deserialize<List<T>>(response);
-            }
-            catch (Exception ex)
-            {
-                // TODO Save to Log File
-                Console.Error.WriteLine(string.Format(CONVERT_OBJECT_ERROR, ex.Message, ex.StackTrace));
-                //
-                // TODO Develop Custom Exception
-                throw new Exception(string.Format(CONVERT_OBJECT_ERROR, ex.Message, ex.StackTrace));
-            }
-            return result;
-        }
 
         private string PrepareUrlParameters(string urlTemplate, RestParameters urlParameters)
         {
