@@ -1,5 +1,6 @@
 ﻿using RestTestProject.Data;
 using RestTestProject.Entity;
+using RestTestProject.Resources;
 using RestTestProject.Rules;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,11 @@ namespace RestTestProject.Services
 {
     public class AdminService : UserService
     {
+        protected UserItemResource userItemResource;
+
         public AdminService(IUser adminUser) : base(adminUser)
         {
+            userItemResource = new UserItemResource();
         }
 
         public bool UpdateTokenlifetime(Lifetime lifetime)
@@ -32,7 +36,7 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters("index", itemTemplate.Index)
                 .AddParameters("name", userWithItem.Name);
-            SimpleEntity simpleEntity = itemResource.HttpGetAsObject(urlParameters, pathParameters);
+            SimpleEntity simpleEntity = userItemResource.HttpGetAsObject(urlParameters, pathParameters);
             //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }

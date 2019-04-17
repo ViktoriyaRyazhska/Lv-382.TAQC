@@ -38,6 +38,14 @@ namespace RestTestProject.Data
                .Build();
         }
 
+        public IUser ExistUser()
+        {
+            return User.Get()
+               .SetName("akimatc")
+               .SetPassword("qwerty")
+               .Build();
+        }
+
         public IUser NewUser()
         {
             return User.Get()

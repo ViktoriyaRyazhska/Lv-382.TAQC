@@ -57,5 +57,16 @@ namespace RestTestProject.Services
             //Console.WriteLine("\t***AddItem(): simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
+
+        public ItemTemplate GetItem(ItemTemplate itemTemplate)
+        {
+            RestParameters urlParameters = new RestParameters()
+                .AddParameters("token", user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters("index", itemTemplate.Index);
+            SimpleEntity simpleEntity = itemResource.HttpGetAsObject(urlParameters, pathParameters);
+            //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+        }
     }
 }

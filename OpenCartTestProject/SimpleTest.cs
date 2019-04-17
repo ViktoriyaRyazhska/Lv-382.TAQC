@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading;
 using Allure.Commons;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -208,6 +209,23 @@ namespace OpenCartTestProject
             driver.FindElement(By.Id("password")).Clear();
             driver.FindElement(By.Id("password")).SendKeys("qwerty");
             Thread.Sleep(2000); // DO NOT USE
+            //
+            //
+            ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
+            Screenshot screenshot = takesScreenshot.GetScreenshot();
+            byte[] bytes = screenshot.AsByteArray;
+            AllureLifecycle.Instance.AddAttachment("Screenshot_01", "image/png", bytes);
+            Thread.Sleep(2000); // DO NOT USE
+            //
+            string htmlCode = driver.PageSource;
+            bytes = Encoding.ASCII.GetBytes(htmlCode);
+            AllureLifecycle.Instance.AddAttachment("HTML_Source", "text/plain", bytes);
+            //
+            string runtimePath = AppDomain.CurrentDomain.BaseDirectory;
+            string file = File.ReadAllText(runtimePath + ALLURE_CONFIG);
+            bytes = Encoding.ASCII.GetBytes(file);
+            AllureLifecycle.Instance.AddAttachment("External_File_allureConfig.json", "text/plain", bytes);
+            //
             //
             driver.Quit();
             log.Info("SoftserveAcademy() Done");

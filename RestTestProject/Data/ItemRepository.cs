@@ -14,7 +14,12 @@ namespace RestTestProject.Data
 
         public static ItemTemplate GetFirst()
         {
-            return new ItemTemplate("my information", "123");
+            return new ItemTemplate("my first information", "123");
+        }
+
+        public static ItemTemplate GetSecond()
+        {
+            return new ItemTemplate("my second information", "2345");
         }
 
     }
