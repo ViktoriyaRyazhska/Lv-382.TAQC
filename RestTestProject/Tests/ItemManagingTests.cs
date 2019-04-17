@@ -56,7 +56,7 @@ namespace RestTestProject.Tests
                     .SuccessfulAdminLogin(adminUser);
                 UserService userService = guestService
                     .SuccessfulUserLogin(user);
-                ItemTemplate existItem = ItemRepository.GetSecond();
+                ItemTemplate existItem = ItemRepository.GetForUpdate();
                 //adminService.AddItem(existItem);
                 userService.AddItem(existItem);
                 ItemTemplate itemResult = userService.GetItem(existItem);
@@ -99,12 +99,18 @@ namespace RestTestProject.Tests
                 UserService userService = guestService
                     .SuccessfulUserLogin(user);
                 //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-                List<SimpleEntity> list = userService.GetAllItems();
+                List<string> list = userService.GetAllItems();
                 Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-                foreach (var element in list)
-                {
-                    Console.WriteLine(element.content);
-                }
+                //foreach (string element in list)
+                //{
+                //    Console.WriteLine(element);
+                //    Console.WriteLine("----------------");
+                //}
+                //Console.WriteLine("///////////////////");
+                //foreach (ItemTemplate element in ItemRepository.GetAllItems())
+                //{
+                //    Console.WriteLine(element);
+                //}
 
             }
 
@@ -116,11 +122,11 @@ namespace RestTestProject.Tests
                 UserService userService = guestService
                     .SuccessfulUserLogin(user);
                 //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-                List<SimpleEntity> list = userService.GetAllItems();
-                Assert.AreEqual(ItemRepository.GetAllItems(), list, "Item isn`t deleted");
-                foreach (var element in list)
+                List<string> list = userService.GetAllItems();
+                //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Item isn`t deleted");
+                foreach (string element in list)
                 {
-                    Console.WriteLine(element.content);
+                    //Console.WriteLine(element.content);
                 }
                 ////Preconditions
                 //Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
