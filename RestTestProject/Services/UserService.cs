@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-using RestSharp;
-using RestTestProject.Data;
+﻿using RestTestProject.Data;
 using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;

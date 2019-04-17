@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestTestProject.Data
+﻿namespace RestTestProject.Data
 {
     public sealed class UserRepository
     {
@@ -42,15 +36,8 @@ namespace RestTestProject.Data
             return User.Get()
                .SetName("akimatc")
                .SetPassword("qwerty")
+               .SetNewPassword("SomeNewPassword")
                .Build();
-        }
-
-        public IUser UserWithNewPassword()
-        {
-            return User.Get()
-                .SetName("akimatc")
-                .SetPassword("NewPassword")
-                .Build();
         }
 
         public IUser NonExistentUser()

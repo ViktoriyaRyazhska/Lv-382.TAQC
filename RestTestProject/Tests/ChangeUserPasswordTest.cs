@@ -1,35 +1,22 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
-using RestTestProject.Services;
 
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    class ChangeUserPasswordTest
+    class ChangeUserPasswordTest : TestRunner
     {
-        private AdminService adminService;
-        private UserService userService;
-        private GuestService guestService;
-
-        [OneTimeSetUp]
-        public void BeforeTest()
-        {
-            guestService = new GuestService();
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
-        }
-
         private static readonly object[] ChangePasswordData =
         {
-            new object[] { UserRepository.Get().ExistingUser(), UserRepository.Get().UserWithNewPassword() }
+            new object[] { UserRepository.Get().ExistingUser() }
         };
 
         [Test, TestCaseSource("ChangePasswordData")]
-        public void ChangingUserPasswordTest(IUser userForPasswordChanging, IUser userWithNewPassword)
+        public void ChangingUserPasswordTest(IUser userForPasswordChanging)
         {
-            Assert.IsTrue(guestService.SuccessfulUserLogin(userForPasswordChanging).ChangePassword(userWithNewPassword.Password));
-            userService = guestService.SuccessfulUserLogin(userWithNewPassword);
+            Assert.IsTrue(guestService.SuccessfulUserLogin(userForPasswordChanging).ChangePassword(userForPasswordChanging.NewPassword));
+            userService = guestService.SuccessfulUserLogin(userForPasswordChanging.Name, userForPasswordChanging.NewPassword);
             Assert.IsTrue(userService.IsLoggined());
-            userService.ChangePassword(userForPasswordChanging.Password);
         }
     }
 }

@@ -162,5 +162,15 @@ namespace RestTestProject.Data
                 .AddPutUrl("/user")
                 .AddDeleteUrl("/user");
         }
+
+        public static RestUrl ResetService()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/reset")
+                .AddPostUrl("")
+                .AddPutUrl("")
+                .AddDeleteUrl("");
+        }
     }
 }
