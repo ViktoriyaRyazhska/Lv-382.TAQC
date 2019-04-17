@@ -89,26 +89,6 @@ namespace RestTestProject.Tests
             Assert.AreNotEqual(forDeleteItem.Item, itemResult.Item);
         }
 
-            [Test]
-            public void GetAllItemsTest()
-            {
-                AdminService adminService = guestService
-                    .SuccessfulAdminLogin(adminUser);
-                UserService userService = guestService
-                    .SuccessfulUserLogin(user);
-                //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-                List<string> list = userService.GetAllItems();
-                Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-                //foreach (string element in list)
-                //{
-                //    Console.WriteLine(element);
-                //    Console.WriteLine("----------------");
-                //}
-                //Console.WriteLine("///////////////////");
-                //foreach (ItemTemplate element in ItemRepository.GetAllItems())
-                //{
-                //    Console.WriteLine(element);
-                //}
         [Test]
         public void GetAllItemsTest()
         {
@@ -117,7 +97,28 @@ namespace RestTestProject.Tests
             UserService userService = guestService
                 .SuccessfulUserLogin(user);
             //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-            List<SimpleEntity> list = userService.GetAllItems();
+            List<string> list = userService.GetAllItems();
+            Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
+            //foreach (string element in list)
+            //{
+            //    Console.WriteLine(element);
+            //    Console.WriteLine("----------------");
+            //}
+            //Console.WriteLine("///////////////////");
+            //foreach (ItemTemplate element in ItemRepository.GetAllItems())
+            //{
+            //    Console.WriteLine(element);
+            //}
+        }
+        [Test]
+        public void GetAllItemsTest1()
+        {
+            AdminService adminService = guestService
+                .SuccessfulAdminLogin(adminUser);
+            UserService userService = guestService
+                .SuccessfulUserLogin(user);
+            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+            List<string> list = userService.GetAllItems();
             //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
 
             //foreach (var element in list)
@@ -135,11 +136,11 @@ namespace RestTestProject.Tests
             UserService userService = guestService
                 .SuccessfulUserLogin(user);
             //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-            List<SimpleEntity> list = userService.GetAllItems();
+            List<string> list = userService.GetAllItems();
             Assert.AreEqual(ItemRepository.GetAllItems(), list, "Item isn`t deleted");
             foreach (var element in list)
             {
-                Console.WriteLine(element.content);
+                //Console.WriteLine(element.content);
             }
             ////Preconditions
             //Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
