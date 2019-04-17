@@ -67,12 +67,12 @@ namespace RestTestProject.Services
             return new List<string>(simpleEntity.content.Split('\n'));
         }
 
-        public SimpleEntity GetAllItemsIndexes()
+        public List<string> GetAllItemsIndexes()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            return new List<string>(simpleEntity.content.Split('\n'));
         }
 
         public ItemTemplate GetItem(ItemTemplate itemTemplate)
@@ -94,7 +94,7 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
                 .AddParameters(RequestParametersKeys.item.ToString(), itemTemplate.Item);
             SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
-            Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
+            //Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
         //public bool AddItems(List<ItemTemplate> itemTemplateList)

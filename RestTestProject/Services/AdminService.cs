@@ -4,6 +4,7 @@ using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
 using System;
+using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
@@ -97,7 +98,7 @@ namespace RestTestProject.Services
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
-        public ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem)
+        public List<string> GetUserItems(IUser userWithItem)
         {
             RestParameters urlParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
@@ -105,7 +106,8 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
             Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
-            return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
+            return new List<string>(simpleEntity.content.Split('\n'));
         }
+        
     }
 }
