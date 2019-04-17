@@ -1,6 +1,7 @@
 ﻿//using log4net;
 //using log4net.Config;
 //using log4net.Repository.Hierarchy;
+using ConsoleAppOpenCart.Service;
 using Newtonsoft.Json;
 using NLog;
 using OpenCartTestProject.Data;
@@ -243,6 +244,7 @@ namespace ConsoleAppOpenCart
             //}
             */
             //
+            /*
             //BasicConfigurator.Configure();
             //XmlConfigurator.Configure();  // log4net
             //
@@ -253,6 +255,21 @@ namespace ConsoleAppOpenCart
             log.Error("2*Error Level1");
             log.Error("2*Error Level2 test");
             //log.Fatal("2*Fatal Level");
+            */
+            GuestService guest = new GuestService();
+            //UserService user1 = new UserService("user1");
+            //UserService user1 = guest.SuccessfulUserLogin("User1");
+            IUserService user1 = guest.SuccessfulUserLogin("User1");
+            Console.WriteLine("user1.name = " + user1.GetName());
+            //
+            //UserService user2 = new UserService("User2");
+            //UserService user2 = guest.SuccessfulUserLogin("User2");
+            IUserService user2 = guest.SuccessfulUserLogin("User2");
+            Console.WriteLine("user2.name = " + user2.GetName());
+            //
+            //user1.SuccessfulUserLogin("user3"); // Compile Error
+            user1.Logout();
+            user2.Logout();
             //
             Console.WriteLine("\nDone.");
         }
