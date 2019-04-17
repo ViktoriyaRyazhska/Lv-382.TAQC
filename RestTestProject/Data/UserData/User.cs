@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestTestProject.Data
+﻿namespace RestTestProject.Data
 {
     public interface IName
     {
@@ -18,6 +12,7 @@ namespace RestTestProject.Data
 
     public interface IUserBuild
     {
+        IUserBuild SetNewPassword(string newPassword);
         IUserBuild SetRigths(string rights);
         IUserBuild SetToken(string token);
         IUser Build();
@@ -27,11 +22,13 @@ namespace RestTestProject.Data
     {
         public string Name { get; private set; }            // Required
         public string Password { get; private set; }        // Required
+        public string NewPassword { get; set; }
         public string Rights { get; set; }
         public string Token { get; set; }
 
         private User()
         {
+            NewPassword = string.Empty;
             Rights = false.ToString();
             Token = string.Empty;
         }
@@ -50,6 +47,12 @@ namespace RestTestProject.Data
         public IUserBuild SetPassword(string password)
         {
             Password = password;
+            return this;
+        }
+
+        public IUserBuild SetNewPassword(string newPassword)
+        {
+            NewPassword = newPassword;
             return this;
         }
 
@@ -72,7 +75,7 @@ namespace RestTestProject.Data
 
         public override string ToString()
         {
-            return "[Name: " + Name + ", Password: " + Password + ", Rights: " + Rights + ", Token: " + Token + "]";
+            return "[Name: " + Name + ", Password: " + Password + ", NewPassword: " + NewPassword + ", Rights: " + Rights + ", Token: " + Token + "]";
         }
 
     }

@@ -65,7 +65,10 @@ namespace RestTestProject.Tests
         [Test, TestCaseSource("AdminUser")]
         public void CheckAdminUserIsLogged(IUser adminUser)
         {
-            Assert.IsTrue(guestService.SuccessfulAdminLogin(adminUser).IsLoggined());      
+            AdminService adminService = guestService.SuccessfulAdminLogin(adminUser);
+            Assert.IsTrue(adminService.IsLoggined());
+            //Assert.IsTrue(guestService.SuccessfulAdminLogin(adminUser).IsLoggined());
+            Assert.IsTrue(adminService.GetLoginedAdmins().content.Contains(adminUser.Name));
         }
 
         [Test, TestCaseSource("NonExistentUser")]

@@ -17,7 +17,6 @@ namespace RestTestProject.Tests
         private UserService userService;
         private AdminService adminService;
 
- 
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
@@ -36,18 +35,18 @@ namespace RestTestProject.Tests
             }          
         }
 
-        //[Test]
-        //public void CheckUserIsLogout()
-        //{
-        //    userService.Logout();
-        //    Assert.IsTrue(userService.IsLoggout());
-        //}
+        [Test]
+        public void CheckUserIsLogout()
+        {
+            userService.Logout();
+            Assert.IsFalse(userService.IsLoggined());
+        }
 
-        //[Test]
-        //public void CheckAdminUserIsLogout()
-        //{
-        //    adminService.Logout();
-        //    Assert.IsTrue(adminService.IsLoggout());
-        //}
+        [Test]
+        public void CheckAdminUserIsLogout()
+        {
+            adminService.Logout();
+            Assert.IsFalse(adminService.IsLoggined());
+        }
     }
 }

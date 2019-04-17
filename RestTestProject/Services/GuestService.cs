@@ -2,6 +2,7 @@
 using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
+using RestTestProject.Resources.BasicResources;
 using RestTestProject.Rules;
 
 namespace RestTestProject.Services
@@ -11,6 +12,7 @@ namespace RestTestProject.Services
         protected AdminAuthorizedResource adminAuthorizedResource;
         protected UserAuthorizedResource userAuthorizedResource;
         protected TokenLifetimeResource tokenLifetimeResource;
+        protected static ResetServiceResource resetServiceResource;
         //
         protected CoolDownTimeResource coolDownTimeResource;
 
@@ -20,6 +22,7 @@ namespace RestTestProject.Services
             userAuthorizedResource = new UserAuthorizedResource();
             tokenLifetimeResource = new TokenLifetimeResource();
             coolDownTimeResource = new CoolDownTimeResource();
+            resetServiceResource = new ResetServiceResource();
         }
 
         public Lifetime GetCurrentTokenLifetime()
@@ -39,7 +42,7 @@ namespace RestTestProject.Services
         }
 
         //--------------Login functionality----------------------------
-        public string UnsuccessfulUserLogin(IUser user)  
+        public string UnsuccessfulUserLogin(IUser user)
         {
             RestParameters bodyParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.name.ToString(), user.Name)
@@ -47,8 +50,30 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
             return simpleEntity.content;
         }
-       
+
         public UserService SuccessfulUserLogin(IUser user)
+        {
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.name.ToString(), user.Name)
+                .AddParameters(RequestParametersKeys.password.ToString(), user.Password);
+            SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
+            user.Token = simpleEntity.content;
+            return new UserService(user);
+        }
+
+        public UserService SuccessfulUserLogin(string name, string password)
+        {
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.name.ToString(), name)
+                .AddParameters(RequestParametersKeys.password.ToString(), password);
+            SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
+            IUser user = UserRepository.Get().ExistingUser();
+            user.Token = simpleEntity.content;
+            return new UserService(user);
+        }
+
+        //
+        public UserService SuccessfulUserLogin(IUser user, bool useNewPasswordChecker)
         {
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.name.ToString(), user.Name)
@@ -68,5 +93,11 @@ namespace RestTestProject.Services
             return new AdminService(adminUser);
         }
         ////-----------------------------------------------------------
+
+        public static GuestService ResetService() //void??
+        {
+            resetServiceResource.HttpGetAsObject(null, null);
+            return new GuestService();
+        }
     }
 }

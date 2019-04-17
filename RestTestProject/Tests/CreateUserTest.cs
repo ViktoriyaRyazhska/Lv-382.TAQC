@@ -1,23 +1,11 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
-using RestTestProject.Services;
 
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    class CreateUserTest
+    class CreateUserTest : TestRunner
     {
-        private AdminService adminService;
-        private GuestService guestService;
-        private UserService userService;
-
-        [SetUp]
-        public void BeforeTest()
-        {
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
-            guestService = new GuestService();
-        }
-
         private static readonly object[] NewUserData =
         {
             new object[] { UserRepository.Get().NonExistentUser() }
@@ -29,7 +17,6 @@ namespace RestTestProject.Tests
             Assert.IsTrue(adminService.CreateUser(newUser));
             userService = guestService.SuccessfulUserLogin(newUser);
             Assert.IsTrue(userService.IsLoggined());
-            adminService.DeleteUser(newUser);
         }
     }
 }
