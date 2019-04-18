@@ -7,12 +7,23 @@ using System;
 
 namespace RestTestProject.Services
 {
-    public class AdminService : UserService
+    public interface IAdminService
+    {
+        bool CreateUser(IUser newUser);
+        bool DeleteUser(IUser userForDelete);
+        bool UpdateTokenlifetime(Lifetime lifetime);
+        bool UpdateCoolDowntime(CoolDowntime cooldowntime);
+        SimpleEntity GetLoginedAdmins();
+        SimpleEntity GetLoginedUsers();
+        SimpleEntity GetAliveTockens();
+        ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem);
+    }
+
+    public class AdminService : UserService, IAdminService
     {
         LoginedAdminsResourse loginedAdminsResourse;
         LoginedUsersResourse loginedUsersResourse;
         AliveTockensResource aliveTockensResource;
-        GetUserItemResource getUserItemResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {
