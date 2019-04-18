@@ -8,7 +8,23 @@ using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
-    public class UserService : GuestService
+    public interface IUserService
+    {
+        Lifetime GetCurrentTokenLifetime();
+        CoolDowntime GetCurrentCoolDowntime();
+        SimpleEntity GetUserName();
+        List<string> GetAllItems();
+        List<string> GetAllItemsIndexes();
+        ItemTemplate GetItem(ItemTemplate itemTemplate);
+        bool AddItem(ItemTemplate itemTemplate);
+        bool UpdateItem(ItemTemplate itemTemplate);
+        bool DeleteItem(ItemTemplate itemTemplate);
+        bool ChangePassword(string newUserPassword);
+        bool IsLoggined();
+        GuestService Logout();
+    }
+
+    public class UserService : GuestService, IUserService
     {
         //------------------ User ------------------------
         protected IUser user;

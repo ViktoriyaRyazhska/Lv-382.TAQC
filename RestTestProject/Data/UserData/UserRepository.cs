@@ -2,6 +2,7 @@
 {
     public sealed class UserRepository
     {
+        public static string USER_NOT_FOUND_ERROR = "ERROR, user not found";
         private volatile static UserRepository instance;
         private static object lockingObject = new object();
 

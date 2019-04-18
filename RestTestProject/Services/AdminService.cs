@@ -10,14 +10,27 @@ namespace RestTestProject.Services
 {
     public interface IAdminService
     {
+        Lifetime GetCurrentTokenLifetime();
+        CoolDowntime GetCurrentCoolDowntime();
         bool CreateUser(IUser newUser);
         bool DeleteUser(IUser userForDelete);
+        bool ChangePassword(string newUserPassword);
         bool UpdateTokenlifetime(Lifetime lifetime);
         bool UpdateCoolDowntime(CoolDowntime cooldowntime);
+        SimpleEntity GetUserName();
         SimpleEntity GetLoginedAdmins();
         SimpleEntity GetLoginedUsers();
         SimpleEntity GetAliveTockens();
-        ItemTemplate GetUserItems(ItemTemplate itemTemplate, IUser userWithItem);
+        ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem);
+        List<string> GetUserItems(IUser userWithItem);
+        List<string> GetAllItems();
+        List<string> GetAllItemsIndexes();
+        ItemTemplate GetItem(ItemTemplate itemTemplate);
+        bool AddItem(ItemTemplate itemTemplate);
+        bool UpdateItem(ItemTemplate itemTemplate);
+        bool DeleteItem(ItemTemplate itemTemplate);
+        bool IsLoggined();
+        GuestService Logout();
     }
 
     public class AdminService : UserService, IAdminService
