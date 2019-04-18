@@ -152,7 +152,7 @@
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.72.0.3626.69\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.72.0.3626.69\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>copy ..\..\allureConfig.json -y
+    <PostBuildEvent>copy ..\..\allureConfig.json /Y
 rem dir</PostBuildEvent>
   </PropertyGroup>
 </Project>
