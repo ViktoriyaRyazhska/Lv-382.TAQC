@@ -6,11 +6,10 @@ namespace RestTestProject.Tests
 {
     [TestFixture]
     public class TestRunner
-    {
-        protected static string USER_NOT_FOUND_ERROR = "ERROR, user not found";
-        protected AdminService adminService;
+    { 
         protected GuestService guestService;
-        protected UserService userService;
+        protected IUserService userService;
+        protected IAdminService adminService;
 
         [SetUp]
         public void BeforeTest()

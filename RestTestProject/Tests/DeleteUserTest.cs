@@ -15,7 +15,7 @@ namespace RestTestProject.Tests
         public void DeletingUserTest(IUser userForDelete)
         {
             Assert.IsTrue(adminService.DeleteUser(userForDelete));
-            Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), USER_NOT_FOUND_ERROR);
+            Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), UserRepository.USER_NOT_FOUND_ERROR);
         }
 
     }

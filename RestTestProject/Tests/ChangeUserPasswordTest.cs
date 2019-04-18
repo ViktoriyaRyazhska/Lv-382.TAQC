@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
+using RestTestProject.Services;
 
 namespace RestTestProject.Tests
 {

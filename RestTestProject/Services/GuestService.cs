@@ -6,7 +6,7 @@ using RestTestProject.Resources.BasicResources;
 using RestTestProject.Rules;
 
 namespace RestTestProject.Services
-{
+{ 
     public class GuestService
     {
         protected AdminAuthorizedResource adminAuthorizedResource;
@@ -68,17 +68,6 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.password.ToString(), password);
             SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
             IUser user = UserRepository.Get().ExistingUser();
-            user.Token = simpleEntity.content;
-            return new UserService(user);
-        }
-
-        //
-        public UserService SuccessfulUserLogin(IUser user, bool useNewPasswordChecker)
-        {
-            RestParameters bodyParameters = new RestParameters()
-                .AddParameters(RequestParametersKeys.name.ToString(), user.Name)
-                .AddParameters(RequestParametersKeys.password.ToString(), user.Password);
-            SimpleEntity simpleEntity = userAuthorizedResource.HttpPostAsObject(null, null, bodyParameters);
             user.Token = simpleEntity.content;
             return new UserService(user);
         }
