@@ -138,7 +138,7 @@ namespace RestTestProject.Tests
             //Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
         }
 
-        [Test, TestCaseSource(nameof(AddItemsData))]
+        [Test, TestCaseSource(nameof(AddItemData))]
         public void GetUserItemTest(ItemTemplate addUserItem)
         {
             //Preconditions

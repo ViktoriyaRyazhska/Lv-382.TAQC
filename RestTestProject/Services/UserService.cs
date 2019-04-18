@@ -16,9 +16,7 @@ namespace RestTestProject.Services
         //------------------ Items ------------------------
         protected GetAllItemsIndexesResource getAllItemsIndexesResource;
         protected GetAllItemsResource getAllItemsResource;
-        protected GetUserItemResource getUserItemResource;
         protected ManageItemResource manageItemResource;
-        protected GetUserItemsResource getUserItemsResource;
         //-------------------------------------------------
         protected LogoutResource logoutResource;
 
@@ -28,9 +26,7 @@ namespace RestTestProject.Services
             logoutResource = new LogoutResource();
             getAllItemsIndexesResource = new GetAllItemsIndexesResource();
             getAllItemsResource = new GetAllItemsResource();
-            getUserItemResource = new GetUserItemResource();
             manageItemResource = new ManageItemResource();
-            getUserItemsResource = new GetUserItemsResource();
             userResorce = new UserResource();
         }
 

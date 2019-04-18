@@ -14,6 +14,7 @@ namespace RestTestProject.Services
         LoginedUsersResourse loginedUsersResourse;
         AliveTockensResource aliveTockensResource;
         GetUserItemResource getUserItemResource;
+        GetUserItemsResource getUserItemsResource;
 
         public AdminService(IUser adminUser) : base(adminUser)
         {
@@ -21,6 +22,7 @@ namespace RestTestProject.Services
             loginedUsersResourse = new LoginedUsersResourse();
             aliveTockensResource = new AliveTockensResource();
             getUserItemResource = new GetUserItemResource();
+            getUserItemsResource = new GetUserItemsResource();
         }
 
         public bool CreateUser(IUser newUser)
