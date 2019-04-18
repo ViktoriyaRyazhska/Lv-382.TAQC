@@ -10,167 +10,163 @@ using RestTestProject.Entity;
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class ItemManagingTests
+    public class ItemManagingTests : TestRunner
     {
-        //private UserService userService;
-        //private AdminService adminService;
+        IUser simpleUser = UserRepository.Get().ExistingUser();
 
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    userService = new GuestService().SuccessfulUserLogin(UserRepository.Get().NewUser());
-        //    adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().Admin());
-        //}
-
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-        //    {
-        //        // TODO Save to Log File
-        //        Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-        //        // Clear Cache
-        //    }
-
-        //    if ((adminService != null) && (adminService.IsLoggined()))
-        //    {
-        //        adminService.Logout();
-        //    }
-
-        //    if ((userService != null) && (userService.IsLoggined()))
-        //    {
-        //        userService.Logout();
-        //    }
-        //}
-
-        IUser adminUser = UserRepository.Get().ExistingAdmin();
-        IUser user = UserRepository.Get().ExistingUser();
-        GuestService guestService = new GuestService();
-
-        [Test]
-        public void AddItemTest()
+        [SetUp]
+        public void BeforeTests()
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate existItem = ItemRepository.GetForUpdate();
-            //adminService.AddItem(existItem);
+            userService = new GuestService().SuccessfulUserLogin(simpleUser);
+        }
+
+        private static readonly object[] AddItemData =
+        {
+            new object[] { ItemRepository.GetFirst() }
+        };
+
+        [Test, TestCaseSource(nameof(AddItemData))]
+        public void AddItemTest(ItemTemplate item)
+        {
+            ItemTemplate existItem = item;
             userService.AddItem(existItem);
             ItemTemplate itemResult = userService.GetItem(existItem);
             Assert.AreEqual(existItem.Item, itemResult.Item);
         }
 
-        [Test]
-        public void UpdateItemTest()
+
+        private static readonly object[] UpdateItemData =
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate forUpdateItem = ItemRepository.GetForUpdate();
-            //adminService.UpdateItem(forUpdateItem);
+            new object[] { ItemRepository.GetThird(), ItemRepository.GetForUpdate() }
+        };
+
+        [Test, TestCaseSource(nameof(UpdateItemData))]
+        public void UpdateItemTest(ItemTemplate addItem, ItemTemplate updateItem)
+        {
+            //Preconditions
+            ItemTemplate existItem = addItem;
+            userService.AddItem(existItem);
+            ItemTemplate itemResult = userService.GetItem(existItem);
+            Assert.AreEqual(existItem.Item, itemResult.Item);
+            //Steps
+            ItemTemplate forUpdateItem = updateItem;
             userService.UpdateItem(forUpdateItem);
-            ItemTemplate itemResult = userService.GetItem(forUpdateItem);
-            Assert.AreEqual(forUpdateItem.Item, itemResult.Item);
+            ItemTemplate updatedItem = userService.GetItem(forUpdateItem);
+            Assert.AreEqual(forUpdateItem.Item, updatedItem.Item);
         }
 
-        [Test]
-        public void DeleteItemTest()
+        [Test, TestCaseSource(nameof(AddItemData))]
+        public void DeleteItemTest(ItemTemplate addItem)
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            ItemTemplate forDeleteItem = ItemRepository.GetForUpdate();
-            //adminService.DeleteItem(forDeleteItem);
+            //Preconditions
+            ItemTemplate existItem = addItem;
+            userService.AddItem(existItem);
+            ItemTemplate itemResult = userService.GetItem(existItem);
+            Assert.AreEqual(existItem.Item, itemResult.Item);
+            //Steps
+            ItemTemplate forDeleteItem = addItem;
             userService.DeleteItem(forDeleteItem);
-            ItemTemplate itemResult = userService.GetItem(forDeleteItem);
-            Assert.AreNotEqual(forDeleteItem.Item, itemResult.Item);
+            ItemTemplate deletedItem = userService.GetItem(forDeleteItem);
+            Assert.AreNotEqual(forDeleteItem.Item, deletedItem.Item);
         }
 
-        [Test]
-        public void GetAllItemsTest()
+
+        private static readonly object[] AddItemsData =
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-            List<string> list = userService.GetAllItems();
-            Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-            //foreach (string element in list)
-            //{
-            //    Console.WriteLine(element);
-            //    Console.WriteLine("----------------");
-            //}
-            //Console.WriteLine("///////////////////");
-            //foreach (ItemTemplate element in ItemRepository.GetAllItems())
-            //{
-            //    Console.WriteLine(element);
-            //}
-        }
-        [Test]
-        public void GetAllItemsTest1()
+            new object[] { ItemRepository.GetFirst(), ItemRepository.GetSecond(), ItemRepository.GetThird() }
+        };
+
+        [Test, TestCaseSource(nameof(AddItemsData))]
+        public void GetAllItemsTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+            //Preconditions
+            ItemTemplate firstItem = addFirstItem;
+            userService.AddItem(firstItem);
+            ItemTemplate secondItem = addSecondItem;
+            userService.AddItem(secondItem);
+            ItemTemplate thirdItem = addThirdItem;
+            userService.AddItem(thirdItem);
+            //Steps
             List<string> list = userService.GetAllItems();
             //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-
-            //foreach (var element in list)
-            //{
-            //    Console.WriteLine(element.content);
-            //}
-
+            foreach (string element in list)
+            {
+                Console.WriteLine(element);
+            }
         }
 
         //[Test]
-        public void GetAllItemsIndexesTest()
+        //public void GetAllItemsTest1()
+        //{
+        //    AdminService adminService = guestService
+        //        .SuccessfulAdminLogin(adminUser);
+        //    UserService userService = guestService
+        //        .SuccessfulUserLogin(simpleUser);
+        //    //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
+        //    List<string> list = userService.GetAllItems();
+        //    //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
+
+        //    //foreach (var element in list)
+        //    //{
+        //    //    Console.WriteLine(element.content);
+        //    //}
+
+        //}
+
+        //[Test]
+
+        [Test, TestCaseSource(nameof(AddItemsData))]
+        public void GetAllItemsIndexesTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
         {
-            AdminService adminService = guestService
-                .SuccessfulAdminLogin(adminUser);
-            UserService userService = guestService
-                .SuccessfulUserLogin(user);
-            //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-            List<string> list = userService.GetAllItems();
-            Assert.AreEqual(ItemRepository.GetAllItems(), list, "Item isn`t deleted");
+            //Preconditions
+            ItemTemplate firstItem = addFirstItem;
+            userService.AddItem(firstItem);
+            ItemTemplate secondItem = addSecondItem;
+            userService.AddItem(secondItem);
+            ItemTemplate thirdItem = addThirdItem;
+            userService.AddItem(thirdItem);
+            //Steps
+            List<string> list = userService.GetAllItemsIndexes();
+            ////Assert.AreEqual(ItemRepository., list, "Item isn`t deleted");
             foreach (var element in list)
             {
-                //Console.WriteLine(element.content);
+                Console.WriteLine(element);
             }
-            ////Preconditions
-            //Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
-            ////Steps
-            //Assert.IsTrue(adminService.GetUserItems().content.Contains(userService.GetAllItemsIndexes().content));
-            ////Postconditions
+
             ////Console.WriteLine(userService.GetAllItemsIndexes());
             //Assert.AreEqual("True", userService.DeleteItem().content, "Item isn`t deleted");
             //Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
         }
 
-        //[Test]
-        //public void GetUserItemTest()
-        //{
-        //    Console.WriteLine(adminService.GetUserItem());
-        //}
+        [Test, TestCaseSource(nameof(AddItemData))]
+        public void GetUserItemTest(ItemTemplate addUserItem)
+        {
+            //Preconditions
+            ItemTemplate userItem = addUserItem;
+            userService.AddItem(userItem);
+            //Steps
+            ItemTemplate resultItem = adminService.GetUserItem(addUserItem, simpleUser);
+            Assert.AreEqual(userItem.Item, resultItem.Item);
+            Console.WriteLine(resultItem.ToString());
+        }
 
-        //[Test, TestCaseSource("NewItem")]
-        //public void GetUserItemsTest(string testItem)
-        //{
-        //    //Preconditions
-        //    Assert.AreEqual("True", userService.AddItem(testItem).content, "TestItem isn`t created");
-        //    //Steps
-        //    Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-        //    //Console.WriteLine(adminService.GetUserItems());
-        //    //Postconditions
-        //    Assert.AreEqual("True", userService.DeleteItem().content, "Item isn`t deleted");
-        //    Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
-        //    //Console.WriteLine(adminService.GetUserItems());
-        //}
+        [Test, TestCaseSource(nameof(AddItemsData))]
+        public void GetUserItemsTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+        {
+            //Preconditions
+            ItemTemplate firstItem = addFirstItem;
+            userService.AddItem(firstItem);
+            ItemTemplate secondItem = addSecondItem;
+            userService.AddItem(secondItem);
+            ItemTemplate thirdItem = addThirdItem;
+            userService.AddItem(thirdItem);
+            //Steps
+            List<string> list = adminService.GetUserItems(simpleUser);
+            foreach (string element in list)
+            {
+                Console.WriteLine(element);
+            }
+        }
     }
 }
 

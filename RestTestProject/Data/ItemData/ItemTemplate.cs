@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return Index + "       " + Item;
+            return "[Item: " + Item + ", Index: " + Index + "]";
         }
     }
 }
