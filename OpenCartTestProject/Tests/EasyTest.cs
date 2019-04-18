@@ -28,7 +28,8 @@ namespace OpenCartTestProject.Tests
 
         //[Test, TestCaseSource(nameof(ExternalUsers))]
         //[Test, TestCaseSource(nameof(CSVUsers))]
-        [Test, TestCaseSource(nameof(ExcelUsers))]
+        //[Test, TestCaseSource(nameof(ExcelUsers))]
+        [Test, TestCaseSource("ExcelUsers")]
         public void CheckSearch(IUser user)
         {
             Console.WriteLine("Input User: " + user);
