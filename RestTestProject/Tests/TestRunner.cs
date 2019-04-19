@@ -18,7 +18,7 @@ namespace RestTestProject.Tests
             adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void AfterTest()
         {
             GuestService.ResetService();
