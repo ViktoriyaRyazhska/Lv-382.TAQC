@@ -51,6 +51,11 @@ namespace RestTestProject.Services
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
 
+        //public bool IsItemExist(ItemTemplate item)
+        //{
+        //    return (item != null) && (!string.IsNullOrEmpty(item.Index));
+        //}
+
         //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {

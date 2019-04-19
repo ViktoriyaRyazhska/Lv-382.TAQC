@@ -20,18 +20,51 @@ namespace RestTestProject.Tests
             userService = new GuestService().SuccessfulUserLogin(simpleUser);
         }
 
+
         private static readonly object[] AddItemData =
         {
             new object[] { ItemRepository.GetFirst() }
         };
 
-        [Test, TestCaseSource(nameof(AddItemData))]
-        public void AddItemTest(ItemTemplate item)
+        [Test, TestCaseSource("AddItemData")]
+        public void AddItemAsUserTest(ItemTemplate existItem)
         {
-            ItemTemplate existItem = item;
-            userService.AddItem(existItem);
-            ItemTemplate itemResult = userService.GetItem(existItem);
-            Assert.AreEqual(existItem.Item, itemResult.Item);
+            //Preconditions
+            Assert.IsNull(userService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(userService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, userService.GetItem(existItem).Item);
+        }
+
+        [Test, TestCaseSource("AddItemData")]
+        public void AddItemAsAdminTest(ItemTemplate existItem)
+        {
+            //Preconditions
+            Assert.IsNull(adminService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(adminService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, adminService.GetItem(existItem).Item);
+        }
+
+
+        [Test, TestCaseSource("AddItemData")]
+        public void GetItemAsUserTest(ItemTemplate existItem)
+        {
+            //Preconditions
+            Assert.IsNull(userService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(userService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, userService.GetItem(existItem).Item);
+        }
+
+        [Test, TestCaseSource("AddItemData")]
+        public void GetItemAsAdminTest(ItemTemplate existItem)
+        {
+            //Preconditions
+            Assert.IsNull(adminService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(adminService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, adminService.GetItem(existItem).Item);
         }
 
 
@@ -40,132 +73,107 @@ namespace RestTestProject.Tests
             new object[] { ItemRepository.GetThird(), ItemRepository.GetForUpdate() }
         };
 
-        [Test, TestCaseSource(nameof(UpdateItemData))]
-        public void UpdateItemTest(ItemTemplate addItem, ItemTemplate updateItem)
+        [Test, TestCaseSource("UpdateItemData")]
+        public void UpdateItemAsUserTest(ItemTemplate addItem, ItemTemplate updateItem)
         {
             //Preconditions
-            ItemTemplate existItem = addItem;
-            userService.AddItem(existItem);
-            ItemTemplate itemResult = userService.GetItem(existItem);
-            Assert.AreEqual(existItem.Item, itemResult.Item);
+            userService.AddItem(addItem);
             //Steps
-            ItemTemplate forUpdateItem = updateItem;
-            userService.UpdateItem(forUpdateItem);
-            ItemTemplate updatedItem = userService.GetItem(forUpdateItem);
-            Assert.AreEqual(forUpdateItem.Item, updatedItem.Item);
+            Assert.IsTrue(userService.UpdateItem(updateItem));
+            Assert.AreEqual(updateItem.Item, userService.GetItem(updateItem).Item);
         }
 
-        [Test, TestCaseSource(nameof(AddItemData))]
-        public void DeleteItemTest(ItemTemplate addItem)
+        [Test, TestCaseSource("UpdateItemData")]
+        public void UpdateItemAsAdminTest(ItemTemplate addItem, ItemTemplate updateItem)
         {
             //Preconditions
-            ItemTemplate existItem = addItem;
-            userService.AddItem(existItem);
-            ItemTemplate itemResult = userService.GetItem(existItem);
-            Assert.AreEqual(existItem.Item, itemResult.Item);
+            adminService.AddItem(addItem);
             //Steps
-            ItemTemplate forDeleteItem = addItem;
-            userService.DeleteItem(forDeleteItem);
-            ItemTemplate deletedItem = userService.GetItem(forDeleteItem);
-            Assert.AreNotEqual(forDeleteItem.Item, deletedItem.Item);
+            Assert.IsTrue(adminService.UpdateItem(updateItem));
+            Assert.AreEqual(updateItem.Item, adminService.GetItem(updateItem).Item);
+        }
+
+
+        [Test, TestCaseSource("AddItemData")]
+        public void DeleteItemAsUserTest(ItemTemplate addItem)
+        {
+            //Preconditions
+            userService.AddItem(addItem);
+            //Steps
+            Assert.IsTrue(userService.DeleteItem(addItem));
+            Assert.IsNull(userService.GetItem(addItem).Item);
+        }
+
+        [Test, TestCaseSource("AddItemData")]
+        public void DeleteItemAsAdminTest(ItemTemplate addItem)
+        {
+            //Preconditions
+            adminService.AddItem(addItem);
+            //Steps
+            Assert.IsTrue(adminService.DeleteItem(addItem));
+            Assert.IsNull(adminService.GetItem(addItem).Item);
         }
 
 
         private static readonly object[] AddItemsData =
         {
-            new object[] { ItemRepository.GetFirst(), ItemRepository.GetSecond(), ItemRepository.GetThird() }
+            new object[] { ItemRepository.GetFirst() },
+            new object[] { ItemRepository.GetSecond() },
+            new object[] { ItemRepository.GetThird() }
         };
 
-        [Test, TestCaseSource(nameof(AddItemsData))]
-        public void GetAllItemsTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+        //[Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsTest(ItemTemplate addItem)
         {
             //Preconditions
-            ItemTemplate firstItem = addFirstItem;
-            userService.AddItem(firstItem);
-            ItemTemplate secondItem = addSecondItem;
-            userService.AddItem(secondItem);
-            ItemTemplate thirdItem = addThirdItem;
-            userService.AddItem(thirdItem);
+            
+            Console.WriteLine(userService.AddItem(addItem));
             //Steps
             List<string> list = userService.GetAllItems();
-            //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
-            foreach (string element in list)
-            {
-                Console.WriteLine(element);
-            }
+            //Assert.AreEqual(ItemRepository.GetAllItems(), userService.GetAllItems(), "Items are not equal");
+            //Console.WriteLine(userService.GetAllItems().ToString());
+            //foreach (string element in list)
+            //{
+            //    Console.WriteLine(element);
+            //}
         }
 
-        //[Test]
-        //public void GetAllItemsTest1()
-        //{
-        //    AdminService adminService = guestService
-        //        .SuccessfulAdminLogin(adminUser);
-        //    UserService userService = guestService
-        //        .SuccessfulUserLogin(simpleUser);
-        //    //Assert.AreEqual(userService.GetAllItems().content, adminService.GetUserItems().content);
-        //    List<string> list = userService.GetAllItems();
-        //    //Assert.AreEqual(ItemRepository.GetAllItems(), list, "Items are not equal");
 
-        //    //foreach (var element in list)
-        //    //{
-        //    //    Console.WriteLine(element.content);
-        //    //}
-
-        //}
-
-        //[Test]
-
-        [Test, TestCaseSource(nameof(AddItemsData))]
-        public void GetAllItemsIndexesTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+        //[Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsIndexesTest(ItemTemplate addItem)
         {
             //Preconditions
-            ItemTemplate firstItem = addFirstItem;
-            userService.AddItem(firstItem);
-            ItemTemplate secondItem = addSecondItem;
-            userService.AddItem(secondItem);
-            ItemTemplate thirdItem = addThirdItem;
-            userService.AddItem(thirdItem);
+            userService.AddItem(addItem);
             //Steps
-            List<string> list = userService.GetAllItemsIndexes();
-            ////Assert.AreEqual(ItemRepository., list, "Item isn`t deleted");
-            foreach (var element in list)
-            {
-                Console.WriteLine(element);
-            }
-
-            ////Console.WriteLine(userService.GetAllItemsIndexes());
-            //Assert.AreEqual("True", userService.DeleteItem().content, "Item isn`t deleted");
-            //Assert.AreNotEqual(testItem, userService.GetUserItem().content, "Item should be deleted, delete function work incorrect");
+            //List<string> list = userService.GetAllItemsIndexes();
+            //Assert.AreEqual(ItemRepository.GetAllItems(), userService.GetAllItemsIndexes());
+            ////Assert.AreEqual(ItemRepository., list);
+            //foreach (var element in list)
+            //{
+            //    Console.WriteLine(element);
+            //}
         }
 
-        [Test, TestCaseSource(nameof(AddItemData))]
-        public void GetUserItemTest(ItemTemplate addUserItem)
+
+        [Test, TestCaseSource("AddItemData")]
+        public void GetUserItemTest(ItemTemplate addItem)
         {
             //Preconditions
-            ItemTemplate userItem = addUserItem;
-            userService.AddItem(userItem);
+            userService.AddItem(addItem);
             //Steps
-            ItemTemplate resultItem = adminService.GetUserItem(addUserItem, simpleUser);
-            Assert.AreEqual(userItem.Item, resultItem.Item);
-            Console.WriteLine(resultItem.ToString());
+            Assert.AreEqual(addItem.Item, adminService.GetUserItem(addItem, simpleUser).Item);
         }
 
-        [Test, TestCaseSource(nameof(AddItemsData))]
-        public void GetUserItemsTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+
+        [Test, TestCaseSource("AddItemsData")]
+        public void GetUserItemsTest(ItemTemplate addItem)
         {
             //Preconditions
-            ItemTemplate firstItem = addFirstItem;
-            userService.AddItem(firstItem);
-            ItemTemplate secondItem = addSecondItem;
-            userService.AddItem(secondItem);
-            ItemTemplate thirdItem = addThirdItem;
-            userService.AddItem(thirdItem);
+            userService.AddItem(addItem);
             //Steps
-            List<string> list = adminService.GetUserItems(simpleUser);
-            foreach (string element in list)
-            {
-                Console.WriteLine(element);
-            }
+            //Console.WriteLine(addItem.Index);
+            //Console.WriteLine(adminService.GetUserItems(simpleUser));
+            Assert.IsTrue(adminService.GetUserItems(simpleUser).ToString().Contains(addItem.Index.ToString()));
         }
     }
 }
