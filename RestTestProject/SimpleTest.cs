@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using RestSharp;
@@ -95,6 +96,52 @@ namespace RestTestProject
             // asyncHandle.Abort();
             //
             Console.WriteLine("done");
+        }
+
+        [Test]
+        public void CheckItems()
+        {
+            string url = "http://localhost:8080/";
+            var client = new RestClient(url);
+            //
+            var request = new RestRequest("/login", Method.POST);
+            request.AddParameter("name", "akimatc");
+            request.AddParameter("password", "qwerty");
+            IRestResponse response = client.Execute(request);
+            JsonDeserializer deserial = new JsonDeserializer();
+            string akimatcToken = deserial.Deserialize<RestResult>(response).content;
+            //string akimatcContent = response.Content;
+            Console.WriteLine("akimatcToken: " + akimatcToken);
+            //
+            request = new RestRequest("/item/{index}", Method.POST);
+            request.AddParameter("token", akimatcToken);
+            request.AddParameter("item", "item123");
+            request.AddUrlSegment("index", "123");
+            response = client.Execute(request);
+            Console.WriteLine("add Item /item/123 " + response.Content);
+            //
+            request = new RestRequest("/item/{index}", Method.POST);
+            request.AddParameter("token", akimatcToken);
+            request.AddParameter("item", "item432");
+            request.AddUrlSegment("index", "432");
+            response = client.Execute(request);
+            Console.WriteLine("add Item /item/432 " + response.Content);
+            //
+            request = new RestRequest("/login", Method.POST);
+            request.AddParameter("name", "admin");
+            request.AddParameter("password", "qwerty");
+            response = client.Execute(request);
+            string adminToken = deserial.Deserialize<RestResult>(response).content;
+            Console.WriteLine("adminToken: " + adminToken);
+            //
+            request = new RestRequest("/item/user/akimatc?token=" + adminToken, Method.GET);
+            response = client.Execute(request);
+            //string akimatcItems = response.Content;
+            string akimatcItems = deserial.Deserialize<RestResult>(response).content;
+            Console.WriteLine("akimatcItems: " + akimatcItems);
+            //
+            File.WriteAllText("SourceItems.txt", akimatcItems);
+            //
         }
 
         //[Test]

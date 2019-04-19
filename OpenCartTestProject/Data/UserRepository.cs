@@ -53,6 +53,13 @@ namespace OpenCartTestProject.Data
                 .Build();
         }
 
+        public IUser Registered(string password)
+        {
+            IUser user = Registered();
+            ((User)user).SetPassword(password);
+            return user;
+        }
+
         //public IUser NewUser() { }
 
         public IList<IUser> FromCsv()

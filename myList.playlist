@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="OpenCartTestProject.SimpleTest.SoftserveAcademy" /><Add Test="OpenCartTestProject.SecondTest.CheckLogin" /><Add Test="OpenCartTestProject.SecondTest.CheckLoginNewPassword" /><Add Test="OpenCartTestProject.SimpleTest.SoftserveAcademy" /><Add Test="OpenCartTestProject.SecondTest.CheckChangePassword" /></Playlist>
