@@ -8,6 +8,7 @@ namespace RestTestProject.Tests
     {
         private static readonly object[] NewUserData =
         {
+            new object[] { UserRepository.Get().NonExistentAdminUser() },
             new object[] { UserRepository.Get().NonExistentUser() }
         };
 
@@ -17,6 +18,17 @@ namespace RestTestProject.Tests
             Assert.IsTrue(adminService.CreateUser(newUser));
             userService = guestService.SuccessfulUserLogin(newUser);
             Assert.IsTrue(userService.IsLoggined());
+        }
+
+        private static readonly object[] ExistingUserData =
+        {
+            new object[] { UserRepository.Get().ExistingUser() }
+        };
+
+        [Test, TestCaseSource("ExistingUserData")]
+        public void CreatingExistingUserTest(IUser existingUser)
+        {
+            Assert.IsFalse(adminService.CreateUser(existingUser));
         }
     }
 }
