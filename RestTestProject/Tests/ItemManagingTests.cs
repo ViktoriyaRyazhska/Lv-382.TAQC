@@ -26,7 +26,7 @@ namespace RestTestProject.Tests
             new object[] { ItemRepository.GetFirst() }
         };
 
-        [Test, TestCaseSource(nameof(AddItemData))]
+        [Test, TestCaseSource("AddItemData")]
         public void AddItemAsUserTest(ItemTemplate existItem)
         {
             //Preconditions
@@ -36,8 +36,29 @@ namespace RestTestProject.Tests
             Assert.AreEqual(existItem.Item, userService.GetItem(existItem).Item);
         }
 
-        [Test, TestCaseSource(nameof(AddItemData))]
+        [Test, TestCaseSource("AddItemData")]
         public void AddItemAsAdminTest(ItemTemplate existItem)
+        {
+            //Preconditions
+            Assert.IsNull(adminService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(adminService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, adminService.GetItem(existItem).Item);
+        }
+
+
+        [Test, TestCaseSource("AddItemData")]
+        public void GetItemAsUserTest(ItemTemplate existItem)
+        {
+            //Preconditions
+            Assert.IsNull(userService.GetItem(existItem).Item);
+            //Steps
+            Assert.IsTrue(userService.AddItem(existItem));
+            Assert.AreEqual(existItem.Item, userService.GetItem(existItem).Item);
+        }
+
+        [Test, TestCaseSource("AddItemData")]
+        public void GetItemAsAdminTest(ItemTemplate existItem)
         {
             //Preconditions
             Assert.IsNull(adminService.GetItem(existItem).Item);
@@ -52,7 +73,7 @@ namespace RestTestProject.Tests
             new object[] { ItemRepository.GetThird(), ItemRepository.GetForUpdate() }
         };
 
-        [Test, TestCaseSource(nameof(UpdateItemData))]
+        [Test, TestCaseSource("UpdateItemData")]
         public void UpdateItemAsUserTest(ItemTemplate addItem, ItemTemplate updateItem)
         {
             //Preconditions
@@ -62,7 +83,7 @@ namespace RestTestProject.Tests
             Assert.AreEqual(updateItem.Item, userService.GetItem(updateItem).Item);
         }
 
-        [Test, TestCaseSource(nameof(UpdateItemData))]
+        [Test, TestCaseSource("UpdateItemData")]
         public void UpdateItemAsAdminTest(ItemTemplate addItem, ItemTemplate updateItem)
         {
             //Preconditions
@@ -73,7 +94,7 @@ namespace RestTestProject.Tests
         }
 
 
-        [Test, TestCaseSource(nameof(AddItemData))]
+        [Test, TestCaseSource("AddItemData")]
         public void DeleteItemAsUserTest(ItemTemplate addItem)
         {
             //Preconditions
@@ -83,7 +104,7 @@ namespace RestTestProject.Tests
             Assert.IsNull(userService.GetItem(addItem).Item);
         }
 
-        [Test, TestCaseSource(nameof(AddItemData))]
+        [Test, TestCaseSource("AddItemData")]
         public void DeleteItemAsAdminTest(ItemTemplate addItem)
         {
             //Preconditions
@@ -96,16 +117,12 @@ namespace RestTestProject.Tests
 
         private static readonly object[] AddItemsData =
         {
-            new object[] { ItemRepository.GetFirst(), ItemRepository.GetSecond(), ItemRepository.GetThird() }
-        };
-        private static readonly object[] AddItemsData1 =
-        {
             new object[] { ItemRepository.GetFirst() },
             new object[] { ItemRepository.GetSecond() },
             new object[] { ItemRepository.GetThird() }
         };
 
-        [Test, TestCaseSource("AddItemsData1")]
+        //[Test, TestCaseSource("AddItemsData")]
         public void GetAllItemsTest(ItemTemplate addItem)
         {
             //Preconditions
@@ -122,26 +139,23 @@ namespace RestTestProject.Tests
         }
 
 
-        [Test, TestCaseSource(nameof(AddItemsData))]
-        public void GetAllItemsIndexesTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+        //[Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsIndexesTest(ItemTemplate addItem)
         {
             //Preconditions
-            userService.AddItem(addFirstItem);
-            userService.AddItem(addSecondItem);
-            userService.AddItem(addThirdItem);
+            userService.AddItem(addItem);
             //Steps
             //List<string> list = userService.GetAllItemsIndexes();
-            //Assert.AreEqual(ItemRepository.GetAllItems(), userService.GetAllItemsIndexes(), "Items are not equal");
-            ////Assert.AreEqual(ItemRepository., list, "Item isn`t deleted");
+            //Assert.AreEqual(ItemRepository.GetAllItems(), userService.GetAllItemsIndexes());
+            ////Assert.AreEqual(ItemRepository., list);
             //foreach (var element in list)
             //{
             //    Console.WriteLine(element);
             //}
-
         }
 
 
-        [Test, TestCaseSource(nameof(AddItemData))]
+        [Test, TestCaseSource("AddItemData")]
         public void GetUserItemTest(ItemTemplate addItem)
         {
             //Preconditions
@@ -151,20 +165,15 @@ namespace RestTestProject.Tests
         }
 
 
-        [Test, TestCaseSource(nameof(AddItemsData))]
-        public void GetUserItemsTest(ItemTemplate addFirstItem, ItemTemplate addSecondItem, ItemTemplate addThirdItem)
+        [Test, TestCaseSource("AddItemsData")]
+        public void GetUserItemsTest(ItemTemplate addItem)
         {
             //Preconditions
-            userService.AddItem(addFirstItem);
-            userService.AddItem(addSecondItem);
-            userService.AddItem(addThirdItem);
+            userService.AddItem(addItem);
             //Steps
-            //Assert.AreEqual(ItemRepository.GetAllItems(), userService.GetAllItemsIndexes(), "Items are not equal");
-            List<string> list = adminService.GetUserItems(simpleUser);
-            foreach (string element in list)
-            {
-                Console.WriteLine(element);
-            }
+            //Console.WriteLine(addItem.Index);
+            //Console.WriteLine(adminService.GetUserItems(simpleUser));
+            Assert.IsTrue(adminService.GetUserItems(simpleUser).ToString().Contains(addItem.Index.ToString()));
         }
     }
 }

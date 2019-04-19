@@ -132,7 +132,7 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
-            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new List<string>(simpleEntity.content.Split('\n'));
         }
     }

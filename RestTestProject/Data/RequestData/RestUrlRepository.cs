@@ -116,7 +116,7 @@ namespace RestTestProject.Data
         {
             return new RestUrl()
                 .AddBaseUrl(Server)
-                .AddGetUrl("/item/user")
+                .AddGetUrl("/item/user/{name}")
                 .AddPostUrl("")
                 .AddPutUrl("")
                 .AddDeleteUrl("");
