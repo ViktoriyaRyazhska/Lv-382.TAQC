@@ -75,6 +75,7 @@
     <Compile Include="Data\UserData\User.cs" />
     <Compile Include="Data\UserData\UserRepository.cs" />
     <Compile Include="Entity\SimpleEntity.cs" />
+    <Compile Include="Resources\AuthorizationResources\LockedUserResource.cs" />
     <Compile Include="Resources\BasicResources\ResetServiceResource.cs" />
     <Compile Include="Resources\TokenResources\AliveTockensResource.cs" />
     <Compile Include="Resources\ItemResources\GetAllItemsResource.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Tests\AuthorizationTests\LoginTests.cs" />
     <Compile Include="Tests\AuthorizationTests\LogoutTests.cs" />
     <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
+    <Compile Include="Tests\UserTests\LockUserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

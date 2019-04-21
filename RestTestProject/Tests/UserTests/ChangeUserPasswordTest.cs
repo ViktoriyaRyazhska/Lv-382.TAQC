@@ -8,7 +8,8 @@ namespace RestTestProject.Tests
     {
         private static readonly object[] ChangePasswordData =
         {
-            new object[] { UserRepository.Get().ExistingUser() }
+            new object[] { UserRepository.Get().ExistingUser() },
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("ChangePasswordData")]

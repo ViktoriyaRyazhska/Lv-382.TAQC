@@ -60,6 +60,16 @@ namespace RestTestProject.Data
                 .AddDeleteUrl("");
         }
 
+        public static RestUrl LockedUsers()
+        {
+            return new RestUrl()
+                .AddBaseUrl(Server)
+                .AddGetUrl("/locked/users")
+                .AddPostUrl("/locked/user/{name}")
+                .AddPutUrl("/locked/user/{name}")
+                .AddDeleteUrl("");
+        }
+
         public static RestUrl GetCoolDownTime()
         {
             return new RestUrl()

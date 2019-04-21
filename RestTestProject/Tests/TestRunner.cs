@@ -11,8 +11,8 @@ namespace RestTestProject.Tests
         protected IUserService userService;
         protected IAdminService adminService;
 
-        [SetUp]
-        public void BeforeTest()
+        [OneTimeSetUp]
+        public void BeforeTests()
         {
             guestService = new GuestService();
             adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());

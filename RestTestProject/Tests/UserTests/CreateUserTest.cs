@@ -8,7 +8,7 @@ namespace RestTestProject.Tests
     {
         private static readonly object[] NewUserData =
         {
-            new object[] { UserRepository.Get().NonExistentAdminUser() },
+            new object[] { UserRepository.Get().NonExistentAdmin() },
             new object[] { UserRepository.Get().NonExistentUser() }
         };
 

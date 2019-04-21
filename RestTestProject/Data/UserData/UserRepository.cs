@@ -3,7 +3,7 @@
     public sealed class UserRepository
     {
         public static string USER_NOT_FOUND_ERROR = "ERROR, user not found";
-        public static string USER_ALREADY_EXIST_ERROR = "ERROR, user already exist";
+        public static string USER_LOCKED_ERROR = "ERROR, user locked";
         private volatile static UserRepository instance;
         private static object lockingObject = new object();
 
@@ -39,7 +39,7 @@
             return User.Get().SetName("SomeUser").SetPassword("qwerty").Build();
         }
 
-        public IUser NonExistentAdminUser()
+        public IUser NonExistentAdmin()
         {
             return User.Get().SetName("SomeAdmin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
         }
