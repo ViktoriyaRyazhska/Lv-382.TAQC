@@ -22,9 +22,9 @@ namespace RestTestProject.Services
         SimpleEntity GetLoginedUsers();
         SimpleEntity GetAliveTockens();
         ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem);
-        List<string> GetUserItems(IUser userWithItem);
-        List<string> GetAllItems();
-        List<string> GetAllItemsIndexes();
+        string GetUserItems(IUser userWithItem);
+        string GetAllItems();
+        string GetAllItemsIndexes();
         ItemTemplate GetItem(ItemTemplate itemTemplate);
         bool AddItem(ItemTemplate itemTemplate);
         bool UpdateItem(ItemTemplate itemTemplate);
@@ -125,7 +125,7 @@ namespace RestTestProject.Services
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
-        public List<string> GetUserItems(IUser userWithItem)
+        public string GetUserItems(IUser userWithItem)
         {
             RestParameters urlParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
@@ -133,7 +133,7 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
             //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
-            return new List<string>(simpleEntity.content.Split('\n'));
+            return simpleEntity.content;
         }
     }
 }
