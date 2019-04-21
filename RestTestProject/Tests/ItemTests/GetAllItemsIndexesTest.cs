@@ -12,6 +12,7 @@ namespace RestTestProject.Tests
     [TestFixture]
     public class GetAllItemsIndexesTest
     {
+        string rez = string.Empty;
         protected IUserService userService;
         protected IAdminService adminService;
         IUser simpleUser = UserRepository.Get().ExistingUser();
@@ -35,22 +36,25 @@ namespace RestTestProject.Tests
         {
             //Preconditions
             userService.AddItem(addItem);
+            rez += addItem.GetIndex();
             //Steps
-            //Console.WriteLine(addItem.Index.ToString());
+            //Console.WriteLine(rez);
             //Console.WriteLine(userService.GetAllItemsIndexes());
-            Assert.IsTrue(userService.GetAllItemsIndexes().Contains(addItem.Index.ToString()+" "));
+            Assert.IsTrue(userService.GetAllItemsIndexes().Contains(rez));
+            Assert.AreEqual(userService.GetAllItemsIndexes(), rez);
         }
 
-        [Test, TestCaseSource("AddItemsData")]
-        public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
-        {
-            //Preconditions
-            adminService.AddItem(addItem);
-            //Steps
-            //Console.WriteLine(addItem.Index.ToString());
-            //Console.WriteLine(userService.GetAllItemsIndexes());
-            Assert.IsTrue(adminService.GetAllItemsIndexes().Contains(addItem.Index.ToString() + " "));
-        }
+
+        //[Test, TestCaseSource("AddItemsData")]
+        //public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
+        //{
+        //    //Preconditions
+        //    adminService.AddItem(addItem);
+        //    //Steps
+        //    //Console.WriteLine(addItem.Index.ToString());
+        //    //Console.WriteLine(userService.GetAllItemsIndexes());
+        //    Assert.IsTrue(adminService.GetAllItemsIndexes().Contains(addItem.Index.ToString() + " "));
+        //}
 
         [OneTimeTearDown]
         public void AfterTest()

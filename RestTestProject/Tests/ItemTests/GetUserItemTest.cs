@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.Tests.ItemTests
 {
     [TestFixture]
-    public class GetUserItemsTest
+    public class GetUserItemTest
     {
-        string rez = "";
         protected IUserService userService;
         protected IAdminService adminService;
         IUser simpleUser = UserRepository.Get().ExistingUser();
@@ -32,16 +31,12 @@ namespace RestTestProject.Tests
         };
 
         [Test, TestCaseSource("AddItemsData")]
-        public void GetUserItems(ItemTemplate addItem)
+        public void GetUserItem(ItemTemplate addItem)
         {
             //Preconditions
             userService.AddItem(addItem);
             //Steps
-            //Console.WriteLine(adminService.GetUserItems(simpleUser).ToString());
-            rez += addItem;
-            //Console.WriteLine(rez);
-            Assert.IsTrue(adminService.GetUserItems(simpleUser).Contains(rez));
-            Assert.AreEqual(adminService.GetUserItems(simpleUser), rez);
+            Assert.AreEqual(addItem.Item, adminService.GetUserItem(addItem, simpleUser).Item);
         }
 
         [OneTimeTearDown]

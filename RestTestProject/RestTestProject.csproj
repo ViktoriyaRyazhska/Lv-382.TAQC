@@ -99,6 +99,7 @@
     <Compile Include="Tests\ItemTests\GetAllItemsTest.cs" />
     <Compile Include="Tests\ItemTests\GetAllItemsIndexesTest.cs" />
     <Compile Include="Tests\ItemTests\GetUserItemsTest.cs" />
+    <Compile Include="Tests\ItemTests\GetUserItemTest.cs" />
     <Compile Include="Tests\UserTests\ChangeUserPasswordTest.cs" />
     <Compile Include="Tests\TimeSettingTests\GetDefaultCoolDownAndTokenlifeTimeTest.cs" />
     <Compile Include="Tests\UserTests\CreateUserTest.cs" />
