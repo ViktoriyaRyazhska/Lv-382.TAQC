@@ -25,7 +25,7 @@ namespace RestTestProject.Tests
             new object[] { UserRepository.Get().ExistingUser() }
         };
 
-        [Test, TestCaseSource("ExistingUserData")]
+        [Test, TestCaseSource("ExistingUserData")] 
         public void CreatingExistingUserTest(IUser existingUser)
         {
             Assert.IsFalse(adminService.CreateUser(existingUser));

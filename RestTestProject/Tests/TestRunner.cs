@@ -21,7 +21,7 @@ namespace RestTestProject.Tests
         [OneTimeTearDown]
         public void AfterTest()
         {
-            GuestService.ResetService();
+            //GuestService.ResetService();
         }
     }
 }

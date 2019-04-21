@@ -89,7 +89,6 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //TODO ROMAN
         public static RestUrl GetLoginedUsers()
         {
             return new RestUrl()
@@ -99,7 +98,6 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //
         public static RestUrl GetAliveTockens()
         {
             return new RestUrl()

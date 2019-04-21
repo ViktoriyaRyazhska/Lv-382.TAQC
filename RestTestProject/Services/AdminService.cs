@@ -5,7 +5,6 @@ using RestTestProject.Resources;
 using RestTestProject.Resources.AuthorizationResources;
 using RestTestProject.Rules;
 using System;
-using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {

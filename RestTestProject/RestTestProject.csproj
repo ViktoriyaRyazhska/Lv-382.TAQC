@@ -113,6 +113,7 @@
     <Compile Include="Tests\AuthorizationTests\LogoutTests.cs" />
     <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
     <Compile Include="Tests\UserTests\LockUserTest.cs" />
+    <Compile Include="Tests\UserTests\UnlockUserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
