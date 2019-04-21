@@ -7,5 +7,6 @@
         string NewPassword { get; set; }
         string Rights { get; set; }
         string Token { get; set; }
+        IUser SwitchPasswords();
     }
 }

@@ -3,6 +3,7 @@
     public sealed class UserRepository
     {
         public static string USER_NOT_FOUND_ERROR = "ERROR, user not found";
+        public static string USER_ALREADY_EXIST_ERROR = "ERROR, user already exist";
         private volatile static UserRepository instance;
         private static object lockingObject = new object();
 
@@ -25,28 +26,22 @@
 
         public IUser ExistingAdmin()
         {
-            return User.Get()
-               .SetName("admin")
-               .SetPassword("qwerty")
-               .SetRigths(true.ToString())
-               .Build();
+            return User.Get().SetName("admin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
         }
 
         public IUser ExistingUser()
         {
-            return User.Get()
-               .SetName("akimatc")
-               .SetPassword("qwerty")
-               .SetNewPassword("SomeNewPassword")
-               .Build();
+            return User.Get().SetName("akimatc").SetPassword("qwerty").SetNewPassword("SomeNewPassword").Build();
         }
 
         public IUser NonExistentUser()
         {
-            return User.Get()
-               .SetName("SomeUser")
-               .SetPassword("qwerty")
-               .Build();
+            return User.Get().SetName("SomeUser").SetPassword("qwerty").Build();
+        }
+
+        public IUser NonExistentAdminUser()
+        {
+            return User.Get().SetName("SomeAdmin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
         }
 
     }
