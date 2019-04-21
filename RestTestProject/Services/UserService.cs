@@ -13,8 +13,8 @@ namespace RestTestProject.Services
         Lifetime GetCurrentTokenLifetime();
         CoolDowntime GetCurrentCoolDowntime();
         SimpleEntity GetUserName();
-        List<string> GetAllItems();
-        List<string> GetAllItemsIndexes();
+        string GetAllItems();
+        string GetAllItemsIndexes();
         ItemTemplate GetItem(ItemTemplate itemTemplate);
         bool AddItem(ItemTemplate itemTemplate);
         bool UpdateItem(ItemTemplate itemTemplate);
@@ -76,20 +76,20 @@ namespace RestTestProject.Services
         //------------------------------------------------------------
 
         //  <<<SERHII
-        public List<string> GetAllItems()
+        public string GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = getAllItemsResource.HttpGetAsObject(urlParameters, null);
-            return new List<string>(simpleEntity.content.Split('\n'));
+            return simpleEntity.content;
         }
 
-        public List<string> GetAllItemsIndexes()
+        public string GetAllItemsIndexes()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = getAllItemsIndexesResource.HttpGetAsObject(urlParameters, null);
-            return new List<string>(simpleEntity.content.Split('\n'));
+            return simpleEntity.content;
         }
 
         public ItemTemplate GetItem(ItemTemplate itemTemplate)
