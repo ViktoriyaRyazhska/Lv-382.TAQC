@@ -2,9 +2,9 @@
 using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
+using RestTestProject.Resources.AuthorizationResources;
 using RestTestProject.Rules;
 using System;
-using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
@@ -13,8 +13,10 @@ namespace RestTestProject.Services
         Lifetime GetCurrentTokenLifetime();
         CoolDowntime GetCurrentCoolDowntime();
         bool CreateUser(IUser newUser);
-        bool DeleteUser(IUser userForDelete);
+        bool DeleteUser(IUser userToDelete);
         bool ChangePassword(string newUserPassword);
+        bool LockUser(IUser userToLock);
+        bool UnlockUser(IUser lockedUser);
         bool UpdateTokenlifetime(Lifetime lifetime);
         bool UpdateCoolDowntime(CoolDowntime cooldowntime);
         SimpleEntity GetUserName();
@@ -22,9 +24,9 @@ namespace RestTestProject.Services
         SimpleEntity GetLoginedUsers();
         SimpleEntity GetAliveTockens();
         ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem);
-        List<string> GetUserItems(IUser userWithItem);
-        List<string> GetAllItems();
-        List<string> GetAllItemsIndexes();
+        string GetUserItems(IUser userWithItem);
+        string GetAllItems();
+        string GetAllItemsIndexes();
         ItemTemplate GetItem(ItemTemplate itemTemplate);
         bool AddItem(ItemTemplate itemTemplate);
         bool UpdateItem(ItemTemplate itemTemplate);
@@ -36,6 +38,8 @@ namespace RestTestProject.Services
     public class AdminService : UserService, IAdminService
     {
         LoginedAdminsResourse loginedAdminsResourse;
+        LoginedUsersResourse loginedUsersResourse;
+        LockedUserResource lockedUserResource;
         AliveTockensResource aliveTockensResource;
         GetUserItemResource getUserItemResource;
         GetUserItemsResource getUserItemsResource;
@@ -43,6 +47,8 @@ namespace RestTestProject.Services
         public AdminService(IUser adminUser) : base(adminUser)
         {
             loginedAdminsResourse = new LoginedAdminsResourse();
+            loginedUsersResourse = new LoginedUsersResourse();
+            lockedUserResource = new LockedUserResource();
             aliveTockensResource = new AliveTockensResource();
             getUserItemResource = new GetUserItemResource();
             getUserItemsResource = new GetUserItemsResource();
@@ -55,17 +61,37 @@ namespace RestTestProject.Services
                .AddParameters(RequestParametersKeys.name.ToString(), newUser.Name)
                .AddParameters(RequestParametersKeys.password.ToString(), newUser.Password)
                .AddParameters(RequestParametersKeys.rights.ToString(), newUser.Rights);
-            SimpleEntity entity = userResorce.HttpPostAsObject(null, null, bodyParameters);
-            return entity.content.ToLower().Equals(true.ToString().ToLower());
+            return userResorce.HttpPostAsObject(null, null, bodyParameters)
+                .content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        public bool DeleteUser(IUser userForDelete)
+        public bool DeleteUser(IUser userToDelete)
         {
             RestParameters bodyParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
-                .AddParameters(RequestParametersKeys.name.ToString(), userForDelete.Name);
-            SimpleEntity entity = userResorce.HttpDeleteAsObject(null, null, bodyParameters);
-            return entity.content.ToLower().Equals(true.ToString().ToLower());
+                .AddParameters(RequestParametersKeys.name.ToString(), userToDelete.Name);
+            return userResorce.HttpDeleteAsObject(null, null, bodyParameters)
+                .content.ToLower().Equals(true.ToString().ToLower());
+        }
+
+        public bool LockUser(IUser userToLock)
+        {
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.name.ToString(), userToLock.Name);
+            return lockedUserResource.HttpPostAsObject(null, pathParameters, bodyParameters)
+                .content.ToLower().Equals(true.ToString().ToLower());
+        }
+
+        public bool UnlockUser(IUser lockedUser)
+        {
+            RestParameters bodyParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
+            RestParameters pathParameters = new RestParameters()
+                .AddParameters(RequestParametersKeys.name.ToString(), lockedUser.Name);
+            return lockedUserResource.HttpPutAsObject(null, pathParameters, bodyParameters)
+                .content.ToLower().Equals(true.ToString().ToLower());
         }
 
         public bool UpdateTokenlifetime(Lifetime lifetime)
@@ -122,15 +148,15 @@ namespace RestTestProject.Services
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
-        public List<string> GetUserItems(IUser userWithItem)
+        public string GetUserItems(IUser userWithItem)
         {
             RestParameters urlParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             RestParameters pathParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
-            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
-            return new List<string>(simpleEntity.content.Split('\n'));
+            //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
+            return simpleEntity.content;
         }
     }
 }

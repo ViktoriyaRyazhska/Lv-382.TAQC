@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
-using RestTestProject.Services;
 
 namespace RestTestProject.Tests
 {
@@ -9,14 +8,16 @@ namespace RestTestProject.Tests
     {
         private static readonly object[] ChangePasswordData =
         {
-            new object[] { UserRepository.Get().ExistingUser() }
+            new object[] { UserRepository.Get().ExistingUser() },
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("ChangePasswordData")]
         public void ChangingUserPasswordTest(IUser userForPasswordChanging)
         {
             Assert.IsTrue(guestService.SuccessfulUserLogin(userForPasswordChanging).ChangePassword(userForPasswordChanging.NewPassword));
-            userService = guestService.SuccessfulUserLogin(userForPasswordChanging.Name, userForPasswordChanging.NewPassword);
+            userForPasswordChanging.SwitchPasswords();
+            userService = guestService.SuccessfulUserLogin(userForPasswordChanging);
             Assert.IsTrue(userService.IsLoggined());
         }
     }

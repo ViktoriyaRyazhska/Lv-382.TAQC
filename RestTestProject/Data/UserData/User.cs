@@ -33,6 +33,7 @@
             Token = string.Empty;
         }
 
+
         public static IName Get()
         {
             return new User();
@@ -65,6 +66,12 @@
         public IUserBuild SetToken(string token)
         {
             Token = token;
+            return this;
+        }
+
+        public IUser SwitchPasswords()
+        {
+            Password = NewPassword;
             return this;
         }
 

@@ -62,19 +62,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\RequestData\RequestParametersKeys.cs" />
-    <Compile Include="Data\TimeData\CoolDowntime.cs" />
-    <Compile Include="Data\TimeData\CoolDowntimeRepository.cs" />
+    <Compile Include="Data\TimeSettingData\CoolDowntime.cs" />
+    <Compile Include="Data\TimeSettingData\CoolDowntimeRepository.cs" />
     <Compile Include="Data\ItemData\ItemTemplate.cs" />
     <Compile Include="Data\ItemData\ItemRepository.cs" />
     <Compile Include="Data\UserData\IUser.cs" />
-    <Compile Include="Data\TimeData\Lifetime.cs" />
-    <Compile Include="Data\TimeData\LifetimeRepository.cs" />
+    <Compile Include="Data\TimeSettingData\Lifetime.cs" />
+    <Compile Include="Data\TimeSettingData\LifetimeRepository.cs" />
     <Compile Include="Data\RequestData\RestUrl.cs" />
     <Compile Include="Data\RequestData\RestUrlKeys.cs" />
     <Compile Include="Data\RequestData\RestUrlRepository.cs" />
     <Compile Include="Data\UserData\User.cs" />
     <Compile Include="Data\UserData\UserRepository.cs" />
     <Compile Include="Entity\SimpleEntity.cs" />
+    <Compile Include="Resources\AuthorizationResources\LockedUserResource.cs" />
     <Compile Include="Resources\BasicResources\ResetServiceResource.cs" />
     <Compile Include="Resources\TokenResources\AliveTockensResource.cs" />
     <Compile Include="Resources\ItemResources\GetAllItemsResource.cs" />
@@ -95,17 +96,23 @@
     <Compile Include="Services\GuestService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\ChangeUserPasswordTest.cs" />
-    <Compile Include="Tests\GetDefaultCoolDownAndTokenlifeTimeTest.cs" />
-    <Compile Include="Tests\CreateUserTest.cs" />
-    <Compile Include="Tests\DeleteUserTest.cs" />
+    <Compile Include="Tests\ItemTests\GetAllItemsTest.cs" />
+    <Compile Include="Tests\ItemTests\GetAllItemsIndexesTest.cs" />
+    <Compile Include="Tests\ItemTests\GetUserItemsTest.cs" />
+    <Compile Include="Tests\ItemTests\GetUserItemTest.cs" />
+    <Compile Include="Tests\UserTests\ChangeUserPasswordTest.cs" />
+    <Compile Include="Tests\TimeSettingTests\GetDefaultCoolDownAndTokenlifeTimeTest.cs" />
+    <Compile Include="Tests\UserTests\CreateUserTest.cs" />
+    <Compile Include="Tests\UserTests\DeleteUserTest.cs" />
     <Compile Include="Tests\TestRunner.cs" />
-    <Compile Include="Tests\ItemManagingTests.cs" />
-    <Compile Include="Tests\LifeTimeTest.cs" />
+    <Compile Include="Tests\ItemTests\ItemManagingTests.cs" />
+    <Compile Include="Tests\TimeSettingTests\LifeTimeTest.cs" />
     <Compile Include="Tests\LoginTest.cs" />
-    <Compile Include="Tests\LoginTests.cs" />
-    <Compile Include="Tests\LogoutTests.cs" />
-    <Compile Include="Tests\UpdateCoolDownAndTokenifeTimeTest.cs" />
+    <Compile Include="Tests\AuthorizationTests\LoginTests.cs" />
+    <Compile Include="Tests\AuthorizationTests\LogoutTests.cs" />
+    <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
+    <Compile Include="Tests\UserTests\LockUserTest.cs" />
+    <Compile Include="Tests\UserTests\UnlockUserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
