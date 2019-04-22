@@ -36,7 +36,6 @@ namespace RestTestProject.Services
     public class AdminService : UserService, IAdminService
     {
         LoginedAdminsResourse loginedAdminsResourse;
-        LoginedUsersResourse loginedUsersResourse;
         AliveTockensResource aliveTockensResource;
         GetUserItemResource getUserItemResource;
         GetUserItemsResource getUserItemsResource;
@@ -44,7 +43,6 @@ namespace RestTestProject.Services
         public AdminService(IUser adminUser) : base(adminUser)
         {
             loginedAdminsResourse = new LoginedAdminsResourse();
-            loginedUsersResourse = new LoginedUsersResourse();
             aliveTockensResource = new AliveTockensResource();
             getUserItemResource = new GetUserItemResource();
             getUserItemsResource = new GetUserItemsResource();
@@ -88,7 +86,6 @@ namespace RestTestProject.Services
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        //Roman TODO
         public SimpleEntity GetLoginedAdmins()
         {
             RestParameters urlParameters = new RestParameters()
@@ -101,7 +98,7 @@ namespace RestTestProject.Services
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
-            SimpleEntity simpleEntity = loginedUsersResourse.HttpGetAsObject(urlParameters, null);
+            SimpleEntity simpleEntity = adminAuthorizedResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity;
         }
 

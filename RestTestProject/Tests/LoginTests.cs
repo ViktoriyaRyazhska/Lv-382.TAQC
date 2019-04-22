@@ -74,7 +74,7 @@ namespace RestTestProject.Tests
         [Test, TestCaseSource("NonExistentUser")]
         public void UnsuccessfulLogin(IUser user)
         {
-            Assert.AreEqual("ERROR, user not found", guestService.UnsuccessfulUserLogin(user));
+            Assert.AreEqual(UserRepository.USER_NOT_FOUND_ERROR, guestService.UnsuccessfulUserLogin(user));
         }
     }
 }

@@ -79,17 +79,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //TODO ROMAN
-        public static RestUrl GetLoginedUsers()
-        {
-            return new RestUrl()
-                .AddBaseUrl(Server)
-                .AddGetUrl("/login/users")
-                .AddPostUrl("")
-                .AddPutUrl("")
-                .AddDeleteUrl("");
-        }
-        //
+ 
         public static RestUrl GetAliveTockens()
         {
             return new RestUrl()

@@ -84,7 +84,6 @@
     <Compile Include="Resources\AuthorizationResources\CoolDownTimeResource.cs" />
     <Compile Include="Resources\AuthorizationResources\LoginedAdminsResourse.cs" />
     <Compile Include="Resources\ItemResources\GetUserItemResource.cs" />
-    <Compile Include="Resources\AuthorizationResources\LoginedUsersResourse.cs" />
     <Compile Include="Resources\ItemResources\ManageItemResource.cs" />
     <Compile Include="Resources\AuthorizationResources\LogoutResource.cs" />
     <Compile Include="Resources\TokenResources\TokenLifetimeResource.cs" />
