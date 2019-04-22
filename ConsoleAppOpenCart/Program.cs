@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using NLog;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using System;
@@ -75,6 +76,14 @@ namespace ConsoleAppOpenCart
 
     public class Program
     {
+        //private static ILog log = LogManager.GetLogger("Program");
+        //private static Logger log = LogManager.GetLogger("Program");
+        //private static Logger log = LogManager.GetCurrentClassLogger();
+        //
+        //public static ILog log = LogManager.GetLogger(typeof(Program));   // log4net
+        //public static Logger log = LogManager.GetCurrentClassLogger();    // nlog
+        public static Logger log = LogManager.GetLogger("rolling0");        // nlog
+
         public static void Main(string[] args)
         {
             // 1. Use Constructor
@@ -226,12 +235,24 @@ namespace ConsoleAppOpenCart
             ////}
             //
 
-            string someStr = "1    asdsads \n2    sadnsajd \n";
-            //Console.WriteLine(someStr);
+            //string someStr = "1    asdsads \n2    sadnsajd \n";
+            ////Console.WriteLine(someStr);
 
-            List<string> elems = new List<string>(someStr.Split('\n'));
-            foreach(string elemnt in  elems)
-                Console.WriteLine(elemnt);
+            //List<string> elems = new List<string>(someStr.Split('\n'));
+            //foreach(string elemnt in  elems)
+            //    Console.WriteLine(elemnt);
+            //Console.ReadKey();
+
+            //BasicConfigurator.Configure();
+            //XmlConfigurator.Configure();  // log4net
+            //
+            log.Trace("NLOG: Trace Level test"); // nlog
+            log.Debug("2*Debug Level test");
+            log.Info("2*Info Level");
+            log.Warn("2*Warn Level");
+            log.Error("2*Error Level1");
+            log.Error("2*Error Level2 test");
+            //log.Fatal("2*Fatal Level");
             Console.ReadKey();
             Console.WriteLine("\nDone.");
         }
