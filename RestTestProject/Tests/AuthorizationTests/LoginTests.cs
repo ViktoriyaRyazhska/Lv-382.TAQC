@@ -17,18 +17,19 @@ namespace RestTestProject.Tests
         private UserService userService;
         private AdminService adminService;
 
-        private static readonly object[] User =
+        private static readonly object[] Users =
         {
-            new object[] { UserRepository.Get().ExistingUser() },
+            new object[] { UserRepository.Get().ExistingUser(),  UserRepository.Get().ExistingAdmin() },
+            new object[] {UserRepository.Get().ExistingSecondUser(), UserRepository.Get().ExistingAdmin() }
         };
 
         private static readonly object[] AdminUser =
-           {
+        {
             new object[] { UserRepository.Get().ExistingAdmin() },
         };
 
         private static readonly object[] NonExistentUser =
-       {
+        {
             new object[] { UserRepository.Get().NonExistentUser() },
         };
 
@@ -41,25 +42,30 @@ namespace RestTestProject.Tests
         [TearDown]
         public void TearDown()
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-            {                
-                Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);                
-            }
+            //if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            //{
+            //    Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
+            //}
 
-            if ((adminService != null) && (adminService.IsLoggined()))
-            {
-                guestService = adminService.Logout();
-            }
-           
-            if ((userService != null) && (userService.IsLoggined()))
-            {
-                guestService = userService.Logout();
-            }
+            //if ((adminService != null) && (adminService.IsLoggined()))
+            //{
+            //    guestService = adminService.Logout();
+            //}
+
+            //if ((userService != null) && (userService.IsLoggined()))
+            //{
+            //    guestService = userService.Logout();
+            //}
+            GuestService.ResetService();
         }
-        [Test, TestCaseSource("User")]
-        public void CheckUserIsLogged(IUser user)
-        {         
-            Assert.IsTrue(guestService.SuccessfulUserLogin(user).IsLoggined());    
+        [Test, TestCaseSource("Users")]
+        public void CheckUserIsLogged(IUser user, IUser adminUser)
+        {
+            IAdminService adminService = guestService.SuccessfulAdminLogin(adminUser);
+            Assert.IsTrue(guestService.SuccessfulUserLogin(user).IsLoggined());
+            //Assert.IsTrue(guestService.SuccessfulUserLogin(user).IsLoggined());
+            Assert.IsTrue(adminService.GetLoginedUsers().Contains(user.Name));
+            Assert.IsTrue(adminService.GetAliveTockens().Contains(user.Token));
         }
 
         [Test, TestCaseSource("AdminUser")]
@@ -68,7 +74,8 @@ namespace RestTestProject.Tests
             IAdminService adminService = guestService.SuccessfulAdminLogin(adminUser);
             Assert.IsTrue(adminService.IsLoggined());
             //Assert.IsTrue(guestService.SuccessfulAdminLogin(adminUser).IsLoggined());
-            Assert.IsTrue(adminService.GetLoginedAdmins().content.Contains(adminUser.Name));
+            Assert.IsTrue(adminService.GetLoginedAdmins().Contains(adminUser.Name));
+            Assert.IsTrue(adminService.GetAliveTockens().Contains(adminUser.Token));
         }
 
         [Test, TestCaseSource("NonExistentUser")]

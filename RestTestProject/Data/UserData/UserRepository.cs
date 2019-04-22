@@ -43,6 +43,10 @@
         {
             return User.Get().SetName("SomeAdmin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
         }
+        public IUser ExistingSecondUser()
+        {
+            return User.Get().SetName("otlumtc").SetPassword("qwerty").Build();
+        }
 
     }
 }

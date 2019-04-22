@@ -34,10 +34,15 @@ namespace RestTestProject.Tests
                 Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);               
             }          
         }
-
-        [Test]
-        public void CheckUserIsLogout()
+        private static readonly object[] AdminUser =
         {
+            new object[] { UserRepository.Get().ExistingAdmin() },
+        };
+
+        [Test, TestCaseSource("AdminUser")]
+        public void CheckUserIsLogout(IUser adminUser)
+        {
+            IAdminService adminService = guestService.SuccessfulAdminLogin(adminUser);
             userService.Logout();
             Assert.IsFalse(userService.IsLoggined());
         }

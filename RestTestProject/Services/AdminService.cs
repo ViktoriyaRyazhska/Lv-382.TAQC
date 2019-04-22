@@ -20,9 +20,9 @@ namespace RestTestProject.Services
         bool UpdateTokenlifetime(Lifetime lifetime);
         bool UpdateCoolDowntime(CoolDowntime cooldowntime);
         SimpleEntity GetUserName();
-        SimpleEntity GetLoginedAdmins();
-        SimpleEntity GetLoginedUsers();
-        SimpleEntity GetAliveTockens();
+        string GetLoginedAdmins();
+        string GetLoginedUsers();
+        string GetAliveTockens();
         ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem);
         string GetUserItems(IUser userWithItem);
         string GetAllItems();
@@ -38,7 +38,6 @@ namespace RestTestProject.Services
     public class AdminService : UserService, IAdminService
     {
         LoginedAdminsResourse loginedAdminsResourse;
-        LoginedUsersResourse loginedUsersResourse;
         LockedUserResource lockedUserResource;
         AliveTockensResource aliveTockensResource;
         GetUserItemResource getUserItemResource;
@@ -47,7 +46,6 @@ namespace RestTestProject.Services
         public AdminService(IUser adminUser) : base(adminUser)
         {
             loginedAdminsResourse = new LoginedAdminsResourse();
-            loginedUsersResourse = new LoginedUsersResourse();
             lockedUserResource = new LockedUserResource();
             aliveTockensResource = new AliveTockensResource();
             getUserItemResource = new GetUserItemResource();
@@ -112,28 +110,28 @@ namespace RestTestProject.Services
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        public SimpleEntity GetLoginedAdmins()
+        public string GetLoginedAdmins()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = loginedAdminsResourse.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            return simpleEntity.content;
         }
 
-        public SimpleEntity GetLoginedUsers()
+        public string GetLoginedUsers()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = adminAuthorizedResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            return simpleEntity.content;
         }
 
-        public SimpleEntity GetAliveTockens()
+        public string GetAliveTockens()
         {
             RestParameters urlParameters = new RestParameters()
                .AddParameters(RequestParametersKeys.token.ToString(), user.Token);
             SimpleEntity simpleEntity = aliveTockensResource.HttpGetAsObject(urlParameters, null);
-            return simpleEntity;
+            return simpleEntity.content;
         }
 
         public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
