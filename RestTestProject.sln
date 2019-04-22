@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppOpenCart", "ConsoleAppOpenCart\ConsoleAppOpenCart.csproj", "{A4655836-3CB0-490C-88BA-964C79B3E36A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestTestProject", "RestTestProject\RestTestProject.csproj", "{FFEE3686-8E5B-4104-B579-82ABE67FD9D1}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A4655836-3CB0-490C-88BA-964C79B3E36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4655836-3CB0-490C-88BA-964C79B3E36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4655836-3CB0-490C-88BA-964C79B3E36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4655836-3CB0-490C-88BA-964C79B3E36A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FFEE3686-8E5B-4104-B579-82ABE67FD9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FFEE3686-8E5B-4104-B579-82ABE67FD9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFEE3686-8E5B-4104-B579-82ABE67FD9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
