@@ -118,7 +118,6 @@
     <Compile Include="Tests\TestRunner.cs" />
     <Compile Include="Tests\ItemTests\ItemManagingTests.cs" />
     <Compile Include="Tests\TimeSettingTests\LifeTimeTest.cs" />
-    <Compile Include="Tests\LoginTest.cs" />
     <Compile Include="Tests\AuthorizationTests\LoginTests.cs" />
     <Compile Include="Tests\AuthorizationTests\LogoutTests.cs" />
     <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
