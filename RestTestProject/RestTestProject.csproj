@@ -123,12 +123,18 @@
     <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
     <Compile Include="Tests\UserTests\LockUserTest.cs" />
     <Compile Include="Tests\UserTests\UnlockUserTest.cs" />
-    <Compile Include="Tools\JsonPasrser.cs" />
+    <Compile Include="Tools\AExternalReader.cs" />
+    <Compile Include="Tools\JsonParser.cs" />
+    <Compile Include="Tools\LoggerTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Data\DataSource\UsersCredentials\ExistingAdminData.json" />
+    <None Include="Data\DataSource\UsersCredentials\ExistingUserData.json" />
+    <None Include="Data\DataSource\UsersCredentials\NonExistentAdminData.json" />
+    <None Include="Data\DataSource\UsersCredentials\NonExistentUserData.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
