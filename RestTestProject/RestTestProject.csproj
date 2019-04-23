@@ -123,6 +123,7 @@
     <Compile Include="Tests\TimeSettingTests\UpdateCoolDownAndTokenifeTimeTest.cs" />
     <Compile Include="Tests\UserTests\LockUserTest.cs" />
     <Compile Include="Tests\UserTests\UnlockUserTest.cs" />
+    <Compile Include="Tools\JsonPasrser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
