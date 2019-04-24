@@ -1,21 +1,32 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.Tests.UserTests
 {
     [TestFixture]
-    class DeleteUserTest : TestRunner
+    class DeleteUserTest : BaseTestRunner
     { 
-        private static readonly object[] DeletedUserData =
+        private static readonly object[] UserToDeleteData =
         {
             new object[] { UserRepository.Get().ExistingUser() }
         };
 
-        [Test, TestCaseSource("DeletedUserData")]
-        public void DeletingUserTest(IUser userForDelete)
+        [Test, TestCaseSource("UserToDeleteData")]
+        public void DeletingUserTest(IUser userToDelete)
         {
-            Assert.IsTrue(adminService.DeleteUser(userForDelete));
-            Assert.AreEqual(guestService.UnsuccessfulUserLogin(userForDelete), UserRepository.USER_NOT_FOUND_ERROR);
+            Assert.IsTrue(adminService.DeleteUser(userToDelete));
+            Assert.AreEqual(guestService.UnsuccessfulUserLogin(userToDelete), UserRepository.USER_NOT_FOUND_ERROR);
+        }
+
+        private static readonly object[] AdminToDeleteData =
+        {
+            new object[] { UserRepository.Get().ExistingAdmin() }
+        };
+
+        [Test, TestCaseSource("AdminToDeleteData")]
+        public void DeletingCurrentAdmin(IUser currentAdmin)
+        {
+            Assert.IsFalse(adminService.DeleteUser(currentAdmin));
         }
 
     }

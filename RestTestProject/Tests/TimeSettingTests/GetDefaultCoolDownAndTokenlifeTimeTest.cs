@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.TimeSettingTests.Tests
 {
     [TestFixture]
     public class GetDefaultCoolDownAndTokenlifeTimeTest : TestRunner

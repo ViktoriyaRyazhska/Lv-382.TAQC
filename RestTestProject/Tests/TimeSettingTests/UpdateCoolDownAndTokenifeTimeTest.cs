@@ -2,7 +2,7 @@
 using RestTestProject.Data;
 using RestTestProject.Services;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.TimeSettingTests.Tests
 {
     [TestFixture]
     public class UpdateCoolDownAndTokenifeTimeTest : TestRunner

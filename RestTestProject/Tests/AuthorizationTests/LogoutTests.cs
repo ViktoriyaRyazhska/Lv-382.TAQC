@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.AuthorizationTests.Tests
 {
     [TestFixture]
     public class LogoutTests : TestRunner
