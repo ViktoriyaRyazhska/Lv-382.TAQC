@@ -2,7 +2,7 @@
 using RestTestProject.Data;
 using RestTestProject.Services;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.Tests.ItemTests
 {
 
     [TestFixture]

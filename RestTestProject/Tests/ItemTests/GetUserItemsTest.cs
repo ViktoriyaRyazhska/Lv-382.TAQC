@@ -3,7 +3,7 @@ using RestTestProject.Data;
 using RestTestProject.Services;
 
 
-namespace RestTestProject.Tests
+namespace RestTestProject.Tests.ItemTests
 {
     [TestFixture]
     public class GetUserItemsTest : ItemTestRunner
