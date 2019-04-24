@@ -17,17 +17,6 @@ namespace RestTestProject.Tests.UserTests
             new object[] { UserRepository.Get().NonExistentAdmin() }
         };
 
-        //private static IEnumerable<IUser[]> UserData()
-        //{
-        //    yield return new IUser[] { UserRepository.Get().NonExistentAdmin(), UserRepository.Get().ExistingUser() };
-        //}
-
-        //private static readonly object[] UserToLockData =
-        //{
-        //    //return yield object[] { UserRepository.Get().NonExistentAdmin() },
-        //    new object[] { UserRepository.Get().ExistingUser() }
-        //};
-
         [Test, TestCaseSource("LockedUsers")]
         public void UnlockingUsersTest(IUser lockedUser)
         {

@@ -2,6 +2,7 @@
 using RestSharp.Serialization.Json;
 using RestTestProject.Data;
 using RestTestProject.Rules;
+using RestTestProject.Tools;
 using System;
 using System.Collections.Generic;
 
@@ -10,9 +11,8 @@ namespace RestTestProject.Resources
 {
     public abstract class ARestCrud<T>
     {
-        //----------------------------Error messages--------------------------------
+        //----------------------------Error message--------------------------------
         private const string NOT_SUPPORT_MESSAGE = "Method {0} not Support for {1} Resource";
-        private const string CONVERT_OBJECT_ERROR = "ConvertToObject Error. {0}\n{1}";
         //---------------------------------------------------------------------------
         private const string URL_PARAMETERS_SEPARATOR = "?";
         private const string NEXT_PARAMETERS_SEPARATOR = "&";
@@ -20,14 +20,12 @@ namespace RestTestProject.Resources
         //
         private RestUrl restUrl;
         private RestClient client;
-        private JsonDeserializer deserial;
         private Dictionary<RestUrlKeys, RestSharp.Method> dictionaryMethods;
 
         public ARestCrud(RestUrl restUrl)
         {
             this.restUrl = restUrl;
             client = new RestClient(restUrl.ReadBaseUrl());
-            deserial = new JsonDeserializer();
             InitDictionaryMethods();
         }
 
@@ -39,36 +37,6 @@ namespace RestTestProject.Resources
             dictionaryMethods.Add(RestUrlKeys.PUT, Method.PUT);
             dictionaryMethods.Add(RestUrlKeys.DELETE, Method.DELETE);
         }
-
-        // protected - - - - - - - - - - - - - - - - - - - -
-
-        protected void ThrowException(string message)
-        {
-            // TODO Develop Custom Exception
-            string resourceName = this.GetType().ToString();
-            throw new Exception(string.Format(NOT_SUPPORT_MESSAGE, message, resourceName));
-        }
-
-        // private - - - - - - - - - - - - - - - - - - - -
-
-        private T ConvertToResource(IRestResponse response)
-        {
-            T result = default(T); // Running from T Default Constructor
-            try
-            {
-                result = deserial.Deserialize<T>(response);
-            }
-            catch (Exception ex)
-            {
-                // TODO Save to Log File
-                Console.Error.WriteLine(string.Format(CONVERT_OBJECT_ERROR, ex.Message, ex.StackTrace));
-                //
-                // TODO Develop Custom Exception
-                throw new Exception(string.Format(CONVERT_OBJECT_ERROR, ex.Message, ex.StackTrace));
-            }
-            return result;
-        }
-
 
         private string PrepareUrlParameters(string urlTemplate, RestParameters urlParameters)
         {
@@ -131,6 +99,12 @@ namespace RestTestProject.Resources
             return client.Execute(request);
         }
 
+        protected void ThrowException(string message)
+        {
+            string resourceName = this.GetType().ToString();
+            throw new Exception(string.Format(NOT_SUPPORT_MESSAGE, message, resourceName));
+        }
+
         // Http Get - - - - - - - - - - - - - - - - - - - -
 
         public virtual IRestResponse HttpGetAsResponse(RestParameters urlParameters, RestParameters pathVariables)
@@ -145,7 +119,7 @@ namespace RestTestProject.Resources
 
         public T HttpGetAsObject(RestParameters urlParameters, RestParameters pathVariables)
         {
-            return ConvertToResource(HttpGetAsResponse(urlParameters, pathVariables));
+            return JsonParser.ConvertToResource<T>(HttpGetAsResponse(urlParameters, pathVariables));
         }
 
         // Http Post - - - - - - - - - - - - - - - - - - - -
@@ -165,7 +139,7 @@ namespace RestTestProject.Resources
         public T HttpPostAsObject(RestParameters urlParameters,
                     RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToResource(HttpPostAsResponse(urlParameters, pathVariables, bodyParameters));
+            return JsonParser.ConvertToResource<T>(HttpPostAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
         // Http Put - - - - - - - - - - - - - - - - - - - -
@@ -185,7 +159,7 @@ namespace RestTestProject.Resources
         public T HttpPutAsObject(RestParameters urlParameters,
                     RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToResource(HttpPutAsResponse(urlParameters, pathVariables, bodyParameters));
+            return JsonParser.ConvertToResource<T>(HttpPutAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
         // Http Delete - - - - - - - - - - - - - - - - - - - -
@@ -205,7 +179,7 @@ namespace RestTestProject.Resources
         public T HttpDeleteAsObject(RestParameters urlParameters,
                     RestParameters pathVariables, RestParameters bodyParameters)
         {
-            return ConvertToResource(HttpDeleteAsResponse(urlParameters, pathVariables, bodyParameters));
+            return JsonParser.ConvertToResource<T>(HttpDeleteAsResponse(urlParameters, pathVariables, bodyParameters));
         }
 
     }

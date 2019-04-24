@@ -4,7 +4,6 @@ using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
 using System;
-using System.Collections.Generic;
 
 namespace RestTestProject.Services
 {
