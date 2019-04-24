@@ -3,6 +3,7 @@
 //using log4net.Repository.Hierarchy;
 using ConsoleAppOpenCart.Service;
 using ConsoleAppOpenCart.Wrapper;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using NLog;
 using OpenCartTestProject.Data;
@@ -290,11 +291,42 @@ namespace ConsoleAppOpenCart
             //int key = (int)box.Get();  // Compile Error
             //Console.WriteLine("key = " + key);
             */
+            //
+            /*
             Box2<string> box = new Box2<string>();
             box.Set("1234");
             // CODE ...
             //int key = (int)box.Get();  // Compile Error
             //Console.WriteLine("key = " + key);
+            */
+            //
+            string connectionString = "server=127.0.0.1;uid=root;pwd=root;database=oms";
+            //"Data Source=(local);Initial Catalog=oms;"
+            //        + "Integrated Security=true";
+            // Provide the query string with a parameter placeholder.
+            string queryString = "SELECT FirstName, LastName, Login, Password from users;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                // Create the Command and Parameter objects.
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+                // Open the connection in a try/catch block.
+                // Create and execute the DataReader, writing the result
+                // set to the console window.
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", reader[0], reader[1], reader[2], reader[3]);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
             //
             Console.WriteLine("\nDone.");
         }
