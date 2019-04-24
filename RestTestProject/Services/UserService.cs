@@ -51,12 +51,6 @@ namespace RestTestProject.Services
             return (user != null) && (!string.IsNullOrEmpty(user.Token));
         }
 
-        //public bool IsItemExist(ItemTemplate item)
-        //{
-        //    return (item != null) && (!string.IsNullOrEmpty(item.Index));
-        //}
-
-        //--------------User functionality----------------------------
         public SimpleEntity GetUserName()
         {
             RestParameters urlParameters = new RestParameters()
@@ -73,9 +67,8 @@ namespace RestTestProject.Services
             return userResorce.HttpPutAsObject(null, null, bodyParameters)
                 .content.ToLower().Equals(true.ToString().ToLower());
         }
-        //------------------------------------------------------------
 
-        //  <<<SERHII
+        //
         public string GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
@@ -99,7 +92,6 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             SimpleEntity simpleEntity = manageItemResource.HttpGetAsObject(urlParameters, pathParameters);
-            Console.WriteLine("\t***GetItem()UserService: simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
@@ -111,25 +103,8 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
                 .AddParameters(RequestParametersKeys.item.ToString(), itemTemplate.Item);
             SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
-            //Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
-        //public bool AddItems(List<ItemTemplate> itemTemplateList)
-        //{
-        //    string successfulResponse = string.Empty;
-        //    foreach (var current in itemTemplateList)
-        //    {
-        //        RestParameters pathParameters = new RestParameters()
-        //        .AddParameters("index", current.Index);
-        //        RestParameters bodyParameters = new RestParameters()
-        //            .AddParameters("token", user.Token)
-        //            .AddParameters("item", current.Item);
-        //        SimpleEntity simpleEntity = manageItemResource.HttpPostAsObject(null, pathParameters, bodyParameters);
-        //        Console.WriteLine("\t***AddItem()UserService: simpleEntity = " + simpleEntity);
-        //        successfulResponse = simpleEntity.content.ToLower();
-        //    }
-        //    return successfulResponse.Equals(true.ToString().ToLower());
-        //}
 
         public bool UpdateItem(ItemTemplate itemTemplate)
         {
@@ -139,7 +114,6 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
                 .AddParameters(RequestParametersKeys.item.ToString(), itemTemplate.Item);
             SimpleEntity simpleEntity = manageItemResource.HttpPutAsObject(null, pathParameters, bodyParameters);
-            Console.WriteLine("\t***UpdItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
 
@@ -150,11 +124,9 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index);
             SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, pathParameters, null);
-            Console.WriteLine("\t***DelItem()UserService: simpleEntity = " + simpleEntity);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
-        //  SERHII>>>
-        //Roman
+        //
 
         public GuestService Logout()
         {

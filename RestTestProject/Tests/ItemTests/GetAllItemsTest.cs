@@ -12,7 +12,8 @@ namespace RestTestProject.Tests
     [TestFixture]
     public class GetAllItemsTest
     {
-        string rez = string.Empty;
+        string userData = string.Empty;
+        string adminData = string.Empty;
         protected IUserService userService;
         protected IAdminService adminService;
         IUser simpleUser = UserRepository.Get().ExistingUser();
@@ -36,30 +37,28 @@ namespace RestTestProject.Tests
         {
             //Preconditions
             userService.AddItem(addItem);
-            rez += addItem;
+            userData += addItem;
             //Steps
-            Console.WriteLine(rez);
-            Console.WriteLine(userService.GetAllItems());
-            Assert.IsTrue(userService.GetAllItems().Contains(rez));
-            Assert.AreEqual(userService.GetAllItems(), rez);
+            Assert.IsTrue(userService.GetAllItems().Contains(userData));
+            Assert.AreEqual(userService.GetAllItems(), userData);
         }
 
-        //[Test, TestCaseSource("AddItemsData")]
-        //public void GetAllItemsAsAdmin(ItemTemplate addItem)
-        //{
-        //    //Preconditions
-        //    adminService.AddItem(addItem);
-        //    rez += addItem;
-        //    //Steps
-        //    //Console.WriteLine(addItem.Index.ToString() + " " + "\t" + addItem.Item.ToString());
-        //    //Console.WriteLine(userService.GetAllItems());
-        //    Assert.IsTrue(adminService.GetAllItems().Contains(rez));
-        //}
+        [Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsAsAdmin(ItemTemplate addItem)
+        {
+            //Preconditions
+            adminService.AddItem(addItem);
+            adminData += addItem;
+            //Steps
+            Assert.IsTrue(adminService.GetAllItems().Contains(adminData));
+            Assert.AreEqual(adminService.GetAllItems(), adminData);
+        }
 
         [OneTimeTearDown]
         public void AfterTests()
         {
             GuestService.ResetService();
         }
+
     }
 }

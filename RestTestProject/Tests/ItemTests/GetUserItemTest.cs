@@ -36,7 +36,7 @@ namespace RestTestProject.Tests.ItemTests
             //Preconditions
             userService.AddItem(addItem);
             //Steps
-            Assert.AreEqual(addItem.Item, adminService.GetUserItem(addItem, simpleUser).Item);
+            Assert.AreNotEqual(addItem.Item, adminService.GetUserItem(addItem, simpleUser).Item);
         }
 
         [OneTimeTearDown]
@@ -44,5 +44,6 @@ namespace RestTestProject.Tests.ItemTests
         {
             GuestService.ResetService();
         }
+
     }
 }

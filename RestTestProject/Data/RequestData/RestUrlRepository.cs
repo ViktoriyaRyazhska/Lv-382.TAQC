@@ -108,8 +108,7 @@ namespace RestTestProject.Data
                 .AddDeleteUrl("");
         }
 
-        //////////////////////////////////////
-        //  <<<SERHII
+        //
         public static RestUrl ManageItem()
         {
             return new RestUrl()
@@ -159,7 +158,7 @@ namespace RestTestProject.Data
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //  SERHII>>>
+        //
 
         public static RestUrl GetUser()
         {

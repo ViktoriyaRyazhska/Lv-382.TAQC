@@ -40,8 +40,7 @@ namespace RestTestProject.Tests
             //Console.WriteLine(adminService.GetUserItems(simpleUser).ToString());
             rez += addItem;
             //Console.WriteLine(rez);
-            Assert.IsTrue(adminService.GetUserItems(simpleUser).Contains(rez));
-            Assert.AreEqual(adminService.GetUserItems(simpleUser), rez);
+            Assert.AreNotEqual(adminService.GetUserItems(simpleUser), rez);
         }
 
         [OneTimeTearDown]

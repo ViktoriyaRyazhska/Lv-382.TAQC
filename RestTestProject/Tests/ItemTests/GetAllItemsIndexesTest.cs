@@ -12,7 +12,8 @@ namespace RestTestProject.Tests
     [TestFixture]
     public class GetAllItemsIndexesTest
     {
-        string rez = string.Empty;
+        string userData = string.Empty;
+        string adminData = string.Empty;
         protected IUserService userService;
         protected IAdminService adminService;
         IUser simpleUser = UserRepository.Get().ExistingUser();
@@ -36,30 +37,28 @@ namespace RestTestProject.Tests
         {
             //Preconditions
             userService.AddItem(addItem);
-            rez += addItem.GetIndex();
+            userData += addItem.GetIndex();
             //Steps
-            //Console.WriteLine(rez);
-            //Console.WriteLine(userService.GetAllItemsIndexes());
-            Assert.IsTrue(userService.GetAllItemsIndexes().Contains(rez));
-            Assert.AreEqual(userService.GetAllItemsIndexes(), rez);
+            Assert.IsTrue(userService.GetAllItemsIndexes().Contains(userData));
+            Assert.AreEqual(userService.GetAllItemsIndexes(), userData);
         }
 
-
-        //[Test, TestCaseSource("AddItemsData")]
-        //public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
-        //{
-        //    //Preconditions
-        //    adminService.AddItem(addItem);
-        //    //Steps
-        //    //Console.WriteLine(addItem.Index.ToString());
-        //    //Console.WriteLine(userService.GetAllItemsIndexes());
-        //    Assert.IsTrue(adminService.GetAllItemsIndexes().Contains(addItem.Index.ToString() + " "));
-        //}
+        [Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
+        {
+            //Preconditions
+            adminService.AddItem(addItem);
+            adminData += addItem.GetIndex();
+            //Steps
+            Assert.IsTrue(adminService.GetAllItemsIndexes().Contains(adminData));
+            Assert.AreEqual(adminService.GetAllItemsIndexes(), adminData);
+        }
 
         [OneTimeTearDown]
         public void AfterTest()
         {
             GuestService.ResetService();
         }
+
     }
 }
