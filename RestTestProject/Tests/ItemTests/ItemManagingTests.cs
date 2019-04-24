@@ -1,26 +1,13 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
-using RestTestProject.Resources;
 using RestTestProject.Services;
-using NUnit.Framework.Interfaces;
-using System;
-using System.Collections.Generic;
-using RestTestProject.Entity;
 
 namespace RestTestProject.Tests
 {
 
     [TestFixture]
-    public class ItemManagingTests : TestRunner
+    public class ItemManagingTests : ItemTestRunner
     {
-        IUser simpleUser = UserRepository.Get().ExistingUser();
-
-        [SetUp]
-        public void BeforeTests()
-        {
-            userService = new GuestService().SuccessfulUserLogin(simpleUser);
-        }
-
         private static readonly object[] AddItemData =
         {
             new object[] { ItemRepository.GetFirst() }

@@ -5,7 +5,7 @@ using RestTestProject.Data;
 namespace RestTestProject.Tests.UserTests
 {
     [TestFixture]
-    class LockUserTest : TestRunner
+    class LockUserTest : BaseTestRunner
     {
         private static readonly object[] UserToLockData =
         {

@@ -6,7 +6,7 @@ using RestTestProject.Tools;
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class TestRunner
+    public class BaseTestRunner
     {
         protected GuestService guestService;
         protected IUserService userService;
