@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.Tests.UserTests
 {
     [TestFixture]
     class CreateUserTest : TestRunner
@@ -22,7 +22,8 @@ namespace RestTestProject.Tests
 
         private static readonly object[] ExistingUserData =
         {
-            new object[] { UserRepository.Get().ExistingUser() }
+            new object[] { UserRepository.Get().ExistingUser() },
+            new object[] { UserRepository.Get().ExistingAdmin() }
         };
 
         [Test, TestCaseSource("ExistingUserData")] 

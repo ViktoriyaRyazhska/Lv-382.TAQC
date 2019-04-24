@@ -21,6 +21,12 @@ namespace RestTestProject.Tools
                 case TestStatus.Inconclusive:
                     log.Info(TestContext.CurrentContext.Test.Name + TestStatus.Inconclusive);
                     break;
+                case TestStatus.Skipped:
+                    log.Info(TestContext.CurrentContext.Test.Name + TestStatus.Skipped);
+                    break;
+                case TestStatus.Warning:
+                    log.Warn(TestContext.CurrentContext.Test.Name + TestStatus.Warning);
+                    break;
             }
         }
     }

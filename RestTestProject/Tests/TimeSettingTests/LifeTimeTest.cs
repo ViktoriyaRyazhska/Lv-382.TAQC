@@ -6,7 +6,7 @@ using NUnit.Framework.Interfaces;
 using System;
 
 
-namespace RestTestProject.Tests
+namespace RestTestProject.TimeSettingTests.Tests
 {
     [TestFixture]
     public class LifeTimeTest

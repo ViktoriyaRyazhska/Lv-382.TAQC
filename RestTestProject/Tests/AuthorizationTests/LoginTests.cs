@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.AuthorizationTests.Tests
 {
     [TestFixture]
     public class LoginTests

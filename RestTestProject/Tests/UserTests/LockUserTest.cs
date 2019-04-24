@@ -16,7 +16,6 @@ namespace RestTestProject.Tests.UserTests
         [SetUp]
         public void BeforeTest()
         {
-            //new CreateUserTest().CreatingNewUserTest(UserRepository.Get().NonExistentAdmin());????
             adminService.CreateUser(UserRepository.Get().NonExistentAdmin());
         }
 
@@ -24,7 +23,7 @@ namespace RestTestProject.Tests.UserTests
         public void LockingUserTest(IUser userToLock)
         {
             Assert.IsTrue(adminService.LockUser(userToLock));
-            //Assert.AreEqual(guestService.UnsuccessfulUserLogin(userToLock), UserRepository.USER_LOCKED_ERROR);
+            Assert.AreEqual(guestService.UnsuccessfulUserLogin(userToLock), UserRepository.USER_LOCKED_ERROR);
         }
     }
 }

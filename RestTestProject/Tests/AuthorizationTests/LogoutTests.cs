@@ -3,12 +3,8 @@ using NUnit.Framework.Interfaces;
 using RestTestProject.Data;
 using RestTestProject.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RestTestProject.Tests
+namespace RestTestProject.AuthorizationTests.Tests
 {
     [TestFixture]
     public class LogoutTests

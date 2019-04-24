@@ -26,26 +26,6 @@ namespace RestTestProject.Data
             }
             return instance;
         }
-        /*
-        public IUser ExistingAdmin()
-        {
-            return User.Get().SetName("admin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
-        }
-
-        public IUser ExistingUser()
-        {
-            return User.Get().SetName("akimatc").SetPassword("qwerty").SetNewPassword("SomeNewPassword").Build();
-        }
-
-        public IUser NonExistentUser()
-        {
-            return User.Get().SetName("SomeUser").SetPassword("qwerty").Build();
-        }
-
-        public IUser NonExistentAdmin()
-        {
-            return User.Get().SetName("SomeAdmin").SetPassword("qwerty").SetRigths(true.ToString()).Build();
-        }*/
 
         public IUser ExistingAdmin()
         {
