@@ -1,5 +1,4 @@
 ﻿using RestSharp;
-using RestSharp.Serialization.Json;
 using RestTestProject.Data;
 using RestTestProject.Rules;
 using RestTestProject.Tools;

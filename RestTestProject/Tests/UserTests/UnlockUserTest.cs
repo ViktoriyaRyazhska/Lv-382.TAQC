@@ -9,6 +9,8 @@ namespace RestTestProject.Tests.UserTests
         public void BeforeTest()
         {
             adminService.CreateUser(UserRepository.Get().NonExistentAdmin());
+            adminService.LockUser(UserRepository.Get().NonExistentAdmin());
+            adminService.LockUser(UserRepository.Get().ExistingUser());
         }
 
         private static readonly object[] LockedUsers =

@@ -2,8 +2,6 @@
 using RestTestProject.Data;
 using RestTestProject.Entity;
 using RestTestProject.Rules;
-using System.Collections.Generic;
-
 
 namespace RestTestProject.Resources
 {

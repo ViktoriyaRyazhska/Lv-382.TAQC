@@ -91,7 +91,7 @@ namespace RestTestProject.Services
                 .content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        //--------------Item functionality----------------------------
+       
 
         public bool UpdateTokenlifetime(Lifetime lifetime)
         {
@@ -134,6 +134,8 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = aliveTockensResource.HttpGetAsObject(urlParameters, null);
             return simpleEntity.content;
         }
+
+        //--------------Item functionality----------------------------
 
         public ItemTemplate GetUserItem(ItemTemplate itemTemplate, IUser userWithItem)
         {
