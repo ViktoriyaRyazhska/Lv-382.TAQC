@@ -10,6 +10,8 @@ namespace RestTestProject.Data
     {
         public const string DEFAULT_COOLDOWNTIME = "180000";
         public const string LONG_COOLDOWNTIME = "400000";
+        public const string COOLDOWNTIME_WITH_SPACE = "21 98";
+        public const string COOLDOWNTIME_WITH_SUBTRACTION_SIGN = "-456789";
 
         private CoolDowntimeRepository()
         {
@@ -23,6 +25,16 @@ namespace RestTestProject.Data
         public static CoolDowntime GetLongTime()
         {
             return new CoolDowntime(LONG_COOLDOWNTIME);
+        }
+
+        public static CoolDowntime GetTimeWithSpace()
+        {
+            return new CoolDowntime(COOLDOWNTIME_WITH_SPACE);
+        }
+
+        public static CoolDowntime GetTimeWithSubtractionSign()
+        {
+            return new CoolDowntime(COOLDOWNTIME_WITH_SUBTRACTION_SIGN);
         }
     }
 }
