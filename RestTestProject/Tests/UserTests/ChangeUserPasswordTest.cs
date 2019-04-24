@@ -4,7 +4,7 @@ using RestTestProject.Data;
 namespace RestTestProject.Tests.UserTests
 {
     [TestFixture]
-    class ChangeUserPasswordTest : TestRunner
+    class ChangeUserPasswordTest : BaseTestRunner
     {
         private static readonly object[] ChangePasswordData =
         {

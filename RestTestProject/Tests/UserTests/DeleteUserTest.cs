@@ -4,7 +4,7 @@ using RestTestProject.Data;
 namespace RestTestProject.Tests.UserTests
 {
     [TestFixture]
-    class DeleteUserTest : TestRunner
+    class DeleteUserTest : BaseTestRunner
     { 
         private static readonly object[] UserToDeleteData =
         {

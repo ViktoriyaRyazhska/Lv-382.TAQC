@@ -1,28 +1,14 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 using RestTestProject.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class GetAllItemsIndexesTest
+    public class GetAllItemsIndexesTest : ItemTestRunner
     {
-        string rez = string.Empty;
-        protected IUserService userService;
-        protected IAdminService adminService;
-        IUser simpleUser = UserRepository.Get().ExistingUser();
-
-        [OneTimeSetUp]
-        public void BeforeTest()
-        {
-            userService = new GuestService().SuccessfulUserLogin(simpleUser);
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
-        }
+        string userData = string.Empty;
+        string adminData = string.Empty;
 
         private static readonly object[] AddItemsData =
         {
@@ -36,30 +22,20 @@ namespace RestTestProject.Tests
         {
             //Preconditions
             userService.AddItem(addItem);
-            rez += addItem.GetIndex();
+            userData += addItem.GetIndex();
             //Steps
-            //Console.WriteLine(rez);
-            //Console.WriteLine(userService.GetAllItemsIndexes());
-            Assert.IsTrue(userService.GetAllItemsIndexes().Contains(rez));
-            Assert.AreEqual(userService.GetAllItemsIndexes(), rez);
+            Assert.AreEqual(userData, userService.GetAllItemsIndexes());
         }
 
-
-        //[Test, TestCaseSource("AddItemsData")]
-        //public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
-        //{
-        //    //Preconditions
-        //    adminService.AddItem(addItem);
-        //    //Steps
-        //    //Console.WriteLine(addItem.Index.ToString());
-        //    //Console.WriteLine(userService.GetAllItemsIndexes());
-        //    Assert.IsTrue(adminService.GetAllItemsIndexes().Contains(addItem.Index.ToString() + " "));
-        //}
-
-        [OneTimeTearDown]
-        public void AfterTest()
+        [Test, TestCaseSource("AddItemsData")]
+        public void GetAllItemsIndexesAsAdmin(ItemTemplate addItem)
         {
-            GuestService.ResetService();
+            //Preconditions
+            adminService.AddItem(addItem);
+            adminData += addItem.GetIndex();
+            //Steps
+            Assert.AreEqual(adminData, adminService.GetAllItemsIndexes());
         }
+
     }
 }

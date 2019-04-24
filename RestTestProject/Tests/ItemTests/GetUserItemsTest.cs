@@ -6,19 +6,9 @@ using RestTestProject.Services;
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class GetUserItemsTest
+    public class GetUserItemsTest : ItemTestRunner
     {
-        string rez = "";
-        protected IUserService userService;
-        protected IAdminService adminService;
-        IUser simpleUser = UserRepository.Get().ExistingUser();
-
-        [OneTimeSetUp]
-        public void BeforeTest()
-        {
-            userService = new GuestService().SuccessfulUserLogin(simpleUser);
-            adminService = new GuestService().SuccessfulAdminLogin(UserRepository.Get().ExistingAdmin());
-        }
+        string userData = string.Empty;
 
         private static readonly object[] AddItemsData =
         {
@@ -32,18 +22,10 @@ namespace RestTestProject.Tests
         {
             //Preconditions
             userService.AddItem(addItem);
+            userData += addItem;
             //Steps
-            //Console.WriteLine(adminService.GetUserItems(simpleUser).ToString());
-            rez += addItem;
-            //Console.WriteLine(rez);
-            Assert.IsTrue(adminService.GetUserItems(simpleUser).Contains(rez));
-            Assert.AreEqual(adminService.GetUserItems(simpleUser), rez);
+            Assert.AreNotEqual(userData, adminService.GetUserItems(simpleUser));
         }
 
-        [OneTimeTearDown]
-        public void AfterTest()
-        {
-            GuestService.ResetService();
-        }
     }
 }

@@ -102,8 +102,7 @@
                 .AddDeleteUrl("");
         }
 
-        //////////////////////////////////////
-        //  <<<SERHII
+        //
         public static RestUrl ManageItem()
         {
             return new RestUrl()
@@ -153,7 +152,7 @@
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //  SERHII>>>
+        //
 
         public static RestUrl GetUser()
         {

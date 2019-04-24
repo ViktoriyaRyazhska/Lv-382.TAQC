@@ -3,7 +3,7 @@ using RestTestProject.Data;
 
 namespace RestTestProject.Tests.UserTests
 {
-    class UnlockUserTest : TestRunner
+    class UnlockUserTest : BaseTestRunner
     {
         [SetUp]
         public void BeforeTest()
