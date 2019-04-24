@@ -154,7 +154,6 @@ namespace RestTestProject.Services
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
         //  SERHII>>>
-        //Roman
 
         public GuestService Logout()
         {
@@ -162,10 +161,8 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.token.ToString(), user.Token)
                 .AddParameters(RequestParametersKeys.name.ToString(), user.Name);
             SimpleEntity simpleEntity = logoutResource.HttpPostAsObject(null, null, bodyParameters);
-            //Checking for successful logout
             if (simpleEntity.content.ToLower().Equals(true.ToString().ToLower()))
             {
-                //TODO exeption
                 user.Token = string.Empty;
             }
             return new GuestService();

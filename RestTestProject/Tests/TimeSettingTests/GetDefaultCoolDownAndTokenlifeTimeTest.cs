@@ -1,31 +1,17 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
-using RestTestProject.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class GetDefaultCoolDownAndTokenlifeTimeTest
-    {
-        private GuestService guestService;
-
-        [OneTimeSetUp]
-        public void BeforeAllMethods()
-        {
-            guestService = new GuestService();
-        }
-
+    public class GetDefaultCoolDownAndTokenlifeTimeTest : TestRunner
+    {       
         [Test]
         public void GetDefaultCoolDownTime()
         {
             CoolDowntime currentCoolDownlifetime = guestService.GetCurrentCoolDowntime();
             Assert.AreEqual(CoolDowntimeRepository.GetDefault().Time,
-                        currentCoolDownlifetime.Time, "Current Time Error");
+                        currentCoolDownlifetime.Time, "Current Cool Down Time Error");
         }
 
         [Test]
@@ -33,7 +19,7 @@ namespace RestTestProject.Tests
         {
             Lifetime currentTokenlifetime = guestService.GetCurrentTokenLifetime();
             Assert.AreEqual(LifetimeRepository.GetDefault().Time,
-                        currentTokenlifetime.Time, "Current Time Error");
+                        currentTokenlifetime.Time, "Current Token Lifetime Error");
         }
     }
 }

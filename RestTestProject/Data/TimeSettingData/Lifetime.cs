@@ -19,7 +19,5 @@ namespace RestTestProject.Data
         {
             Time = time;
         }
-
-        // TODO Equals
     }
 }

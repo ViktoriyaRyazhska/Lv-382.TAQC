@@ -1,36 +1,22 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using RestTestProject.Data;
 using RestTestProject.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestTestProject.Tests
 {
     [TestFixture]
-    public class UpdateCoolDownAndTokenifeTimeTest
+    public class UpdateCoolDownAndTokenifeTimeTest : TestRunner
     {
-        private GuestService guestService;
-        private AdminService adminService;
-            
         private static readonly object[] TokenLifetime =
         {
-                new object[] { LifetimeRepository.GetLongTime() }
-            };
+            new object[] { LifetimeRepository.GetLongTime() }
+        };
+
         private static readonly object[] CoolDowntime =
-       {
+        {
             new object[] { CoolDowntimeRepository.GetLongTime() }
         };
 
-        [OneTimeSetUp]
-        public void BeforeAllMethods()
-        {
-            guestService = new GuestService();
-        }
-      
         [SetUp]
         public void SetUp()
         {
@@ -40,11 +26,6 @@ namespace RestTestProject.Tests
         [TearDown]
         public void TearDown()
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-            {
-                Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-            }
-
             if ((adminService != null) && (adminService.IsLoggined()))
             {
                 Lifetime currentTokenlifetime = LifetimeRepository.GetDefault();
@@ -53,8 +34,8 @@ namespace RestTestProject.Tests
 
             if ((adminService != null) && (adminService.IsLoggined()))
             {
-                CoolDowntime currentCoolDownlifetime = CoolDowntimeRepository.GetDefault();
-                bool responseStatus = adminService.UpdateCoolDowntime(currentCoolDownlifetime);
+                CoolDowntime currentCoolDowntime = CoolDowntimeRepository.GetDefault();
+                bool responseStatus = adminService.UpdateCoolDowntime(currentCoolDowntime);
             }
 
             if ((adminService != null) && (adminService.IsLoggined()))
@@ -64,25 +45,25 @@ namespace RestTestProject.Tests
         }
 
         [Test, TestCaseSource("CoolDowntime")]
-        public void ChangeCooldownTime(CoolDowntime newCooldowntime)
+        public void ChangeCooldownTime(CoolDowntime newCoolDowntime)
         {
-            bool responseStatus = adminService.UpdateCoolDowntime(newCooldowntime);
-            Assert.IsTrue(responseStatus, "Update CoolDown Time Error");
+            bool responseStatus = adminService.UpdateCoolDowntime(newCoolDowntime);
+            Assert.IsTrue(responseStatus, "Update Cool Down Time Error");
 
-            CoolDowntime currentCoolDownlifetime = adminService.GetCurrentCoolDowntime();
+            CoolDowntime currentCoolDowntime = adminService.GetCurrentCoolDowntime();
             Assert.AreEqual(CoolDowntimeRepository.GetLongTime().Time,
-                        currentCoolDownlifetime.Time, "Long Time Error");
+                        currentCoolDowntime.Time, "Long Cool Down Time Error");
         }
 
         [Test, TestCaseSource("TokenLifetime")]
         public void ChangeTokenLifetime(Lifetime newLifetime)
         {
             bool responseStatus = adminService.UpdateTokenlifetime(newLifetime);
-            Assert.IsTrue(responseStatus, "Update Life Time Error");
+            Assert.IsTrue(responseStatus, "Update Token Lifetime Error");
 
             Lifetime currentLifetime = adminService.GetCurrentTokenLifetime();
             Assert.AreEqual(LifetimeRepository.GetLongTime().Time,
-                        currentLifetime.Time, "Long Time Error");
+                        currentLifetime.Time, "Long Token Lifetime Error");
         }
     }    
 }
