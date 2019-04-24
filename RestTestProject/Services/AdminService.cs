@@ -4,7 +4,6 @@ using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Resources.AuthorizationResources;
 using RestTestProject.Rules;
-using System;
 
 namespace RestTestProject.Services
 {
@@ -51,7 +50,7 @@ namespace RestTestProject.Services
             getUserItemResource = new GetUserItemResource();
             getUserItemsResource = new GetUserItemsResource();
         }
-
+    
         public bool CreateUser(IUser newUser)
         {
             RestParameters bodyParameters = new RestParameters()
@@ -91,6 +90,8 @@ namespace RestTestProject.Services
             return lockedUserResource.HttpPutAsObject(null, pathParameters, bodyParameters)
                 .content.ToLower().Equals(true.ToString().ToLower());
         }
+
+        //--------------Item functionality----------------------------
 
         public bool UpdateTokenlifetime(Lifetime lifetime)
         {
@@ -142,7 +143,6 @@ namespace RestTestProject.Services
                 .AddParameters(RequestParametersKeys.index.ToString(), itemTemplate.Index)
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemResource.HttpGetAsObject(urlParameters, pathParameters);
-            Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return new ItemTemplate(simpleEntity.content, itemTemplate.Index);
         }
 
@@ -153,7 +153,6 @@ namespace RestTestProject.Services
             RestParameters pathParameters = new RestParameters()
                 .AddParameters(RequestParametersKeys.name.ToString(), userWithItem.Name);
             SimpleEntity simpleEntity = getUserItemsResource.HttpGetAsObject(urlParameters, pathParameters);
-            //Console.WriteLine("\t***GetUserItem(): simpleEntity = " + simpleEntity);
             return simpleEntity.content;
         }
     }

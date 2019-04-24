@@ -3,7 +3,6 @@ using RestTestProject.Data.RequestData;
 using RestTestProject.Entity;
 using RestTestProject.Resources;
 using RestTestProject.Rules;
-using System;
 
 namespace RestTestProject.Services
 {
@@ -67,7 +66,7 @@ namespace RestTestProject.Services
                 .content.ToLower().Equals(true.ToString().ToLower());
         }
 
-        //
+
         public string GetAllItems()
         {
             RestParameters urlParameters = new RestParameters()
@@ -125,7 +124,8 @@ namespace RestTestProject.Services
             SimpleEntity simpleEntity = manageItemResource.HttpDeleteAsObject(urlParameters, pathParameters, null);
             return simpleEntity.content.ToLower().Equals(true.ToString().ToLower());
         }
-        //
+
+        //-------------- Logout functionality----------------------------
 
         public GuestService Logout()
         {

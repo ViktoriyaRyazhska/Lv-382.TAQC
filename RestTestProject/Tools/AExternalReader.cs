@@ -5,7 +5,7 @@ namespace RestTestProject.Tools
     public abstract class AExternalReader
     {
         protected const string CONVERT_OBJECT_ERROR = "ConvertToObject Error. {0}\n{1}";
-        public const string PATH_SEPARATOR = "\\";
+        protected const string PATH_SEPARATOR = "\\";
         protected const string FOLDER_DATA = "Data\\DataSource";
         protected const string FOLDER_BIN = "bin";
 

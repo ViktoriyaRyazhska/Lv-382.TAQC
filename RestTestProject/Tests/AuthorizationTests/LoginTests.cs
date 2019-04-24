@@ -9,8 +9,7 @@ namespace RestTestProject.AuthorizationTests.Tests
     {       
         private static readonly object[] Users =
         {
-            new object[] { UserRepository.Get().ExistingUser() },
-            new object[] {UserRepository.Get().ExistingSecondUser() }
+            new object[] { UserRepository.Get().ExistingUser() }
         };
 
         private static readonly object[] AdminUser =

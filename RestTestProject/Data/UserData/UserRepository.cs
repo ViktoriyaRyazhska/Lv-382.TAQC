@@ -46,10 +46,5 @@ namespace RestTestProject.Data
         {
             return JsonParser.DeserializeFromFile<User>(directory, "NonExistentUserData.json");
         }
-        public IUser ExistingSecondUser()
-        {
-            return User.Get().SetName("otlumtc").SetPassword("qwerty").Build();
-        }
-
     }
 }

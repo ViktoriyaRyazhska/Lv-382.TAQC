@@ -12,9 +12,8 @@ namespace RestTestProject.Services
         protected AdminAuthorizedResource adminAuthorizedResource;
         protected UserAuthorizedResource userAuthorizedResource;
         protected TokenLifetimeResource tokenLifetimeResource;
-        protected static ResetServiceResource resetServiceResource;
-        //
         protected CoolDownTimeResource coolDownTimeResource;
+        protected static ResetServiceResource resetServiceResource;
 
         public GuestService()
         {
@@ -83,7 +82,7 @@ namespace RestTestProject.Services
         }
         ////-----------------------------------------------------------
 
-        public static GuestService ResetService() //void??
+        public static GuestService ResetService()
         {
             resetServiceResource.HttpGetAsObject(null, null);
             return new GuestService();

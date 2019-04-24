@@ -17,7 +17,7 @@ namespace RestTestProject.Tools
             }
             catch (Exception)
             {
-                throw new Exception($"Cant Deserialize from file: {GetPath(repository, fileName)}");
+                throw new Exception($"Can`t Deserialize from file: {GetPath(repository, fileName)}");
             }
         }
 

@@ -94,7 +94,6 @@
                 .AddDeleteUrl("");
         }
 
-        //
         public static RestUrl ManageItem()
         {
             return new RestUrl()
@@ -144,7 +143,6 @@
                 .AddPutUrl("")
                 .AddDeleteUrl("");
         }
-        //
 
         public static RestUrl GetUser()
         {

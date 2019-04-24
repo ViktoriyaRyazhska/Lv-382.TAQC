@@ -10,7 +10,7 @@ namespace RestTestProject.Entity
     {
         public string content { get; set; }
 
-        public SimpleEntity() // for T result = default(T); from class RestCrud<T>
+        public SimpleEntity()
         {
         }
 
