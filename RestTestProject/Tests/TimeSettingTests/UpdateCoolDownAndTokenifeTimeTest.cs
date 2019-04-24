@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
 using RestTestProject.Services;
+using RestTestProject.Tests;
 
 namespace RestTestProject.TimeSettingTests.Tests
 {
     [TestFixture]
-    public class UpdateCoolDownAndTokenifeTimeTest : TestRunner
+    public class UpdateCoolDownAndTokenifeTimeTest : BaseTestRunner
     {
         private static readonly object[] TokenLifetime_PositiveData =
         {

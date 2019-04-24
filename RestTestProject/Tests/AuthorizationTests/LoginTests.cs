@@ -1,10 +1,11 @@
 ﻿using NUnit.Framework;
 using RestTestProject.Data;
+using RestTestProject.Tests;
 
 namespace RestTestProject.AuthorizationTests.Tests
 {
     [TestFixture]
-    public class LoginTests : TestRunner
+    public class LoginTests : BaseTestRunner
     {       
         private static readonly object[] Users =
         {
