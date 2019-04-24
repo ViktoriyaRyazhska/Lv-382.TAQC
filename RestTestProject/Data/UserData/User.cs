@@ -20,8 +20,8 @@
 
     public class User : IName, IPassword, IUserBuild, IUser
     {
-        public string Name { get; private set; }            // Required
-        public string Password { get; private set; }        // Required
+        public string Name { get; set; }            // Required
+        public string Password { get; set; }        // Required
         public string NewPassword { get; set; }
         public string Rights { get; set; }
         public string Token { get; set; }

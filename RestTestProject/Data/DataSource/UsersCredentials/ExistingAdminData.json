@@ -1,0 +1,7 @@
+{
+  "Name": "admin",
+  "Password": "qwerty",
+  "NewPassword": null,
+  "Rights": "true",
+  "Token": null
+}
